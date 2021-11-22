@@ -8,28 +8,33 @@ public class Member {
     private String phoneNumber;
     private String email;
     private String homeAddress;
-    private LocalDate birthdate;
+    private LocalDate birthDate;
+    private String membershipNumber;
     private boolean hasSeniorDiscount;
     private boolean isSeniorSwimmer;
 
-    public Member(String name, String phoneNumber, String email, String homeAddress, int day, int month, int year) {
+    public Member(String name, String phoneNumber, String email, String homeAddress, int day, int month, int year, String membershipNumber) {
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.homeAddress = homeAddress;
-        this.birthdate = LocalDate.of(year, month, day);
+        this.birthDate = LocalDate.of(year, month, day);
+        this.membershipNumber = membershipNumber;//TODO autogenerer - tjek eksamensøv.9!
     }
 
     public int calculateAge() {
         LocalDate currentDate = LocalDate.now();
-        if (birthdate != null) {
-            return Period.between(birthdate, currentDate).getYears();
+        if (birthDate != null) {
+            return Period.between(birthDate, currentDate).getYears();
         } else return -1;
     }
     //TODO skal være i formand klassen.
     public void createNewMember() {
-        Member member = new Member("Torben", "12345678", "Torbensmail@mail.com", "torbensvej 31", 24, 12, 2000);
-        if (member.calculateAge() >= 60) {
+        Member member = new Member("Torben", "12345678", "Torbensmail@mail.com", "torbensvej 31", 24, 12, 2000, "hjg5");
+        int discountAge = 60;
+        int seniorAge = 18;
+
+        if (member.calculateAge() >= discountAge) {
             hasSeniorDiscount = true;
         }
         if (member.calculateAge() >= 18) {
@@ -53,8 +58,8 @@ public class Member {
         return homeAddress;
     }
 
-    public LocalDate getBirthdate() {
-        return birthdate;
+    public LocalDate getBirthDate() {
+        return birthDate;
     }
 }
 
