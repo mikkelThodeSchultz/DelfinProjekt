@@ -12,6 +12,7 @@ public class Member {
     private String membershipNumber;
     private boolean hasSeniorDiscount;
     private boolean isSeniorSwimmer;
+    private String work;
 
     public Member(String name, String phoneNumber, String email, String homeAddress, int day, int month, int year, String membershipNumber) {
         this.name = name;
