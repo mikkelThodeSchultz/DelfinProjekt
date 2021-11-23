@@ -2,8 +2,9 @@ package ui;
 
 public enum Status {
 
-    OK,
-    NOT_FOUND,
-    NO,
+    CRAW,
+    BACK_CRAWL,
+    BUTTERFLY,
+    BREASTSTROKE;
 
 }

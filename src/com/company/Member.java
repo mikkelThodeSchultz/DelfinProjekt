@@ -29,7 +29,7 @@ public class Member {
             return Period.between(birthDate, currentDate).getYears();
         } else return -1;
     }
-    //TODO skal være i formand klassen.
+
     public void createNewMember() {
         Member member = new Member("Torben", "12345678", "Torbensmail@mail.com", "torbensvej 31", 24, 12, 2000, "hjg5");
         int discountAge = 60;
