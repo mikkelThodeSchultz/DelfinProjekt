@@ -10,9 +10,8 @@ public class Member {
     private String homeAddress;
     private LocalDate birthDate;
     private String membershipNumber;
-    private boolean hasSeniorDiscount;
-    private boolean isSeniorSwimmer;
-    private String work;
+    private boolean isActive;
+    private boolean hasPaid;
 
     public Member(String name, String phoneNumber, String email, String homeAddress, int day, int month, int year, String membershipNumber) {
         this.name = name;
