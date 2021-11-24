@@ -66,5 +66,13 @@ public class Member {
     public LocalDate getBirthDate() {
         return birthDate;
     }
+
+    public String getMembershipNumber(){
+        return membershipNumber;
+    }
+
+    public String toString(){
+        return name + " " + membershipNumber;
+    }
 }
 
