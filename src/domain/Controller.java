@@ -36,13 +36,15 @@ public class Controller {
         memberList.addMember(member3);
         memberList.addMember(member4);
         ui.printMemberLists();
+
+
         storedMembers = FileHandler.getMembersFromFile();
         for (int i =0; i < storedMembers.size(); i ++) {
             System.out.println(storedMembers.get(i).getName());
         }
 
 
-      //  FileHandler.storeMember(memberList.getMemberList());
+        FileHandler.storeMember(memberList.getMemberList());
     }
 
     public String userInputString() {
