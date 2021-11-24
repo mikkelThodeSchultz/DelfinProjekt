@@ -1,10 +1,11 @@
 package ui;
 
 public enum Status {
-
-    CRAW,
-    BACK_CRAWL,
-    BUTTERFLY,
-    BREASTSTROKE;
-
+    OK,
+    NO,
+    NOT_FOUND,
+    MEMBER_NOT_FOUND,
+    ERROR,
+    SELECT_MEMBER,
+    SELECT_DISCIPLINE,
 }

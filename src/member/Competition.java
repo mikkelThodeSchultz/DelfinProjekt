@@ -1,10 +1,10 @@
 package member;
 
-import ui.Status;
+import ui.Disciplines;
 
 public class Competition {
     double time;
     String competitionName;
     int ranking;
-    Status disciplin;
+    Disciplines disciplin;
 }

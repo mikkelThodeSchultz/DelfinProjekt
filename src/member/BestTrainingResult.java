@@ -1,11 +1,11 @@
 package member;
 
-import ui.Status;
+import ui.Disciplines;
 
 import java.time.LocalDateTime;
 
 public class BestTrainingResult {
     LocalDateTime dateBestResult;
     double bestTime;
-    Status disciplin;
+    Disciplines disciplin;
 }
