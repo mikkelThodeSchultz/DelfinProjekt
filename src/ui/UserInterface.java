@@ -7,20 +7,20 @@ import java.util.List;
 import java.util.Scanner;
 
 public class UserInterface {
-    Scanner sc = new Scanner(System.in);
+    private Scanner sc = new Scanner(System.in);
 
 
     public String userInputString(){
         return sc.nextLine();
     }
-    
-    public void fuckStartController(){
-        Controller controller = new Controller();
+
+    public String printMemberList(String string){
+        System.out.println(string);
+        return userInputString();
     }
 
-    public void printMemberLists(){
-        List members = controller.memberList();
-        System.out.println(members);
+    public void printMessage (String string){
+        System.out.println(string);
     }
 
     public void getWelcomeMessage(){
