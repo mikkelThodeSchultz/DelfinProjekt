@@ -1,4 +1,4 @@
-package com.company;
+package member;
 
 public class StandardMember {
 }

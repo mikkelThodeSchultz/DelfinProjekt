@@ -1,7 +1,8 @@
-package com.company;
+package member;
 
-import java.time.LocalDate;
+import  java.time.LocalDate;
 import java.time.Period;
+import java.util.Random;
 
 public class Member {
     private String name;
@@ -13,7 +14,7 @@ public class Member {
     private boolean isActive;
     private boolean hasPaid;
 
-    public Member(String name, String phoneNumber, String email, String homeAddress, int day, int month, int year, String membershipNumber) {
+    public Member(String name, String phoneNumber, String email, String homeAddress, int day, int month, int year) {
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.email = email;
@@ -30,16 +31,7 @@ public class Member {
     }
 
     public void createNewMember() {
-        Member member = new Member("Torben", "12345678", "Torbensmail@mail.com", "torbensvej 31", 24, 12, 2000, "hjg5");
-        int discountAge = 60;
-        int seniorAge = 18;
 
-        if (member.calculateAge() >= discountAge) {
-            hasSeniorDiscount = true;
-        }
-        if (member.calculateAge() >= 18) {
-            isSeniorSwimmer = true;
-        }
     }
 
     public String getName() {

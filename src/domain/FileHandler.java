@@ -1,4 +1,4 @@
-package com.company;
+package domain;
 
 public class FileHandler {
 }
