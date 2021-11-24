@@ -39,11 +39,11 @@ public class Controller {
         memberList.addMember(member4);
         ui.printMemberLists();
 
-
+        //Henter members fra fil
         storedMembers = FileHandler.getMembersFromFile();
-        for (int i = 0; i < storedMembers.size(); i++) {
-            System.out.println(storedMembers.get(i).getName());
-        }
+
+
+
         try {
             FileHandler.storeMember(memberList.getMemberList());
         } catch (IOException e) {
