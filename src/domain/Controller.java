@@ -6,8 +6,10 @@
 package domain;
 
 import file.FileHandler;
+
 import java.io.IOException;
 import java.util.ArrayList;
+
 import member.Member;
 import member.MemberList;
 import ui.UserInterface;
@@ -23,7 +25,7 @@ public class Controller {
     public Controller() {
     }
 
-    public void start() throws IOException {
+    public void start() {
         Member member = new Member("Torben Trucker", "12345678", "Torbensmail@mail.com", "torbensvej 31", 24, 12, 2000);
         Member member2 = new Member("Søren Kristiansen", "45678910", "Sørensmail@mail.com", "Sørensvej 14", 10, 10, 1966);
         Member member3 = new Member("Tobias Vold", "98747723489", "Tobiases@mail.com", "TobyAllé 31", 1, 1, 1999);
@@ -39,13 +41,16 @@ public class Controller {
 
 
         storedMembers = FileHandler.getMembersFromFile();
-        for (int i =0; i < storedMembers.size(); i ++) {
+        for (int i = 0; i < storedMembers.size(); i++) {
             System.out.println(storedMembers.get(i).getName());
         }
-
-
-        FileHandler.storeMember(memberList.getMemberList());
+        try {
+            FileHandler.storeMember(memberList.getMemberList());
+        } catch (IOException e) {
+            System.out.println("Failed to store members");
+        }
     }
+
 
     public String userInputString() {
         return ui.userInputString();
