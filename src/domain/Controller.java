@@ -13,13 +13,14 @@ import java.util.List;
 
 import member.Member;
 import member.MemberList;
+import ui.Status;
 import ui.UserInterface;
 
 public class Controller {
-    UserInterface ui = new UserInterface();
-    MemberList memberList = new MemberList();
-    Calculation calculation = new Calculation();
-    FileHandler FileHandler = new FileHandler();
+    private UserInterface ui = new UserInterface();
+    private MemberList memberList = new MemberList();
+    private Calculation calculation = new Calculation();
+    private FileHandler FileHandler = new FileHandler();
     private ArrayList<Member> storedMembers;
 
 
@@ -68,6 +69,41 @@ public class Controller {
 
     public double calculateMembershipFee(Member member){
         return calculation.calculateContingent(member.getAge(), member.getIsActive());
+    }
+
+    public void createNewMember(Member newMember) { //TODO bør ligge i memberlist + adressen skal kunne verificeres!
+        ui.printMessage("Navn: ");
+        String name = ui.userInputString();
+        ui.printMessage("Telefonnummer: ");
+        String phoneNumber = ui.userInputString();
+        ui.printMessage("E-mail: ");
+        emailValidate();
+        String email = ui.userInputString();
+        ui.printMessage("Adresse: ");
+        String homeAdress = ui.userInputString();
+        homeAddressValidate();
+        ui.printMessage("Fødselsdato: ");
+        String birthDate = ui.userInputString();
+        ui.printMessage("Medlemsskabsstatus: ");
+        Status statusMedlemsskab = ui.statusMessage(Status.ACTIVE);
+        ui.printMessage("Disciplin: ");
+        Status statusDiscipline = ui.statusMessage(Status.SELECT_DISCIPLINE);
+
+        //TODO generer et membershipnumber
+        memberList.addMember(newMember);
+    }
+
+    private void emailValidate(){
+    }
+
+    private void homeAddressValidate() {
+    }
+
+    public Member findMember(String userInputString){
+        return memberList.findMember(userInputString);
+    }
+
+    public void statusCreation(){
     }
 
     public String userInputString() {

@@ -5,6 +5,8 @@
 
 package member;
 
+import ui.Status;
+
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.Random;
@@ -37,6 +39,9 @@ public class Member {
 
     }
 
+    public Member(int i, Member member, Status statusMedlemsskab, Status statusDiscipline) {
+    }
+
     public boolean getIsActive() {
         return isActive;
     }
@@ -67,8 +72,6 @@ public class Member {
         return birthDate != null ? Period.between(birthDate, currentDate).getYears() : -1;
     }
 
-    public void createNewMember() {
-    }
 
     public String getName() {
         return name;
@@ -92,6 +95,10 @@ public class Member {
 
     public String getMembershipNumber() {
         return membershipNumber;
+    }
+
+    public boolean matches(String userInputSearch){
+        return membershipNumber.contains(userInputSearch);
     }
 
     public String toString() {

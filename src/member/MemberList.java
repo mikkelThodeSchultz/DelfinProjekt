@@ -5,9 +5,8 @@ import domain.Controller;
 import java.util.ArrayList;
 
 public class MemberList {
-    ArrayList<Member> memberList = new ArrayList<>();
+    private ArrayList<Member> memberList = new ArrayList<>();
     private Member selectedMember = null;
-
 
     public void addMember(Member member){
         memberList.add(member);
@@ -17,19 +16,19 @@ public class MemberList {
         memberList.remove(member);
     }
 
-    public void findMember(){
-        Controller controller = new Controller();
-        String tempString = controller.userInputString();
-        for (Member member: memberList) {
-            if (member.getMembershipNumber().equals(tempString)){
+    public Member findMember(String userInputSearch) {
+        for (Member member : memberList) {
+            if (member.matches(userInputSearch)) {
                 selectedMember = member;
             }
         }
+        return selectedMember;
     }
 
+    public void selectMember(){
+    }
 
     public void editMember(){
-
     }
 
     public ArrayList<Member> getMemberList() {
@@ -47,5 +46,4 @@ public class MemberList {
         }
         return temp;
     }
-
 }

@@ -14,6 +14,10 @@ public class UserInterface {
         return sc.nextLine();
     }
 
+    public void printMessage(String message){
+        System.out.print(message);
+    }
+
     public void getWelcomeMessage(){
         System.out.println("""
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -101,7 +105,7 @@ public class UserInterface {
                 """);
     }
 
-    public void statusMessage(Status status){ //TODO udfyld de her med fornuftige beskeder
+    public Status statusMessage(Status status){ //TODO udfyld de her med fornuftige beskeder
         switch (status){
             case OK -> System.out.println("");
             case NO -> System.out.println("");
@@ -109,7 +113,9 @@ public class UserInterface {
             case MEMBER_NOT_FOUND -> System.out.println("Kunne ikke finde det medlem.");
             case SELECT_MEMBER -> System.out.println("Vælg venligst et medlem.");
             case SELECT_DISCIPLINE -> System.out.println("Vælg venligst en disciplin.");
+            case ACTIVE -> System.out.println("");
         }
+        return status;
     }
 
 

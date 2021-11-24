@@ -8,4 +8,6 @@ public enum Status {
     ERROR,
     SELECT_MEMBER,
     SELECT_DISCIPLINE,
+    ACTIVE,
+    PASSIVE,
 }
