@@ -23,7 +23,7 @@ public class Controller {
     }
 
     public void start() throws IOException {
-        Member member = new Member("Torben Trucker", "12345678", "Torbensmail@mail.com", "torbensvej 31", 24, 12, 2000);
+       /* Member member = new Member("Torben Trucker", "12345678", "Torbensmail@mail.com", "torbensvej 31", 24, 12, 2000);
         Member member2 = new Member("Søren Kristiansen", "45678910", "Sørensmail@mail.com", "Sørensvej 14", 10, 10, 1966);
         Member member3 = new Member("Tobias Vold", "98747723489", "Tobiases@mail.com", "TobyAllé 31", 1, 1, 1999);
         Member member4 = new Member("Finn Finsen", "8888888", "Finns@mail.com", "Finnminvej 99", 24, 9, 1920);
@@ -34,15 +34,18 @@ public class Controller {
         this.memberList.addMember(member2);
         this.memberList.addMember(member3);
         this.memberList.addMember(member4);
-        this.ui.printMemberLists();
-        this.FileHandler.storeMember(this.memberList.getMemberList());
+        this.ui.printMemberLists();*/
+
+
+
+        FileHandler.storeMember(memberList.getMemberList());
     }
 
     public String userInputString() {
-        return this.ui.userInputString();
+        return ui.userInputString();
     }
 
     public ArrayList<Member> memberList() {
-        return this.memberList.getMemberList();
+        return memberList.getMemberList();
     }
 }

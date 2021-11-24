@@ -4,26 +4,26 @@
   "email" : "Torbensmail@mail.com",
   "homeAddress" : "torbensvej 31",
   "birthDate" : [ 2000, 12, 24 ],
-  "membershipNumber" : "totr9540"
+  "membershipNumber" : "totr8371"
 }, {
   "name" : "Søren Kristiansen",
   "phoneNumber" : "45678910",
   "email" : "Sørensmail@mail.com",
   "homeAddress" : "Sørensvej 14",
   "birthDate" : [ 1966, 10, 10 ],
-  "membershipNumber" : "søkr4312"
+  "membershipNumber" : "søkr8005"
 }, {
   "name" : "Tobias Vold",
   "phoneNumber" : "98747723489",
   "email" : "Tobiases@mail.com",
   "homeAddress" : "TobyAllé 31",
   "birthDate" : [ 1999, 1, 1 ],
-  "membershipNumber" : "tovo4700"
+  "membershipNumber" : "tovo7918"
 }, {
   "name" : "Finn Finsen",
   "phoneNumber" : "8888888",
   "email" : "Finns@mail.com",
   "homeAddress" : "Finnminvej 99",
   "birthDate" : [ 1920, 9, 24 ],
-  "membershipNumber" : "fifi2859"
+  "membershipNumber" : "fifi7689"
 } ]

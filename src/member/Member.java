@@ -25,7 +25,7 @@ public class Member {
         this.email = email;
         this.homeAddress = homeAddress;
         this.birthDate = LocalDate.of(year, month, day);
-        this.membershipNumber = this.generateMembershipNumber();
+        this.membershipNumber = generateMembershipNumber();
     }
 
     private String generateMembershipNumber() {
@@ -35,44 +35,44 @@ public class Member {
         Random random = new Random();
         int numbers = random.nextInt(10000);
         String numbersFormat = String.format("%04d", numbers);
-        firstTwo = this.name.substring(0, 2).toLowerCase();
-        lastTwo = this.name.substring(this.name.lastIndexOf(space) + 1, this.name.lastIndexOf(space) + 3).toLowerCase();
+        firstTwo = name.substring(0, 2).toLowerCase();
+        lastTwo = name.substring(name.lastIndexOf(space) + 1, name.lastIndexOf(space) + 3).toLowerCase();
         return firstTwo + lastTwo + numbersFormat;
     }
 
     public int calculateAge() {
         LocalDate currentDate = LocalDate.now();
-        return this.birthDate != null ? Period.between(this.birthDate, currentDate).getYears() : -1;
+        return birthDate != null ? Period.between(birthDate, currentDate).getYears() : -1;
     }
 
     public void createNewMember() {
     }
 
     public String getName() {
-        return this.name;
+        return name;
     }
 
     public String getPhoneNumber() {
-        return this.phoneNumber;
+        return phoneNumber;
     }
 
     public String getEmail() {
-        return this.email;
+        return email;
     }
 
     public String getHomeAddress() {
-        return this.homeAddress;
+        return homeAddress;
     }
 
     public LocalDate getBirthDate() {
-        return this.birthDate;
+        return birthDate;
     }
 
     public String getMembershipNumber() {
-        return this.membershipNumber;
+        return membershipNumber;
     }
 
     public String toString() {
-        return this.name + " " + this.membershipNumber;
+        return name + " " + membershipNumber;
     }
 }

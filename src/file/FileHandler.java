@@ -23,14 +23,14 @@ public class FileHandler {
     }
 
     public void storeMember(List<Member> orders) throws IOException {
-        this.saveToFile(this.convertMembersToJson(orders), "data/members.json");
+        this.saveToFile(this.convertMembersToJson(orders), MEMBERS);
     }
 
     public List<String> getMembersFromFile() {
         try {
-            return this.getLinesFromFile("data/members.json");
-        } catch (IOException var2) {
-            var2.printStackTrace();
+            return this.getLinesFromFile(MEMBERS);
+        } catch (IOException e) {
+            e.printStackTrace();
             return new ArrayList();
         }
     }
