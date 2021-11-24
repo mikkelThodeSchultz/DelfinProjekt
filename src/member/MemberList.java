@@ -9,6 +9,7 @@ public class MemberList {
     private Member selectedMember = null;
 
 
+
     public void addMember(Member member){
         memberLists.add(member);
     }
@@ -17,16 +18,13 @@ public class MemberList {
         memberLists.remove(member);
     }
 
-    public void findMember(){
-        Controller controller = new Controller();
-        String tempString = controller.userInputString();
+    public void findMember(String tempString){
         for (Member member:memberLists) {
             if (member.getMembershipNumber().equals(tempString)){
                 selectedMember = member;
             }
         }
     }
-
 
     public void editMember(){
 
@@ -36,12 +34,16 @@ public class MemberList {
         return memberLists;
     }
 
-    public String printMemberLists(){
+    public String createMemberListsString(){
         String temp = "";
         for (int i = 0; i < memberLists.size(); i++) {
             temp += memberLists.get(i) + "\n";
         }
         return temp;
+    }
+
+    public Member getSelectedMember(){
+        return selectedMember;
     }
 
 }

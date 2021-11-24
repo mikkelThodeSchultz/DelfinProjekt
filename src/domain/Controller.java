@@ -7,9 +7,9 @@ import ui.UserInterface;
 import java.util.ArrayList;
 
 public class Controller {
-    UserInterface ui = new UserInterface();
-    MemberList memberList = new MemberList();
-    Calculation calculation = new Calculation();
+    private UserInterface ui = new UserInterface();
+    private MemberList memberList = new MemberList();
+    private Calculation calculation = new Calculation();
 
     public void start(){
         Member member = new Member("Torben Trucker", "12345678", "Torbensmail@mail.com", "torbensvej 31", 24,12,2000);
@@ -23,7 +23,8 @@ public class Controller {
         memberList.addMember(member2);
         memberList.addMember(member3);
         memberList.addMember(member4);
-        ui.printMemberLists();
+        printMembersAndSelect();
+        System.out.println(memberList.getSelectedMember());
     }
 
     public String userInputString(){
@@ -33,4 +34,12 @@ public class Controller {
     public ArrayList<Member> memberList(){
         return memberList.getMemberList();
     }
+
+    public void printMembersAndSelect(){
+        ui.printMessage(memberList.createMemberListsString());
+        memberList.findMember(ui.userInputString());
+    }
+
+
+
 }
