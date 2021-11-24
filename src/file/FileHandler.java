@@ -23,8 +23,8 @@ public class FileHandler {
     public FileHandler() {
     }
 
-    public void storeMember(List<Member> orders) throws IOException {
-        this.saveToFile(this.convertMembersToJson(orders), MEMBERS);
+    public void storeMember(List<Member> members) throws IOException {
+        this.saveToFile(this.convertMembersToJson(members), MEMBERS);
     }
 
     public ArrayList<Member> getMembersFromFile() {

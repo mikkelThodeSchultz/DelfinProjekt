@@ -113,10 +113,13 @@ public class UserInterface {
     }
 
 
-    public void printMemberLists() {
-        Controller controller = new Controller();
-        List members = controller.memberList();
-        System.out.println(members);
+    public void printMemberLists(String s) {
+        System.out.println(s);
+
+
+        //Controller controller = new Controller();
+        //List members = controller.memberList();
+        //System.out.println(members);
     }
 
 }

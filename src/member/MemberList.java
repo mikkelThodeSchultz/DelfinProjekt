@@ -5,22 +5,22 @@ import domain.Controller;
 import java.util.ArrayList;
 
 public class MemberList {
-    ArrayList<Member> memberLists = new ArrayList<>();
+    ArrayList<Member> memberList = new ArrayList<>();
     private Member selectedMember = null;
 
 
     public void addMember(Member member){
-        memberLists.add(member);
+        memberList.add(member);
     }
 
     public void removeMember(Member member){
-        memberLists.remove(member);
+        memberList.remove(member);
     }
 
     public void findMember(){
         Controller controller = new Controller();
         String tempString = controller.userInputString();
-        for (Member member:memberLists) {
+        for (Member member: memberList) {
             if (member.getMembershipNumber().equals(tempString)){
                 selectedMember = member;
             }
@@ -33,13 +33,17 @@ public class MemberList {
     }
 
     public ArrayList<Member> getMemberList() {
-        return memberLists;
+        return memberList;
+    }
+
+    public void membersFromController(ArrayList fileMembers){
+       memberList = fileMembers;
     }
 
     public String printMemberLists(){
         String temp = "";
-        for (int i = 0; i < memberLists.size(); i++) {
-            temp += memberLists.get(i) + "\n";
+        for (int i = 0; i < memberList.size(); i++) {
+            temp += memberList.get(i) + "\n";
         }
         return temp;
     }

@@ -11,6 +11,7 @@ import java.util.Random;
 
 public class Member {
     private String name;
+    private int age;
     private String phoneNumber;
     private String email;
     private String homeAddress;
@@ -23,6 +24,7 @@ public class Member {
     //NEEDED FOR JSON! DO NOT DELETE
     public Member(){}
 
+
     public Member(String name, String phoneNumber, String email, String homeAddress, int day, int month, int year) {
         this.name = name;
         this.phoneNumber = phoneNumber;
@@ -30,7 +32,23 @@ public class Member {
         this.homeAddress = homeAddress;
         this.birthDate = LocalDate.of(year, month, day);
         this.membershipNumber = generateMembershipNumber();
+        this.age = calculateAge();
+        this.isActive = true;
+
     }
+
+    public boolean getIsActive() {
+        return isActive;
+    }
+
+    public boolean getIsHasPaid() {
+        return hasPaid;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
 
     private String generateMembershipNumber() {
         String space = " ";
