@@ -1,12 +1,18 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
+
 package member;
 
-import ui.Disciplines;
-
 import java.util.ArrayList;
+import ui.Status;
 
 public class CompetitiveSwimmer {
-    ArrayList<Competition> competitions = new ArrayList<>();
-    ArrayList<BestTrainingResult> bestTrainingResults = new ArrayList<>();
-    Disciplines disciplin;
+    ArrayList<Competition> competitions = new ArrayList();
+    ArrayList<BestTrainingResult> bestTrainingResults = new ArrayList();
+    Status disciplin;
 
+    public CompetitiveSwimmer() {
+    }
 }

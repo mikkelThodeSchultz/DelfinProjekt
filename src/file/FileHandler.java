@@ -1,8 +1,12 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
+
 package file;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
-
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
@@ -13,49 +17,44 @@ import java.util.Scanner;
 import member.Member;
 
 public class FileHandler {
-
-
     private final String MEMBERS = "data/members.json";
 
+    public FileHandler() {
+    }
+
     public void storeMember(List<Member> orders) throws IOException {
-        saveToFile(convertMembersToJson(orders), MEMBERS);
+        this.saveToFile(this.convertMembersToJson(orders), "data/members.json");
     }
 
     public List<String> getMembersFromFile() {
         try {
-            return getLinesFromFile(MEMBERS);
-        } catch (IOException e) {
-            e.printStackTrace();
+            return this.getLinesFromFile("data/members.json");
+        } catch (IOException var2) {
+            var2.printStackTrace();
+            return new ArrayList();
         }
-        return new ArrayList<>();
     }
 
     private String convertMembersToJson(List<Member> members) throws JsonProcessingException {
         JsonNode node = Json.toJson(members);
-
         return Json.prettyPrint(node);
     }
 
-
-
     private void saveToFile(String stringToSave, String filePath) throws IOException {
         File file = new File(filePath);
-
         PrintStream ps = new PrintStream(file, StandardCharsets.UTF_8);
         ps.println(stringToSave);
     }
 
-
-    // will take a file and return the lines in the file
     private ArrayList<String> getLinesFromFile(String filePath) throws IOException {
-        ArrayList<String> lines = new ArrayList<>();
-
+        ArrayList<String> lines = new ArrayList();
         File file = new File(filePath);
-
         Scanner load = new Scanner(file);
-        while (load.hasNextLine()) {
+
+        while(load.hasNextLine()) {
             lines.add(load.nextLine());
         }
+
         return lines;
     }
 }

@@ -1,11 +1,18 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
+
 package member;
 
-import ui.Disciplines;
-
 import java.time.LocalDateTime;
+import ui.Status;
 
 public class BestTrainingResult {
     LocalDateTime dateBestResult;
     double bestTime;
-    Disciplines disciplin;
+    Status disciplin;
+
+    public BestTrainingResult() {
+    }
 }
