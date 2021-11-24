@@ -22,6 +22,7 @@ public class Controller {
     FileHandler FileHandler = new FileHandler();
     private ArrayList<Member> storedMembers;
 
+
     public Controller() {
     }
 
