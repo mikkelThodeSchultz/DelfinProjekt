@@ -19,6 +19,10 @@ public class Member {
     private boolean isActive;
     private boolean hasPaid;
 
+
+    //NEEDED FOR JSON! DO NOT DELETE
+    public Member(){}
+
     public Member(String name, String phoneNumber, String email, String homeAddress, int day, int month, int year) {
         this.name = name;
         this.phoneNumber = phoneNumber;

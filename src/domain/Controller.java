@@ -18,27 +18,31 @@ public class Controller {
     MemberList memberList = new MemberList();
     Calculation calculation = new Calculation();
     FileHandler FileHandler = new FileHandler();
+    private ArrayList<Member> storedMembers;
 
     public Controller() {
     }
 
     public void start() throws IOException {
-       /* Member member = new Member("Torben Trucker", "12345678", "Torbensmail@mail.com", "torbensvej 31", 24, 12, 2000);
+        Member member = new Member("Torben Trucker", "12345678", "Torbensmail@mail.com", "torbensvej 31", 24, 12, 2000);
         Member member2 = new Member("Søren Kristiansen", "45678910", "Sørensmail@mail.com", "Sørensvej 14", 10, 10, 1966);
         Member member3 = new Member("Tobias Vold", "98747723489", "Tobiases@mail.com", "TobyAllé 31", 1, 1, 1999);
         Member member4 = new Member("Finn Finsen", "8888888", "Finns@mail.com", "Finnminvej 99", 24, 9, 1920);
         System.out.println(member.calculateAge());
         System.out.println(member.getBirthDate());
         System.out.println(member.getMembershipNumber());
-        this.memberList.addMember(member);
-        this.memberList.addMember(member2);
-        this.memberList.addMember(member3);
-        this.memberList.addMember(member4);
-        this.ui.printMemberLists();*/
+        memberList.addMember(member);
+        memberList.addMember(member2);
+        memberList.addMember(member3);
+        memberList.addMember(member4);
+        ui.printMemberLists();
+        storedMembers = FileHandler.getMembersFromFile();
+        for (int i =0; i < storedMembers.size(); i ++) {
+            System.out.println(storedMembers.get(i).getName());
+        }
 
 
-
-        FileHandler.storeMember(memberList.getMemberList());
+      //  FileHandler.storeMember(memberList.getMemberList());
     }
 
     public String userInputString() {

@@ -6,6 +6,7 @@
 package file;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import java.io.File;
 import java.io.IOException;
@@ -26,13 +27,8 @@ public class FileHandler {
         this.saveToFile(this.convertMembersToJson(orders), MEMBERS);
     }
 
-    public List<String> getMembersFromFile() {
-        try {
-            return this.getLinesFromFile(MEMBERS);
-        } catch (IOException e) {
-            e.printStackTrace();
-            return new ArrayList();
-        }
+    public ArrayList<Member> getMembersFromFile() {
+        return getStoredFromFile(MEMBERS);
     }
 
     private String convertMembersToJson(List<Member> members) throws JsonProcessingException {
@@ -56,5 +52,27 @@ public class FileHandler {
         }
 
         return lines;
+    }
+
+    private ArrayList<Member> getStoredFromFile(String file) {
+        List<String> lines;
+        try {
+            lines = getLinesFromFile(file);
+            if (lines.size() > 0) {
+                StringBuilder stringBuilder = new StringBuilder();
+                for (String line : lines) {
+                    stringBuilder.append(line).append('\n');
+                }
+              //  System.out.println(stringBuilder);
+
+                List<Member> members = Json.fromJsonToArray(stringBuilder.toString(), new TypeReference<>() {
+                });
+                System.out.println(members);
+                return new ArrayList<>(members);
+            }
+        } catch (IOException e) {
+            return new ArrayList<>();
+        }
+        return new ArrayList<>();
     }
 }
