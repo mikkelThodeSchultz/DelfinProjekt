@@ -9,10 +9,12 @@ import file.FileHandler;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 
 import member.Member;
 import member.MemberList;
+import member.StandardMember;
 import ui.Status;
 import ui.UserInterface;
 
@@ -40,7 +42,6 @@ public class Controller {
                default -> ui.statusMessage(Status.INVALID_CHOICE);
         }}
 
-        Member member = new Member("Torben Trucker", "12345678", "Torbensmail@mail.com", "torbensvej 31", 24, 12, 2000);
         /*Member member = new Member("Torben Trucker", "12345678", "Torbensmail@mail.com", "torbensvej 31", 24, 12, 2000);
         Member member2 = new Member("Søren Kristiansen", "45678910", "Sørensmail@mail.com", "Sørensvej 14", 10, 10, 1966);
         Member member3 = new Member("Tobias Vold", "98747723489", "Tobiases@mail.com", "TobyAllé 31", 1, 1, 1999);
@@ -70,9 +71,9 @@ public class Controller {
     }
 
     public void CompetitionMenu(){
-        String choice = ui.getCompetitionMenu();
         boolean goAgain = true;
         while (goAgain){
+        String choice = ui.getCompetitionMenu();
             switch (choice){
                 case "1" -> System.out.println("a");//  Top 5 lister
                 case "2" -> System.out.println("a"); //Registrer resultat
@@ -83,9 +84,9 @@ public class Controller {
     }
 
     public void paymentMenu(){
-        String choice = ui.getPaymentsMenu();
         boolean goAgain = true;
         while (goAgain){
+        String choice = ui.getPaymentsMenu();
             switch (choice){
                 case "1" -> System.out.println("a");// Forventet indtjening
                 case "2" -> System.out.println("a"); //Modtag betaling
@@ -98,12 +99,13 @@ public class Controller {
     }
 
     public void memberMenu(){
-        String choice = ui.getMemberMenu();
+
         boolean goAgain = true;
         while (goAgain){
+        String choice = ui.getMemberMenu();
         switch (choice){
             case "1" -> System.out.println("a");//find member
-            case "2" -> System.out.println("a"); //create member
+            case "2" -> createNewMember(ui.createNewMember());
             case "0" -> goAgain = false;
             default -> ui.statusMessage(Status.INVALID_CHOICE);
          }}
@@ -124,28 +126,23 @@ public class Controller {
         return calculation.calculateContingent(member.getAge(), member.getIsActive());
     }
 
-    public void createNewMember(Member newMember) { //TODO bør ligge i memberlist + adressen skal kunne verificeres!
-        ui.printMessage("Navn: ");
-        String name = ui.userInputString();
-        ui.printMessage("Telefonnummer: ");
-        String phoneNumber = ui.userInputString();
-        ui.printMessage("E-mail: ");
-        emailValidate();
-        String email = ui.userInputString();
-        ui.printMessage("Adresse: ");
-        String homeAdress = ui.userInputString();
-        homeAddressValidate();
-        ui.printMessage("Fødselsdato: ");
-        String birthDate = ui.userInputString();
-        ui.printMessage("Medlemsskabsstatus: ");
-        Status statusMedlemsskab = ui.statusMessage(Status.ACTIVE);
-        ui.printMessage("Disciplin: ");
-        Status statusDiscipline = ui.statusMessage(Status.SELECT_DISCIPLINE);
+    public void createNewMember(String[] memberInfo) {
+        try{
+            int day = Integer.parseInt(memberInfo[4]);
+            int month = Integer.parseInt(memberInfo[5]);
+            int year = Integer.parseInt(memberInfo[6]);
 
-        //TODO generer et membershipnumber
-        memberList.addMember(newMember);
+            StandardMember newMember = new StandardMember(memberInfo[0],memberInfo[1],memberInfo[2],memberInfo[3],day,month,year);
+            memberList.addMember(newMember);
+            ui.printMessage("Du har nu oprettet " + newMember + " som medlem i klubben.");
+
+        } catch (NumberFormatException e){
+            ui.printMessage("Ugyldigt input. Indtast venligst talværdier i fødselsdato-oplysninger.");
+        }
+
     }
 
+        //TODO generer et membershipnumber
     private void emailValidate(){
     }
 

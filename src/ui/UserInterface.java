@@ -15,6 +15,10 @@ public class UserInterface {
         return sc.nextLine();
     }
 
+    public int userInputInt(){
+        return sc.nextInt();
+    }
+
     public void printMessage(String message){
         System.out.print(message);
     }
@@ -125,26 +129,27 @@ public class UserInterface {
         return status;
     }
 
-    public String[] createNewMember(Member newMember) { //TODO bør ligge i memberlist
+    //Standardmember – pr. default er man excersier
+    public String[] createNewMember() { //TODO bør ligge i memberlist
 
-        printMessage("Navn: ");
+        printMessage("Indtast information om det nye medlem: ");
+        printMessage("\nNavn: ");
         String name = userInputString();
         printMessage("Telefonnummer: ");
         String phoneNumber = userInputString();
         printMessage("E-mail: ");
-        //emailValidate(); //TODO findes i controller
         String email = userInputString();
         printMessage("Adresse: ");
-        String homeAdress = userInputString();
-        //homeAddressValidate(); //TODO findesi controller
-        printMessage("Fødselsdato: ");
-        String birthDate = userInputString();
-        printMessage("Medlemsskabsstatus: ");
-        Status statusMedlemsskab = statusMessage(Status.ACTIVE);
-        printMessage("Disciplin: ");
-        Status statusDiscipline = statusMessage(Status.SELECT_DISCIPLINE);
+        String homeAddress = userInputString();
+        printMessage("Indtast fødselsdagsoplysninger: ");
+        printMessage("Dag: ");
+        String day = userInputString();
+        printMessage("Måned: ");
+        String month = userInputString();
+        printMessage("År: ");
+        String year = userInputString();
 
-        String[] memberInfo = {name, phoneNumber, email,};
+        String[] memberInfo = {name, phoneNumber, email, homeAddress, day, month, year};
         return memberInfo;
 
         //TODO generer et membershipnumber + flyt til controller!
