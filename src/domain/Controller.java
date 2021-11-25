@@ -8,6 +8,7 @@ package domain;
 import file.FileHandler;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
@@ -30,6 +31,11 @@ public class Controller {
     }
 
     public void start() {
+        //Henter members fra fil
+        storedMembers = FileHandler.getMembersFromFile();
+        sendStoredMembers(storedMembers);
+        ui.printMemberLists(memberList.printMemberLists());
+
         ui.getWelcomeMessage();
         boolean goAgain = true;
         while(goAgain){
@@ -71,6 +77,7 @@ public class Controller {
     }
 
     public void CompetitionMenu(){
+        String choice = ui.getCompetitionMenu();
         boolean goAgain = true;
         while (goAgain){
         String choice = ui.getCompetitionMenu();
@@ -84,6 +91,7 @@ public class Controller {
     }
 
     public void paymentMenu(){
+        String choice = ui.getPaymentsMenu();
         boolean goAgain = true;
         while (goAgain){
         String choice = ui.getPaymentsMenu();
@@ -164,8 +172,8 @@ public class Controller {
         return memberList.getMemberList();
     }
 
-    public void sendStoredMembers(ArrayList storedMembers){
+    public void sendStoredMembers(ArrayList<Member> storedMembers){
         memberList.membersFromController(storedMembers);
-        storedMembers.clear();
+        //storedMembers.clear();
     }
 }

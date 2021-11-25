@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import member.Member;
+import member.StandardMember;
 
 public class FileHandler {
     private final String MEMBERS = "data/members.json";
@@ -24,8 +25,13 @@ public class FileHandler {
     }
 
     public void storeMember(List<Member> members) throws IOException {
-        this.saveToFile(this.convertMembersToJson(members), MEMBERS);
+        saveToFile(convertMembersToJson(members), MEMBERS);
     }
+
+    public void storeMember() throws IOException {
+        saveToFile("", MEMBERS);
+    }
+
 
     public ArrayList<Member> getMembersFromFile() {
         return getStoredFromFile(MEMBERS);
@@ -63,16 +69,16 @@ public class FileHandler {
                 for (String line : lines) {
                     stringBuilder.append(line).append('\n');
                 }
-              //  System.out.println(stringBuilder);
 
-                List<Member> members = Json.fromJsonToArray(stringBuilder.toString(), new TypeReference<>() {
+                List<StandardMember> members = Json.fromJsonToArray(stringBuilder.toString(), new TypeReference<>() {
                 });
-                System.out.println(members);
                 return new ArrayList<>(members);
             }
         } catch (IOException e) {
+            System.out.println("Error");
             return new ArrayList<>();
         }
+        System.out.println("Error");
         return new ArrayList<>();
     }
 }
