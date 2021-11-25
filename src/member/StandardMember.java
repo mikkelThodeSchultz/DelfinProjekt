@@ -7,7 +7,10 @@ package member;
 
 public class StandardMember extends Member {
 
-    public StandardMember() {
-        super ();
+    public StandardMember(String name, String phoneNumber, String email, String homeAddress, int day, int month, int year) {
+        super (name, phoneNumber, email, homeAddress, day, month, year);
     }
+
+    //NEEDED FOR JSON! DO NOT DELETE
+    public StandardMember(){}
 }

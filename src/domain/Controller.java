@@ -8,11 +8,13 @@ package domain;
 import file.FileHandler;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
 import member.Member;
 import member.MemberList;
+import member.StandardMember;
 import ui.Status;
 import ui.UserInterface;
 
@@ -28,6 +30,11 @@ public class Controller {
     }
 
     public void start() {
+        //Henter members fra fil
+        storedMembers = FileHandler.getMembersFromFile();
+        sendStoredMembers(storedMembers);
+        ui.printMemberLists(memberList.printMemberLists());
+
         ui.getWelcomeMessage();
         boolean goAgain = true;
         while(goAgain){
@@ -40,27 +47,16 @@ public class Controller {
                default -> ui.statusMessage(Status.INVALID_CHOICE);
         }}
 
-        Member member = new Member("Torben Trucker", "12345678", "Torbensmail@mail.com", "torbensvej 31", 24, 12, 2000);
-        /*Member member = new Member("Torben Trucker", "12345678", "Torbensmail@mail.com", "torbensvej 31", 24, 12, 2000);
-        Member member2 = new Member("Søren Kristiansen", "45678910", "Sørensmail@mail.com", "Sørensvej 14", 10, 10, 1966);
-        Member member3 = new Member("Tobias Vold", "98747723489", "Tobiases@mail.com", "TobyAllé 31", 1, 1, 1999);
-        Member member4 = new Member("Finn Finsen", "8888888", "Finns@mail.com", "Finnminvej 99", 24, 9, 1920);
-        Member member5 = new Member("Jim Henry", "67453219", "Jims@mail.com", "Jimminvej 89", 14, 6, 2008);
-        System.out.println(memberList.calculateAge(member));
-        System.out.println(member.getBirthDate());
-        System.out.println(member.getMembershipNumber());
+        /*StandardMember member = new StandardMember("Torben Trucker", "12345678", "Torbensmail@mail.com", "torbensvej 31", 24, 12, 2000);
+        StandardMember member2 = new StandardMember("Søren Kristiansen", "45678910", "Sørensmail@mail.com", "Sørensvej 14", 10, 10, 1966);
+        StandardMember member3 = new StandardMember("Tobias Vold", "98747723489", "Tobiases@mail.com", "TobyAllé 31", 1, 1, 1999);
+        StandardMember member4 = new StandardMember("Finn Finsen", "8888888", "Finns@mail.com", "Finnminvej 99", 24, 9, 1920);
+        StandardMember member5 = new StandardMember("Jim Henry", "67453219", "Jims@mail.com", "Jimminvej 89", 14, 6, 2008);
         memberList.addMember(member);
         memberList.addMember(member2);
         memberList.addMember(member3);
         memberList.addMember(member4);
         memberList.addMember(member5);*/
-
-        //Henter members fra fil
-        /*storedMembers = FileHandler.getMembersFromFile();
-        sendStoredMembers(storedMembers);
-        ui.printMemberLists(memberList.printMemberLists());*/
-
-        System.out.println(calculateTotalIncome(memberList));
 
         try {
             FileHandler.storeMember(memberList.getMemberList());
@@ -167,8 +163,8 @@ public class Controller {
         return memberList.getMemberList();
     }
 
-    public void sendStoredMembers(ArrayList storedMembers){
+    public void sendStoredMembers(ArrayList<Member> storedMembers){
         memberList.membersFromController(storedMembers);
-        storedMembers.clear();
+        //storedMembers.clear();
     }
 }
