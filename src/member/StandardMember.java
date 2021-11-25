@@ -5,7 +5,9 @@
 
 package member;
 
-public class StandardMember {
+public class StandardMember extends Member {
+
     public StandardMember() {
+        super ();
     }
 }

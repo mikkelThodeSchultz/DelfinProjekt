@@ -7,7 +7,7 @@ package member;
 
 import java.util.ArrayList;
 
-public class Trainer {
+public class Trainer extends Member {
     ArrayList<CompetitiveSwimmer> competitiveSwimmers = new ArrayList();
 
     public Trainer() {

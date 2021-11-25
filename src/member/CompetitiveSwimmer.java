@@ -8,7 +8,7 @@ package member;
 import java.util.ArrayList;
 import ui.Status;
 
-public class CompetitiveSwimmer {
+public class CompetitiveSwimmer extends Member {
     ArrayList<Competition> competitions = new ArrayList();
     ArrayList<BestTrainingResult> bestTrainingResults = new ArrayList();
     Status disciplin;

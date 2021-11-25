@@ -1,6 +1,7 @@
 package ui;
 
 import domain.Controller;
+import member.Member;
 import member.MemberList;
 
 import java.util.ArrayList;
@@ -116,6 +117,32 @@ public class UserInterface {
             case ACTIVE -> System.out.println("");
         }
         return status;
+    }
+
+    public String[] createNewMember(Member newMember) { //TODO bør ligge i memberlist
+
+        printMessage("Navn: ");
+        String name = userInputString();
+        printMessage("Telefonnummer: ");
+        String phoneNumber = userInputString();
+        printMessage("E-mail: ");
+        //emailValidate(); //TODO findes i controller
+        String email = userInputString();
+        printMessage("Adresse: ");
+        String homeAdress = userInputString();
+        //homeAddressValidate(); //TODO findesi controller
+        printMessage("Fødselsdato: ");
+        String birthDate = userInputString();
+        printMessage("Medlemsskabsstatus: ");
+        Status statusMedlemsskab = statusMessage(Status.ACTIVE);
+        printMessage("Disciplin: ");
+        Status statusDiscipline = statusMessage(Status.SELECT_DISCIPLINE);
+
+        String[] memberInfo = {name, phoneNumber, email,};
+        return memberInfo;
+
+        //TODO generer et membershipnumber + flyt til controller!
+        //memberList.addMember(newMember);
     }
 
 

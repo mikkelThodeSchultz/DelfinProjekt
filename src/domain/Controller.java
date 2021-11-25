@@ -28,19 +28,19 @@ public class Controller {
     }
 
     public void start() {
-        Member member = new Member("Torben Trucker", "12345678", "Torbensmail@mail.com", "torbensvej 31", 24, 12, 2000);
+        /*Member member = new Member("Torben Trucker", "12345678", "Torbensmail@mail.com", "torbensvej 31", 24, 12, 2000);
         Member member2 = new Member("Søren Kristiansen", "45678910", "Sørensmail@mail.com", "Sørensvej 14", 10, 10, 1966);
         Member member3 = new Member("Tobias Vold", "98747723489", "Tobiases@mail.com", "TobyAllé 31", 1, 1, 1999);
         Member member4 = new Member("Finn Finsen", "8888888", "Finns@mail.com", "Finnminvej 99", 24, 9, 1920);
         Member member5 = new Member("Jim Henry", "67453219", "Jims@mail.com", "Jimminvej 89", 14, 6, 2008);
-        System.out.println(member.calculateAge());
+        System.out.println(memberList.calculateAge(member));
         System.out.println(member.getBirthDate());
         System.out.println(member.getMembershipNumber());
         memberList.addMember(member);
         memberList.addMember(member2);
         memberList.addMember(member3);
         memberList.addMember(member4);
-        memberList.addMember(member5);
+        memberList.addMember(member5);*/
 
         //Henter members fra fil
         /*storedMembers = FileHandler.getMembersFromFile();
@@ -71,27 +71,6 @@ public class Controller {
         return calculation.calculateContingent(member.getAge(), member.getIsActive());
     }
 
-    public void createNewMember(Member newMember) { //TODO bør ligge i memberlist + adressen skal kunne verificeres!
-        ui.printMessage("Navn: ");
-        String name = ui.userInputString();
-        ui.printMessage("Telefonnummer: ");
-        String phoneNumber = ui.userInputString();
-        ui.printMessage("E-mail: ");
-        emailValidate();
-        String email = ui.userInputString();
-        ui.printMessage("Adresse: ");
-        String homeAdress = ui.userInputString();
-        homeAddressValidate();
-        ui.printMessage("Fødselsdato: ");
-        String birthDate = ui.userInputString();
-        ui.printMessage("Medlemsskabsstatus: ");
-        Status statusMedlemsskab = ui.statusMessage(Status.ACTIVE);
-        ui.printMessage("Disciplin: ");
-        Status statusDiscipline = ui.statusMessage(Status.SELECT_DISCIPLINE);
-
-        //TODO generer et membershipnumber
-        memberList.addMember(newMember);
-    }
 
     private void emailValidate(){
     }
