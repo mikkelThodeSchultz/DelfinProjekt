@@ -28,6 +28,18 @@ public class Controller {
     }
 
     public void start() {
+        ui.getWelcomeMessage();
+        boolean goAgain = true;
+        while(goAgain){
+           String choice = ui.getMainMenu();
+           switch(choice){
+               case "1" -> memberMenu();
+               case "2" -> paymentMenu();
+               case "3" -> CompetitionMenu();
+               case "0" ->  goAgain = false;
+               default -> ui.statusMessage(Status.INVALID_CHOICE);
+        }}
+
         Member member = new Member("Torben Trucker", "12345678", "Torbensmail@mail.com", "torbensvej 31", 24, 12, 2000);
         Member member2 = new Member("Søren Kristiansen", "45678910", "Sørensmail@mail.com", "Sørensvej 14", 10, 10, 1966);
         Member member3 = new Member("Tobias Vold", "98747723489", "Tobiases@mail.com", "TobyAllé 31", 1, 1, 1999);
@@ -54,6 +66,46 @@ public class Controller {
         } catch (IOException e) {
             System.out.println("Failed to store members");
         }
+    }
+
+    public void CompetitionMenu(){
+        String choice = ui.getCompetitionMenu();
+        boolean goAgain = true;
+        while (goAgain){
+            switch (choice){
+                case "1" -> System.out.println("a");//  Top 5 lister
+                case "2" -> System.out.println("a"); //Registrer resultat
+                case "3" -> System.out.println("a"); //Tilknyt disciplinx½
+                case "0" -> System.out.println("a"); //Tilbage til hovedmenu
+                default -> ui.statusMessage(Status.INVALID_CHOICE);
+            }}
+    }
+
+    public void paymentMenu(){
+        String choice = ui.getPaymentsMenu();
+        boolean goAgain = true;
+        while (goAgain){
+            switch (choice){
+                case "1" -> System.out.println("a");// Forventet indtjening
+                case "2" -> System.out.println("a"); //Modtag betaling
+                case "3" -> System.out.println("a"); //Vis restancer
+                case "4" -> System.out.println("a"); //Opkræv kontingenter
+                case "0" -> System.out.println("a"); //Tilbage til hovedmenu
+                default -> ui.statusMessage(Status.INVALID_CHOICE);
+            }}
+
+    }
+
+    public void memberMenu(){
+        String choice = ui.getMemberMenu();
+        boolean goAgain = true;
+        while (goAgain){
+        switch (choice){
+            case "1" -> System.out.println("a");//find member
+            case "2" -> System.out.println("a"); //create member
+            case "0" -> goAgain = false;
+            default -> ui.statusMessage(Status.INVALID_CHOICE);
+         }}
     }
 
     public double calculateTotalIncome(MemberList memberList){
