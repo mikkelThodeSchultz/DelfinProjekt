@@ -29,7 +29,7 @@ public class UserInterface {
 
     }
 
-    public void getMainMenu(){
+    public String getMainMenu(){
         System.out.println("""
                 Hovedmenu
                 
@@ -43,9 +43,11 @@ public class UserInterface {
                 0 - Luk programmet
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 """);
+
+        return sc.nextLine();
     }
 
-    public void getMemberMenu(){ //TODO der skal laves en søgemetode til at finde medlemmer - se PETLATKEA på github.
+    public String getMemberMenu(){ //TODO der skal laves en søgemetode til at finde medlemmer - se PETLATKEA på github.
         System.out.println("""
                 Medlemmer
                 
@@ -57,6 +59,7 @@ public class UserInterface {
                 0 - Tilbage til hovedmenu
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 """);
+        return sc.nextLine();
     }
 
     public void getFoundMemberMenu(){
@@ -75,7 +78,7 @@ public class UserInterface {
                 """);
     }
 
-    public void getPaymentsMenu (){
+    public String getPaymentsMenu (){
         System.out.println("""
                 Kontingenter
                 
@@ -89,9 +92,10 @@ public class UserInterface {
                 0 - Tilbage til hovedmenu
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
                 """);
+        return sc.nextLine();
     }
 
-    public void getCompetitionMenu(){
+    public String getCompetitionMenu(){
         System.out.println("""
                 Konkurrencer
                 
@@ -104,6 +108,7 @@ public class UserInterface {
                 0 - Tilbage til hovedmenu
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 """);
+        return sc.nextLine();
     }
 
     public Status statusMessage(Status status){ //TODO udfyld de her med fornuftige beskeder
@@ -115,6 +120,7 @@ public class UserInterface {
             case SELECT_MEMBER -> System.out.println("Vælg venligst et medlem.");
             case SELECT_DISCIPLINE -> System.out.println("Vælg venligst en disciplin.");
             case ACTIVE -> System.out.println("");
+            case INVALID_CHOICE -> System.out.println("Ugyldigt input. Prøv igen");
         }
         return status;
     }
