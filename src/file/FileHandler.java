@@ -62,7 +62,7 @@ public class FileHandler {
 
     private void saveToFile(String stringToSave, String filePath) throws IOException {
         File file = new File(filePath);
-        PrintStream ps = new PrintStream(file, StandardCharsets.UTF_8);
+        PrintStream ps = new PrintStream(file);
         ps.println(stringToSave);
     }
 

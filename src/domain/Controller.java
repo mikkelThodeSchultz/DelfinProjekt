@@ -15,7 +15,7 @@ import java.util.List;
 
 import member.*;
 import ui.Status;
-import ui.UserInterface;
+import ui.*;
 
 public class Controller {
     private UserInterface ui = new UserInterface();
@@ -82,7 +82,7 @@ public class Controller {
 
 
         try {
-            FileHandler.storeMember(memberList.getMemberList(), "STANDARD_MEMBER");
+            FileHandler.storeMember(memberList.getMemberList());
         } catch (IOException e) {
             System.out.println("Failed to store members");
         }
@@ -168,7 +168,17 @@ public class Controller {
     private void homeAddressValidate() {
     }
 
-    public Member findMember(String userInputString){
+    public Member[] findMember(String userInputString){
+        String search = userInputString;
+        Member [] foundMembers = memberList.findMember(search);
+
+        if (foundMembers.length == 1){
+          memberList.setSelectedMember(foundMembers[0]);
+        } else if (foundMembers.length > 1){
+            for (int i = 0; i < foundMembers.length; i++) {
+            }
+        }
+
         return memberList.findMember(userInputString);
     }
 
