@@ -33,8 +33,8 @@ public abstract class Member { //TODO skal gøres abstrakt!
         this.email = email;
         this.homeAddress = homeAddress;
         this.birthDate = LocalDate.of(year, month, day);
-        //this.membershipNumber = generateMembershipNumber();
-        //this.age = calculateAge();
+        this.membershipNumber = generateMembershipNumber();
+        this.age = calculateAge();
         this.isActive = true;
         this.hasPaid = true;
 
@@ -79,8 +79,33 @@ public abstract class Member { //TODO skal gøres abstrakt!
         return membershipNumber;
     }
 
+    public int calculateAge() {
+        LocalDate currentDate = LocalDate.now();
+        return birthDate != null ? Period.between(birthDate, currentDate).getYears() : -1;
+    }
+
+    private String generateMembershipNumber() {
+        String space = " ";
+        String firstTwo = "";
+        String lastTwo = "";
+        Random random = new Random();
+        int numbers = random.nextInt(10000);
+        String numbersFormat = String.format("%04d", numbers);
+        firstTwo = name.substring(0, 2).toLowerCase();
+        lastTwo = name.substring(name.lastIndexOf(space) + 1, name.lastIndexOf(space) + 3).toLowerCase();
+        return firstTwo + lastTwo + numbersFormat;
+    }
+
     public boolean matches(String userInputSearch){
-        return membershipNumber.contains(userInputSearch);
+        boolean match;
+        if (membershipNumber.contains(userInputSearch)){
+            match = true;
+        } else if (name.contains(userInputSearch)){
+            match = true;
+        } else {
+            match = false;
+        }
+        return match;
     }
 
     public String toString() {

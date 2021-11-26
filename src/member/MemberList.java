@@ -23,6 +23,7 @@ public class MemberList {
         for (Member member : memberList) {
             if (member.matches(userInputSearch)) {
                 selectedMember = member;
+                System.out.println(selectedMember);
             }
         }
         return selectedMember;
@@ -32,23 +33,6 @@ public class MemberList {
     }
 
     public void editMember() {
-    }
-
-    private String generateMembershipNumber(Member member) {
-        String space = " ";
-        String firstTwo = "";
-        String lastTwo = "";
-        Random random = new Random();
-        int numbers = random.nextInt(10000);
-        String numbersFormat = String.format("%04d", numbers);
-        firstTwo = member.getName().substring(0, 2).toLowerCase();
-        lastTwo = member.getName().substring(member.getName().lastIndexOf(space) + 1, member.getName().lastIndexOf(space) + 3).toLowerCase();
-        return firstTwo + lastTwo + numbersFormat;
-    }
-
-    public int calculateAge(Member member) {
-        LocalDate currentDate = LocalDate.now();
-        return member.getBirthDate() != null ? Period.between(member.getBirthDate(), currentDate).getYears() : -1;
     }
 
 

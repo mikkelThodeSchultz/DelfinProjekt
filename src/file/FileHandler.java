@@ -19,22 +19,31 @@ import member.Member;
 import member.StandardMember;
 
 public class FileHandler {
-    private final String MEMBERS = "data/members.json";
+    private final String STANDARD_MEMBERS = "data/standard_members.json";
+    private final String COMPETETIVE_MEMBERS = "data/competetive_members.json";
+    private final String TRAINERS = "data/trainers.json";
+    private final String TEST = "data/members.json";
+
 
     public FileHandler() {
     }
 
-    public void storeMember(List<Member> members) throws IOException {
-        saveToFile(convertMembersToJson(members), MEMBERS);
+    public void storeMember(List<Member> members, String memberType) throws IOException {
+        switch (memberType){
+            case "STANDARD_MEMBER" -> saveToFile(convertMembersToJson(members), STANDARD_MEMBERS);
+            case "COMPETETIVE_MEMBERS" -> saveToFile(convertMembersToJson(members), COMPETETIVE_MEMBERS);
+            case "TRAINERS" -> saveToFile(convertMembersToJson(members), TRAINERS);
+        }
     }
 
-    public void storeMember() throws IOException {
-        saveToFile("", MEMBERS);
-    }
-
-
-    public ArrayList<Member> getMembersFromFile() {
-        return getStoredFromFile(MEMBERS);
+    public ArrayList<Member> getMembersFromFile(String memberType) {
+        ArrayList<Member> storedMembers = null;
+        switch (memberType) {
+            case "STANDARD_MEMBER" -> storedMembers = getStoredFromFile(STANDARD_MEMBERS);
+            case "COMPETETIVE_MEMBERS" -> storedMembers = getStoredFromFile(COMPETETIVE_MEMBERS);
+            case "TRAINERS" -> storedMembers =  getStoredFromFile(TRAINERS);
+        }
+        return storedMembers;
     }
 
     private String convertMembersToJson(List<Member> members) throws JsonProcessingException {

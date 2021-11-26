@@ -66,6 +66,12 @@ public class UserInterface {
         return sc.nextLine();
     }
 
+    public String findSpecificMemberMenu(){
+        System.out.println("""
+                Skriv en del af eller hele navnet på det medlem, du ønsker at finde: """);
+        return sc.nextLine();
+    }
+
     public void getFoundMemberMenu(){
         //TODO redigering i et medlems info bør også afføde ændring i medlemsnummer. Dvs metode kald.
         System.out.println("""
