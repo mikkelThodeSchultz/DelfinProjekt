@@ -114,7 +114,7 @@ public class UserInterface {
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 1 - Top 5 lister
                 2 - Registrer resultat
-                3 - Tilknyt disciplin
+                3 - Tilknyt disciplin(er)
                 0 - Tilbage til hovedmenu
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 """);
@@ -125,12 +125,12 @@ public class UserInterface {
         switch (status){
             case OK -> System.out.println("");
             case NO -> System.out.println("");
-            case ERROR -> System.out.println("");
-            case MEMBER_NOT_FOUND -> System.out.println("Kunne ikke finde det medlem.");
+            case ERROR -> System.out.println("Der er opstået et problem.");
+            case MEMBER_NOT_FOUND -> System.out.println("Kunne ikke finde det medlem du søgte.");
             case SELECT_MEMBER -> System.out.println("Vælg venligst et medlem.");
             case SELECT_DISCIPLINE -> System.out.println("Vælg venligst en disciplin.");
             case ACTIVE -> System.out.println("");
-            case INVALID_CHOICE -> System.out.println("Ugyldigt input. Prøv igen");
+            case INVALID_CHOICE -> System.out.println("Ugyldigt input.\nPrøv venligst med et der er gyldigt.");
         }
         return status;
     }
@@ -162,14 +162,8 @@ public class UserInterface {
         //memberList.addMember(newMember);
     }
 
-
-    public void printMemberLists(String s) {
+    public void printMemberLists(String s){
         System.out.println(s);
-
-
-        //Controller controller = new Controller();
-        //List members = controller.memberList();
-        //System.out.println(members);
     }
 
 }

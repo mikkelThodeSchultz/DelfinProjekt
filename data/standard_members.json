@@ -48,4 +48,14 @@
   "membershipNumber" : "jihe7973",
   "isActive" : true,
   "isHasPaid" : false
+}, {
+  "name" : "Toke Tokusatsu",
+  "age" : 8,
+  "phoneNumber" : "34239034",
+  "email" : "toke@gmol.com",
+  "homeAddress" : "frugt 5",
+  "birthDate" : [ 2012, 12, 12 ],
+  "membershipNumber" : "toto9205",
+  "isActive" : true,
+  "isHasPaid" : false
 } ]

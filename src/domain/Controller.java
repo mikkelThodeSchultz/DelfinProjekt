@@ -171,12 +171,28 @@ public class Controller {
     public Member[] findMember(String userInputString){
         String search = userInputString;
         Member [] foundMembers = memberList.findMember(search);
-
+        String members = "";
         if (foundMembers.length == 1){
-          memberList.setSelectedMember(foundMembers[0]);
+         memberList.setSelectedMember(foundMembers[0]);
         } else if (foundMembers.length > 1){
+            int counter = 0;
             for (int i = 0; i < foundMembers.length; i++) {
+                counter ++;
+                members += counter + " " +foundMembers[i] + "\n";
             }
+            ui.printMessage(members);
+            int select = 0;
+            while (select < 1 || select > foundMembers.length){
+                select = ui.userInputInt();
+                if (select < 1 || select > foundMembers.length){
+                ui.printMessage("Vælg venligst tallet ud for det ønskede medlem.");
+                } else {
+                    memberList.setSelectedMember(foundMembers[select -1]);
+                }
+            }
+        } else {
+            ui.printMessage("Der er ingen medlemmer der passer til dine søgekriterier.");
+            memberList.setSelectedMember(null);
         }
 
         return memberList.findMember(userInputString);
