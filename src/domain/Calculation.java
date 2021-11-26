@@ -5,14 +5,16 @@
 
 package domain;
 
-import java.util.List;
+import member.Member;
+
+import java.util.ArrayList;
 
 public class Calculation {
 
     public Calculation() {
     }
 
-    public double calculateContingent(int age, boolean isActive){ //sender double til controller
+    public double calculateContingent(int age, boolean isActive) { //sender double til controller
         int junior = 17;
         int senior = 18;
         int seniorDiscount = 60;
@@ -22,7 +24,7 @@ public class Calculation {
         double discount = 0.75;
         double contingentSum = 0;
 
-        if (!isActive){
+        if (!isActive) {
             contingentSum = passiveMembership;
         } else if (age <= junior) {
             contingentSum = activeJuniorMembership;
@@ -33,4 +35,23 @@ public class Calculation {
         }
         return contingentSum;
     }
+
+    public ArrayList<Member> listOfMembersWhoOwe(ArrayList<Member> members) {
+        ArrayList<Member> membersWhoOwe = new ArrayList<>();
+        for (Member member : members) {
+            if (!member.getIsHasPaid()) {
+                membersWhoOwe.add(member);
+            }
+        }
+        return membersWhoOwe;
+    }
+
+    public double calculateContingentForMultipleMembers(ArrayList<Member> members) {
+        double contingentSumForMultipleMembers = 0;
+        for (Member member : members) {
+            contingentSumForMultipleMembers += calculateContingent(member.getAge(), member.getIsActive());
+        }
+        return contingentSumForMultipleMembers;
+    }
+
 }

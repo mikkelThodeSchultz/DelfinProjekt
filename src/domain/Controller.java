@@ -82,7 +82,7 @@ public class Controller {
 
 
         try {
-            FileHandler.storeMember(memberList.getMemberList());
+            FileHandler.storeMember(memberList.getMemberList(), "STANDARD_MEMBER");
         } catch (IOException e) {
             System.out.println("Failed to store members");
         }
@@ -96,7 +96,7 @@ public class Controller {
                 case "1" -> System.out.println("a");//  Top 5 lister
                 case "2" -> System.out.println("a"); //Registrer resultat
                 case "3" -> System.out.println("a"); //Tilknyt disciplinx½
-                case "0" -> System.out.println("a"); //Tilbage til hovedmenu
+                case "0" -> goAgain = false; //Tilbage til hovedmenu
                 default -> ui.statusMessage(Status.INVALID_CHOICE);
             }}
     }
@@ -106,11 +106,11 @@ public class Controller {
         while (goAgain){
         String choice = ui.getPaymentsMenu();
             switch (choice){
-                case "1" -> System.out.println("a");// Forventet indtjening
+                case "1" -> System.out.println(calculateTotalIncome());// Forventet indtjening
                 case "2" -> System.out.println("a"); //Modtag betaling
-                case "3" -> System.out.println("a"); //Vis restancer
+                case "3" -> ui.printMessage(listOfMembersWhoOwe().toString()); //Todo flot udprintning på listen
                 case "4" -> System.out.println("a"); //Opkræv kontingenter
-                case "0" -> System.out.println("a"); //Tilbage til hovedmenu
+                case "0" -> goAgain=false; //Tilbage til hovedmenu
                 default -> ui.statusMessage(Status.INVALID_CHOICE);
             }}
 
@@ -129,15 +129,13 @@ public class Controller {
          }}
     }
 
-    public double calculateTotalIncome(MemberList memberList){
-        double totalSum = 0;
-        for (int i = 0; i < memberList.getMemberList().size(); i++) {
-            totalSum += calculateMembershipFee(memberList.getMemberList().get(i));
-        }
-        /*for (Member member : memberList) {
-           totalSum += calculateMembershipFee(member);
-        }*/
+    public double calculateTotalIncome(){
+        double totalSum = calculation.calculateContingentForMultipleMembers(memberList.getMemberList());
         return totalSum;
+    }
+
+    public ArrayList<Member> listOfMembersWhoOwe(){
+        return calculation.listOfMembersWhoOwe(memberList.getMemberList());
     }
 
     public double calculateMembershipFee(Member member){
