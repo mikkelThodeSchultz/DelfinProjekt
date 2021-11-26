@@ -13,9 +13,7 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
 
-import member.Member;
-import member.MemberList;
-import member.StandardMember;
+import member.*;
 import ui.Status;
 import ui.UserInterface;
 
@@ -32,8 +30,8 @@ public class Controller {
 
     public void start() {
         //Henter members fra fil
-        storedMembers = FileHandler.getMembersFromFile("STANDARD_MEMBERS");
-        //sendStoredMembers(storedMembers);
+        storedMembers = FileHandler.getMembersFromFile();
+        sendStoredMembers(storedMembers);
        // ui.printMemberLists(memberList.printMemberLists());
 
         ui.getWelcomeMessage();
@@ -47,24 +45,44 @@ public class Controller {
                case "0" ->  goAgain = false;
                default -> ui.statusMessage(Status.INVALID_CHOICE);
         }}
-       /* StandardMember member = new StandardMember("Torben Trucker", "12345678", "Torbensmail@mail.com", "torbensvej 31", 24, 12, 2000);
+
+/*
+        StandardMember member = new StandardMember("Torben Trucker", "12345678", "Torbensmail@mail.com", "torbensvej 31", 24, 12, 2000);
         StandardMember member2 = new StandardMember("Søren Kristiansen", "45678910", "Sørensmail@mail.com", "Sørensvej 14", 10, 10, 1966);
         StandardMember member3 = new StandardMember("Tobias Vold", "98747723489", "Tobiases@mail.com", "TobyAllé 31", 1, 1, 1999);
         StandardMember member4 = new StandardMember("Finn Finsen", "8888888", "Finns@mail.com", "Finnminvej 99", 24, 9, 1920);
         StandardMember member5 = new StandardMember("Jim Henry", "67453219", "Jims@mail.com", "Jimminvej 89", 14, 6, 2008);
-        System.out.println(memberList.calculateAge(member));
-        System.out.println(member.getBirthDate());
-        System.out.println(member.getMembershipNumber());
         memberList.addMember(member);
         memberList.addMember(member2);
         memberList.addMember(member3);
         memberList.addMember(member4);
-        memberList.addMember(member5);*/
+        memberList.addMember(member5);
+        CompetitiveMember cmember = new CompetitiveMember("cTorben Trucker", "12345678", "Torbensmail@mail.com", "torbensvej 31", 24, 12, 2000);
+        CompetitiveMember cmember2 = new CompetitiveMember("cSøren Kristiansen", "45678910", "Sørensmail@mail.com", "Sørensvej 14", 10, 10, 1966);
+        CompetitiveMember cmember3 = new CompetitiveMember("cTobias Vold", "98747723489", "Tobiases@mail.com", "TobyAllé 31", 1, 1, 1999);
+        CompetitiveMember cmember4 = new CompetitiveMember("cFinn Finsen", "8888888", "Finns@mail.com", "Finnminvej 99", 24, 9, 1920);
+        CompetitiveMember cmember5 = new CompetitiveMember("cJim Henry", "67453219", "Jims@mail.com", "Jimminvej 89", 14, 6, 2008);
+        memberList.addMember(cmember);
+        memberList.addMember(cmember2);
+        memberList.addMember(cmember3);
+        memberList.addMember(cmember4);
+        memberList.addMember(cmember5);
+        Trainer tmember = new Trainer("tTorben Trucker", "12345678", "Torbensmail@mail.com", "torbensvej 31", 24, 12, 2000);
+        Trainer tmember2 = new Trainer("tSøren Kristiansen", "45678910", "Sørensmail@mail.com", "Sørensvej 14", 10, 10, 1966);
+        Trainer tmember3 = new Trainer("tTobias Vold", "98747723489", "Tobiases@mail.com", "TobyAllé 31", 1, 1, 1999);
+        Trainer tmember4 = new Trainer("tFinn Finsen", "8888888", "Finns@mail.com", "Finnminvej 99", 24, 9, 1920);
+        Trainer tmember5 = new Trainer("tJim Henry", "67453219", "Jims@mail.com", "Jimminvej 89", 14, 6, 2008);
+        memberList.addMember(tmember);
+        memberList.addMember(tmember2);
+        memberList.addMember(tmember3);
+        memberList.addMember(tmember4);
+        memberList.addMember(tmember5);
+*/
 
-        System.out.println(calculateTotalIncome(memberList));
+
 
         try {
-            FileHandler.storeMember(memberList.getMemberList(), "STANDARD_MEMBER");
+            FileHandler.storeMember(memberList.getMemberList());
         } catch (IOException e) {
             System.out.println("Failed to store members");
         }

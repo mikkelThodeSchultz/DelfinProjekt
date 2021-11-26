@@ -17,6 +17,14 @@ public class CompetitiveMember extends Member {
 
     //TODO lav metode der fanger disciplin dubletter
 
-    public CompetitiveMember() {
+    public CompetitiveMember(String name, String phoneNumber, String email, String homeAddress, int day, int month, int year) {
+        super (name, phoneNumber, email, homeAddress, day, month, year);
     }
+
+
+    //USED FOR JSON. DO NOT DELETE
+    public CompetitiveMember(){
+
+    }
+
 }

@@ -14,5 +14,6 @@ public class Competition {
     Status disciplin;
 
     public Competition() {
+
     }
 }

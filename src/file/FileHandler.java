@@ -15,34 +15,43 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import member.Member;
+import member.*;
 import member.StandardMember;
 
 public class FileHandler {
     private final String STANDARD_MEMBERS = "data/standard_members.json";
     private final String COMPETETIVE_MEMBERS = "data/competetive_members.json";
     private final String TRAINERS = "data/trainers.json";
-    private final String TEST = "data/members.json";
 
 
     public FileHandler() {
     }
 
-    public void storeMember(List<Member> members, String memberType) throws IOException {
-        switch (memberType){
-            case "STANDARD_MEMBER" -> saveToFile(convertMembersToJson(members), STANDARD_MEMBERS);
-            case "COMPETETIVE_MEMBERS" -> saveToFile(convertMembersToJson(members), COMPETETIVE_MEMBERS);
-            case "TRAINERS" -> saveToFile(convertMembersToJson(members), TRAINERS);
+    public void storeMember(List<Member> members) throws IOException {
+        ArrayList<Member> standardMembers = new ArrayList<>();
+        ArrayList<Member> competitiveMember = new ArrayList<>();
+        ArrayList<Member> trainer = new ArrayList<>();
+        for (Member member : members){
+            if(member instanceof StandardMember){
+                standardMembers.add(member);
+            }
+            else if(member instanceof CompetitiveMember){
+                competitiveMember.add(member);
+            }
+            else if(member instanceof Trainer){
+                trainer.add(member);
+            }
         }
+        saveToFile(convertMembersToJson(standardMembers), STANDARD_MEMBERS);
+        saveToFile(convertMembersToJson(competitiveMember), COMPETETIVE_MEMBERS);
+        saveToFile(convertMembersToJson(trainer), TRAINERS);
     }
 
-    public ArrayList<Member> getMembersFromFile(String memberType) {
-        ArrayList<Member> storedMembers = null;
-        switch (memberType) {
-            case "STANDARD_MEMBER" -> storedMembers = getStoredFromFile(STANDARD_MEMBERS);
-            case "COMPETETIVE_MEMBERS" -> storedMembers = getStoredFromFile(COMPETETIVE_MEMBERS);
-            case "TRAINERS" -> storedMembers =  getStoredFromFile(TRAINERS);
-        }
+    public ArrayList<Member> getMembersFromFile() {
+        ArrayList<Member> storedMembers = new ArrayList<>();
+        storedMembers.addAll(getStoredFromFile(STANDARD_MEMBERS, "standard_member"));
+        storedMembers.addAll(getStoredFromFile(COMPETETIVE_MEMBERS, "competetive_member"));
+        storedMembers.addAll(getStoredFromFile(TRAINERS, "trainer"));
         return storedMembers;
     }
 
@@ -69,7 +78,7 @@ public class FileHandler {
         return lines;
     }
 
-    private ArrayList<Member> getStoredFromFile(String file) {
+    private ArrayList<Member> getStoredFromFile(String file, String type) {
         List<String> lines;
         try {
             lines = getLinesFromFile(file);
@@ -78,16 +87,27 @@ public class FileHandler {
                 for (String line : lines) {
                     stringBuilder.append(line).append('\n');
                 }
-
-                List<StandardMember> members = Json.fromJsonToArray(stringBuilder.toString(), new TypeReference<>() {
+                if(type == "standard_member"){
+                    List<StandardMember> members = Json.fromJsonToArray(stringBuilder.toString(), new TypeReference<>() {
                 });
-                return new ArrayList<>(members);
+                    return new ArrayList<>(members);
+                }
+                else if(type == "competetive_member"){
+                    List<CompetitiveMember> members = Json.fromJsonToArray(stringBuilder.toString(), new TypeReference<>() {
+                    });
+                    return new ArrayList<>(members);
+                }
+                else if(type == "trainer"){
+                    List<Trainer> members = Json.fromJsonToArray(stringBuilder.toString(), new TypeReference<>() {
+                    });
+                    return new ArrayList<>(members);
+                }
+
+
             }
         } catch (IOException e) {
-            System.out.println("Error");
             return new ArrayList<>();
         }
-        System.out.println("Error");
         return new ArrayList<>();
     }
 }
