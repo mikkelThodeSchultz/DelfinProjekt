@@ -36,6 +36,7 @@ public abstract class Member { //TODO skal gøres abstrakt!
         //this.membershipNumber = generateMembershipNumber();
         //this.age = calculateAge();
         this.isActive = true;
+        this.hasPaid = true;
 
     }
 

@@ -8,10 +8,7 @@ package domain;
 import file.FileHandler;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.List;
 
 import member.Member;
 import member.MemberList;
@@ -38,17 +35,18 @@ public class Controller {
 
         ui.getWelcomeMessage();
         boolean goAgain = true;
-        while(goAgain){
-           String choice = ui.getMainMenu();
-           switch(choice){
-               case "1" -> memberMenu();
-               case "2" -> paymentMenu();
-               case "3" -> CompetitionMenu();
-               case "0" ->  goAgain = false;
-               default -> ui.statusMessage(Status.INVALID_CHOICE);
-        }}
+        while (goAgain) {
+            String choice = ui.getMainMenu();
+            switch (choice) {
+                case "1" -> memberMenu();
+                case "2" -> paymentMenu();
+                case "3" -> CompetitionMenu();
+                case "0" -> goAgain = false;
+                default -> ui.statusMessage(Status.INVALID_CHOICE);
+            }
+        }
 
-        /*Member member = new Member("Torben Trucker", "12345678", "Torbensmail@mail.com", "torbensvej 31", 24, 12, 2000);
+        Member member = new Member("Torben Trucker", "12345678", "Torbensmail@mail.com", "torbensvej 31", 24, 12, 2000);
         Member member2 = new Member("Søren Kristiansen", "45678910", "Sørensmail@mail.com", "Sørensvej 14", 10, 10, 1966);
         Member member3 = new Member("Tobias Vold", "98747723489", "Tobiases@mail.com", "TobyAllé 31", 1, 1, 1999);
         Member member4 = new Member("Finn Finsen", "8888888", "Finns@mail.com", "Finnminvej 99", 24, 9, 1920);
@@ -60,7 +58,7 @@ public class Controller {
         memberList.addMember(member2);
         memberList.addMember(member3);
         memberList.addMember(member4);
-        memberList.addMember(member5);*/
+        memberList.addMember(member5);
 
         //Henter members fra fil
         /*storedMembers = FileHandler.getMembersFromFile();
@@ -76,50 +74,56 @@ public class Controller {
         }
     }
 
-    public void CompetitionMenu(){
-        String choice = ui.getCompetitionMenu();
+    public void CompetitionMenu() {
         boolean goAgain = true;
-        while (goAgain){
-        String choice = ui.getCompetitionMenu();
-            switch (choice){
+        while (goAgain) {
+            String choice = ui.getCompetitionMenu();
+            switch (choice) {
                 case "1" -> System.out.println("a");//  Top 5 lister
                 case "2" -> System.out.println("a"); //Registrer resultat
                 case "3" -> System.out.println("a"); //Tilknyt disciplinx½
                 case "0" -> System.out.println("a"); //Tilbage til hovedmenu
                 default -> ui.statusMessage(Status.INVALID_CHOICE);
-            }}
+            }
+        }
     }
 
-    public void paymentMenu(){
-        String choice = ui.getPaymentsMenu();
+    public void paymentMenu() {
         boolean goAgain = true;
-        while (goAgain){
-        String choice = ui.getPaymentsMenu();
-            switch (choice){
-                case "1" -> System.out.println("a");// Forventet indtjening
+        while (goAgain) {
+            String choice = ui.getPaymentsMenu();
+            switch (choice) {
+                case "1" -> System.out.println(amountOfMoneyExpected());// Forventet indtjening
                 case "2" -> System.out.println("a"); //Modtag betaling
-                case "3" -> System.out.println("a"); //Vis restancer
+                case "3" -> {
+                    System.out.println(amountOfMoneyOwed());
+                    System.out.println(listOfMembersWhoOwe());
+                    ; //Vis restancer
+                }
+
                 case "4" -> System.out.println("a"); //Opkræv kontingenter
                 case "0" -> System.out.println("a"); //Tilbage til hovedmenu
                 default -> ui.statusMessage(Status.INVALID_CHOICE);
-            }}
+            }
+        }
 
     }
 
-    public void memberMenu(){
+    public void memberMenu() {
 
         boolean goAgain = true;
-        while (goAgain){
-        String choice = ui.getMemberMenu();
-        switch (choice){
-            case "1" -> System.out.println("a");//find member
-            case "2" -> createNewMember(ui.createNewMember());
-            case "0" -> goAgain = false;
-            default -> ui.statusMessage(Status.INVALID_CHOICE);
-         }}
+        while (goAgain) {
+            String choice = ui.getMemberMenu();
+            switch (choice) {
+                case "1" -> System.out.println("a");//find member
+                case "2" -> createNewMember(ui.createNewMember());
+                case "0" -> goAgain = false;
+                default -> ui.statusMessage(Status.INVALID_CHOICE);
+            }
+        }
     }
 
-    public double calculateTotalIncome(MemberList memberList){
+    public double calculateTotalIncome(MemberList memberList) {
         double totalSum = 0;
         for (int i = 0; i < memberList.getMemberList().size(); i++) {
             totalSum += calculateMembershipFee(memberList.getMemberList().get(i));
@@ -130,38 +134,38 @@ public class Controller {
         return totalSum;
     }
 
-    public double calculateMembershipFee(Member member){
+    public double calculateMembershipFee(Member member) {
         return calculation.calculateContingent(member.getAge(), member.getIsActive());
     }
 
     public void createNewMember(String[] memberInfo) {
-        try{
+        try {
             int day = Integer.parseInt(memberInfo[4]);
             int month = Integer.parseInt(memberInfo[5]);
             int year = Integer.parseInt(memberInfo[6]);
 
-            StandardMember newMember = new StandardMember(memberInfo[0],memberInfo[1],memberInfo[2],memberInfo[3],day,month,year);
+            StandardMember newMember = new StandardMember(memberInfo[0], memberInfo[1], memberInfo[2], memberInfo[3], day, month, year);
             memberList.addMember(newMember);
             ui.printMessage("Du har nu oprettet " + newMember + " som medlem i klubben.");
 
-        } catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             ui.printMessage("Ugyldigt input. Indtast venligst talværdier i fødselsdato-oplysninger.");
         }
 
     }
 
-        //TODO generer et membershipnumber
-    private void emailValidate(){
+    //TODO generer et membershipnumber
+    private void emailValidate() {
     }
 
     private void homeAddressValidate() {
     }
 
-    public Member findMember(String userInputString){
+    public Member findMember(String userInputString) {
         return memberList.findMember(userInputString);
     }
 
-    public void statusCreation(){
+    public void statusCreation() {
     }
 
     public String userInputString() {
@@ -172,8 +176,18 @@ public class Controller {
         return memberList.getMemberList();
     }
 
-    public void sendStoredMembers(ArrayList<Member> storedMembers){
+    public void sendStoredMembers(ArrayList<Member> storedMembers) {
         memberList.membersFromController(storedMembers);
         //storedMembers.clear();
+    }
+
+    public ArrayList listOfMembersWhoOwe(){
+        return calculation.listOfMembersWhoOwe(memberList.getMemberList());
+    }
+    public double amountOfMoneyOwed(){
+        return calculation.calculateContingentForMultipleMembers(calculation.listOfMembersWhoOwe(memberList.getMemberList()));
+    }
+    public double amountOfMoneyExpected(){
+        return calculation.calculateContingentForMultipleMembers(memberList.getMemberList());
     }
 }
