@@ -32,9 +32,9 @@ public class Controller {
 
     public void start() {
         //Henter members fra fil
-        storedMembers = FileHandler.getMembersFromFile();
-        sendStoredMembers(storedMembers);
-        ui.printMemberLists(memberList.printMemberLists());
+        storedMembers = FileHandler.getMembersFromFile("STANDARD_MEMBERS");
+        //sendStoredMembers(storedMembers);
+       // ui.printMemberLists(memberList.printMemberLists());
 
         ui.getWelcomeMessage();
         boolean goAgain = true;
@@ -47,12 +47,11 @@ public class Controller {
                case "0" ->  goAgain = false;
                default -> ui.statusMessage(Status.INVALID_CHOICE);
         }}
-
-        /*Member member = new Member("Torben Trucker", "12345678", "Torbensmail@mail.com", "torbensvej 31", 24, 12, 2000);
-        Member member2 = new Member("Søren Kristiansen", "45678910", "Sørensmail@mail.com", "Sørensvej 14", 10, 10, 1966);
-        Member member3 = new Member("Tobias Vold", "98747723489", "Tobiases@mail.com", "TobyAllé 31", 1, 1, 1999);
-        Member member4 = new Member("Finn Finsen", "8888888", "Finns@mail.com", "Finnminvej 99", 24, 9, 1920);
-        Member member5 = new Member("Jim Henry", "67453219", "Jims@mail.com", "Jimminvej 89", 14, 6, 2008);
+       /* StandardMember member = new StandardMember("Torben Trucker", "12345678", "Torbensmail@mail.com", "torbensvej 31", 24, 12, 2000);
+        StandardMember member2 = new StandardMember("Søren Kristiansen", "45678910", "Sørensmail@mail.com", "Sørensvej 14", 10, 10, 1966);
+        StandardMember member3 = new StandardMember("Tobias Vold", "98747723489", "Tobiases@mail.com", "TobyAllé 31", 1, 1, 1999);
+        StandardMember member4 = new StandardMember("Finn Finsen", "8888888", "Finns@mail.com", "Finnminvej 99", 24, 9, 1920);
+        StandardMember member5 = new StandardMember("Jim Henry", "67453219", "Jims@mail.com", "Jimminvej 89", 14, 6, 2008);
         System.out.println(memberList.calculateAge(member));
         System.out.println(member.getBirthDate());
         System.out.println(member.getMembershipNumber());
@@ -62,22 +61,16 @@ public class Controller {
         memberList.addMember(member4);
         memberList.addMember(member5);*/
 
-        //Henter members fra fil
-        /*storedMembers = FileHandler.getMembersFromFile();
-        sendStoredMembers(storedMembers);
-        ui.printMemberLists(memberList.printMemberLists());*/
-
         System.out.println(calculateTotalIncome(memberList));
 
         try {
-            FileHandler.storeMember(memberList.getMemberList());
+            FileHandler.storeMember(memberList.getMemberList(), "STANDARD_MEMBER");
         } catch (IOException e) {
             System.out.println("Failed to store members");
         }
     }
 
     public void CompetitionMenu(){
-        String choice = ui.getCompetitionMenu();
         boolean goAgain = true;
         while (goAgain){
         String choice = ui.getCompetitionMenu();
@@ -91,7 +84,6 @@ public class Controller {
     }
 
     public void paymentMenu(){
-        String choice = ui.getPaymentsMenu();
         boolean goAgain = true;
         while (goAgain){
         String choice = ui.getPaymentsMenu();
