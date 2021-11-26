@@ -19,15 +19,17 @@ import member.*;
 import member.StandardMember;
 
 public class FileHandler {
+
     private final String STANDARD_MEMBERS = "data/standard_members.json";
     private final String COMPETETIVE_MEMBERS = "data/competetive_members.json";
     private final String TRAINERS = "data/trainers.json";
+    private final String COMPETITIONS = "data/competitions.json";
 
 
     public FileHandler() {
     }
 
-    public void storeMember(List<Member> members) throws IOException {
+    public void storeMember(List<Member> members, List<Competition> comps) throws IOException {
         ArrayList<Member> standardMembers = new ArrayList<>();
         ArrayList<Member> competitiveMember = new ArrayList<>();
         ArrayList<Member> trainer = new ArrayList<>();
@@ -45,6 +47,7 @@ public class FileHandler {
         saveToFile(convertMembersToJson(standardMembers), STANDARD_MEMBERS);
         saveToFile(convertMembersToJson(competitiveMember), COMPETETIVE_MEMBERS);
         saveToFile(convertMembersToJson(trainer), TRAINERS);
+        saveToFile(convertCompsToJson(comps),COMPETITIONS );
     }
 
     public ArrayList<Member> getMembersFromFile() {
@@ -57,6 +60,11 @@ public class FileHandler {
 
     private String convertMembersToJson(List<Member> members) throws JsonProcessingException {
         JsonNode node = Json.toJson(members);
+        return Json.prettyPrint(node);
+    }
+
+    private String convertCompsToJson(List<Competition> comps) throws JsonProcessingException {
+        JsonNode node = Json.toJson(comps);
         return Json.prettyPrint(node);
     }
 

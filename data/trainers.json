@@ -5,7 +5,7 @@
   "email" : "Torbensmail@mail.com",
   "homeAddress" : "torbensvej 31",
   "birthDate" : [ 2000, 12, 24 ],
-  "membershipNumber" : "tttr2817",
+  "membershipNumber" : "tttr2615",
   "isActive" : true,
   "isHasPaid" : false
 }, {
@@ -15,7 +15,7 @@
   "email" : "Sørensmail@mail.com",
   "homeAddress" : "Sørensvej 14",
   "birthDate" : [ 1966, 10, 10 ],
-  "membershipNumber" : "tskr9115",
+  "membershipNumber" : "tskr3714",
   "isActive" : true,
   "isHasPaid" : false
 }, {
@@ -25,7 +25,7 @@
   "email" : "Tobiases@mail.com",
   "homeAddress" : "TobyAllé 31",
   "birthDate" : [ 1999, 1, 1 ],
-  "membershipNumber" : "ttvo1650",
+  "membershipNumber" : "ttvo2239",
   "isActive" : true,
   "isHasPaid" : false
 }, {
@@ -35,7 +35,7 @@
   "email" : "Finns@mail.com",
   "homeAddress" : "Finnminvej 99",
   "birthDate" : [ 1920, 9, 24 ],
-  "membershipNumber" : "tffi5891",
+  "membershipNumber" : "tffi7260",
   "isActive" : true,
   "isHasPaid" : false
 }, {
@@ -45,7 +45,57 @@
   "email" : "Jims@mail.com",
   "homeAddress" : "Jimminvej 89",
   "birthDate" : [ 2008, 6, 14 ],
-  "membershipNumber" : "tjhe3717",
+  "membershipNumber" : "tjhe3439",
+  "isActive" : true,
+  "isHasPaid" : false
+}, {
+  "name" : "tTorben Trucker",
+  "age" : 20,
+  "phoneNumber" : "12345678",
+  "email" : "Torbensmail@mail.com",
+  "homeAddress" : "torbensvej 31",
+  "birthDate" : [ 2000, 12, 24 ],
+  "membershipNumber" : "tttr2537",
+  "isActive" : true,
+  "isHasPaid" : false
+}, {
+  "name" : "tSøren Kristiansen",
+  "age" : 55,
+  "phoneNumber" : "45678910",
+  "email" : "Sørensmail@mail.com",
+  "homeAddress" : "Sørensvej 14",
+  "birthDate" : [ 1966, 10, 10 ],
+  "membershipNumber" : "tskr8376",
+  "isActive" : true,
+  "isHasPaid" : false
+}, {
+  "name" : "tTobias Vold",
+  "age" : 22,
+  "phoneNumber" : "98747723489",
+  "email" : "Tobiases@mail.com",
+  "homeAddress" : "TobyAllé 31",
+  "birthDate" : [ 1999, 1, 1 ],
+  "membershipNumber" : "ttvo8775",
+  "isActive" : true,
+  "isHasPaid" : false
+}, {
+  "name" : "tFinn Finsen",
+  "age" : 101,
+  "phoneNumber" : "8888888",
+  "email" : "Finns@mail.com",
+  "homeAddress" : "Finnminvej 99",
+  "birthDate" : [ 1920, 9, 24 ],
+  "membershipNumber" : "tffi6411",
+  "isActive" : true,
+  "isHasPaid" : false
+}, {
+  "name" : "tJim Henry",
+  "age" : 13,
+  "phoneNumber" : "67453219",
+  "email" : "Jims@mail.com",
+  "homeAddress" : "Jimminvej 89",
+  "birthDate" : [ 2008, 6, 14 ],
+  "membershipNumber" : "tjhe7989",
   "isActive" : true,
   "isHasPaid" : false
 } ]

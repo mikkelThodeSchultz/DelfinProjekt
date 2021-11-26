@@ -6,7 +6,7 @@
 package domain;
 
 import file.FileHandler;
-
+import org.javatuples.Quartet;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -14,6 +14,7 @@ import java.util.InputMismatchException;
 import java.util.List;
 
 import member.*;
+import ui.Disciplines;
 import ui.Status;
 import ui.UserInterface;
 
@@ -46,7 +47,7 @@ public class Controller {
                default -> ui.statusMessage(Status.INVALID_CHOICE);
         }}
 
-/*
+
         StandardMember member = new StandardMember("Torben Trucker", "12345678", "Torbensmail@mail.com", "torbensvej 31", 24, 12, 2000);
         StandardMember member2 = new StandardMember("Søren Kristiansen", "45678910", "Sørensmail@mail.com", "Sørensvej 14", 10, 10, 1966);
         StandardMember member3 = new StandardMember("Tobias Vold", "98747723489", "Tobiases@mail.com", "TobyAllé 31", 1, 1, 1999);
@@ -77,12 +78,24 @@ public class Controller {
         memberList.addMember(tmember3);
         memberList.addMember(tmember4);
         memberList.addMember(tmember5);
-*/
 
+
+
+        Quartet<CompetitiveMember, Double, Integer, Enum<Disciplines>> result = Quartet.with(cmember,30.0,1, Disciplines.BACK_CRAWL);
+        Competition comp = new Competition("Test");
+        Competition comp2 = new Competition("Test2");
+        result =Quartet.with(cmember2,30.0,1, Disciplines.BACK_CRAWL);
+        comp.addResult(result);
+        comp2.addResult(result);
+        ArrayList<Competition> comps = new ArrayList<>();
+        comps.add(comp);
+        comps.add(comp2);
+
+        System.out.println(comp.getResult());
 
 
         try {
-            FileHandler.storeMember(memberList.getMemberList(), "STANDARD_MEMBER");
+            FileHandler.storeMember(memberList.getMemberList(),comps);
         } catch (IOException e) {
             System.out.println("Failed to store members");
         }
