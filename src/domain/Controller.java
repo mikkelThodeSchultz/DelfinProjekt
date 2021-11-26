@@ -31,6 +31,16 @@ public class Controller {
     }
 
     public void start() {
+        StandardMember member = new StandardMember("Torben Trucker", "12345678", "Torbensmail@mail.com", "torbensvej 31", 24, 12, 2000);
+        StandardMember member2 = new StandardMember("Søren Kristiansen", "45678910", "Sørensmail@mail.com", "Sørensvej 14", 10, 10, 1966);
+        StandardMember member3 = new StandardMember("Tobias Vold", "98747723489", "Tobiases@mail.com", "TobyAllé 31", 1, 1, 1999);
+        StandardMember member4 = new StandardMember("Finn Finsen", "8888888", "Finns@mail.com", "Finnminvej 99", 24, 9, 1920);
+        StandardMember member5 = new StandardMember("Jim Henry", "67453219", "Jims@mail.com", "Jimminvej 89", 14, 6, 2008);
+        memberList.addMember(member);
+        memberList.addMember(member2);
+        memberList.addMember(member3);
+        memberList.addMember(member4);
+        memberList.addMember(member5);
         //Henter members fra fil
         storedMembers = FileHandler.getMembersFromFile("STANDARD_MEMBERS");
         //sendStoredMembers(storedMembers);
@@ -47,21 +57,8 @@ public class Controller {
                case "0" ->  goAgain = false;
                default -> ui.statusMessage(Status.INVALID_CHOICE);
         }}
-       /* StandardMember member = new StandardMember("Torben Trucker", "12345678", "Torbensmail@mail.com", "torbensvej 31", 24, 12, 2000);
-        StandardMember member2 = new StandardMember("Søren Kristiansen", "45678910", "Sørensmail@mail.com", "Sørensvej 14", 10, 10, 1966);
-        StandardMember member3 = new StandardMember("Tobias Vold", "98747723489", "Tobiases@mail.com", "TobyAllé 31", 1, 1, 1999);
-        StandardMember member4 = new StandardMember("Finn Finsen", "8888888", "Finns@mail.com", "Finnminvej 99", 24, 9, 1920);
-        StandardMember member5 = new StandardMember("Jim Henry", "67453219", "Jims@mail.com", "Jimminvej 89", 14, 6, 2008);
-        System.out.println(memberList.calculateAge(member));
-        System.out.println(member.getBirthDate());
-        System.out.println(member.getMembershipNumber());
-        memberList.addMember(member);
-        memberList.addMember(member2);
-        memberList.addMember(member3);
-        memberList.addMember(member4);
-        memberList.addMember(member5);*/
 
-        System.out.println(calculateTotalIncome(memberList));
+
 
         try {
             FileHandler.storeMember(memberList.getMemberList(), "STANDARD_MEMBER");
@@ -78,7 +75,7 @@ public class Controller {
                 case "1" -> System.out.println("a");//  Top 5 lister
                 case "2" -> System.out.println("a"); //Registrer resultat
                 case "3" -> System.out.println("a"); //Tilknyt disciplinx½
-                case "0" -> System.out.println("a"); //Tilbage til hovedmenu
+                case "0" -> goAgain = false; //Tilbage til hovedmenu
                 default -> ui.statusMessage(Status.INVALID_CHOICE);
             }}
     }
@@ -88,11 +85,11 @@ public class Controller {
         while (goAgain){
         String choice = ui.getPaymentsMenu();
             switch (choice){
-                case "1" -> System.out.println("a");// Forventet indtjening
+                case "1" -> System.out.println(calculateTotalIncome());// Forventet indtjening
                 case "2" -> System.out.println("a"); //Modtag betaling
-                case "3" -> System.out.println("a"); //Vis restancer
+                case "3" -> ui.printMessage(listOfMembersWhoOwe().toString()); //Todo flot udprintning på listen
                 case "4" -> System.out.println("a"); //Opkræv kontingenter
-                case "0" -> System.out.println("a"); //Tilbage til hovedmenu
+                case "0" -> goAgain=false; //Tilbage til hovedmenu
                 default -> ui.statusMessage(Status.INVALID_CHOICE);
             }}
 
@@ -111,15 +108,13 @@ public class Controller {
          }}
     }
 
-    public double calculateTotalIncome(MemberList memberList){
-        double totalSum = 0;
-        for (int i = 0; i < memberList.getMemberList().size(); i++) {
-            totalSum += calculateMembershipFee(memberList.getMemberList().get(i));
-        }
-        /*for (Member member : memberList) {
-           totalSum += calculateMembershipFee(member);
-        }*/
+    public double calculateTotalIncome(){
+        double totalSum = calculation.calculateContingentForMultipleMembers(memberList.getMemberList());
         return totalSum;
+    }
+
+    public ArrayList<Member> listOfMembersWhoOwe(){
+        return calculation.listOfMembersWhoOwe(memberList.getMemberList());
     }
 
     public double calculateMembershipFee(Member member){

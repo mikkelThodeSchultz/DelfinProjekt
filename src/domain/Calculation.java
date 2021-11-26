@@ -8,7 +8,6 @@ package domain;
 import member.Member;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Calculation {
 
