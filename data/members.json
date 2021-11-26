@@ -5,7 +5,7 @@
   "email" : "Torbensmail@mail.com",
   "homeAddress" : "torbensvej 31",
   "birthDate" : [ 2000, 12, 24 ],
-  "membershipNumber" : null,
+  "membershipNumber" : "totr3475",
   "isActive" : true,
   "isHasPaid" : false
 }, {

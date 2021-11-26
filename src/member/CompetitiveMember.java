@@ -6,13 +6,17 @@
 package member;
 
 import java.util.ArrayList;
+
+import ui.Disciplines;
 import ui.Status;
 
-public class CompetitiveSwimmer extends Member {
+public class CompetitiveMember extends Member {
     ArrayList<Competition> competitions = new ArrayList();
     ArrayList<BestTrainingResult> bestTrainingResults = new ArrayList();
-    Status disciplin;
+    ArrayList<Disciplines> disciplines = new ArrayList<>();
 
-    public CompetitiveSwimmer() {
+    //TODO lav metode der fanger disciplin dubletter
+
+    public CompetitiveMember() {
     }
 }

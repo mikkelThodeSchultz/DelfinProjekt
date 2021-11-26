@@ -77,7 +77,6 @@ public class Controller {
     }
 
     public void CompetitionMenu(){
-        String choice = ui.getCompetitionMenu();
         boolean goAgain = true;
         while (goAgain){
         String choice = ui.getCompetitionMenu();
@@ -91,7 +90,6 @@ public class Controller {
     }
 
     public void paymentMenu(){
-        String choice = ui.getPaymentsMenu();
         boolean goAgain = true;
         while (goAgain){
         String choice = ui.getPaymentsMenu();
@@ -112,7 +110,7 @@ public class Controller {
         while (goAgain){
         String choice = ui.getMemberMenu();
         switch (choice){
-            case "1" -> System.out.println("a");//find member
+            case "1" -> findMember(ui.findSpecificMemberMenu());
             case "2" -> createNewMember(ui.createNewMember());
             case "0" -> goAgain = false;
             default -> ui.statusMessage(Status.INVALID_CHOICE);
@@ -141,6 +139,9 @@ public class Controller {
             int year = Integer.parseInt(memberInfo[6]);
 
             StandardMember newMember = new StandardMember(memberInfo[0],memberInfo[1],memberInfo[2],memberInfo[3],day,month,year);
+
+
+
             memberList.addMember(newMember);
             ui.printMessage("Du har nu oprettet " + newMember + " som medlem i klubben.");
 
