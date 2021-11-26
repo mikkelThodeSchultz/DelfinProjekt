@@ -19,17 +19,18 @@ public class MemberList {
         memberList.remove(member);
     }
 
-    public Member findMember(String userInputSearch) {
+    public Member[] findMember(String userInputSearch) {
+        ArrayList<Member> foundMembers = new ArrayList<>();
         for (Member member : memberList) {
             if (member.matches(userInputSearch)) {
-                selectedMember = member;
-                System.out.println(selectedMember);
+                foundMembers.add(member);
             }
         }
-        return selectedMember;
+        return foundMembers.toArray(new Member[0]);
     }
 
-    public void selectMember() {
+    public void setSelectedMember(Member member) {
+        selectedMember = member;
     }
 
     public void editMember() {

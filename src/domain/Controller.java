@@ -47,7 +47,7 @@ public class Controller {
                default -> ui.statusMessage(Status.INVALID_CHOICE);
         }}
 
-
+/*
         StandardMember member = new StandardMember("Torben Trucker", "12345678", "Torbensmail@mail.com", "torbensvej 31", 24, 12, 2000);
         StandardMember member2 = new StandardMember("Søren Kristiansen", "45678910", "Sørensmail@mail.com", "Sørensvej 14", 10, 10, 1966);
         StandardMember member3 = new StandardMember("Tobias Vold", "98747723489", "Tobiases@mail.com", "TobyAllé 31", 1, 1, 1999);
@@ -78,7 +78,7 @@ public class Controller {
         memberList.addMember(tmember3);
         memberList.addMember(tmember4);
         memberList.addMember(tmember5);
-
+*/
 
 
         Quartet<CompetitiveMember, Double, Integer, Enum<Disciplines>> result = Quartet.with(cmember,30.0,1, Disciplines.BACK_CRAWL);
@@ -181,7 +181,33 @@ public class Controller {
     private void homeAddressValidate() {
     }
 
-    public Member findMember(String userInputString){
+    public Member[] findMember(String userInputString){
+        String search = userInputString;
+        Member [] foundMembers = memberList.findMember(search);
+        String members = "";
+        if (foundMembers.length == 1){
+         memberList.setSelectedMember(foundMembers[0]);
+        } else if (foundMembers.length > 1){
+            int counter = 0;
+            for (int i = 0; i < foundMembers.length; i++) {
+                counter ++;
+                members += counter + " " +foundMembers[i] + "\n";
+            }
+            ui.printMessage(members);
+            int select = 0;
+            while (select < 1 || select > foundMembers.length){
+                select = ui.userInputInt();
+                if (select < 1 || select > foundMembers.length){
+                ui.printMessage("Vælg venligst tallet ud for det ønskede medlem.");
+                } else {
+                    memberList.setSelectedMember(foundMembers[select -1]);
+                }
+            }
+        } else {
+            ui.printMessage("Der er ingen medlemmer der passer til dine søgekriterier.");
+            memberList.setSelectedMember(null);
+        }
+
         return memberList.findMember(userInputString);
     }
 
