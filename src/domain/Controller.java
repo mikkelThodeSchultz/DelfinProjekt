@@ -47,7 +47,7 @@ public class Controller {
                default -> ui.statusMessage(Status.INVALID_CHOICE);
         }}
 
-/*
+
         StandardMember member = new StandardMember("Torben Trucker", "12345678", "Torbensmail@mail.com", "torbensvej 31", 24, 12, 2000);
         StandardMember member2 = new StandardMember("Søren Kristiansen", "45678910", "Sørensmail@mail.com", "Sørensvej 14", 10, 10, 1966);
         StandardMember member3 = new StandardMember("Tobias Vold", "98747723489", "Tobiases@mail.com", "TobyAllé 31", 1, 1, 1999);
@@ -78,7 +78,7 @@ public class Controller {
         memberList.addMember(tmember3);
         memberList.addMember(tmember4);
         memberList.addMember(tmember5);
-*/
+
 
 
         Quartet<CompetitiveMember, Double, Integer, Enum<Disciplines>> result = Quartet.with(cmember,30.0,1, Disciplines.BACK_CRAWL);
