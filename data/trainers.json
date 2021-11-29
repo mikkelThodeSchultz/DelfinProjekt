@@ -383,4 +383,114 @@
   "isActive" : true,
   "hasPaid" : false,
   "competitiveSwimmers" : [ ]
+}, {
+  "name" : "tTorben Trucker",
+  "age" : 20,
+  "phoneNumber" : "12345678",
+  "email" : "Torbensmail@mail.com",
+  "homeAddress" : "torbensvej 31",
+  "birthDate" : [ 2000, 12, 24 ],
+  "membershipNumber" : "tttr0974",
+  "isActive" : true,
+  "hasPaid" : false,
+  "competitiveSwimmers" : [ ]
+}, {
+  "name" : "tSøren Kristiansen",
+  "age" : 55,
+  "phoneNumber" : "45678910",
+  "email" : "Sørensmail@mail.com",
+  "homeAddress" : "Sørensvej 14",
+  "birthDate" : [ 1966, 10, 10 ],
+  "membershipNumber" : "tskr7412",
+  "isActive" : true,
+  "hasPaid" : false,
+  "competitiveSwimmers" : [ ]
+}, {
+  "name" : "tTobias Vold",
+  "age" : 22,
+  "phoneNumber" : "98747723489",
+  "email" : "Tobiases@mail.com",
+  "homeAddress" : "TobyAllé 31",
+  "birthDate" : [ 1999, 1, 1 ],
+  "membershipNumber" : "ttvo8436",
+  "isActive" : true,
+  "hasPaid" : false,
+  "competitiveSwimmers" : [ ]
+}, {
+  "name" : "tFinn Finsen",
+  "age" : 101,
+  "phoneNumber" : "8888888",
+  "email" : "Finns@mail.com",
+  "homeAddress" : "Finnminvej 99",
+  "birthDate" : [ 1920, 9, 24 ],
+  "membershipNumber" : "tffi1594",
+  "isActive" : true,
+  "hasPaid" : false,
+  "competitiveSwimmers" : [ ]
+}, {
+  "name" : "tJim Henry",
+  "age" : 13,
+  "phoneNumber" : "67453219",
+  "email" : "Jims@mail.com",
+  "homeAddress" : "Jimminvej 89",
+  "birthDate" : [ 2008, 6, 14 ],
+  "membershipNumber" : "tjhe5253",
+  "isActive" : true,
+  "hasPaid" : false,
+  "competitiveSwimmers" : [ ]
+}, {
+  "name" : "tTorben Trucker",
+  "age" : 20,
+  "phoneNumber" : "12345678",
+  "email" : "Torbensmail@mail.com",
+  "homeAddress" : "torbensvej 31",
+  "birthDate" : [ 2000, 12, 24 ],
+  "membershipNumber" : "tttr9163",
+  "isActive" : true,
+  "hasPaid" : false,
+  "competitiveSwimmers" : [ ]
+}, {
+  "name" : "tSøren Kristiansen",
+  "age" : 55,
+  "phoneNumber" : "45678910",
+  "email" : "Sørensmail@mail.com",
+  "homeAddress" : "Sørensvej 14",
+  "birthDate" : [ 1966, 10, 10 ],
+  "membershipNumber" : "tskr0969",
+  "isActive" : true,
+  "hasPaid" : false,
+  "competitiveSwimmers" : [ ]
+}, {
+  "name" : "tTobias Vold",
+  "age" : 22,
+  "phoneNumber" : "98747723489",
+  "email" : "Tobiases@mail.com",
+  "homeAddress" : "TobyAllé 31",
+  "birthDate" : [ 1999, 1, 1 ],
+  "membershipNumber" : "ttvo7812",
+  "isActive" : true,
+  "hasPaid" : false,
+  "competitiveSwimmers" : [ ]
+}, {
+  "name" : "tFinn Finsen",
+  "age" : 101,
+  "phoneNumber" : "8888888",
+  "email" : "Finns@mail.com",
+  "homeAddress" : "Finnminvej 99",
+  "birthDate" : [ 1920, 9, 24 ],
+  "membershipNumber" : "tffi9269",
+  "isActive" : true,
+  "hasPaid" : false,
+  "competitiveSwimmers" : [ ]
+}, {
+  "name" : "tJim Henry",
+  "age" : 13,
+  "phoneNumber" : "67453219",
+  "email" : "Jims@mail.com",
+  "homeAddress" : "Jimminvej 89",
+  "birthDate" : [ 2008, 6, 14 ],
+  "membershipNumber" : "tjhe4582",
+  "isActive" : true,
+  "hasPaid" : false,
+  "competitiveSwimmers" : [ ]
 } ]

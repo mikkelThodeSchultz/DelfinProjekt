@@ -40,7 +40,7 @@ public class Calculation {
     public ArrayList<Member> listOfMembersWhoOwe(ArrayList<Member> members) {
         ArrayList<Member> membersWhoOwe = new ArrayList<>();
         for (Member member : members) {
-            if (!member.getIsHasPaid()) {
+            if (!member.getHasPaid()) {
                 membersWhoOwe.add(member);
             }
         }

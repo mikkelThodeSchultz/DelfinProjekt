@@ -6,19 +6,14 @@
 package domain;
 
 import file.FileHandler;
-import org.javatuples.Quartet;
-
-import java.io.IOException;
-import java.lang.reflect.Array;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.List;
-
 import member.*;
 import ui.Disciplines;
 import ui.Status;
 import ui.UserInterface;
+
+import java.io.IOException;
+import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class Controller {
     private UserInterface ui = new UserInterface();
@@ -95,7 +90,6 @@ public class Controller {
         comps.add(comp2);
 
 
-
         try {
             FileHandler.storeData(memberList.getMemberList(), comps);
         } catch (IOException e) {
@@ -110,7 +104,7 @@ public class Controller {
             switch (choice) {
                 case "1" -> System.out.println("a");//  Top 5 lister
                 case "2" -> System.out.println("a"); //Registrer resultat
-                case "3" -> System.out.println("a"); //Tilknyt disciplinx½
+                case "3" -> System.out.println("a"); //Tilknyt disciplin
                 case "0" -> goAgain = false; //Tilbage til hovedmenu
                 default -> ui.statusMessage(Status.INVALID_CHOICE);
             }
@@ -148,6 +142,77 @@ public class Controller {
         }
     }
 
+    public void foundMemberMenu(){
+        boolean goAgain = true;
+        while(goAgain){
+            String choice = ui.getFoundMemberMenu();
+            switch (choice){
+                case "1" -> editName(ui.userInputString());
+                case "2" -> editAddress(ui.userInputString());
+                case "3" -> editEmail(ui.userInputString());
+                case "4" -> editPhoneNumber(ui.userInputString());
+                case "5" -> editBirthDate();
+                case "6" -> editMembershipStatus();
+               // case "7" -> editLevel();
+               // case "8" -> deleteMember();
+                case "0" -> goAgain = false;
+            }
+        }
+    }
+
+    public void editName(String userInputString){
+
+        ui.printMessage("Rediger navnet her: ");
+        String oldName = memberList.editName(userInputString);
+        ui.changeMessage(oldName,userInputString);
+    }
+
+    public void editAddress(String userInputString){
+        ui.printMessage("Rediger adressen her: ");
+        String oldAddress = memberList.editAddress(userInputString);
+        ui.changeMessage(oldAddress,userInputString);
+    }
+
+    public void editEmail(String userInputString){
+        ui.printMessage("Rediger e-mail adressen her: ");
+        String oldEmail = memberList.editEmail(userInputString);
+        ui.changeMessage(oldEmail,userInputString);
+
+    }
+
+    public void editPhoneNumber(String userInputString){
+        ui.printMessage("Rediger telefonummeret her: ");
+        String oldNumber = memberList.editPhoneNumber(userInputString);
+        ui.changeMessage(oldNumber,userInputString);
+    }
+
+    public void editBirthDate(){
+        ui.printMessage("Rediger fødselsdag her: ");
+        int day = ui.userInputInt();
+        ui.printMessage("Rediger fødselsmåned her: ");
+        int month = ui.userInputInt();
+        ui.printMessage("Rediger fødselsår her: ");
+        int year = ui.userInputInt();
+        LocalDate newBirthDate = LocalDate.of(year, month, day) ;
+        String oldDate = memberList.editBirthDate(newBirthDate);
+        String newDate = memberList.newDateToString(newBirthDate);
+        ui.changeMessage(oldDate,newDate);
+    }
+
+    public void editMembershipStatus(){
+        memberList.editMembershipStatus();
+        ui.printMessage(memberList.isActiveAsString());
+    }
+
+    public void editLevel(){
+
+    }
+
+    public void deleteMember(){
+
+    }
+
+
     public double calculateTotalIncome() {
         double totalSum = calculation.calculateContingentForMultipleMembers(memberList.getMemberList());
         return totalSum;
@@ -175,7 +240,6 @@ public class Controller {
         } catch (NumberFormatException e) {
             ui.printMessage("Ugyldigt input. Indtast venligst talværdier i fødselsdato-oplysninger.");
         }
-
     }
 
     public Member[] findMember(String userInputString) {
@@ -198,6 +262,7 @@ public class Controller {
                     ui.printMessage("Vælg venligst tallet ud for det ønskede medlem.");
                 } else {
                     memberList.setSelectedMember(foundMembers[select - 1]);
+                    foundMemberMenu();
                 }
             }
         } else {
@@ -223,4 +288,5 @@ public class Controller {
         memberList.membersFromController(storedMembers);
         //storedMembers.clear();
     }
+
 }

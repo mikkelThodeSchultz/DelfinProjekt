@@ -173,8 +173,8 @@ public class UserInterface {
         //memberList.addMember(newMember);
     }
 
-    public void printMemberLists(String s){
-        System.out.println(s);
+    public void changeMessage(String oldInfo, String newInfo){
+        System.out.println("Du har nu ændret " + oldInfo + " til " + newInfo+".");
     }
 
 }

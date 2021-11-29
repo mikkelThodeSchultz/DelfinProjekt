@@ -41,6 +41,44 @@ public class MemberList {
         return oldName;
     }
 
+    public String editAddress(String addressChange){
+        String oldAddress = selectedMember.getHomeAddress();
+        selectedMember.setHomeAddress(addressChange);
+        return oldAddress;
+    }
+
+    public String editEmail(String emailChange){
+        String oldEmail = selectedMember.getEmail();
+        selectedMember.setEmail(emailChange);
+        return oldEmail;
+    }
+
+    public String editPhoneNumber(String phoneNumberChange){
+        String oldPhoneNumber = selectedMember.getPhoneNumber();
+        selectedMember.setPhoneNumber(phoneNumberChange);
+        return oldPhoneNumber;
+    }
+
+    public String editBirthDate(LocalDate birthDateChange){
+      String oldDate = selectedMember.oldDateToString();
+      selectedMember.setBirthDate(birthDateChange);
+      return oldDate;
+    }
+
+    public void editMembershipStatus(){
+        selectedMember.setActive();
+    }
+
+    public String isActiveAsString(){
+        String status = "";
+        if (selectedMember.getIsActive() == false){
+            status = "passivt";
+        } else {
+            status = "aktivt";
+        }
+        return "Medlemsskabet er " + status + ".";
+    }
+
     public ArrayList<Member> getMemberList() {
         return memberList;
     }
@@ -54,8 +92,8 @@ public class MemberList {
     public String printMemberList() {
         String allMembers = "";
         for (int i = 0; i < memberList.size(); i++) {
-            temp += memberList.get(i) + "\n";
+            allMembers += memberList.get(i) + "\n";
         }
-        return temp;
+        return allMembers;
     }
 }
