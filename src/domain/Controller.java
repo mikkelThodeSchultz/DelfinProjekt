@@ -6,6 +6,15 @@
 package domain;
 
 import file.FileHandler;
+import org.javatuples.Quartet;
+
+import java.io.IOException;
+import java.lang.reflect.Array;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.InputMismatchException;
+import java.util.List;
+
 import member.*;
 import ui.Disciplines;
 import ui.Status;
@@ -88,6 +97,7 @@ public class Controller {
         ArrayList<Competition> comps = new ArrayList<>();
         comps.add(comp);
         comps.add(comp2);
+
 
 
         try {
@@ -240,6 +250,7 @@ public class Controller {
         } catch (NumberFormatException e) {
             ui.printMessage("Ugyldigt input. Indtast venligst talværdier i fødselsdato-oplysninger.");
         }
+
     }
 
     public Member[] findMember(String userInputString) {
@@ -288,5 +299,4 @@ public class Controller {
         memberList.membersFromController(storedMembers);
         //storedMembers.clear();
     }
-
 }
