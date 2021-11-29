@@ -148,6 +148,33 @@ public class Controller {
         }
     }
 
+   /* public void foundMemberMenu(){
+        boolean goAgain = true;
+        while(goAgain){
+            String choice = ui.getFoundMemberMenu();
+            switch (choice){
+                case "1" -> editName();
+                case "2" -> editAddress();
+                case "3" -> editEmail();
+                case "4" -> editPhoneNumber();
+                case "5" -> editBirthDate();
+                case "6" -> editMembershipStatus();
+                case "7" -> editLevel();
+                case "8" -> deleteMember();
+                case "0" -> goAgain = false;
+            }
+        }
+    }*/
+
+    public void editName(String userInputString){
+
+        ui.printMessage("Rediger navnet her: ");
+        String oldName = memberList.editName(userInputString);
+        ui.printMessage("Du har nu ændret " + oldName + " til " + userInputString+".");
+
+    }
+
+
     public double calculateTotalIncome() {
         double totalSum = calculation.calculateContingentForMultipleMembers(memberList.getMemberList());
         return totalSum;
@@ -175,7 +202,6 @@ public class Controller {
         } catch (NumberFormatException e) {
             ui.printMessage("Ugyldigt input. Indtast venligst talværdier i fødselsdato-oplysninger.");
         }
-
     }
 
     public Member[] findMember(String userInputString) {

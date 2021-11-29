@@ -37,7 +37,6 @@ public abstract class Member { //TODO skal gøres abstrakt!
         this.age = calculateAge();
         this.isActive = true;
         this.hasPaid = false;
-
     }
 
     public Member(int i, Member member, Status statusMedlemsskab, Status statusDiscipline) {
@@ -47,7 +46,7 @@ public abstract class Member { //TODO skal gøres abstrakt!
         return isActive;
     }
 
-    public boolean getIsHasPaid() {
+    public boolean getHasPaid() {
         return hasPaid;
     }
 

@@ -10,5 +10,6 @@ public enum Status {
     SELECT_DISCIPLINE,
     ACTIVE,
     PASSIVE,
-    INVALID_CHOICE
+    INVALID_CHOICE,
+
 }
