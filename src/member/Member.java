@@ -79,6 +79,38 @@ public abstract class Member { //TODO skal gøres abstrakt!
         return membershipNumber;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setHomeAddress(String homeAddress) {
+        this.homeAddress = homeAddress;
+    }
+
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    public void setMembershipNumber(String membershipNumber) {
+        this.membershipNumber = membershipNumber;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
+    }
+
+    public void setHasPaid(boolean hasPaid) {
+        this.hasPaid = hasPaid;
+    }
+
     public int calculateAge() {
         LocalDate currentDate = LocalDate.now();
         return birthDate != null ? Period.between(birthDate, currentDate).getYears() : -1;
@@ -111,4 +143,6 @@ public abstract class Member { //TODO skal gøres abstrakt!
     public String toString() {
         return name + " " + membershipNumber;
     }
+
+
 }

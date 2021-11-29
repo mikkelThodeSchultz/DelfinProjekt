@@ -7,6 +7,9 @@
   "birthDate" : [ 2000, 12, 24 ],
   "membershipNumber" : "cttr2027",
   "isActive" : true,
+  "hasPaid" : false,
+  "bestTrainingResults" : [ ],
+  "disciplines" : [ ],
   "isHasPaid" : false
 }, {
   "name" : "cSøren Kristiansen",
@@ -17,6 +20,9 @@
   "birthDate" : [ 1966, 10, 10 ],
   "membershipNumber" : "cskr6795",
   "isActive" : true,
+  "hasPaid" : false,
+  "bestTrainingResults" : [ ],
+  "disciplines" : [ ],
   "isHasPaid" : false
 }, {
   "name" : "cTobias Vold",
@@ -27,6 +33,9 @@
   "birthDate" : [ 1999, 1, 1 ],
   "membershipNumber" : "ctvo3264",
   "isActive" : true,
+  "hasPaid" : false,
+  "bestTrainingResults" : [ ],
+  "disciplines" : [ ],
   "isHasPaid" : false
 }, {
   "name" : "cFinn Finsen",
@@ -37,6 +46,9 @@
   "birthDate" : [ 1920, 9, 24 ],
   "membershipNumber" : "cffi3515",
   "isActive" : true,
+  "hasPaid" : false,
+  "bestTrainingResults" : [ ],
+  "disciplines" : [ ],
   "isHasPaid" : false
 }, {
   "name" : "cJim Henry",
@@ -47,6 +59,9 @@
   "birthDate" : [ 2008, 6, 14 ],
   "membershipNumber" : "cjhe7365",
   "isActive" : true,
+  "hasPaid" : false,
+  "bestTrainingResults" : [ ],
+  "disciplines" : [ ],
   "isHasPaid" : false
 }, {
   "name" : "cTorben Trucker",
@@ -57,6 +72,9 @@
   "birthDate" : [ 2000, 12, 24 ],
   "membershipNumber" : "cttr1727",
   "isActive" : true,
+  "hasPaid" : false,
+  "bestTrainingResults" : [ ],
+  "disciplines" : [ ],
   "isHasPaid" : false
 }, {
   "name" : "cSøren Kristiansen",
@@ -67,6 +85,9 @@
   "birthDate" : [ 1966, 10, 10 ],
   "membershipNumber" : "cskr2118",
   "isActive" : true,
+  "hasPaid" : false,
+  "bestTrainingResults" : [ ],
+  "disciplines" : [ ],
   "isHasPaid" : false
 }, {
   "name" : "cTobias Vold",
@@ -77,6 +98,9 @@
   "birthDate" : [ 1999, 1, 1 ],
   "membershipNumber" : "ctvo2503",
   "isActive" : true,
+  "hasPaid" : false,
+  "bestTrainingResults" : [ ],
+  "disciplines" : [ ],
   "isHasPaid" : false
 }, {
   "name" : "cFinn Finsen",
@@ -87,6 +111,9 @@
   "birthDate" : [ 1920, 9, 24 ],
   "membershipNumber" : "cffi3811",
   "isActive" : true,
+  "hasPaid" : false,
+  "bestTrainingResults" : [ ],
+  "disciplines" : [ ],
   "isHasPaid" : false
 }, {
   "name" : "cJim Henry",
@@ -97,5 +124,138 @@
   "birthDate" : [ 2008, 6, 14 ],
   "membershipNumber" : "cjhe4520",
   "isActive" : true,
+  "hasPaid" : false,
+  "bestTrainingResults" : [ ],
+  "disciplines" : [ ],
+  "isHasPaid" : false
+}, {
+  "name" : "cTorben Trucker",
+  "age" : 20,
+  "phoneNumber" : "12345678",
+  "email" : "Torbensmail@mail.com",
+  "homeAddress" : "torbensvej 31",
+  "birthDate" : [ 2000, 12, 24 ],
+  "membershipNumber" : "cttr9561",
+  "isActive" : true,
+  "hasPaid" : false,
+  "bestTrainingResults" : [ ],
+  "disciplines" : [ ],
+  "isHasPaid" : false
+}, {
+  "name" : "cSøren Kristiansen",
+  "age" : 55,
+  "phoneNumber" : "45678910",
+  "email" : "Sørensmail@mail.com",
+  "homeAddress" : "Sørensvej 14",
+  "birthDate" : [ 1966, 10, 10 ],
+  "membershipNumber" : "cskr0886",
+  "isActive" : true,
+  "hasPaid" : false,
+  "bestTrainingResults" : [ ],
+  "disciplines" : [ ],
+  "isHasPaid" : false
+}, {
+  "name" : "cTobias Vold",
+  "age" : 22,
+  "phoneNumber" : "98747723489",
+  "email" : "Tobiases@mail.com",
+  "homeAddress" : "TobyAllé 31",
+  "birthDate" : [ 1999, 1, 1 ],
+  "membershipNumber" : "ctvo8301",
+  "isActive" : true,
+  "hasPaid" : false,
+  "bestTrainingResults" : [ ],
+  "disciplines" : [ ],
+  "isHasPaid" : false
+}, {
+  "name" : "cFinn Finsen",
+  "age" : 101,
+  "phoneNumber" : "8888888",
+  "email" : "Finns@mail.com",
+  "homeAddress" : "Finnminvej 99",
+  "birthDate" : [ 1920, 9, 24 ],
+  "membershipNumber" : "cffi9858",
+  "isActive" : true,
+  "hasPaid" : false,
+  "bestTrainingResults" : [ ],
+  "disciplines" : [ ],
+  "isHasPaid" : false
+}, {
+  "name" : "cJim Henry",
+  "age" : 13,
+  "phoneNumber" : "67453219",
+  "email" : "Jims@mail.com",
+  "homeAddress" : "Jimminvej 89",
+  "birthDate" : [ 2008, 6, 14 ],
+  "membershipNumber" : "cjhe6059",
+  "isActive" : true,
+  "hasPaid" : false,
+  "bestTrainingResults" : [ ],
+  "disciplines" : [ ],
+  "isHasPaid" : false
+}, {
+  "name" : "cTorben Trucker",
+  "age" : 20,
+  "phoneNumber" : "12345678",
+  "email" : "Torbensmail@mail.com",
+  "homeAddress" : "torbensvej 31",
+  "birthDate" : [ 2000, 12, 24 ],
+  "membershipNumber" : "cttr2364",
+  "isActive" : true,
+  "hasPaid" : false,
+  "bestTrainingResults" : [ ],
+  "disciplines" : [ ],
+  "isHasPaid" : false
+}, {
+  "name" : "cSøren Kristiansen",
+  "age" : 55,
+  "phoneNumber" : "45678910",
+  "email" : "Sørensmail@mail.com",
+  "homeAddress" : "Sørensvej 14",
+  "birthDate" : [ 1966, 10, 10 ],
+  "membershipNumber" : "cskr1076",
+  "isActive" : true,
+  "hasPaid" : false,
+  "bestTrainingResults" : [ ],
+  "disciplines" : [ ],
+  "isHasPaid" : false
+}, {
+  "name" : "cTobias Vold",
+  "age" : 22,
+  "phoneNumber" : "98747723489",
+  "email" : "Tobiases@mail.com",
+  "homeAddress" : "TobyAllé 31",
+  "birthDate" : [ 1999, 1, 1 ],
+  "membershipNumber" : "ctvo0211",
+  "isActive" : true,
+  "hasPaid" : false,
+  "bestTrainingResults" : [ ],
+  "disciplines" : [ ],
+  "isHasPaid" : false
+}, {
+  "name" : "cFinn Finsen",
+  "age" : 101,
+  "phoneNumber" : "8888888",
+  "email" : "Finns@mail.com",
+  "homeAddress" : "Finnminvej 99",
+  "birthDate" : [ 1920, 9, 24 ],
+  "membershipNumber" : "cffi6731",
+  "isActive" : true,
+  "hasPaid" : false,
+  "bestTrainingResults" : [ ],
+  "disciplines" : [ ],
+  "isHasPaid" : false
+}, {
+  "name" : "cJim Henry",
+  "age" : 13,
+  "phoneNumber" : "67453219",
+  "email" : "Jims@mail.com",
+  "homeAddress" : "Jimminvej 89",
+  "birthDate" : [ 2008, 6, 14 ],
+  "membershipNumber" : "cjhe4227",
+  "isActive" : true,
+  "hasPaid" : false,
+  "bestTrainingResults" : [ ],
+  "disciplines" : [ ],
   "isHasPaid" : false
 } ]

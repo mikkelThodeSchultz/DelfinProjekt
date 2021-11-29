@@ -33,9 +33,13 @@ public class MemberList {
         selectedMember = member;
     }
 
-    public void editMember() {
-    }
+    //Rettes: navn, adresse, telefonnummer, birthday, aktiv/passiv, motionist/konkurrence-svømmer
 
+    public String editName(String nameChange){
+        String oldName = selectedMember.getName();
+        selectedMember.setName(nameChange);
+        return oldName;
+    }
 
     public ArrayList<Member> getMemberList() {
         return memberList;

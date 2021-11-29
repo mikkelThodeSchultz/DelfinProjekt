@@ -13,6 +13,9 @@ public class BestTrainingResult {
     double bestTime;
     Status disciplin;
 
-    public BestTrainingResult() {
+    public BestTrainingResult(LocalDateTime dateBestResult, double bestTime, Status disciplin) {
+        this.dateBestResult = dateBestResult;
+        this.bestTime = bestTime;
+        this.disciplin = disciplin;
     }
 }

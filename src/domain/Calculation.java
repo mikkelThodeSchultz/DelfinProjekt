@@ -14,6 +14,7 @@ public class Calculation {
     public Calculation() {
     }
 
+    //Skal måske være private da linje 40 kan håndtere individder såvel som flere.
     public double calculateContingent(int age, boolean isActive) { //sender double til controller
         int junior = 17;
         int senior = 18;

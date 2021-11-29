@@ -1,10 +1,12 @@
 package ui;
 
-public enum Disciplines {
+import com.fasterxml.jackson.annotation.JsonFormat;
 
+public enum Disciplines {
     CRAWL,
     BACK_CRAWL,
     BUTTERFLY,
     BREASTSTROKE;
 
 }
+
