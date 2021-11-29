@@ -171,7 +171,6 @@ public class Controller {
     }
 
     public void editName(String userInputString){
-
         ui.printMessage("Rediger navnet her: ");
         String oldName = memberList.editName(userInputString);
         ui.changeMessage(oldName,userInputString);

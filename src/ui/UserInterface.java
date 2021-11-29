@@ -168,9 +168,6 @@ public class UserInterface {
 
         String[] memberInfo = {name, phoneNumber, email, homeAddress, day, month, year};
         return memberInfo;
-
-        //TODO generer et membershipnumber + flyt til controller!
-        //memberList.addMember(newMember);
     }
 
     public void changeMessage(String oldInfo, String newInfo){

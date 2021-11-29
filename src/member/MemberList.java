@@ -1,11 +1,8 @@
 package member;
 
-import domain.Controller;
-
 import java.time.LocalDate;
-import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Random;
 
 public class MemberList {
     private ArrayList<Member> memberList = new ArrayList<>();
@@ -33,7 +30,7 @@ public class MemberList {
         selectedMember = member;
     }
 
-    //Rettes: navn, adresse, telefonnummer, birthday, aktiv/passiv, motionist/konkurrence-svømmer
+    //Rettes: birthday, aktiv/passiv, motionist/konkurrence-svømmer
 
     public String editName(String nameChange){
         String oldName = selectedMember.getName();
@@ -95,5 +92,11 @@ public class MemberList {
             allMembers += memberList.get(i) + "\n";
         }
         return allMembers;
+    }
+
+    public String newDateToString(LocalDate date){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd–MM–yyyy");
+        String formattedDateTime = date.format(formatter);
+        return formattedDateTime;
     }
 }

@@ -9,9 +9,10 @@ import ui.Status;
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import java.util.Random;
 
-public abstract class Member { //TODO skal gøres abstrakt!
+public abstract class Member {
     private String name;
     private int age;
     private String phoneNumber;
@@ -102,8 +103,12 @@ public abstract class Member { //TODO skal gøres abstrakt!
         this.membershipNumber = membershipNumber;
     }
 
-    public void setActive(boolean active) {
-        isActive = active;
+    public void setActive() {
+        if (isActive == false)
+            isActive = true;
+        else {
+            isActive = false;
+        }
     }
 
     public void setHasPaid(boolean hasPaid) {
@@ -137,6 +142,12 @@ public abstract class Member { //TODO skal gøres abstrakt!
             match = false;
         }
         return match;
+    }
+
+    public String oldDateToString(){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd–MM–yyyy");
+        String formattedDateTime = birthDate.format(formatter);
+        return formattedDateTime;
     }
 
     public String toString() {
