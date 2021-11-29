@@ -157,7 +157,7 @@ public class Controller {
         return calculation.listOfMembersWhoOwe(memberList.getMemberList());
     }
 
-    public double calculateMembershipFee(Member member){
+    public double calculateMembershipFee(Member member) { //Hvis calculateContingent bliver gjort private, skal denne laves om
         return calculation.calculateContingent(member.getAge(), member.getIsActive());
     }
 

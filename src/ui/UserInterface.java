@@ -52,18 +52,24 @@ public class UserInterface {
     }
 
     public String getMemberMenu(){ //TODO der skal laves en søgemetode til at finde medlemmer - se PETLATKEA på github.
+
         System.out.println("""
-                Medlemmer
+                Medlemsmenu
                 
                 Tryk på den tast der svarer til det menupunkt du ønsker at vælge.
                 
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-                1 - Find medlem
-                2 - Opret medlem
+                1 - Vis medlemmer
+                2 - Find medlem
+                3 - Opret medlem
                 0 - Tilbage til hovedmenu
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 """);
         return sc.nextLine();
+    }
+
+    public void showMemberList(String listOfMembers){
+        System.out.println(listOfMembers);
     }
 
     public String findSpecificMemberMenu(){
@@ -72,20 +78,25 @@ public class UserInterface {
         return sc.nextLine();
     }
 
-    public void getFoundMemberMenu(){
+    public String getFoundMemberMenu(){
         //TODO redigering i et medlems info bør også afføde ændring i medlemsnummer. Dvs metode kald.
+
         System.out.println("""
                 Tryk på den tast der svarer til det menupunkt du ønsker at vælge.
 
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 1 - Rediger navn
                 2 - Rediger adresse
-                3 - Rediger telefonnummer
-                4 - Rediger fødselsdato
-                5 - Slet medlem [NB kan ikke omgøres]
+                3 - Rediger e-maildresse
+                4 - Rediger telefonnummer
+                5 - Rediger fødselsdato
+                6 - Rediger medlemsskabsstatus
+                7 - Rediger svømmeniveau
+                8 - Slet medlem [NB kan ikke omgøres]
                 0 - Tilbage til hovedmenu
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 """);
+        return sc.nextLine();
     }
 
     public String getPaymentsMenu (){
@@ -113,7 +124,7 @@ public class UserInterface {
                 
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 1 - Top 5 lister
-                2 - Registrer resultat
+                2 - Registrer resultat(er)
                 3 - Tilknyt disciplin(er)
                 0 - Tilbage til hovedmenu
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

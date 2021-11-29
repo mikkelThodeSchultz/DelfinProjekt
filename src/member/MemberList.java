@@ -51,8 +51,8 @@ public class MemberList {
         }
     }
 
-    public String printMemberLists() {
-        String temp = "";
+    public String printMemberList() {
+        String allMembers = "";
         for (int i = 0; i < memberList.size(); i++) {
             temp += memberList.get(i) + "\n";
         }
