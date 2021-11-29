@@ -7,8 +7,7 @@
   "birthDate" : [ 2000, 12, 24 ],
   "membershipNumber" : "totr0307",
   "isActive" : true,
-  "hasPaid" : false,
-  "isHasPaid" : false
+  "hasPaid" : false
 }, {
   "name" : "Søren Kristiansen",
   "age" : 55,
@@ -18,8 +17,7 @@
   "birthDate" : [ 1966, 10, 10 ],
   "membershipNumber" : "søkr2892",
   "isActive" : true,
-  "hasPaid" : false,
-  "isHasPaid" : false
+  "hasPaid" : false
 }, {
   "name" : "Tobias Vold",
   "age" : 22,
@@ -29,8 +27,7 @@
   "birthDate" : [ 1999, 1, 1 ],
   "membershipNumber" : "tovo3188",
   "isActive" : true,
-  "hasPaid" : false,
-  "isHasPaid" : false
+  "hasPaid" : false
 }, {
   "name" : "Finn Finsen",
   "age" : 101,
@@ -40,8 +37,7 @@
   "birthDate" : [ 1920, 9, 24 ],
   "membershipNumber" : "fifi6784",
   "isActive" : true,
-  "hasPaid" : false,
-  "isHasPaid" : false
+  "hasPaid" : false
 }, {
   "name" : "Jim Henry",
   "age" : 13,
@@ -51,8 +47,7 @@
   "birthDate" : [ 2008, 6, 14 ],
   "membershipNumber" : "jihe0728",
   "isActive" : true,
-  "hasPaid" : false,
-  "isHasPaid" : false
+  "hasPaid" : false
 }, {
   "name" : "Torben Trucker",
   "age" : 20,
@@ -62,8 +57,7 @@
   "birthDate" : [ 2000, 12, 24 ],
   "membershipNumber" : "totr2810",
   "isActive" : true,
-  "hasPaid" : false,
-  "isHasPaid" : false
+  "hasPaid" : false
 }, {
   "name" : "Søren Kristiansen",
   "age" : 55,
@@ -73,8 +67,7 @@
   "birthDate" : [ 1966, 10, 10 ],
   "membershipNumber" : "søkr5014",
   "isActive" : true,
-  "hasPaid" : false,
-  "isHasPaid" : false
+  "hasPaid" : false
 }, {
   "name" : "Tobias Vold",
   "age" : 22,
@@ -84,8 +77,7 @@
   "birthDate" : [ 1999, 1, 1 ],
   "membershipNumber" : "tovo0141",
   "isActive" : true,
-  "hasPaid" : false,
-  "isHasPaid" : false
+  "hasPaid" : false
 }, {
   "name" : "Finn Finsen",
   "age" : 101,
@@ -95,8 +87,7 @@
   "birthDate" : [ 1920, 9, 24 ],
   "membershipNumber" : "fifi5785",
   "isActive" : true,
-  "hasPaid" : false,
-  "isHasPaid" : false
+  "hasPaid" : false
 }, {
   "name" : "Jim Henry",
   "age" : 13,
@@ -106,8 +97,7 @@
   "birthDate" : [ 2008, 6, 14 ],
   "membershipNumber" : "jihe7880",
   "isActive" : true,
-  "hasPaid" : false,
-  "isHasPaid" : false
+  "hasPaid" : false
 }, {
   "name" : "Torben Trucker",
   "age" : 20,
@@ -117,8 +107,7 @@
   "birthDate" : [ 2000, 12, 24 ],
   "membershipNumber" : "totr7622",
   "isActive" : true,
-  "hasPaid" : false,
-  "isHasPaid" : false
+  "hasPaid" : false
 }, {
   "name" : "Søren Kristiansen",
   "age" : 55,
@@ -128,8 +117,7 @@
   "birthDate" : [ 1966, 10, 10 ],
   "membershipNumber" : "søkr0396",
   "isActive" : true,
-  "hasPaid" : false,
-  "isHasPaid" : false
+  "hasPaid" : false
 }, {
   "name" : "Tobias Vold",
   "age" : 22,
@@ -139,8 +127,7 @@
   "birthDate" : [ 1999, 1, 1 ],
   "membershipNumber" : "tovo1205",
   "isActive" : true,
-  "hasPaid" : false,
-  "isHasPaid" : false
+  "hasPaid" : false
 }, {
   "name" : "Finn Finsen",
   "age" : 101,
@@ -150,8 +137,7 @@
   "birthDate" : [ 1920, 9, 24 ],
   "membershipNumber" : "fifi1947",
   "isActive" : true,
-  "hasPaid" : false,
-  "isHasPaid" : false
+  "hasPaid" : false
 }, {
   "name" : "Jim Henry",
   "age" : 13,
@@ -161,8 +147,7 @@
   "birthDate" : [ 2008, 6, 14 ],
   "membershipNumber" : "jihe9985",
   "isActive" : true,
-  "hasPaid" : false,
-  "isHasPaid" : false
+  "hasPaid" : false
 }, {
   "name" : "Toke Tokusatsu",
   "age" : 8,
@@ -172,8 +157,7 @@
   "birthDate" : [ 2012, 12, 12 ],
   "membershipNumber" : "toto9205",
   "isActive" : true,
-  "hasPaid" : false,
-  "isHasPaid" : false
+  "hasPaid" : false
 }, {
   "name" : "Torben Trucker",
   "age" : 20,
@@ -183,8 +167,7 @@
   "birthDate" : [ 2000, 12, 24 ],
   "membershipNumber" : "totr6458",
   "isActive" : true,
-  "hasPaid" : false,
-  "isHasPaid" : false
+  "hasPaid" : false
 }, {
   "name" : "Søren Kristiansen",
   "age" : 55,
@@ -194,8 +177,7 @@
   "birthDate" : [ 1966, 10, 10 ],
   "membershipNumber" : "søkr0717",
   "isActive" : true,
-  "hasPaid" : false,
-  "isHasPaid" : false
+  "hasPaid" : false
 }, {
   "name" : "Tobias Vold",
   "age" : 22,
@@ -205,8 +187,7 @@
   "birthDate" : [ 1999, 1, 1 ],
   "membershipNumber" : "tovo2930",
   "isActive" : true,
-  "hasPaid" : false,
-  "isHasPaid" : false
+  "hasPaid" : false
 }, {
   "name" : "Finn Finsen",
   "age" : 101,
@@ -216,8 +197,7 @@
   "birthDate" : [ 1920, 9, 24 ],
   "membershipNumber" : "fifi4773",
   "isActive" : true,
-  "hasPaid" : false,
-  "isHasPaid" : false
+  "hasPaid" : false
 }, {
   "name" : "Jim Henry",
   "age" : 13,
@@ -227,8 +207,7 @@
   "birthDate" : [ 2008, 6, 14 ],
   "membershipNumber" : "jihe3918",
   "isActive" : true,
-  "hasPaid" : false,
-  "isHasPaid" : false
+  "hasPaid" : false
 }, {
   "name" : "Torben Trucker",
   "age" : 20,
@@ -238,8 +217,7 @@
   "birthDate" : [ 2000, 12, 24 ],
   "membershipNumber" : "totr1484",
   "isActive" : true,
-  "hasPaid" : false,
-  "isHasPaid" : false
+  "hasPaid" : false
 }, {
   "name" : "Søren Kristiansen",
   "age" : 55,
@@ -249,8 +227,7 @@
   "birthDate" : [ 1966, 10, 10 ],
   "membershipNumber" : "søkr9126",
   "isActive" : true,
-  "hasPaid" : false,
-  "isHasPaid" : false
+  "hasPaid" : false
 }, {
   "name" : "Tobias Vold",
   "age" : 22,
@@ -260,8 +237,7 @@
   "birthDate" : [ 1999, 1, 1 ],
   "membershipNumber" : "tovo7515",
   "isActive" : true,
-  "hasPaid" : false,
-  "isHasPaid" : false
+  "hasPaid" : false
 }, {
   "name" : "Finn Finsen",
   "age" : 101,
@@ -271,8 +247,7 @@
   "birthDate" : [ 1920, 9, 24 ],
   "membershipNumber" : "fifi8055",
   "isActive" : true,
-  "hasPaid" : false,
-  "isHasPaid" : false
+  "hasPaid" : false
 }, {
   "name" : "Jim Henry",
   "age" : 13,
@@ -282,6 +257,155 @@
   "birthDate" : [ 2008, 6, 14 ],
   "membershipNumber" : "jihe9362",
   "isActive" : true,
-  "hasPaid" : false,
-  "isHasPaid" : false
+  "hasPaid" : false
+}, {
+  "name" : "Torben Trucker",
+  "age" : 20,
+  "phoneNumber" : "12345678",
+  "email" : "Torbensmail@mail.com",
+  "homeAddress" : "torbensvej 31",
+  "birthDate" : [ 2000, 12, 24 ],
+  "membershipNumber" : "totr6993",
+  "isActive" : true,
+  "hasPaid" : false
+}, {
+  "name" : "Søren Kristiansen",
+  "age" : 55,
+  "phoneNumber" : "45678910",
+  "email" : "Sørensmail@mail.com",
+  "homeAddress" : "Sørensvej 14",
+  "birthDate" : [ 1966, 10, 10 ],
+  "membershipNumber" : "søkr7388",
+  "isActive" : true,
+  "hasPaid" : false
+}, {
+  "name" : "Tobias Vold",
+  "age" : 22,
+  "phoneNumber" : "98747723489",
+  "email" : "Tobiases@mail.com",
+  "homeAddress" : "TobyAllé 31",
+  "birthDate" : [ 1999, 1, 1 ],
+  "membershipNumber" : "tovo4901",
+  "isActive" : true,
+  "hasPaid" : false
+}, {
+  "name" : "Finn Finsen",
+  "age" : 101,
+  "phoneNumber" : "8888888",
+  "email" : "Finns@mail.com",
+  "homeAddress" : "Finnminvej 99",
+  "birthDate" : [ 1920, 9, 24 ],
+  "membershipNumber" : "fifi4674",
+  "isActive" : true,
+  "hasPaid" : false
+}, {
+  "name" : "Jim Henry",
+  "age" : 13,
+  "phoneNumber" : "67453219",
+  "email" : "Jims@mail.com",
+  "homeAddress" : "Jimminvej 89",
+  "birthDate" : [ 2008, 6, 14 ],
+  "membershipNumber" : "jihe3510",
+  "isActive" : true,
+  "hasPaid" : false
+}, {
+  "name" : "Torben Trucker",
+  "age" : 20,
+  "phoneNumber" : "12345678",
+  "email" : "Torbensmail@mail.com",
+  "homeAddress" : "torbensvej 31",
+  "birthDate" : [ 2000, 12, 24 ],
+  "membershipNumber" : "totr2009",
+  "isActive" : true,
+  "hasPaid" : false
+}, {
+  "name" : "Søren Kristiansen",
+  "age" : 55,
+  "phoneNumber" : "45678910",
+  "email" : "Sørensmail@mail.com",
+  "homeAddress" : "Sørensvej 14",
+  "birthDate" : [ 1966, 10, 10 ],
+  "membershipNumber" : "søkr6766",
+  "isActive" : true,
+  "hasPaid" : false
+}, {
+  "name" : "Tobias Vold",
+  "age" : 22,
+  "phoneNumber" : "98747723489",
+  "email" : "Tobiases@mail.com",
+  "homeAddress" : "TobyAllé 31",
+  "birthDate" : [ 1999, 1, 1 ],
+  "membershipNumber" : "tovo5418",
+  "isActive" : true,
+  "hasPaid" : false
+}, {
+  "name" : "Finn Finsen",
+  "age" : 101,
+  "phoneNumber" : "8888888",
+  "email" : "Finns@mail.com",
+  "homeAddress" : "Finnminvej 99",
+  "birthDate" : [ 1920, 9, 24 ],
+  "membershipNumber" : "fifi1279",
+  "isActive" : true,
+  "hasPaid" : false
+}, {
+  "name" : "Jim Henry",
+  "age" : 13,
+  "phoneNumber" : "67453219",
+  "email" : "Jims@mail.com",
+  "homeAddress" : "Jimminvej 89",
+  "birthDate" : [ 2008, 6, 14 ],
+  "membershipNumber" : "jihe8135",
+  "isActive" : true,
+  "hasPaid" : false
+}, {
+  "name" : "Torben Trucker",
+  "age" : 20,
+  "phoneNumber" : "12345678",
+  "email" : "Torbensmail@mail.com",
+  "homeAddress" : "torbensvej 31",
+  "birthDate" : [ 2000, 12, 24 ],
+  "membershipNumber" : "totr3788",
+  "isActive" : true,
+  "hasPaid" : false
+}, {
+  "name" : "Søren Kristiansen",
+  "age" : 55,
+  "phoneNumber" : "45678910",
+  "email" : "Sørensmail@mail.com",
+  "homeAddress" : "Sørensvej 14",
+  "birthDate" : [ 1966, 10, 10 ],
+  "membershipNumber" : "søkr3697",
+  "isActive" : true,
+  "hasPaid" : false
+}, {
+  "name" : "Tobias Vold",
+  "age" : 22,
+  "phoneNumber" : "98747723489",
+  "email" : "Tobiases@mail.com",
+  "homeAddress" : "TobyAllé 31",
+  "birthDate" : [ 1999, 1, 1 ],
+  "membershipNumber" : "tovo3624",
+  "isActive" : true,
+  "hasPaid" : false
+}, {
+  "name" : "Finn Finsen",
+  "age" : 101,
+  "phoneNumber" : "8888888",
+  "email" : "Finns@mail.com",
+  "homeAddress" : "Finnminvej 99",
+  "birthDate" : [ 1920, 9, 24 ],
+  "membershipNumber" : "fifi6264",
+  "isActive" : true,
+  "hasPaid" : false
+}, {
+  "name" : "Jim Henry",
+  "age" : 13,
+  "phoneNumber" : "67453219",
+  "email" : "Jims@mail.com",
+  "homeAddress" : "Jimminvej 89",
+  "birthDate" : [ 2008, 6, 14 ],
+  "membershipNumber" : "jihe7731",
+  "isActive" : true,
+  "hasPaid" : false
 } ]

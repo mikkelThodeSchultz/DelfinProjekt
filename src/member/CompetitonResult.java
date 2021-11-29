@@ -9,12 +9,12 @@ public class CompetitonResult {
     //Double for time, int for rank, Enum for Discipline
     double time;
     int rank;
-    Enum<Disciplines> discipline;
+    String discipline;
     String memberID;
 
     public CompetitonResult(){}
 
-    public CompetitonResult(String memberID, double time, int rank, Enum<Disciplines> discipline){
+    public CompetitonResult(String memberID, double time, int rank, String discipline){
         this.time = time;
         this.rank = rank;
         this.discipline = discipline;

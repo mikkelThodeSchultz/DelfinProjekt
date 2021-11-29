@@ -9,8 +9,7 @@
   "isActive" : true,
   "hasPaid" : false,
   "bestTrainingResults" : [ ],
-  "disciplines" : [ ],
-  "isHasPaid" : false
+  "disciplines" : [ ]
 }, {
   "name" : "cSøren Kristiansen",
   "age" : 55,
@@ -22,8 +21,7 @@
   "isActive" : true,
   "hasPaid" : false,
   "bestTrainingResults" : [ ],
-  "disciplines" : [ ],
-  "isHasPaid" : false
+  "disciplines" : [ ]
 }, {
   "name" : "cTobias Vold",
   "age" : 22,
@@ -35,8 +33,7 @@
   "isActive" : true,
   "hasPaid" : false,
   "bestTrainingResults" : [ ],
-  "disciplines" : [ ],
-  "isHasPaid" : false
+  "disciplines" : [ ]
 }, {
   "name" : "cFinn Finsen",
   "age" : 101,
@@ -48,8 +45,7 @@
   "isActive" : true,
   "hasPaid" : false,
   "bestTrainingResults" : [ ],
-  "disciplines" : [ ],
-  "isHasPaid" : false
+  "disciplines" : [ ]
 }, {
   "name" : "cJim Henry",
   "age" : 13,
@@ -61,8 +57,7 @@
   "isActive" : true,
   "hasPaid" : false,
   "bestTrainingResults" : [ ],
-  "disciplines" : [ ],
-  "isHasPaid" : false
+  "disciplines" : [ ]
 }, {
   "name" : "cTorben Trucker",
   "age" : 20,
@@ -74,8 +69,7 @@
   "isActive" : true,
   "hasPaid" : false,
   "bestTrainingResults" : [ ],
-  "disciplines" : [ ],
-  "isHasPaid" : false
+  "disciplines" : [ ]
 }, {
   "name" : "cSøren Kristiansen",
   "age" : 55,
@@ -87,8 +81,7 @@
   "isActive" : true,
   "hasPaid" : false,
   "bestTrainingResults" : [ ],
-  "disciplines" : [ ],
-  "isHasPaid" : false
+  "disciplines" : [ ]
 }, {
   "name" : "cTobias Vold",
   "age" : 22,
@@ -100,8 +93,7 @@
   "isActive" : true,
   "hasPaid" : false,
   "bestTrainingResults" : [ ],
-  "disciplines" : [ ],
-  "isHasPaid" : false
+  "disciplines" : [ ]
 }, {
   "name" : "cFinn Finsen",
   "age" : 101,
@@ -113,8 +105,7 @@
   "isActive" : true,
   "hasPaid" : false,
   "bestTrainingResults" : [ ],
-  "disciplines" : [ ],
-  "isHasPaid" : false
+  "disciplines" : [ ]
 }, {
   "name" : "cJim Henry",
   "age" : 13,
@@ -126,8 +117,7 @@
   "isActive" : true,
   "hasPaid" : false,
   "bestTrainingResults" : [ ],
-  "disciplines" : [ ],
-  "isHasPaid" : false
+  "disciplines" : [ ]
 }, {
   "name" : "cTorben Trucker",
   "age" : 20,
@@ -139,8 +129,7 @@
   "isActive" : true,
   "hasPaid" : false,
   "bestTrainingResults" : [ ],
-  "disciplines" : [ ],
-  "isHasPaid" : false
+  "disciplines" : [ ]
 }, {
   "name" : "cSøren Kristiansen",
   "age" : 55,
@@ -152,8 +141,7 @@
   "isActive" : true,
   "hasPaid" : false,
   "bestTrainingResults" : [ ],
-  "disciplines" : [ ],
-  "isHasPaid" : false
+  "disciplines" : [ ]
 }, {
   "name" : "cTobias Vold",
   "age" : 22,
@@ -165,8 +153,7 @@
   "isActive" : true,
   "hasPaid" : false,
   "bestTrainingResults" : [ ],
-  "disciplines" : [ ],
-  "isHasPaid" : false
+  "disciplines" : [ ]
 }, {
   "name" : "cFinn Finsen",
   "age" : 101,
@@ -178,8 +165,7 @@
   "isActive" : true,
   "hasPaid" : false,
   "bestTrainingResults" : [ ],
-  "disciplines" : [ ],
-  "isHasPaid" : false
+  "disciplines" : [ ]
 }, {
   "name" : "cJim Henry",
   "age" : 13,
@@ -191,8 +177,7 @@
   "isActive" : true,
   "hasPaid" : false,
   "bestTrainingResults" : [ ],
-  "disciplines" : [ ],
-  "isHasPaid" : false
+  "disciplines" : [ ]
 }, {
   "name" : "cTorben Trucker",
   "age" : 20,
@@ -204,8 +189,7 @@
   "isActive" : true,
   "hasPaid" : false,
   "bestTrainingResults" : [ ],
-  "disciplines" : [ ],
-  "isHasPaid" : false
+  "disciplines" : [ ]
 }, {
   "name" : "cSøren Kristiansen",
   "age" : 55,
@@ -217,8 +201,7 @@
   "isActive" : true,
   "hasPaid" : false,
   "bestTrainingResults" : [ ],
-  "disciplines" : [ ],
-  "isHasPaid" : false
+  "disciplines" : [ ]
 }, {
   "name" : "cTobias Vold",
   "age" : 22,
@@ -230,8 +213,7 @@
   "isActive" : true,
   "hasPaid" : false,
   "bestTrainingResults" : [ ],
-  "disciplines" : [ ],
-  "isHasPaid" : false
+  "disciplines" : [ ]
 }, {
   "name" : "cFinn Finsen",
   "age" : 101,
@@ -243,8 +225,7 @@
   "isActive" : true,
   "hasPaid" : false,
   "bestTrainingResults" : [ ],
-  "disciplines" : [ ],
-  "isHasPaid" : false
+  "disciplines" : [ ]
 }, {
   "name" : "cJim Henry",
   "age" : 13,
@@ -256,6 +237,185 @@
   "isActive" : true,
   "hasPaid" : false,
   "bestTrainingResults" : [ ],
-  "disciplines" : [ ],
-  "isHasPaid" : false
+  "disciplines" : [ ]
+}, {
+  "name" : "cTorben Trucker",
+  "age" : 20,
+  "phoneNumber" : "12345678",
+  "email" : "Torbensmail@mail.com",
+  "homeAddress" : "torbensvej 31",
+  "birthDate" : [ 2000, 12, 24 ],
+  "membershipNumber" : "cttr9816",
+  "isActive" : true,
+  "hasPaid" : false,
+  "bestTrainingResults" : [ ],
+  "disciplines" : [ ]
+}, {
+  "name" : "cSøren Kristiansen",
+  "age" : 55,
+  "phoneNumber" : "45678910",
+  "email" : "Sørensmail@mail.com",
+  "homeAddress" : "Sørensvej 14",
+  "birthDate" : [ 1966, 10, 10 ],
+  "membershipNumber" : "cskr6693",
+  "isActive" : true,
+  "hasPaid" : false,
+  "bestTrainingResults" : [ ],
+  "disciplines" : [ ]
+}, {
+  "name" : "cTobias Vold",
+  "age" : 22,
+  "phoneNumber" : "98747723489",
+  "email" : "Tobiases@mail.com",
+  "homeAddress" : "TobyAllé 31",
+  "birthDate" : [ 1999, 1, 1 ],
+  "membershipNumber" : "ctvo7699",
+  "isActive" : true,
+  "hasPaid" : false,
+  "bestTrainingResults" : [ ],
+  "disciplines" : [ ]
+}, {
+  "name" : "cFinn Finsen",
+  "age" : 101,
+  "phoneNumber" : "8888888",
+  "email" : "Finns@mail.com",
+  "homeAddress" : "Finnminvej 99",
+  "birthDate" : [ 1920, 9, 24 ],
+  "membershipNumber" : "cffi8139",
+  "isActive" : true,
+  "hasPaid" : false,
+  "bestTrainingResults" : [ ],
+  "disciplines" : [ ]
+}, {
+  "name" : "cJim Henry",
+  "age" : 13,
+  "phoneNumber" : "67453219",
+  "email" : "Jims@mail.com",
+  "homeAddress" : "Jimminvej 89",
+  "birthDate" : [ 2008, 6, 14 ],
+  "membershipNumber" : "cjhe3463",
+  "isActive" : true,
+  "hasPaid" : false,
+  "bestTrainingResults" : [ ],
+  "disciplines" : [ ]
+}, {
+  "name" : "cTorben Trucker",
+  "age" : 20,
+  "phoneNumber" : "12345678",
+  "email" : "Torbensmail@mail.com",
+  "homeAddress" : "torbensvej 31",
+  "birthDate" : [ 2000, 12, 24 ],
+  "membershipNumber" : "cttr1856",
+  "isActive" : true,
+  "hasPaid" : false,
+  "bestTrainingResults" : [ ],
+  "disciplines" : [ ]
+}, {
+  "name" : "cSøren Kristiansen",
+  "age" : 55,
+  "phoneNumber" : "45678910",
+  "email" : "Sørensmail@mail.com",
+  "homeAddress" : "Sørensvej 14",
+  "birthDate" : [ 1966, 10, 10 ],
+  "membershipNumber" : "cskr4290",
+  "isActive" : true,
+  "hasPaid" : false,
+  "bestTrainingResults" : [ ],
+  "disciplines" : [ ]
+}, {
+  "name" : "cTobias Vold",
+  "age" : 22,
+  "phoneNumber" : "98747723489",
+  "email" : "Tobiases@mail.com",
+  "homeAddress" : "TobyAllé 31",
+  "birthDate" : [ 1999, 1, 1 ],
+  "membershipNumber" : "ctvo1399",
+  "isActive" : true,
+  "hasPaid" : false,
+  "bestTrainingResults" : [ ],
+  "disciplines" : [ ]
+}, {
+  "name" : "cFinn Finsen",
+  "age" : 101,
+  "phoneNumber" : "8888888",
+  "email" : "Finns@mail.com",
+  "homeAddress" : "Finnminvej 99",
+  "birthDate" : [ 1920, 9, 24 ],
+  "membershipNumber" : "cffi8873",
+  "isActive" : true,
+  "hasPaid" : false,
+  "bestTrainingResults" : [ ],
+  "disciplines" : [ ]
+}, {
+  "name" : "cJim Henry",
+  "age" : 13,
+  "phoneNumber" : "67453219",
+  "email" : "Jims@mail.com",
+  "homeAddress" : "Jimminvej 89",
+  "birthDate" : [ 2008, 6, 14 ],
+  "membershipNumber" : "cjhe3764",
+  "isActive" : true,
+  "hasPaid" : false,
+  "bestTrainingResults" : [ ],
+  "disciplines" : [ ]
+}, {
+  "name" : "cTorben Trucker",
+  "age" : 20,
+  "phoneNumber" : "12345678",
+  "email" : "Torbensmail@mail.com",
+  "homeAddress" : "torbensvej 31",
+  "birthDate" : [ 2000, 12, 24 ],
+  "membershipNumber" : "cttr2983",
+  "isActive" : true,
+  "hasPaid" : false,
+  "bestTrainingResults" : [ ],
+  "disciplines" : [ ]
+}, {
+  "name" : "cSøren Kristiansen",
+  "age" : 55,
+  "phoneNumber" : "45678910",
+  "email" : "Sørensmail@mail.com",
+  "homeAddress" : "Sørensvej 14",
+  "birthDate" : [ 1966, 10, 10 ],
+  "membershipNumber" : "cskr9484",
+  "isActive" : true,
+  "hasPaid" : false,
+  "bestTrainingResults" : [ ],
+  "disciplines" : [ ]
+}, {
+  "name" : "cTobias Vold",
+  "age" : 22,
+  "phoneNumber" : "98747723489",
+  "email" : "Tobiases@mail.com",
+  "homeAddress" : "TobyAllé 31",
+  "birthDate" : [ 1999, 1, 1 ],
+  "membershipNumber" : "ctvo6015",
+  "isActive" : true,
+  "hasPaid" : false,
+  "bestTrainingResults" : [ ],
+  "disciplines" : [ ]
+}, {
+  "name" : "cFinn Finsen",
+  "age" : 101,
+  "phoneNumber" : "8888888",
+  "email" : "Finns@mail.com",
+  "homeAddress" : "Finnminvej 99",
+  "birthDate" : [ 1920, 9, 24 ],
+  "membershipNumber" : "cffi7853",
+  "isActive" : true,
+  "hasPaid" : false,
+  "bestTrainingResults" : [ ],
+  "disciplines" : [ ]
+}, {
+  "name" : "cJim Henry",
+  "age" : 13,
+  "phoneNumber" : "67453219",
+  "email" : "Jims@mail.com",
+  "homeAddress" : "Jimminvej 89",
+  "birthDate" : [ 2008, 6, 14 ],
+  "membershipNumber" : "cjhe7792",
+  "isActive" : true,
+  "hasPaid" : false,
+  "bestTrainingResults" : [ ],
+  "disciplines" : [ ]
 } ]

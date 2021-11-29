@@ -37,7 +37,6 @@ public class Controller {
         storedMembers = FileHandler.getMembersFromFile();
         sendStoredMembers(storedMembers);
         listOfComps.addAll(FileHandler.getCompsFromFile());
-        System.out.println(listOfComps.size());
         // ui.printMemberLists(memberList.printMemberLists());
 
         ui.getWelcomeMessage();
@@ -88,7 +87,7 @@ public class Controller {
 
         Competition comp = new Competition("Test");
         Competition comp2 = new Competition("Test2");
-        CompetitonResult result = new CompetitonResult("cskr6795",60.0,2,Disciplines.BACK_CRAWL);
+        CompetitonResult result = new CompetitonResult("cskr6795",60.0,2,Disciplines.BACK_CRAWL.toString());
         comp.addResult(result);
         comp2.addResult(result);
         ArrayList<Competition> comps = new ArrayList<>();
