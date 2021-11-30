@@ -15,13 +15,18 @@ public class Trainer extends Member {
 
     public Trainer(String name, String phoneNumber, String email, String homeAddress, int day, int month, int year) {
         super (name, phoneNumber, email, homeAddress, day, month, year);
-        this.role = Role.TRAINER;
+        role = Role.TRÆNER;
     }
 
-
     //USED FOR JSON. DO NOT DELETE
-    public Trainer(){
+    public Trainer(){}
 
+    public void setRole(){
+        this.role = Role.TRÆNER;
+    }
+
+    public String toString(){
+        return super.toString() + " – " + role.toString();
     }
 
 }

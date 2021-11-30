@@ -1,7 +1,7 @@
 package ui;
 
 public enum Role {
-    TRAINER,
-    COMPETITIVE,
+    TRÆNER,
+    KONKURRENCE,
     STANDARD,
 }

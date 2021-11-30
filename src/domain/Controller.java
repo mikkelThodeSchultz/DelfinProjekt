@@ -163,7 +163,7 @@ public class Controller {
                 case "4" -> editPhoneNumber();
                 case "5" -> editBirthDate();
                 case "6" -> editMembershipStatus();
-               // case "7" -> editLevel();
+                case "7" -> editLevel();
                // case "8" -> deleteMember();
                 case "0" -> goAgain = false;
             }
@@ -222,6 +222,7 @@ public class Controller {
     }
 
     public void editLevel(){
+
     }
 
     public void deleteMember(){
@@ -238,7 +239,6 @@ public class Controller {
             }
         }
     }
-
 
     public double calculateTotalIncome() {
         double totalSum = calculation.calculateContingentForMultipleMembers(memberList.getMemberList());
@@ -264,8 +264,6 @@ public class Controller {
                 memberList.addMember(newMember);
                 ui.printMessage("Du har nu oprettet " + newMember + " som medlem i klubben.");
             } else if (choice.equals("2")){
-                //anden ui menu med discpliner
-                //kalder igen en metode til at oprette med dem
                 CompetitiveMember newMember = new CompetitiveMember(memberInfo[0], memberInfo[1], memberInfo[2], memberInfo[3], day, month, year);
                 memberList.addMember(newMember);
                 ui.printMessage("Du har nu oprettet " + newMember + " som medlem i klubben.");
@@ -274,7 +272,6 @@ public class Controller {
                 memberList.addMember(newTrainer);
                 ui.printMessage("Du har nu oprettet " + newTrainer + " som medlem i klubben.");
             }
-
         } catch (NumberFormatException e) {
             ui.printMessage("Ugyldigt input. Indtast venligst talværdier i fødselsdato-oplysninger.");
         }
