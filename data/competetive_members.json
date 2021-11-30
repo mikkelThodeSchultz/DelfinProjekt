@@ -5,7 +5,259 @@
   "email" : "Torbensmail@mail.com",
   "homeAddress" : "torbensvej 31",
   "birthDate" : [ 2000, 12, 24 ],
-  "membershipNumber" : "cttr2027",
+  "membershipNumber" : "cttr0072",
+  "isActive" : true,
+  "hasPaid" : false,
+  "bestTrainingResults" : [ {
+    "time" : 20.0,
+    "dateBestResult" : [ 2021, 11, 30, 14, 1, 1, 683525700 ],
+    "discipline" : "BACK_CRAWL"
+  }, {
+    "time" : 20.0,
+    "dateBestResult" : [ 2021, 11, 30, 14, 1, 1, 683525700 ],
+    "discipline" : "CRAWL"
+  }, {
+    "time" : 20.0,
+    "dateBestResult" : [ 2021, 11, 30, 14, 2, 31, 380392100 ],
+    "discipline" : "BACK_CRAWL"
+  }, {
+    "time" : 20.0,
+    "dateBestResult" : [ 2021, 11, 30, 14, 2, 31, 380392100 ],
+    "discipline" : "CRAWL"
+  }, {
+    "time" : 20.0,
+    "dateBestResult" : [ 2021, 11, 30, 14, 5, 46, 655215800 ],
+    "discipline" : "BACK_CRAWL"
+  }, {
+    "time" : 20.0,
+    "dateBestResult" : [ 2021, 11, 30, 14, 5, 46, 655215800 ],
+    "discipline" : "CRAWL"
+  }, {
+    "time" : 20.0,
+    "dateBestResult" : [ 2021, 11, 30, 14, 7, 52, 634589000 ],
+    "discipline" : "BACK_CRAWL"
+  }, {
+    "time" : 20.0,
+    "dateBestResult" : [ 2021, 11, 30, 14, 7, 52, 634589000 ],
+    "discipline" : "CRAWL"
+  }, {
+    "time" : 20.0,
+    "dateBestResult" : [ 2021, 11, 30, 14, 9, 48, 183611400 ],
+    "discipline" : "BACK_CRAWL"
+  }, {
+    "time" : 20.0,
+    "dateBestResult" : [ 2021, 11, 30, 14, 9, 48, 183611400 ],
+    "discipline" : "CRAWL"
+  }, {
+    "time" : 20.0,
+    "dateBestResult" : [ 2021, 11, 30, 14, 12, 15, 550583200 ],
+    "discipline" : "BACK_CRAWL"
+  }, {
+    "time" : 20.0,
+    "dateBestResult" : [ 2021, 11, 30, 14, 12, 15, 550583200 ],
+    "discipline" : "CRAWL"
+  }, {
+    "time" : 20.0,
+    "dateBestResult" : [ 2021, 11, 30, 14, 12, 53, 606401600 ],
+    "discipline" : "BACK_CRAWL"
+  }, {
+    "time" : 20.0,
+    "dateBestResult" : [ 2021, 11, 30, 14, 12, 53, 606401600 ],
+    "discipline" : "CRAWL"
+  }, {
+    "time" : 20.0,
+    "dateBestResult" : [ 2021, 11, 30, 14, 13, 27, 391321000 ],
+    "discipline" : "BACK_CRAWL"
+  }, {
+    "time" : 20.0,
+    "dateBestResult" : [ 2021, 11, 30, 14, 13, 27, 391321000 ],
+    "discipline" : "CRAWL"
+  } ],
+  "disciplines" : [ ]
+}, {
+  "name" : "cSøren Kristiansen",
+  "age" : 55,
+  "phoneNumber" : "45678910",
+  "email" : "Sørensmail@mail.com",
+  "homeAddress" : "Sørensvej 14",
+  "birthDate" : [ 1966, 10, 10 ],
+  "membershipNumber" : "cskr2376",
+  "isActive" : true,
+  "hasPaid" : false,
+  "bestTrainingResults" : [ {
+    "time" : 25.0,
+    "dateBestResult" : [ 2021, 11, 30, 14, 1, 1, 683525700 ],
+    "discipline" : "BACK_CRAWL"
+  }, {
+    "time" : 25.0,
+    "dateBestResult" : [ 2021, 11, 30, 14, 2, 31, 380392100 ],
+    "discipline" : "BACK_CRAWL"
+  }, {
+    "time" : 25.0,
+    "dateBestResult" : [ 2021, 11, 30, 14, 5, 46, 655215800 ],
+    "discipline" : "BACK_CRAWL"
+  }, {
+    "time" : 25.0,
+    "dateBestResult" : [ 2021, 11, 30, 14, 7, 52, 634589000 ],
+    "discipline" : "BACK_CRAWL"
+  }, {
+    "time" : 25.0,
+    "dateBestResult" : [ 2021, 11, 30, 14, 9, 48, 183611400 ],
+    "discipline" : "BACK_CRAWL"
+  }, {
+    "time" : 25.0,
+    "dateBestResult" : [ 2021, 11, 30, 14, 12, 15, 550583200 ],
+    "discipline" : "BACK_CRAWL"
+  }, {
+    "time" : 25.0,
+    "dateBestResult" : [ 2021, 11, 30, 14, 12, 53, 606401600 ],
+    "discipline" : "BACK_CRAWL"
+  }, {
+    "time" : 25.0,
+    "dateBestResult" : [ 2021, 11, 30, 14, 13, 27, 391321000 ],
+    "discipline" : "BACK_CRAWL"
+  } ],
+  "disciplines" : [ ]
+}, {
+  "name" : "cTobias Vold",
+  "age" : 22,
+  "phoneNumber" : "98747723489",
+  "email" : "Tobiases@mail.com",
+  "homeAddress" : "TobyAllé 31",
+  "birthDate" : [ 1999, 1, 1 ],
+  "membershipNumber" : "ctvo1412",
+  "isActive" : true,
+  "hasPaid" : false,
+  "bestTrainingResults" : [ {
+    "time" : 30.0,
+    "dateBestResult" : [ 2021, 11, 30, 14, 1, 1, 683525700 ],
+    "discipline" : "BACK_CRAWL"
+  }, {
+    "time" : 30.0,
+    "dateBestResult" : [ 2021, 11, 30, 14, 2, 31, 380392100 ],
+    "discipline" : "BACK_CRAWL"
+  }, {
+    "time" : 30.0,
+    "dateBestResult" : [ 2021, 11, 30, 14, 5, 46, 655215800 ],
+    "discipline" : "BACK_CRAWL"
+  }, {
+    "time" : 30.0,
+    "dateBestResult" : [ 2021, 11, 30, 14, 7, 52, 634589000 ],
+    "discipline" : "BACK_CRAWL"
+  }, {
+    "time" : 30.0,
+    "dateBestResult" : [ 2021, 11, 30, 14, 9, 48, 183611400 ],
+    "discipline" : "BACK_CRAWL"
+  }, {
+    "time" : 30.0,
+    "dateBestResult" : [ 2021, 11, 30, 14, 12, 15, 550583200 ],
+    "discipline" : "BACK_CRAWL"
+  }, {
+    "time" : 30.0,
+    "dateBestResult" : [ 2021, 11, 30, 14, 12, 53, 606401600 ],
+    "discipline" : "BACK_CRAWL"
+  }, {
+    "time" : 30.0,
+    "dateBestResult" : [ 2021, 11, 30, 14, 13, 27, 391321000 ],
+    "discipline" : "BACK_CRAWL"
+  } ],
+  "disciplines" : [ ]
+}, {
+  "name" : "cFinn Finsen",
+  "age" : 101,
+  "phoneNumber" : "8888888",
+  "email" : "Finns@mail.com",
+  "homeAddress" : "Finnminvej 99",
+  "birthDate" : [ 1920, 9, 24 ],
+  "membershipNumber" : "cffi6182",
+  "isActive" : true,
+  "hasPaid" : false,
+  "bestTrainingResults" : [ {
+    "time" : 35.0,
+    "dateBestResult" : [ 2021, 11, 30, 14, 1, 1, 683525700 ],
+    "discipline" : "BACK_CRAWL"
+  }, {
+    "time" : 35.0,
+    "dateBestResult" : [ 2021, 11, 30, 14, 2, 31, 380392100 ],
+    "discipline" : "BACK_CRAWL"
+  }, {
+    "time" : 35.0,
+    "dateBestResult" : [ 2021, 11, 30, 14, 5, 46, 655215800 ],
+    "discipline" : "BACK_CRAWL"
+  }, {
+    "time" : 35.0,
+    "dateBestResult" : [ 2021, 11, 30, 14, 7, 52, 634589000 ],
+    "discipline" : "BACK_CRAWL"
+  }, {
+    "time" : 35.0,
+    "dateBestResult" : [ 2021, 11, 30, 14, 9, 48, 183611400 ],
+    "discipline" : "BACK_CRAWL"
+  }, {
+    "time" : 35.0,
+    "dateBestResult" : [ 2021, 11, 30, 14, 12, 15, 550583200 ],
+    "discipline" : "BACK_CRAWL"
+  }, {
+    "time" : 35.0,
+    "dateBestResult" : [ 2021, 11, 30, 14, 12, 53, 606401600 ],
+    "discipline" : "BACK_CRAWL"
+  }, {
+    "time" : 35.0,
+    "dateBestResult" : [ 2021, 11, 30, 14, 13, 27, 391321000 ],
+    "discipline" : "BACK_CRAWL"
+  } ],
+  "disciplines" : [ ]
+}, {
+  "name" : "cJim Henry",
+  "age" : 13,
+  "phoneNumber" : "67453219",
+  "email" : "Jims@mail.com",
+  "homeAddress" : "Jimminvej 89",
+  "birthDate" : [ 2008, 6, 14 ],
+  "membershipNumber" : "cjhe9558",
+  "isActive" : true,
+  "hasPaid" : false,
+  "bestTrainingResults" : [ {
+    "time" : 40.0,
+    "dateBestResult" : [ 2021, 11, 30, 14, 1, 1, 683525700 ],
+    "discipline" : "BACK_CRAWL"
+  }, {
+    "time" : 40.0,
+    "dateBestResult" : [ 2021, 11, 30, 14, 2, 31, 380392100 ],
+    "discipline" : "BACK_CRAWL"
+  }, {
+    "time" : 40.0,
+    "dateBestResult" : [ 2021, 11, 30, 14, 5, 46, 655215800 ],
+    "discipline" : "BACK_CRAWL"
+  }, {
+    "time" : 40.0,
+    "dateBestResult" : [ 2021, 11, 30, 14, 7, 52, 634589000 ],
+    "discipline" : "BACK_CRAWL"
+  }, {
+    "time" : 40.0,
+    "dateBestResult" : [ 2021, 11, 30, 14, 9, 48, 183611400 ],
+    "discipline" : "BACK_CRAWL"
+  }, {
+    "time" : 40.0,
+    "dateBestResult" : [ 2021, 11, 30, 14, 12, 15, 550583200 ],
+    "discipline" : "BACK_CRAWL"
+  }, {
+    "time" : 40.0,
+    "dateBestResult" : [ 2021, 11, 30, 14, 12, 53, 606401600 ],
+    "discipline" : "BACK_CRAWL"
+  }, {
+    "time" : 40.0,
+    "dateBestResult" : [ 2021, 11, 30, 14, 13, 27, 391321000 ],
+    "discipline" : "BACK_CRAWL"
+  } ],
+  "disciplines" : [ ]
+}, {
+  "name" : "cTorben Trucker",
+  "age" : 20,
+  "phoneNumber" : "12345678",
+  "email" : "Torbensmail@mail.com",
+  "homeAddress" : "torbensvej 31",
+  "birthDate" : [ 2000, 12, 24 ],
+  "membershipNumber" : "cttr8727",
   "isActive" : true,
   "hasPaid" : false,
   "bestTrainingResults" : [ ],
@@ -17,7 +269,7 @@
   "email" : "Sørensmail@mail.com",
   "homeAddress" : "Sørensvej 14",
   "birthDate" : [ 1966, 10, 10 ],
-  "membershipNumber" : "cskr6795",
+  "membershipNumber" : "cskr9407",
   "isActive" : true,
   "hasPaid" : false,
   "bestTrainingResults" : [ ],
@@ -29,7 +281,7 @@
   "email" : "Tobiases@mail.com",
   "homeAddress" : "TobyAllé 31",
   "birthDate" : [ 1999, 1, 1 ],
-  "membershipNumber" : "ctvo3264",
+  "membershipNumber" : "ctvo1756",
   "isActive" : true,
   "hasPaid" : false,
   "bestTrainingResults" : [ ],
@@ -41,7 +293,7 @@
   "email" : "Finns@mail.com",
   "homeAddress" : "Finnminvej 99",
   "birthDate" : [ 1920, 9, 24 ],
-  "membershipNumber" : "cffi3515",
+  "membershipNumber" : "cffi8688",
   "isActive" : true,
   "hasPaid" : false,
   "bestTrainingResults" : [ ],
@@ -53,7 +305,7 @@
   "email" : "Jims@mail.com",
   "homeAddress" : "Jimminvej 89",
   "birthDate" : [ 2008, 6, 14 ],
-  "membershipNumber" : "cjhe7365",
+  "membershipNumber" : "cjhe1556",
   "isActive" : true,
   "hasPaid" : false,
   "bestTrainingResults" : [ ],
@@ -65,7 +317,7 @@
   "email" : "Torbensmail@mail.com",
   "homeAddress" : "torbensvej 31",
   "birthDate" : [ 2000, 12, 24 ],
-  "membershipNumber" : "cttr1727",
+  "membershipNumber" : "cttr6818",
   "isActive" : true,
   "hasPaid" : false,
   "bestTrainingResults" : [ ],
@@ -77,7 +329,7 @@
   "email" : "Sørensmail@mail.com",
   "homeAddress" : "Sørensvej 14",
   "birthDate" : [ 1966, 10, 10 ],
-  "membershipNumber" : "cskr2118",
+  "membershipNumber" : "cskr1575",
   "isActive" : true,
   "hasPaid" : false,
   "bestTrainingResults" : [ ],
@@ -89,7 +341,7 @@
   "email" : "Tobiases@mail.com",
   "homeAddress" : "TobyAllé 31",
   "birthDate" : [ 1999, 1, 1 ],
-  "membershipNumber" : "ctvo2503",
+  "membershipNumber" : "ctvo1524",
   "isActive" : true,
   "hasPaid" : false,
   "bestTrainingResults" : [ ],
@@ -101,7 +353,7 @@
   "email" : "Finns@mail.com",
   "homeAddress" : "Finnminvej 99",
   "birthDate" : [ 1920, 9, 24 ],
-  "membershipNumber" : "cffi3811",
+  "membershipNumber" : "cffi2093",
   "isActive" : true,
   "hasPaid" : false,
   "bestTrainingResults" : [ ],
@@ -113,7 +365,7 @@
   "email" : "Jims@mail.com",
   "homeAddress" : "Jimminvej 89",
   "birthDate" : [ 2008, 6, 14 ],
-  "membershipNumber" : "cjhe4520",
+  "membershipNumber" : "cjhe5106",
   "isActive" : true,
   "hasPaid" : false,
   "bestTrainingResults" : [ ],
@@ -125,7 +377,7 @@
   "email" : "Torbensmail@mail.com",
   "homeAddress" : "torbensvej 31",
   "birthDate" : [ 2000, 12, 24 ],
-  "membershipNumber" : "cttr9561",
+  "membershipNumber" : "cttr5387",
   "isActive" : true,
   "hasPaid" : false,
   "bestTrainingResults" : [ ],
@@ -137,7 +389,7 @@
   "email" : "Sørensmail@mail.com",
   "homeAddress" : "Sørensvej 14",
   "birthDate" : [ 1966, 10, 10 ],
-  "membershipNumber" : "cskr0886",
+  "membershipNumber" : "cskr6037",
   "isActive" : true,
   "hasPaid" : false,
   "bestTrainingResults" : [ ],
@@ -149,7 +401,7 @@
   "email" : "Tobiases@mail.com",
   "homeAddress" : "TobyAllé 31",
   "birthDate" : [ 1999, 1, 1 ],
-  "membershipNumber" : "ctvo8301",
+  "membershipNumber" : "ctvo7804",
   "isActive" : true,
   "hasPaid" : false,
   "bestTrainingResults" : [ ],
@@ -161,7 +413,7 @@
   "email" : "Finns@mail.com",
   "homeAddress" : "Finnminvej 99",
   "birthDate" : [ 1920, 9, 24 ],
-  "membershipNumber" : "cffi9858",
+  "membershipNumber" : "cffi2808",
   "isActive" : true,
   "hasPaid" : false,
   "bestTrainingResults" : [ ],
@@ -173,7 +425,7 @@
   "email" : "Jims@mail.com",
   "homeAddress" : "Jimminvej 89",
   "birthDate" : [ 2008, 6, 14 ],
-  "membershipNumber" : "cjhe6059",
+  "membershipNumber" : "cjhe5351",
   "isActive" : true,
   "hasPaid" : false,
   "bestTrainingResults" : [ ],
@@ -185,7 +437,7 @@
   "email" : "Torbensmail@mail.com",
   "homeAddress" : "torbensvej 31",
   "birthDate" : [ 2000, 12, 24 ],
-  "membershipNumber" : "cttr2364",
+  "membershipNumber" : "cttr0283",
   "isActive" : true,
   "hasPaid" : false,
   "bestTrainingResults" : [ ],
@@ -197,7 +449,7 @@
   "email" : "Sørensmail@mail.com",
   "homeAddress" : "Sørensvej 14",
   "birthDate" : [ 1966, 10, 10 ],
-  "membershipNumber" : "cskr1076",
+  "membershipNumber" : "cskr2362",
   "isActive" : true,
   "hasPaid" : false,
   "bestTrainingResults" : [ ],
@@ -209,7 +461,7 @@
   "email" : "Tobiases@mail.com",
   "homeAddress" : "TobyAllé 31",
   "birthDate" : [ 1999, 1, 1 ],
-  "membershipNumber" : "ctvo0211",
+  "membershipNumber" : "ctvo3297",
   "isActive" : true,
   "hasPaid" : false,
   "bestTrainingResults" : [ ],
@@ -221,7 +473,7 @@
   "email" : "Finns@mail.com",
   "homeAddress" : "Finnminvej 99",
   "birthDate" : [ 1920, 9, 24 ],
-  "membershipNumber" : "cffi6731",
+  "membershipNumber" : "cffi0290",
   "isActive" : true,
   "hasPaid" : false,
   "bestTrainingResults" : [ ],
@@ -233,7 +485,7 @@
   "email" : "Jims@mail.com",
   "homeAddress" : "Jimminvej 89",
   "birthDate" : [ 2008, 6, 14 ],
-  "membershipNumber" : "cjhe4227",
+  "membershipNumber" : "cjhe5679",
   "isActive" : true,
   "hasPaid" : false,
   "bestTrainingResults" : [ ],
@@ -245,7 +497,7 @@
   "email" : "Torbensmail@mail.com",
   "homeAddress" : "torbensvej 31",
   "birthDate" : [ 2000, 12, 24 ],
-  "membershipNumber" : "cttr9816",
+  "membershipNumber" : "cttr4728",
   "isActive" : true,
   "hasPaid" : false,
   "bestTrainingResults" : [ ],
@@ -257,7 +509,7 @@
   "email" : "Sørensmail@mail.com",
   "homeAddress" : "Sørensvej 14",
   "birthDate" : [ 1966, 10, 10 ],
-  "membershipNumber" : "cskr6693",
+  "membershipNumber" : "cskr0639",
   "isActive" : true,
   "hasPaid" : false,
   "bestTrainingResults" : [ ],
@@ -269,7 +521,7 @@
   "email" : "Tobiases@mail.com",
   "homeAddress" : "TobyAllé 31",
   "birthDate" : [ 1999, 1, 1 ],
-  "membershipNumber" : "ctvo7699",
+  "membershipNumber" : "ctvo7190",
   "isActive" : true,
   "hasPaid" : false,
   "bestTrainingResults" : [ ],
@@ -281,7 +533,7 @@
   "email" : "Finns@mail.com",
   "homeAddress" : "Finnminvej 99",
   "birthDate" : [ 1920, 9, 24 ],
-  "membershipNumber" : "cffi8139",
+  "membershipNumber" : "cffi2423",
   "isActive" : true,
   "hasPaid" : false,
   "bestTrainingResults" : [ ],
@@ -293,7 +545,7 @@
   "email" : "Jims@mail.com",
   "homeAddress" : "Jimminvej 89",
   "birthDate" : [ 2008, 6, 14 ],
-  "membershipNumber" : "cjhe3463",
+  "membershipNumber" : "cjhe5850",
   "isActive" : true,
   "hasPaid" : false,
   "bestTrainingResults" : [ ],
@@ -305,7 +557,7 @@
   "email" : "Torbensmail@mail.com",
   "homeAddress" : "torbensvej 31",
   "birthDate" : [ 2000, 12, 24 ],
-  "membershipNumber" : "cttr1856",
+  "membershipNumber" : "cttr9125",
   "isActive" : true,
   "hasPaid" : false,
   "bestTrainingResults" : [ ],
@@ -317,7 +569,7 @@
   "email" : "Sørensmail@mail.com",
   "homeAddress" : "Sørensvej 14",
   "birthDate" : [ 1966, 10, 10 ],
-  "membershipNumber" : "cskr4290",
+  "membershipNumber" : "cskr5715",
   "isActive" : true,
   "hasPaid" : false,
   "bestTrainingResults" : [ ],
@@ -329,7 +581,7 @@
   "email" : "Tobiases@mail.com",
   "homeAddress" : "TobyAllé 31",
   "birthDate" : [ 1999, 1, 1 ],
-  "membershipNumber" : "ctvo1399",
+  "membershipNumber" : "ctvo9281",
   "isActive" : true,
   "hasPaid" : false,
   "bestTrainingResults" : [ ],
@@ -341,7 +593,7 @@
   "email" : "Finns@mail.com",
   "homeAddress" : "Finnminvej 99",
   "birthDate" : [ 1920, 9, 24 ],
-  "membershipNumber" : "cffi8873",
+  "membershipNumber" : "cffi9345",
   "isActive" : true,
   "hasPaid" : false,
   "bestTrainingResults" : [ ],
@@ -353,7 +605,7 @@
   "email" : "Jims@mail.com",
   "homeAddress" : "Jimminvej 89",
   "birthDate" : [ 2008, 6, 14 ],
-  "membershipNumber" : "cjhe3764",
+  "membershipNumber" : "cjhe1040",
   "isActive" : true,
   "hasPaid" : false,
   "bestTrainingResults" : [ ],
@@ -365,7 +617,7 @@
   "email" : "Torbensmail@mail.com",
   "homeAddress" : "torbensvej 31",
   "birthDate" : [ 2000, 12, 24 ],
-  "membershipNumber" : "cttr2983",
+  "membershipNumber" : "cttr7556",
   "isActive" : true,
   "hasPaid" : false,
   "bestTrainingResults" : [ ],
@@ -377,7 +629,7 @@
   "email" : "Sørensmail@mail.com",
   "homeAddress" : "Sørensvej 14",
   "birthDate" : [ 1966, 10, 10 ],
-  "membershipNumber" : "cskr9484",
+  "membershipNumber" : "cskr9079",
   "isActive" : true,
   "hasPaid" : false,
   "bestTrainingResults" : [ ],
@@ -389,7 +641,7 @@
   "email" : "Tobiases@mail.com",
   "homeAddress" : "TobyAllé 31",
   "birthDate" : [ 1999, 1, 1 ],
-  "membershipNumber" : "ctvo6015",
+  "membershipNumber" : "ctvo1854",
   "isActive" : true,
   "hasPaid" : false,
   "bestTrainingResults" : [ ],
@@ -401,7 +653,7 @@
   "email" : "Finns@mail.com",
   "homeAddress" : "Finnminvej 99",
   "birthDate" : [ 1920, 9, 24 ],
-  "membershipNumber" : "cffi7853",
+  "membershipNumber" : "cffi8436",
   "isActive" : true,
   "hasPaid" : false,
   "bestTrainingResults" : [ ],
@@ -413,127 +665,7 @@
   "email" : "Jims@mail.com",
   "homeAddress" : "Jimminvej 89",
   "birthDate" : [ 2008, 6, 14 ],
-  "membershipNumber" : "cjhe7792",
-  "isActive" : true,
-  "hasPaid" : false,
-  "bestTrainingResults" : [ ],
-  "disciplines" : [ ]
-}, {
-  "name" : "cTorben Trucker",
-  "age" : 20,
-  "phoneNumber" : "12345678",
-  "email" : "Torbensmail@mail.com",
-  "homeAddress" : "torbensvej 31",
-  "birthDate" : [ 2000, 12, 24 ],
-  "membershipNumber" : "cttr4891",
-  "isActive" : true,
-  "hasPaid" : false,
-  "bestTrainingResults" : [ ],
-  "disciplines" : [ ]
-}, {
-  "name" : "cSøren Kristiansen",
-  "age" : 55,
-  "phoneNumber" : "45678910",
-  "email" : "Sørensmail@mail.com",
-  "homeAddress" : "Sørensvej 14",
-  "birthDate" : [ 1966, 10, 10 ],
-  "membershipNumber" : "cskr9712",
-  "isActive" : true,
-  "hasPaid" : false,
-  "bestTrainingResults" : [ ],
-  "disciplines" : [ ]
-}, {
-  "name" : "cTobias Vold",
-  "age" : 22,
-  "phoneNumber" : "98747723489",
-  "email" : "Tobiases@mail.com",
-  "homeAddress" : "TobyAllé 31",
-  "birthDate" : [ 1999, 1, 1 ],
-  "membershipNumber" : "ctvo9360",
-  "isActive" : true,
-  "hasPaid" : false,
-  "bestTrainingResults" : [ ],
-  "disciplines" : [ ]
-}, {
-  "name" : "cFinn Finsen",
-  "age" : 101,
-  "phoneNumber" : "8888888",
-  "email" : "Finns@mail.com",
-  "homeAddress" : "Finnminvej 99",
-  "birthDate" : [ 1920, 9, 24 ],
-  "membershipNumber" : "cffi1644",
-  "isActive" : true,
-  "hasPaid" : false,
-  "bestTrainingResults" : [ ],
-  "disciplines" : [ ]
-}, {
-  "name" : "cJim Henry",
-  "age" : 13,
-  "phoneNumber" : "67453219",
-  "email" : "Jims@mail.com",
-  "homeAddress" : "Jimminvej 89",
-  "birthDate" : [ 2008, 6, 14 ],
-  "membershipNumber" : "cjhe7357",
-  "isActive" : true,
-  "hasPaid" : false,
-  "bestTrainingResults" : [ ],
-  "disciplines" : [ ]
-}, {
-  "name" : "cTorben Trucker",
-  "age" : 20,
-  "phoneNumber" : "12345678",
-  "email" : "Torbensmail@mail.com",
-  "homeAddress" : "torbensvej 31",
-  "birthDate" : [ 2000, 12, 24 ],
-  "membershipNumber" : "cttr7354",
-  "isActive" : true,
-  "hasPaid" : false,
-  "bestTrainingResults" : [ ],
-  "disciplines" : [ ]
-}, {
-  "name" : "cSøren Kristiansen",
-  "age" : 55,
-  "phoneNumber" : "45678910",
-  "email" : "Sørensmail@mail.com",
-  "homeAddress" : "Sørensvej 14",
-  "birthDate" : [ 1966, 10, 10 ],
-  "membershipNumber" : "cskr2943",
-  "isActive" : true,
-  "hasPaid" : false,
-  "bestTrainingResults" : [ ],
-  "disciplines" : [ ]
-}, {
-  "name" : "cTobias Vold",
-  "age" : 22,
-  "phoneNumber" : "98747723489",
-  "email" : "Tobiases@mail.com",
-  "homeAddress" : "TobyAllé 31",
-  "birthDate" : [ 1999, 1, 1 ],
-  "membershipNumber" : "ctvo5239",
-  "isActive" : true,
-  "hasPaid" : false,
-  "bestTrainingResults" : [ ],
-  "disciplines" : [ ]
-}, {
-  "name" : "cFinn Finsen",
-  "age" : 101,
-  "phoneNumber" : "8888888",
-  "email" : "Finns@mail.com",
-  "homeAddress" : "Finnminvej 99",
-  "birthDate" : [ 1920, 9, 24 ],
-  "membershipNumber" : "cffi6818",
-  "isActive" : true,
-  "hasPaid" : false,
-  "bestTrainingResults" : [ ],
-  "disciplines" : [ ]
-}, {
-  "name" : "cJim Henry",
-  "age" : 13,
-  "phoneNumber" : "67453219",
-  "email" : "Jims@mail.com",
-  "homeAddress" : "Jimminvej 89",
-  "birthDate" : [ 2008, 6, 14 ],
-  "membershipNumber" : "cjhe0953",
+  "membershipNumber" : "cjhe6445",
   "isActive" : true,
   "hasPaid" : false,
   "bestTrainingResults" : [ ],

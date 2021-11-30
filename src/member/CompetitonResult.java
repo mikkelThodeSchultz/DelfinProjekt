@@ -21,4 +21,22 @@ public class CompetitonResult {
         this.memberID = memberID;
 
     }
+
+    public double getTime() {
+        return time;
+    }
+
+    public int getRank() {
+        return rank;
+    }
+
+    public String getDiscipline() {
+        return discipline;
+    }
+
+    public String getMemberID() {
+        return memberID;
+    }
+
+
 }

@@ -5,10 +5,10 @@
 
 package member;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 import ui.Disciplines;
-import ui.Status;
 
 public class CompetitiveMember extends Member {
     ArrayList<BestTrainingResult> bestTrainingResults = new ArrayList();
@@ -25,6 +25,14 @@ public class CompetitiveMember extends Member {
     //USED FOR JSON. DO NOT DELETE
     public CompetitiveMember(){
 
+    }
+    public void addBestTrainingResult(LocalDateTime timeWhenAccomplished, double time, Disciplines discipline){
+        BestTrainingResult resultToAdd = new BestTrainingResult(timeWhenAccomplished, time, discipline.toString());
+        bestTrainingResults.add(resultToAdd);
+    }
+
+    public ArrayList<BestTrainingResult> getBestTrainingResults(){
+        return bestTrainingResults;
     }
 
 }

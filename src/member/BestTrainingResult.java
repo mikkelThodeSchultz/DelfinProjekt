@@ -9,13 +9,22 @@ import java.time.LocalDateTime;
 import ui.Status;
 
 public class BestTrainingResult {
+    double time;
     LocalDateTime dateBestResult;
-    double bestTime;
-    Status disciplin;
+    String discipline;
 
-    public BestTrainingResult(LocalDateTime dateBestResult, double bestTime, Status disciplin) {
+    public BestTrainingResult(){}
+
+    public BestTrainingResult(LocalDateTime dateBestResult, double bestTime, String disciplin) {
         this.dateBestResult = dateBestResult;
-        this.bestTime = bestTime;
-        this.disciplin = disciplin;
+        this.time = bestTime;
+        this.discipline = disciplin;
+    }
+
+    public double getTime() {
+        return time;
+    }
+    public String getDiscipline(){
+        return discipline;
     }
 }

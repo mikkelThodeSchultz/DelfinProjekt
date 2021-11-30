@@ -5,6 +5,8 @@
 
 package member;
 
+
+
 import java.util.ArrayList;
 
 public class Competition {
@@ -21,6 +23,9 @@ public class Competition {
     public void addResult(CompetitonResult result){
         results.add(result);
     }
+
+    public ArrayList<CompetitonResult> getResults(){
+        return results;    }
 
 
 }

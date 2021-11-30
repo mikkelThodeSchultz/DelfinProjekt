@@ -6,16 +6,16 @@
 package domain;
 
 import file.FileHandler;
+import org.javatuples.Pair;
 import org.javatuples.Quartet;
 
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.List;
+import java.util.*;
 
 import member.*;
+import org.javatuples.Triplet;
 import ui.Disciplines;
 import ui.Status;
 import ui.UserInterface;
@@ -37,6 +37,8 @@ public class Controller {
     }
 
     public void start() {
+
+
         //Henter members fra fil
         storedMembers = FileHandler.getMembersFromFile();
         sendStoredMembers(storedMembers);
@@ -89,19 +91,43 @@ public class Controller {
         memberList.addMember(tmember5);
 
 
+        ArrayList<CompetitiveMember> compMem = new ArrayList<>();
+        for (Member mem : memberList.getMemberList()) {
+            if (mem instanceof CompetitiveMember) {
+                compMem.add((CompetitiveMember) mem);
+            }
+        }
+
         Competition comp = new Competition("Test");
         Competition comp2 = new Competition("Test2");
-        CompetitonResult result = new CompetitonResult("cskr6795",60.0,2,Disciplines.BACK_CRAWL.toString());
+        listOfComps.add(comp);
+        CompetitonResult result = new CompetitonResult("cskr6795", 60.0, 2, Disciplines.BACK_CRAWL.toString());
+        comp.addResult(result);
+        result = new CompetitonResult(compMem.get(0).getMembershipNumber(), 55.0, 2, Disciplines.BACK_CRAWL.toString());
+        comp.addResult(result);
+        result = new CompetitonResult(compMem.get(0).getMembershipNumber(), 50.0, 2, Disciplines.BACK_CRAWL.toString());
+        comp.addResult(result);
+        result = new CompetitonResult(compMem.get(0).getMembershipNumber(), 40.0, 2, Disciplines.BACK_CRAWL.toString());
+        comp.addResult(result);
+        result = new CompetitonResult(compMem.get(0).getMembershipNumber(), 30.0, 2, Disciplines.BACK_CRAWL.toString());
+        comp.addResult(result);
+        result = new CompetitonResult(compMem.get(0).getMembershipNumber(), 20, 2, Disciplines.BACK_CRAWL.toString());
         comp.addResult(result);
         comp2.addResult(result);
-        ArrayList<Competition> comps = new ArrayList<>();
-        comps.add(comp);
-        comps.add(comp2);
 
+        // TEST DATA
+        LocalDateTime now = LocalDateTime.now();
+        compMem.get(0).addBestTrainingResult(now, 20, Disciplines.BACK_CRAWL);
+        compMem.get(0).addBestTrainingResult(now, 20, Disciplines.CRAWL);
+        compMem.get(1).addBestTrainingResult(now, 25, Disciplines.BACK_CRAWL);
+        compMem.get(2).addBestTrainingResult(now, 30, Disciplines.BACK_CRAWL);
+        compMem.get(3).addBestTrainingResult(now, 35, Disciplines.BACK_CRAWL);
+        compMem.get(4).addBestTrainingResult(now, 40, Disciplines.BACK_CRAWL);
+        // compMem.get(5).addBestTrainingResult(now, 41, Disciplines.BACK_CRAWL);
 
 
         try {
-            FileHandler.storeData(memberList.getMemberList(), comps);
+            FileHandler.storeData(memberList.getMemberList(), listOfComps);
         } catch (IOException e) {
             System.out.println("Failed to store members");
         }
@@ -112,7 +138,7 @@ public class Controller {
         while (goAgain) {
             String choice = ui.getCompetitionMenu();
             switch (choice) {
-                case "1" -> System.out.println("a");//  Top 5 lister
+                case "1" -> topFive();//  Top 5 lister
                 case "2" -> System.out.println("a"); //Registrer resultat
                 case "3" -> System.out.println("a"); //Tilknyt disciplin
                 case "0" -> goAgain = false; //Tilbage til hovedmenu
@@ -152,72 +178,72 @@ public class Controller {
         }
     }
 
-    public void foundMemberMenu(){
+    public void foundMemberMenu() {
         boolean goAgain = true;
-        while(goAgain){
+        while (goAgain) {
             String choice = ui.getFoundMemberMenu();
-            switch (choice){
+            switch (choice) {
                 case "1" -> editName(ui.userInputString());
                 case "2" -> editAddress(ui.userInputString());
                 case "3" -> editEmail(ui.userInputString());
                 case "4" -> editPhoneNumber(ui.userInputString());
                 case "5" -> editBirthDate();
                 case "6" -> editMembershipStatus();
-               // case "7" -> editLevel();
-               // case "8" -> deleteMember();
+                // case "7" -> editLevel();
+                // case "8" -> deleteMember();
                 case "0" -> goAgain = false;
             }
         }
     }
 
-    public void editName(String userInputString){
+    public void editName(String userInputString) {
         ui.printMessage("Rediger navnet her: ");
         String oldName = memberList.editName(userInputString);
-        ui.changeMessage(oldName,userInputString);
+        ui.changeMessage(oldName, userInputString);
     }
 
-    public void editAddress(String userInputString){
+    public void editAddress(String userInputString) {
         ui.printMessage("Rediger adressen her: ");
         String oldAddress = memberList.editAddress(userInputString);
-        ui.changeMessage(oldAddress,userInputString);
+        ui.changeMessage(oldAddress, userInputString);
     }
 
-    public void editEmail(String userInputString){
+    public void editEmail(String userInputString) {
         ui.printMessage("Rediger e-mail adressen her: ");
         String oldEmail = memberList.editEmail(userInputString);
-        ui.changeMessage(oldEmail,userInputString);
+        ui.changeMessage(oldEmail, userInputString);
 
     }
 
-    public void editPhoneNumber(String userInputString){
+    public void editPhoneNumber(String userInputString) {
         ui.printMessage("Rediger telefonummeret her: ");
         String oldNumber = memberList.editPhoneNumber(userInputString);
-        ui.changeMessage(oldNumber,userInputString);
+        ui.changeMessage(oldNumber, userInputString);
     }
 
-    public void editBirthDate(){
+    public void editBirthDate() {
         ui.printMessage("Rediger fødselsdag her: ");
         int day = ui.userInputInt();
         ui.printMessage("Rediger fødselsmåned her: ");
         int month = ui.userInputInt();
         ui.printMessage("Rediger fødselsår her: ");
         int year = ui.userInputInt();
-        LocalDate newBirthDate = LocalDate.of(year, month, day) ;
+        LocalDate newBirthDate = LocalDate.of(year, month, day);
         String oldDate = memberList.editBirthDate(newBirthDate);
         String newDate = memberList.newDateToString(newBirthDate);
-        ui.changeMessage(oldDate,newDate);
+        ui.changeMessage(oldDate, newDate);
     }
 
-    public void editMembershipStatus(){
+    public void editMembershipStatus() {
         memberList.editMembershipStatus();
         ui.printMessage(memberList.isActiveAsString());
     }
 
-    public void editLevel(){
+    public void editLevel() {
 
     }
 
-    public void deleteMember(){
+    public void deleteMember() {
 
     }
 
@@ -297,5 +323,111 @@ public class Controller {
     public void sendStoredMembers(ArrayList<Member> storedMembers) {
         memberList.membersFromController(storedMembers);
         //storedMembers.clear();
+    }
+
+    public void topFive() {
+        ui.isJunior();
+        String isJunior = ui.userInputString();
+        ui.topFiveMenu();
+        String IsTraining = userInputString();
+
+        if (!IsTraining.equals("0")) {
+            Disciplines disipline = ui.topFiveDisipline();
+            if (disipline != null) {
+
+
+                ArrayList<CompetitonResult> results = new ArrayList<>();
+                ArrayList<CompetitonResult> resultsInDisipline = new ArrayList<>();
+                ArrayList<BestTrainingResult> trainingResults = new ArrayList<>();
+
+
+                ArrayList<CompetitiveMember> compMem = new ArrayList<>();
+                if (isJunior.equals("1")) {
+                    for (Member mem : memberList.getMemberList()) {
+                        if (mem instanceof CompetitiveMember && mem.getAge() < 18) {
+                            compMem.add((CompetitiveMember) mem);
+                        }
+                    }
+                } else {
+                    for (Member mem : memberList.getMemberList()) {
+                        if (mem instanceof CompetitiveMember && mem.getAge() > 18) {
+                            compMem.add((CompetitiveMember) mem);
+                        }
+                    }
+                }
+
+
+                //PRINTER KONKURRENCE RESULTATER
+
+
+                if (IsTraining.equals("1")) {
+
+
+                    for (Competition comps : listOfComps) {
+                        results.addAll(comps.getResults());
+                    }
+                    for (CompetitonResult compRes : results) {
+                        if (compRes.getDiscipline().equals(disipline.toString())) {
+                            String memberIDs = compRes.getMemberID();
+                            for (CompetitiveMember compMember : compMem) {
+                                if (memberIDs.equals(compMember.getMembershipNumber())) {
+                                    resultsInDisipline.add(compRes);
+                                }
+                            }
+                        }
+                    }
+
+                    resultsInDisipline.sort(Comparator.comparing(CompetitonResult::getTime));
+
+                    if (resultsInDisipline.size() < 5) {
+                        for (int i = 0; i < resultsInDisipline.size(); i++) {
+                            String memberID = resultsInDisipline.get(i).getMemberID();
+                            double time = resultsInDisipline.get(i).getTime();
+                            ui.printMessage("MedlemsID: " + memberID + "  -  Tid: " + time + "\n");
+                        }
+                    } else {
+                        for (int i = 0; i < 5; i++) {
+                            String memberID = resultsInDisipline.get(i).getMemberID();
+                            double time = resultsInDisipline.get(i).getTime();
+                            ui.printMessage("MedlemsID: " + memberID + "  -  Tid: " + time + "\n");
+                        }
+                    }
+
+
+                    //PRINTER TRÆNING RESULTATER
+
+                } else if (IsTraining.equals("2")) {
+
+                    HashMap<Double, String> trainResult = new HashMap<>();
+                    for (CompetitiveMember actMem : compMem) {
+
+                        for (BestTrainingResult trainRes : actMem.getBestTrainingResults()) {
+                            if (trainRes.getDiscipline().toString().equals(disipline.toString())) {
+                                trainResult.put(trainRes.getTime(), actMem.getMembershipNumber());
+                            }
+                        }
+                    }
+
+                    TreeMap<Double, String> sorted = new TreeMap<>(trainResult);
+                    sorted.putAll(trainResult);
+                    if (sorted.size() < 5) {
+                        for (int i = 0; i < sorted.size(); i++) {
+                            String memberID = sorted.firstEntry().getValue();
+                            double time = sorted.firstKey();
+                            ui.printMessage("MedlemsID: " + memberID + "  -  Tid: " + time + "\n");
+                            sorted.remove(sorted.firstKey());
+
+                        }
+                    } else {
+                        for (int i = 0; i < 5; i++) {
+                            String memberID = sorted.firstEntry().getValue();
+                            double time = sorted.firstKey();
+                            ui.printMessage("MedlemsID: " + memberID + "  -  Tid: " + time + "\n");
+                            sorted.remove(sorted.firstKey());
+                        }
+                    }
+                }
+            }
+        }
     }
 }

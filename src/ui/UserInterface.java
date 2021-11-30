@@ -174,5 +174,68 @@ public class UserInterface {
         System.out.println("Du har nu ændret " + oldInfo + " til " + newInfo+".");
     }
 
+    public void topFiveMenu(){
+        System.out.println("""
+                Top 5 menu
+                
+                Tryk på den tast der svarer til det menupunkt du ønsker at vælge.
+                
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                1 - Top 5 i konkurrencer
+                2 - Top 5 i træning
+                0 - Tilbage
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                """);
+    }
+
+    public Disciplines topFiveDisipline(){
+        System.out.println("""
+                Vælg disipline
+                
+                Tryk på den tast der svarer til det menupunkt du ønsker at vælge.
+                
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                1 - Crawl
+                2 - Rygcrawl
+                3 - Butterfly
+                4 - Brystsvømning
+                0 - Tilbage
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                """);
+        String disipline = sc.nextLine();
+        Disciplines chosenDis;
+
+        if(disipline.equals("1")){
+            chosenDis = Disciplines.CRAWL;
+        }
+        else if (disipline.equals("2")){
+            chosenDis = Disciplines.BACK_CRAWL;
+        }
+        else if (disipline.equals("3")){
+            chosenDis = Disciplines.BUTTERFLY;
+        }
+        else if (disipline.equals("4")){
+            chosenDis = Disciplines.BREASTSTROKE;
+        }
+        else {
+            chosenDis = null;
+        }
+
+        return chosenDis;
+
+    }
+    public void isJunior(){
+        System.out.println("""
+                Vælg junior eller senior
+                
+                Tryk på den tast der svarer til det menupunkt du ønsker at vælge.
+                
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                1 - Junior
+                2 - Senior
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                """);
+    }
+
 }
 
