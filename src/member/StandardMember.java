@@ -5,12 +5,26 @@
 
 package member;
 
+import ui.Role;
+
 public class StandardMember extends Member {
+
+    private Role role;
 
     public StandardMember(String name, String phoneNumber, String email, String homeAddress, int day, int month, int year) {
         super (name, phoneNumber, email, homeAddress, day, month, year);
+        role = Role.STANDARD;
     }
 
     //NEEDED FOR JSON! DO NOT DELETE
     public StandardMember(){}
+
+    public void setRole(){
+        this.role = Role.STANDARD;
+    }
+
+    public String toString(){
+        return super.toString() + " – " + role.toString();
+    }
+
 }

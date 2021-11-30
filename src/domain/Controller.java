@@ -6,7 +6,6 @@
 package domain;
 
 import file.FileHandler;
-import org.javatuples.Pair;
 import org.javatuples.Quartet;
 
 import java.io.IOException;
@@ -15,7 +14,6 @@ import java.time.LocalDateTime;
 import java.util.*;
 
 import member.*;
-import org.javatuples.Triplet;
 import ui.Disciplines;
 import ui.Status;
 import ui.UserInterface;
@@ -37,8 +35,6 @@ public class Controller {
     }
 
     public void start() {
-
-
         //Henter members fra fil
         storedMembers = FileHandler.getMembersFromFile();
         sendStoredMembers(storedMembers);
@@ -171,82 +167,100 @@ public class Controller {
             switch (choice) {
                 case "1" -> ui.showMemberList(memberList.printMemberList());
                 case "2" -> findMember(ui.findSpecificMemberMenu());
-                case "3" -> createNewMember(ui.createNewMember());
+                case "3" -> createMemberMenu();
                 case "0" -> goAgain = false;
                 default -> ui.statusMessage(Status.INVALID_CHOICE);
             }
         }
     }
 
-    public void foundMemberMenu() {
+    public void foundMemberMenu(){
         boolean goAgain = true;
-        while (goAgain) {
+        while(goAgain){
             String choice = ui.getFoundMemberMenu();
-            switch (choice) {
-                case "1" -> editName(ui.userInputString());
-                case "2" -> editAddress(ui.userInputString());
-                case "3" -> editEmail(ui.userInputString());
-                case "4" -> editPhoneNumber(ui.userInputString());
+            switch (choice){
+                case "1" -> editName();
+                case "2" -> editAddress();
+                case "3" -> editEmail();
+                case "4" -> editPhoneNumber();
                 case "5" -> editBirthDate();
                 case "6" -> editMembershipStatus();
-                // case "7" -> editLevel();
-                // case "8" -> deleteMember();
+                case "7" -> editLevel();
+               // case "8" -> deleteMember();
                 case "0" -> goAgain = false;
             }
         }
     }
 
-    public void editName(String userInputString) {
+    public void editName(){
         ui.printMessage("Rediger navnet her: ");
-        String oldName = memberList.editName(userInputString);
-        ui.changeMessage(oldName, userInputString);
+        String userInput = ui.userInputString();
+        String oldName = memberList.editName(userInput);
+        ui.changeMessage(oldName,userInput);
     }
 
-    public void editAddress(String userInputString) {
+    public void editAddress(){
         ui.printMessage("Rediger adressen her: ");
-        String oldAddress = memberList.editAddress(userInputString);
-        ui.changeMessage(oldAddress, userInputString);
+        String userInput = ui.userInputString();
+        String oldAddress = memberList.editAddress(userInput);
+        ui.changeMessage(oldAddress,userInput);
     }
 
-    public void editEmail(String userInputString) {
+    public void editEmail(){
         ui.printMessage("Rediger e-mail adressen her: ");
-        String oldEmail = memberList.editEmail(userInputString);
-        ui.changeMessage(oldEmail, userInputString);
+        String userInput = ui.userInputString();
+        String oldEmail = memberList.editEmail(userInput);
+        ui.changeMessage(oldEmail,userInput);
 
     }
 
-    public void editPhoneNumber(String userInputString) {
+    public void editPhoneNumber(){
         ui.printMessage("Rediger telefonummeret her: ");
-        String oldNumber = memberList.editPhoneNumber(userInputString);
-        ui.changeMessage(oldNumber, userInputString);
+        String userInput = ui.userInputString();
+        String oldNumber = memberList.editPhoneNumber(userInput);
+        ui.changeMessage(oldNumber,userInput);
     }
 
-    public void editBirthDate() {
-        ui.printMessage("Rediger fødselsdag her: ");
-        int day = ui.userInputInt();
-        ui.printMessage("Rediger fødselsmåned her: ");
-        int month = ui.userInputInt();
-        ui.printMessage("Rediger fødselsår her: ");
-        int year = ui.userInputInt();
-        LocalDate newBirthDate = LocalDate.of(year, month, day);
-        String oldDate = memberList.editBirthDate(newBirthDate);
-        String newDate = memberList.newDateToString(newBirthDate);
-        ui.changeMessage(oldDate, newDate);
+    public void editBirthDate(){
+        try {
+            ui.printMessage("Rediger fødselsdag her: ");
+            int day = Integer.parseInt(ui.userInputString());
+            ui.printMessage("Rediger fødselsmåned her: ");
+            int month = Integer.parseInt(ui.userInputString());
+            ui.printMessage("Rediger fødselsår her: ");
+            int year = Integer.parseInt(ui.userInputString());
+            LocalDate newBirthDate = LocalDate.of(year, month, day);
+            String oldDate = memberList.editBirthDate(newBirthDate);
+            String newDate = memberList.newDateToString(newBirthDate);
+            ui.changeMessage(oldDate, newDate);
+        } catch (NumberFormatException e){
+            ui.printMessage("Skriv venligst en dato i feltet.\n");
+        }
     }
 
-    public void editMembershipStatus() {
+    public void editMembershipStatus(){
         memberList.editMembershipStatus();
         ui.printMessage(memberList.isActiveAsString());
     }
 
-    public void editLevel() {
+    public void editLevel(){
 
     }
 
-    public void deleteMember() {
+    public void deleteMember(){
 
     }
 
+    public void createMemberMenu(){
+        boolean goAgain = true;
+        while (goAgain){
+            String choice = ui.getCreateMemberMenu();
+            switch (choice){
+                case "1", "2", "3" -> createNewMember(ui.createNewMember(),choice);
+                case "0" -> goAgain = false;
+            }
+        }
+    }
 
     public double calculateTotalIncome() {
         double totalSum = calculation.calculateContingentForMultipleMembers(memberList.getMemberList());
@@ -261,17 +275,25 @@ public class Controller {
         return calculation.calculateContingent(member.getAge(), member.getIsActive());
     }
 
-    public void createNewMember(String[] memberInfo) {
+    public void createNewMember(String[] memberInfo, String choice) {
         try {
             int day = Integer.parseInt(memberInfo[4]);
             int month = Integer.parseInt(memberInfo[5]);
             int year = Integer.parseInt(memberInfo[6]);
 
-            StandardMember newMember = new StandardMember(memberInfo[0], memberInfo[1], memberInfo[2], memberInfo[3], day, month, year);
-
-            memberList.addMember(newMember);
-            ui.printMessage("Du har nu oprettet " + newMember + " som medlem i klubben.");
-
+            if (choice.equals("1")){
+                StandardMember newMember = new StandardMember(memberInfo[0], memberInfo[1], memberInfo[2], memberInfo[3], day, month, year);
+                memberList.addMember(newMember);
+                ui.printMessage("Du har nu oprettet " + newMember + " som medlem i klubben.");
+            } else if (choice.equals("2")){
+                CompetitiveMember newMember = new CompetitiveMember(memberInfo[0], memberInfo[1], memberInfo[2], memberInfo[3], day, month, year);
+                memberList.addMember(newMember);
+                ui.printMessage("Du har nu oprettet " + newMember + " som medlem i klubben.");
+            } else if (choice.equals("3")){
+                Trainer newTrainer = new Trainer(memberInfo[0], memberInfo[1], memberInfo[2], memberInfo[3], day, month, year);
+                memberList.addMember(newTrainer);
+                ui.printMessage("Du har nu oprettet " + newTrainer + " som medlem i klubben.");
+            }
         } catch (NumberFormatException e) {
             ui.printMessage("Ugyldigt input. Indtast venligst talværdier i fødselsdato-oplysninger.");
         }

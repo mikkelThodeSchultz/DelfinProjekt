@@ -5,6 +5,7 @@
 
 package member;
 
+import ui.Role;
 import ui.Status;
 
 import java.time.LocalDate;

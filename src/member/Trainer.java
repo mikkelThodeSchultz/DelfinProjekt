@@ -5,22 +5,28 @@
 
 package member;
 
+import ui.Role;
+
 import java.util.ArrayList;
 
 public class Trainer extends Member {
-    ArrayList<CompetitiveMember> competitiveSwimmers = new ArrayList();
-
+    private ArrayList<CompetitiveMember> competitiveSwimmers = new ArrayList();
+    private Role role;
 
     public Trainer(String name, String phoneNumber, String email, String homeAddress, int day, int month, int year) {
         super (name, phoneNumber, email, homeAddress, day, month, year);
+        role = Role.TRÆNER;
     }
 
-
-
-
     //USED FOR JSON. DO NOT DELETE
-    public Trainer(){
+    public Trainer(){}
 
+    public void setRole(){
+        this.role = Role.TRÆNER;
+    }
+
+    public String toString(){
+        return super.toString() + " – " + role.toString();
     }
 
 }
