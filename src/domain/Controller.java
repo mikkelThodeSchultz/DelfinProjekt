@@ -157,10 +157,10 @@ public class Controller {
         while(goAgain){
             String choice = ui.getFoundMemberMenu();
             switch (choice){
-                case "1" -> editName(ui.userInputString());
-                case "2" -> editAddress(ui.userInputString());
-                case "3" -> editEmail(ui.userInputString());
-                case "4" -> editPhoneNumber(ui.userInputString());
+                case "1" -> editName();
+                case "2" -> editAddress();
+                case "3" -> editEmail();
+                case "4" -> editPhoneNumber();
                 case "5" -> editBirthDate();
                 case "6" -> editMembershipStatus();
                // case "7" -> editLevel();
@@ -170,42 +170,50 @@ public class Controller {
         }
     }
 
-    public void editName(String userInputString){
+    public void editName(){
         ui.printMessage("Rediger navnet her: ");
-        String oldName = memberList.editName(userInputString);
-        ui.changeMessage(oldName,userInputString);
+        String userInput = ui.userInputString();
+        String oldName = memberList.editName(userInput);
+        ui.changeMessage(oldName,userInput);
     }
 
-    public void editAddress(String userInputString){
+    public void editAddress(){
         ui.printMessage("Rediger adressen her: ");
-        String oldAddress = memberList.editAddress(userInputString);
-        ui.changeMessage(oldAddress,userInputString);
+        String userInput = ui.userInputString();
+        String oldAddress = memberList.editAddress(userInput);
+        ui.changeMessage(oldAddress,userInput);
     }
 
-    public void editEmail(String userInputString){
+    public void editEmail(){
         ui.printMessage("Rediger e-mail adressen her: ");
-        String oldEmail = memberList.editEmail(userInputString);
-        ui.changeMessage(oldEmail,userInputString);
+        String userInput = ui.userInputString();
+        String oldEmail = memberList.editEmail(userInput);
+        ui.changeMessage(oldEmail,userInput);
 
     }
 
-    public void editPhoneNumber(String userInputString){
+    public void editPhoneNumber(){
         ui.printMessage("Rediger telefonummeret her: ");
-        String oldNumber = memberList.editPhoneNumber(userInputString);
-        ui.changeMessage(oldNumber,userInputString);
+        String userInput = ui.userInputString();
+        String oldNumber = memberList.editPhoneNumber(userInput);
+        ui.changeMessage(oldNumber,userInput);
     }
 
     public void editBirthDate(){
-        ui.printMessage("Rediger fødselsdag her: ");
-        int day = ui.userInputInt();
-        ui.printMessage("Rediger fødselsmåned her: ");
-        int month = ui.userInputInt();
-        ui.printMessage("Rediger fødselsår her: ");
-        int year = ui.userInputInt();
-        LocalDate newBirthDate = LocalDate.of(year, month, day) ;
-        String oldDate = memberList.editBirthDate(newBirthDate);
-        String newDate = memberList.newDateToString(newBirthDate);
-        ui.changeMessage(oldDate,newDate);
+        try {
+            ui.printMessage("Rediger fødselsdag her: ");
+            int day = Integer.parseInt(ui.userInputString());
+            ui.printMessage("Rediger fødselsmåned her: ");
+            int month = Integer.parseInt(ui.userInputString());
+            ui.printMessage("Rediger fødselsår her: ");
+            int year = Integer.parseInt(ui.userInputString());
+            LocalDate newBirthDate = LocalDate.of(year, month, day);
+            String oldDate = memberList.editBirthDate(newBirthDate);
+            String newDate = memberList.newDateToString(newBirthDate);
+            ui.changeMessage(oldDate, newDate);
+        } catch (NumberFormatException e){
+            ui.printMessage("Skriv venligst en dato i feltet.\n");
+        }
     }
 
     public void editMembershipStatus(){
@@ -214,6 +222,8 @@ public class Controller {
     }
 
     public void editLevel(){
+
+
 
     }
 
