@@ -145,7 +145,7 @@ public class Controller {
             switch (choice) {
                 case "1" -> ui.showMemberList(memberList.printMemberList());
                 case "2" -> findMember(ui.findSpecificMemberMenu());
-                case "3" -> createNewMember(ui.createNewMember());
+                case "3" -> createMemberMenu();
                 case "0" -> goAgain = false;
                 default -> ui.statusMessage(Status.INVALID_CHOICE);
             }
@@ -186,7 +186,6 @@ public class Controller {
         ui.printMessage("Rediger e-mail adressen her: ");
         String oldEmail = memberList.editEmail(userInputString);
         ui.changeMessage(oldEmail,userInputString);
-
     }
 
     public void editPhoneNumber(String userInputString){
@@ -214,11 +213,21 @@ public class Controller {
     }
 
     public void editLevel(){
-
     }
 
     public void deleteMember(){
 
+    }
+
+    public void createMemberMenu(){
+        boolean goAgain = true;
+        while (goAgain){
+            String choice = ui.getCreateMemberMenu();
+            switch (choice){
+                case "1", "2", "3" -> createNewMember(ui.createNewMember(),choice);
+                case "0" -> goAgain = false;
+            }
+        }
     }
 
 
@@ -235,21 +244,31 @@ public class Controller {
         return calculation.calculateContingent(member.getAge(), member.getIsActive());
     }
 
-    public void createNewMember(String[] memberInfo) {
+    public void createNewMember(String[] memberInfo, String choice) {
         try {
             int day = Integer.parseInt(memberInfo[4]);
             int month = Integer.parseInt(memberInfo[5]);
             int year = Integer.parseInt(memberInfo[6]);
 
-            StandardMember newMember = new StandardMember(memberInfo[0], memberInfo[1], memberInfo[2], memberInfo[3], day, month, year);
-
-            memberList.addMember(newMember);
-            ui.printMessage("Du har nu oprettet " + newMember + " som medlem i klubben.");
+            if (choice.equals("1")){
+                StandardMember newMember = new StandardMember(memberInfo[0], memberInfo[1], memberInfo[2], memberInfo[3], day, month, year);
+                memberList.addMember(newMember);
+                ui.printMessage("Du har nu oprettet " + newMember + " som medlem i klubben.");
+            } else if (choice.equals("2")){
+                //anden ui menu med discpliner
+                //kalder igen en metode til at oprette med dem
+                CompetitiveMember newMember = new CompetitiveMember(memberInfo[0], memberInfo[1], memberInfo[2], memberInfo[3], day, month, year);
+                memberList.addMember(newMember);
+                ui.printMessage("Du har nu oprettet " + newMember + " som medlem i klubben.");
+            } else if (choice.equals("3")){
+                Trainer newTrainer = new Trainer(memberInfo[0], memberInfo[1], memberInfo[2], memberInfo[3], day, month, year);
+                memberList.addMember(newTrainer);
+                ui.printMessage("Du har nu oprettet " + newTrainer + " som medlem i klubben.");
+            }
 
         } catch (NumberFormatException e) {
             ui.printMessage("Ugyldigt input. Indtast venligst talværdier i fødselsdato-oplysninger.");
         }
-
     }
 
     public Member[] findMember(String userInputString) {
@@ -283,16 +302,6 @@ public class Controller {
         return memberList.findMember(userInputString);
     }
 
-    public void statusCreation() {
-    }
-
-    public String userInputString() {
-        return ui.userInputString();
-    }
-
-    public ArrayList<Member> memberList() {
-        return memberList.getMemberList();
-    }
 
     public void sendStoredMembers(ArrayList<Member> storedMembers) {
         memberList.membersFromController(storedMembers);

@@ -5,6 +5,7 @@
 
 package member;
 
+import ui.Role;
 import ui.Status;
 
 import java.time.LocalDate;
@@ -22,6 +23,7 @@ public abstract class Member {
     private String membershipNumber;
     private boolean isActive;
     private boolean hasPaid;
+    private Role role;
 
 
     //NEEDED FOR JSON! DO NOT DELETE
@@ -38,6 +40,7 @@ public abstract class Member {
         this.age = calculateAge();
         this.isActive = true;
         this.hasPaid = false;
+        this.role = null;
     }
 
     public Member(int i, Member member, Status statusMedlemsskab, Status statusDiscipline) {
@@ -151,7 +154,15 @@ public abstract class Member {
     }
 
     public String toString() {
-        return name + " " + membershipNumber;
+        String thisRole = "";
+        if (role == Role.STANDARD){
+          thisRole = "Standardmedlem";
+        } else if (role == Role.COMPETITIVE){
+            thisRole = "Konkurrencesvømmer";
+        } else if (role == Role.TRAINER){
+            thisRole = "Træner";
+        }
+        return name + " " + membershipNumber + " " + thisRole;
     }
 
 

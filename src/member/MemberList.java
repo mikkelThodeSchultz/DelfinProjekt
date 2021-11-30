@@ -8,6 +8,7 @@ public class MemberList {
     private ArrayList<Member> memberList = new ArrayList<>();
     private Member selectedMember = null;
 
+
     public void addMember(Member member) {
         memberList.add(member);
     }
@@ -75,6 +76,11 @@ public class MemberList {
         }
         return "Medlemsskabet er " + status + ".";
     }
+
+    public void editLevel(){ //skal kunne ændre fra motionist til konkurrence og omvendt.
+
+    }
+
 
     public ArrayList<Member> getMemberList() {
         return memberList;

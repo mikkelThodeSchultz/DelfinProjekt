@@ -99,6 +99,20 @@ public class UserInterface {
         return sc.nextLine();
     }
 
+    public String getCreateMemberMenu(){
+        System.out.println("""
+                Tryk på den tast der svarer til det menupunkt du ønsker at vælge.
+
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                1 - Opret standardmedlem
+                2 - Opret konkurrencemedlem
+                3 - Opret træner
+                0 - Tilbage til hovedmenu
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                """);
+        return sc.nextLine();
+    }
+
     public String getPaymentsMenu (){
         System.out.println("""
                 Kontingenter
@@ -147,7 +161,7 @@ public class UserInterface {
     }
 
     //Standardmember – pr. default er man excersier
-    public String[] createNewMember() { //TODO bør ligge i memberlist
+    public String[] createNewMember() {
 
         printMessage("Indtast information om det nye medlem: ");
         printMessage("\nNavn: ");
