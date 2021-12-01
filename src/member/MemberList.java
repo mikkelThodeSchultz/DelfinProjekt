@@ -72,7 +72,7 @@ public class MemberList {
         } else {
             status = "aktivt";
         }
-        return "Medlemsskabet er " + status + ".";
+        return "Medlemsskabet er " + status + ".\n";
     }
 
     public void editLevel(){

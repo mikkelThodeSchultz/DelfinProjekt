@@ -53,73 +53,7 @@ public class Controller {
             }
         }
 
-
-        StandardMember member = new StandardMember("Torben Trucker", "12345678", "Torbensmail@mail.com", "torbensvej 31", 24, 12, 2000);
-        StandardMember member2 = new StandardMember("Søren Kristiansen", "45678910", "Sørensmail@mail.com", "Sørensvej 14", 10, 10, 1966);
-        StandardMember member3 = new StandardMember("Tobias Vold", "98747723489", "Tobiases@mail.com", "TobyAllé 31", 1, 1, 1999);
-        StandardMember member4 = new StandardMember("Finn Finsen", "8888888", "Finns@mail.com", "Finnminvej 99", 24, 9, 1920);
-        StandardMember member5 = new StandardMember("Jim Henry", "67453219", "Jims@mail.com", "Jimminvej 89", 14, 6, 2008);
-        memberList.addMember(member);
-        memberList.addMember(member2);
-        memberList.addMember(member3);
-        memberList.addMember(member4);
-        memberList.addMember(member5);
-        CompetitiveMember cmember = new CompetitiveMember("cTorben Trucker", "12345678", "Torbensmail@mail.com", "torbensvej 31", 24, 12, 2000);
-        CompetitiveMember cmember2 = new CompetitiveMember("cSøren Kristiansen", "45678910", "Sørensmail@mail.com", "Sørensvej 14", 10, 10, 1966);
-        CompetitiveMember cmember3 = new CompetitiveMember("cTobias Vold", "98747723489", "Tobiases@mail.com", "TobyAllé 31", 1, 1, 1999);
-        CompetitiveMember cmember4 = new CompetitiveMember("cFinn Finsen", "8888888", "Finns@mail.com", "Finnminvej 99", 24, 9, 1920);
-        CompetitiveMember cmember5 = new CompetitiveMember("cJim Henry", "67453219", "Jims@mail.com", "Jimminvej 89", 14, 6, 2008);
-        memberList.addMember(cmember);
-        memberList.addMember(cmember2);
-        memberList.addMember(cmember3);
-        memberList.addMember(cmember4);
-        memberList.addMember(cmember5);
-        Trainer tmember = new Trainer("tTorben Trucker", "12345678", "Torbensmail@mail.com", "torbensvej 31", 24, 12, 2000);
-        Trainer tmember2 = new Trainer("tSøren Kristiansen", "45678910", "Sørensmail@mail.com", "Sørensvej 14", 10, 10, 1966);
-        Trainer tmember3 = new Trainer("tTobias Vold", "98747723489", "Tobiases@mail.com", "TobyAllé 31", 1, 1, 1999);
-        Trainer tmember4 = new Trainer("tFinn Finsen", "8888888", "Finns@mail.com", "Finnminvej 99", 24, 9, 1920);
-        Trainer tmember5 = new Trainer("tJim Henry", "67453219", "Jims@mail.com", "Jimminvej 89", 14, 6, 2008);
-        memberList.addMember(tmember);
-        memberList.addMember(tmember2);
-        memberList.addMember(tmember3);
-        memberList.addMember(tmember4);
-        memberList.addMember(tmember5);
-
-
-        ArrayList<CompetitiveMember> compMem = new ArrayList<>();
-        for (Member mem : memberList.getMemberList()) {
-            if (mem instanceof CompetitiveMember) {
-                compMem.add((CompetitiveMember) mem);
-            }
-        }
-
-        Competition comp = new Competition("Test");
-        Competition comp2 = new Competition("Test2");
-        listOfComps.add(comp);
-        CompetitonResult result = new CompetitonResult("cskr6795", 60.0, 2, Disciplines.BACK_CRAWL.toString());
-        comp.addResult(result);
-        result = new CompetitonResult(compMem.get(0).getMembershipNumber(), 55.0, 2, Disciplines.BACK_CRAWL.toString());
-        comp.addResult(result);
-        result = new CompetitonResult(compMem.get(0).getMembershipNumber(), 50.0, 2, Disciplines.BACK_CRAWL.toString());
-        comp.addResult(result);
-        result = new CompetitonResult(compMem.get(0).getMembershipNumber(), 40.0, 2, Disciplines.BACK_CRAWL.toString());
-        comp.addResult(result);
-        result = new CompetitonResult(compMem.get(0).getMembershipNumber(), 30.0, 2, Disciplines.BACK_CRAWL.toString());
-        comp.addResult(result);
-        result = new CompetitonResult(compMem.get(0).getMembershipNumber(), 20, 2, Disciplines.BACK_CRAWL.toString());
-        comp.addResult(result);
-        comp2.addResult(result);
-
-        // TEST DATA
-        LocalDateTime now = LocalDateTime.now();
-        compMem.get(0).addBestTrainingResult(now, 20, Disciplines.BACK_CRAWL);
-        compMem.get(0).addBestTrainingResult(now, 20, Disciplines.CRAWL);
-        compMem.get(1).addBestTrainingResult(now, 25, Disciplines.BACK_CRAWL);
-        compMem.get(2).addBestTrainingResult(now, 30, Disciplines.BACK_CRAWL);
-        compMem.get(3).addBestTrainingResult(now, 35, Disciplines.BACK_CRAWL);
-        compMem.get(4).addBestTrainingResult(now, 40, Disciplines.BACK_CRAWL);
-        // compMem.get(5).addBestTrainingResult(now, 41, Disciplines.BACK_CRAWL);
-
+            generateTestData();
 
         try {
             FileHandler.storeData(memberList.getMemberList(), listOfComps);
@@ -127,6 +61,7 @@ public class Controller {
             System.out.println("Failed to store members");
         }
     }
+
 
     public void SaveCurrent() {
         try {
@@ -184,10 +119,7 @@ public class Controller {
             String choice = ui.getMemberMenu();
             switch (choice) {
                 case "1" -> ui.showMemberList(memberList.printMemberList());
-                case "2" -> {
-                    findMember(ui.findSpecificMemberMenu());
-                    editMemberMenu();
-                }
+                case "2" -> editMemberMenu();
                 case "3" -> createMemberMenu();
                 case "0" -> goAgain = false;
                 default -> ui.statusMessage(Status.INVALID_CHOICE);
@@ -197,6 +129,7 @@ public class Controller {
 
     public void editMemberMenu() {
         boolean goAgain = true;
+        findMember(ui.findSpecificMemberMenu());
         while (goAgain) {
             String choice = ui.getFoundMemberMenu();
             switch (choice) {
@@ -334,10 +267,13 @@ public class Controller {
             ui.printMessage(members);
             boolean goAgain = true;
             while (goAgain) {
-                ui.printMessage("Vælg venligst tallet ud for det ønskede medlem eller tryk '0' for at vende tilbage til medlemsmenuen");
+                ui.printMessage("Vælg venligst tallet ud for det ønskede medlem eller tryk '0' for at vende tilbage til medlemsmenuen \n");
                 String selection = "";
                 selection = ui.userInputString();
                 int select = Integer.parseInt(selection);
+                if(select > 0 && select < foundMembers.length){
+                    goAgain = false;
+                }
                 if (select == 0) {
                     goAgain = false;
                 } else {
@@ -356,6 +292,8 @@ public class Controller {
         return memberList.findMember(userInputString);
     }
 
+    public void statusCreation() {
+    }
 
     public String userInputString() {
         return ui.userInputString();
@@ -479,6 +417,8 @@ public class Controller {
     }
 
     public void createCompOrRegResult() {
+
+
         boolean keepGoing = true;
         while (keepGoing) {
             ui.compAndResultMenu();
@@ -506,7 +446,7 @@ public class Controller {
                     ArrayList<Member> chosenMember = new ArrayList<>();
 
                     if (memberSearchChoice.equals("1")) {
-                        memChoice = getMemberFromSearch(chosenMember);
+                        chosenMember.add(getMemberFromSearch());
                     } else if (memberSearchChoice.equals("2")) {
                         memChoice = getMemberFromList(chosenMember);
                     } else if (memberSearchChoice.equals("0")) {
@@ -563,28 +503,14 @@ public class Controller {
         return memChoice;
     }
 
-    private int getMemberFromSearch(ArrayList<Member> chosenMember) {
+    private Member getMemberFromSearch() {
         int memChoice = 0;
+        ArrayList<Member> chosenMember = new ArrayList<>();
         boolean badChoice = true;
         Member[] memberSearchResult = findMember(ui.findSpecificMemberMenu());
-
-        while (badChoice) {
-            int count = 1;
-            for (Member mem : memberSearchResult) {
-                ui.printMessage(count + ") - " + mem.getName() + "\n");
-                count++;
-            }
-            memChoice = Integer.parseInt(userInputString());
-            memChoice -= 1;
-
-            if (memChoice < memberSearchResult.length) {
-                badChoice = false;
-                chosenMember.add(memberSearchResult[memChoice]);
-            } else {
-                ui.statusMessage(Status.INVALID_CHOICE);
-            }
-        }
-        return memChoice;
+        chosenMember.add(memberSearchResult[0]);
+        userInputString();
+        return chosenMember.get(0);
     }
 
     private int getCompChoice() {
@@ -619,4 +545,73 @@ public class Controller {
         }
         return compMem;
     }
+
+    private void generateTestData() {
+        StandardMember member = new StandardMember("Torben Trucker", "12345678", "Torbensmail@mail.com", "torbensvej 31", 24, 12, 2000);
+        StandardMember member2 = new StandardMember("Søren Kristiansen", "45678910", "Sørensmail@mail.com", "Sørensvej 14", 10, 10, 1966);
+        StandardMember member3 = new StandardMember("Tobias Vold", "98747723489", "Tobiases@mail.com", "TobyAllé 31", 1, 1, 1999);
+        StandardMember member4 = new StandardMember("Finn Finsen", "8888888", "Finns@mail.com", "Finnminvej 99", 24, 9, 1920);
+        StandardMember member5 = new StandardMember("Jim Henry", "67453219", "Jims@mail.com", "Jimminvej 89", 14, 6, 2008);
+        memberList.addMember(member);
+        memberList.addMember(member2);
+        memberList.addMember(member3);
+        memberList.addMember(member4);
+        memberList.addMember(member5);
+        CompetitiveMember cmember = new CompetitiveMember("cTorben Trucker", "12345678", "Torbensmail@mail.com", "torbensvej 31", 24, 12, 2000);
+        CompetitiveMember cmember2 = new CompetitiveMember("cSøren Kristiansen", "45678910", "Sørensmail@mail.com", "Sørensvej 14", 10, 10, 1966);
+        CompetitiveMember cmember3 = new CompetitiveMember("cTobias Vold", "98747723489", "Tobiases@mail.com", "TobyAllé 31", 1, 1, 1999);
+        CompetitiveMember cmember4 = new CompetitiveMember("cFinn Finsen", "8888888", "Finns@mail.com", "Finnminvej 99", 24, 9, 1920);
+        CompetitiveMember cmember5 = new CompetitiveMember("cJim Henry", "67453219", "Jims@mail.com", "Jimminvej 89", 14, 6, 2008);
+        memberList.addMember(cmember);
+        memberList.addMember(cmember2);
+        memberList.addMember(cmember3);
+        memberList.addMember(cmember4);
+        memberList.addMember(cmember5);
+        Trainer tmember = new Trainer("tTorben Trucker", "12345678", "Torbensmail@mail.com", "torbensvej 31", 24, 12, 2000);
+        Trainer tmember2 = new Trainer("tSøren Kristiansen", "45678910", "Sørensmail@mail.com", "Sørensvej 14", 10, 10, 1966);
+        Trainer tmember3 = new Trainer("tTobias Vold", "98747723489", "Tobiases@mail.com", "TobyAllé 31", 1, 1, 1999);
+        Trainer tmember4 = new Trainer("tFinn Finsen", "8888888", "Finns@mail.com", "Finnminvej 99", 24, 9, 1920);
+        Trainer tmember5 = new Trainer("tJim Henry", "67453219", "Jims@mail.com", "Jimminvej 89", 14, 6, 2008);
+        memberList.addMember(tmember);
+        memberList.addMember(tmember2);
+        memberList.addMember(tmember3);
+        memberList.addMember(tmember4);
+        memberList.addMember(tmember5);
+
+
+        ArrayList<CompetitiveMember> compMem = new ArrayList<>();
+        for (Member mem : memberList.getMemberList()) {
+            if (mem instanceof CompetitiveMember) {
+                compMem.add((CompetitiveMember) mem);
+            }
+        }
+
+        Competition comp = new Competition("Test");
+        Competition comp2 = new Competition("Test2");
+        listOfComps.add(comp);
+        CompetitonResult result = new CompetitonResult("cskr6795", 60.0, 2, Disciplines.BACK_CRAWL.toString());
+        comp.addResult(result);
+        result = new CompetitonResult(compMem.get(0).getMembershipNumber(), 55.0, 2, Disciplines.BACK_CRAWL.toString());
+        comp.addResult(result);
+        result = new CompetitonResult(compMem.get(0).getMembershipNumber(), 50.0, 2, Disciplines.BACK_CRAWL.toString());
+        comp.addResult(result);
+        result = new CompetitonResult(compMem.get(0).getMembershipNumber(), 40.0, 2, Disciplines.BACK_CRAWL.toString());
+        comp.addResult(result);
+        result = new CompetitonResult(compMem.get(0).getMembershipNumber(), 30.0, 2, Disciplines.BACK_CRAWL.toString());
+        comp.addResult(result);
+        result = new CompetitonResult(compMem.get(0).getMembershipNumber(), 20, 2, Disciplines.BACK_CRAWL.toString());
+        comp.addResult(result);
+        comp2.addResult(result);
+
+        // TEST DATA
+        LocalDateTime now = LocalDateTime.now();
+        compMem.get(0).addBestTrainingResult(now, 20, Disciplines.BACK_CRAWL);
+        compMem.get(0).addBestTrainingResult(now, 20, Disciplines.CRAWL);
+        compMem.get(1).addBestTrainingResult(now, 25, Disciplines.BACK_CRAWL);
+        compMem.get(2).addBestTrainingResult(now, 30, Disciplines.BACK_CRAWL);
+        compMem.get(3).addBestTrainingResult(now, 35, Disciplines.BACK_CRAWL);
+        compMem.get(4).addBestTrainingResult(now, 40, Disciplines.BACK_CRAWL);
+        compMem.get(5).addBestTrainingResult(now, 41, Disciplines.BACK_CRAWL);
+    }
+
 }

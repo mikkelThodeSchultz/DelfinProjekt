@@ -62,7 +62,7 @@ public class UserInterface {
                                 
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 1 - Vis medlemmer
-                2 - Find medlem
+                2 - Rediger medlem
                 3 - Opret medlem
                 0 - Tilbage til hovedmenu
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
