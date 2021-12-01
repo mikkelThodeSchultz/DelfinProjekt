@@ -360,7 +360,6 @@ public class Controller {
 
                 ArrayList<CompetitonResult> results = new ArrayList<>();
                 ArrayList<CompetitonResult> resultsInDisipline = new ArrayList<>();
-                ArrayList<BestTrainingResult> trainingResults = new ArrayList<>();
 
 
                 ArrayList<CompetitiveMember> compMem = new ArrayList<>();
