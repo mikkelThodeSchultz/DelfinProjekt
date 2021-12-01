@@ -27,5 +27,7 @@ public class Competition {
     public ArrayList<CompetitonResult> getResults(){
         return results;    }
 
-
+    public String getCompetitionName() {
+        return competitionName;
+    }
 }

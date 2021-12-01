@@ -49,6 +49,8 @@ public class Controller {
                 case "1" -> memberMenu();
                 case "2" -> paymentMenu();
                 case "3" -> CompetitionMenu();
+                case "8" -> saveCurrentToJson();
+                case "9" -> clearJson();
                 case "0" -> goAgain = false;
                 default -> ui.statusMessage(Status.INVALID_CHOICE);
             }
@@ -129,13 +131,32 @@ public class Controller {
         }
     }
 
+    public void saveCurrentToJson(){
+        try {
+            FileHandler.storeData(memberList.getMemberList(), listOfComps);
+        } catch (IOException e) {
+            System.out.println("Failed to store members");
+        }
+    }
+
+    public void clearJson() {
+        MemberList memList = new MemberList();
+        ArrayList<Competition> compList = new ArrayList<>();
+
+        try {
+            FileHandler.storeData(memList.getMemberList(), compList);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void CompetitionMenu() {
         boolean goAgain = true;
         while (goAgain) {
             String choice = ui.getCompetitionMenu();
             switch (choice) {
                 case "1" -> topFive();//  Top 5 lister
-                case "2" -> System.out.println("a"); //Registrer resultat
+                case "2" -> createCompOrRegResult(); //Registrer resultat og opret konkurrence
                 case "3" -> System.out.println("a"); //Tilknyt disciplin
                 case "0" -> goAgain = false; //Tilbage til hovedmenu
                 default -> ui.statusMessage(Status.INVALID_CHOICE);
@@ -174,11 +195,11 @@ public class Controller {
         }
     }
 
-    public void foundMemberMenu(){
+    public void foundMemberMenu() {
         boolean goAgain = true;
-        while(goAgain){
+        while (goAgain) {
             String choice = ui.getFoundMemberMenu();
-            switch (choice){
+            switch (choice) {
                 case "1" -> editName();
                 case "2" -> editAddress();
                 case "3" -> editEmail();
@@ -186,42 +207,42 @@ public class Controller {
                 case "5" -> editBirthDate();
                 case "6" -> editMembershipStatus();
                 case "7" -> editLevel();
-               // case "8" -> deleteMember();
+                // case "8" -> deleteMember();
                 case "0" -> goAgain = false;
             }
         }
     }
 
-    public void editName(){
+    public void editName() {
         ui.printMessage("Rediger navnet her: ");
         String userInput = ui.userInputString();
         String oldName = memberList.editName(userInput);
-        ui.changeMessage(oldName,userInput);
+        ui.changeMessage(oldName, userInput);
     }
 
-    public void editAddress(){
+    public void editAddress() {
         ui.printMessage("Rediger adressen her: ");
         String userInput = ui.userInputString();
         String oldAddress = memberList.editAddress(userInput);
-        ui.changeMessage(oldAddress,userInput);
+        ui.changeMessage(oldAddress, userInput);
     }
 
-    public void editEmail(){
+    public void editEmail() {
         ui.printMessage("Rediger e-mail adressen her: ");
         String userInput = ui.userInputString();
         String oldEmail = memberList.editEmail(userInput);
-        ui.changeMessage(oldEmail,userInput);
+        ui.changeMessage(oldEmail, userInput);
 
     }
 
-    public void editPhoneNumber(){
+    public void editPhoneNumber() {
         ui.printMessage("Rediger telefonummeret her: ");
         String userInput = ui.userInputString();
         String oldNumber = memberList.editPhoneNumber(userInput);
-        ui.changeMessage(oldNumber,userInput);
+        ui.changeMessage(oldNumber, userInput);
     }
 
-    public void editBirthDate(){
+    public void editBirthDate() {
         try {
             ui.printMessage("Rediger fødselsdag her: ");
             int day = Integer.parseInt(ui.userInputString());
@@ -233,30 +254,30 @@ public class Controller {
             String oldDate = memberList.editBirthDate(newBirthDate);
             String newDate = memberList.newDateToString(newBirthDate);
             ui.changeMessage(oldDate, newDate);
-        } catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             ui.printMessage("Skriv venligst en dato i feltet.\n");
         }
     }
 
-    public void editMembershipStatus(){
+    public void editMembershipStatus() {
         memberList.editMembershipStatus();
         ui.printMessage(memberList.isActiveAsString());
     }
 
-    public void editLevel(){
+    public void editLevel() {
 
     }
 
-    public void deleteMember(){
+    public void deleteMember() {
 
     }
 
-    public void createMemberMenu(){
+    public void createMemberMenu() {
         boolean goAgain = true;
-        while (goAgain){
+        while (goAgain) {
             String choice = ui.getCreateMemberMenu();
-            switch (choice){
-                case "1", "2", "3" -> createNewMember(ui.createNewMember(),choice);
+            switch (choice) {
+                case "1", "2", "3" -> createNewMember(ui.createNewMember(), choice);
                 case "0" -> goAgain = false;
             }
         }
@@ -281,15 +302,15 @@ public class Controller {
             int month = Integer.parseInt(memberInfo[5]);
             int year = Integer.parseInt(memberInfo[6]);
 
-            if (choice.equals("1")){
+            if (choice.equals("1")) {
                 StandardMember newMember = new StandardMember(memberInfo[0], memberInfo[1], memberInfo[2], memberInfo[3], day, month, year);
                 memberList.addMember(newMember);
                 ui.printMessage("Du har nu oprettet " + newMember + " som medlem i klubben.");
-            } else if (choice.equals("2")){
+            } else if (choice.equals("2")) {
                 CompetitiveMember newMember = new CompetitiveMember(memberInfo[0], memberInfo[1], memberInfo[2], memberInfo[3], day, month, year);
                 memberList.addMember(newMember);
                 ui.printMessage("Du har nu oprettet " + newMember + " som medlem i klubben.");
-            } else if (choice.equals("3")){
+            } else if (choice.equals("3")) {
                 Trainer newTrainer = new Trainer(memberInfo[0], memberInfo[1], memberInfo[2], memberInfo[3], day, month, year);
                 memberList.addMember(newTrainer);
                 ui.printMessage("Du har nu oprettet " + newTrainer + " som medlem i klubben.");
@@ -445,9 +466,48 @@ public class Controller {
                             double time = sorted.firstKey();
                             ui.printMessage("MedlemsID: " + memberID + "  -  Tid: " + time + "\n");
                             sorted.remove(sorted.firstKey());
+
                         }
                     }
                 }
+            }
+        }
+    }
+
+    public void createCompOrRegResult() {
+
+
+        boolean keepGoing = true;
+        while (keepGoing) {
+            ui.compAndResultMenu();
+            String choice = userInputString();
+            if (choice.equals("1")) {
+                ui.printMessage("Hvad hedder konkurrencen?\n");
+                String compName = userInputString();
+                Competition comp = new Competition(compName);
+                ui.printMessage("Konkurrence med navn " + compName + " er oprettet\n");
+                listOfComps.add(comp);
+            } else if (choice.equals("2")) {
+                ui.printMessage("Vælg en konkurrence \n");
+                int count = 1;
+                for (Competition comps : listOfComps) {
+                    ui.printMessage(count + ") - " + comps.getCompetitionName() + "\n");
+                    count++;
+                }
+
+          //      result = new CompetitonResult(compMem.get(0).getMembershipNumber(), 20, 2, Disciplines.BACK_CRAWL.toString());
+
+                int compChoice = Integer.parseInt(userInputString());
+                compChoice += 1;
+                ui.printMessage("Vælg et medlem");
+              //  Member memberResultToAdd = findMember(ui.findSpecificMemberMenu());;
+
+
+
+            } else if (choice.equals("0")) {
+                keepGoing = false;
+            } else {
+                ui.printMessage("Invalidt input. Prøv igen");
             }
         }
     }
