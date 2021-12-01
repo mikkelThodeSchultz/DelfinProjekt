@@ -13,8 +13,8 @@ public class MemberList {
         memberList.add(member);
     }
 
-    public void removeMember(Member member) {
-        memberList.remove(member);
+    public void removeMember() {
+       memberList.remove(selectedMember);
     }
 
     public Member[] findMember(String userInputSearch) {
@@ -30,8 +30,6 @@ public class MemberList {
     public void setSelectedMember(Member member) {
         selectedMember = member;
     }
-
-    //Rettes: birthday, aktiv/passiv, motionist/konkurrence-svømmer
 
     public String editName(String nameChange){
         String oldName = selectedMember.getName();
@@ -77,8 +75,9 @@ public class MemberList {
         return "Medlemsskabet er " + status + ".";
     }
 
-    public void editLevel(){ //skal kunne ændre fra motionist til konkurrence og omvendt.
-
+    public void editLevel(){
+        //skal kunne ændre fra motionist til konkurrence og omvendt
+        //skal oprettes et nyt opbjekt-medlem for hver gang
     }
 
 

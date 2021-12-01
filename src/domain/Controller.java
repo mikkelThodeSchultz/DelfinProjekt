@@ -14,7 +14,6 @@ import java.time.LocalDateTime;
 import java.util.*;
 
 import member.*;
-import org.w3c.dom.ls.LSOutput;
 import ui.Disciplines;
 import ui.Status;
 import ui.UserInterface;
@@ -207,8 +206,8 @@ public class Controller {
                 case "4" -> editPhoneNumber();
                 case "5" -> editBirthDate();
                 case "6" -> editMembershipStatus();
-                case "7" -> editLevel();
-                // case "8" -> deleteMember();
+                //case "7" -> editLevel();
+                case "8" -> deleteMember();
                 case "0" -> goAgain = false;
             }
         }
@@ -265,12 +264,10 @@ public class Controller {
         ui.printMessage(memberList.isActiveAsString());
     }
 
-    public void editLevel() {
-
-    }
-
     public void deleteMember() {
-
+        ui.showMemberList(memberList.printMemberList());
+        memberList.removeMember();
+        ui.printMessage("Du har nu slettet medlemmet");
     }
 
     public void createMemberMenu() {
@@ -335,14 +332,20 @@ public class Controller {
                 members += counter + " " + foundMembers[i] + "\n";
             }
             ui.printMessage(members);
-            int select = 0;
-            while (select < 1 || select > foundMembers.length) {
+            boolean goAgain = true;
+            while (goAgain) {
+                ui.printMessage("Vælg venligst tallet ud for det ønskede medlem eller tryk '0' for at vende tilbage til medlemsmenuen");
+                int select = -1;
                 select = ui.userInputInt();
-                if (select < 1 || select > foundMembers.length) {
-                    ui.printMessage("Vælg venligst tallet ud for det ønskede medlem.");
+                if (select == 0) {
+                    goAgain = false;
                 } else {
-                    memberList.setSelectedMember(foundMembers[select - 1]);
-                    foundMemberMenu();
+                    try {
+                        memberList.setSelectedMember(foundMembers[select - 1]);
+                        foundMemberMenu();
+                    } catch (IndexOutOfBoundsException e) {
+                        ui.printMessage("Dit svin!");
+                    }
                 }
             }
         } else {
@@ -353,8 +356,6 @@ public class Controller {
         return memberList.findMember(userInputString);
     }
 
-    public void statusCreation() {
-    }
 
     public String userInputString() {
         return ui.userInputString();
@@ -478,8 +479,6 @@ public class Controller {
     }
 
     public void createCompOrRegResult() {
-
-
         boolean keepGoing = true;
         while (keepGoing) {
             ui.compAndResultMenu();

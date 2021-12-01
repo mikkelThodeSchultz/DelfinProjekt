@@ -21,9 +21,6 @@ public class Trainer extends Member {
     //USED FOR JSON. DO NOT DELETE
     public Trainer(){}
 
-    public void setRole(){
-        this.role = Role.TRÆNER;
-    }
 
     public String toString(){
         return super.toString() + " – " + role.toString();

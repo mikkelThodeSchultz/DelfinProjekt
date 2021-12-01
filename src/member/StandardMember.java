@@ -19,9 +19,6 @@ public class StandardMember extends Member {
     //NEEDED FOR JSON! DO NOT DELETE
     public StandardMember(){}
 
-    public void setRole(){
-        this.role = Role.STANDARD;
-    }
 
     public String toString(){
         return super.toString() + " – " + role.toString();

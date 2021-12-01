@@ -22,12 +22,8 @@ public class CompetitiveMember extends Member {
     }
 
     //USED FOR JSON. DO NOT DELETE
-    public CompetitiveMember(){
-    }
+    public CompetitiveMember(){}
 
-    public void setRole(){
-        this.role = Role.KONKURRENCE;
-    }
 
     public String toString(){
         return super.toString() + " – "  + role.toString();
