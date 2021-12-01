@@ -6,10 +6,8 @@
 package domain;
 
 import file.FileHandler;
-import org.javatuples.Quartet;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.time.LocalDateTime;
 import java.util.*;
 
@@ -18,7 +16,6 @@ import ui.Disciplines;
 import ui.Status;
 import ui.UserInterface;
 
-import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -187,7 +184,10 @@ public class Controller {
             String choice = ui.getMemberMenu();
             switch (choice) {
                 case "1" -> ui.showMemberList(memberList.printMemberList());
-                case "2" -> findMember(ui.findSpecificMemberMenu());
+                case "2" -> {
+                    findMember(ui.findSpecificMemberMenu());
+                    editMemberMenu();
+                }
                 case "3" -> createMemberMenu();
                 case "0" -> goAgain = false;
                 default -> ui.statusMessage(Status.INVALID_CHOICE);
@@ -195,7 +195,7 @@ public class Controller {
         }
     }
 
-    public void foundMemberMenu() {
+    public void editMemberMenu() {
         boolean goAgain = true;
         while (goAgain) {
             String choice = ui.getFoundMemberMenu();
@@ -335,14 +335,14 @@ public class Controller {
             boolean goAgain = true;
             while (goAgain) {
                 ui.printMessage("Vælg venligst tallet ud for det ønskede medlem eller tryk '0' for at vende tilbage til medlemsmenuen");
-                int select = -1;
-                select = ui.userInputInt();
+                String selection = "";
+                selection = ui.userInputString();
+                int select = Integer.parseInt(selection);
                 if (select == 0) {
                     goAgain = false;
                 } else {
                     try {
                         memberList.setSelectedMember(foundMembers[select - 1]);
-                        foundMemberMenu();
                     } catch (IndexOutOfBoundsException e) {
                         ui.printMessage("Dit svin!");
                     }
