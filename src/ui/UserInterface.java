@@ -44,9 +44,9 @@ public class UserInterface {
                 2 - Kontingenter
                 3 - Konkurrencer
                 
-                8 - Save current to Json                
+                8 - Gem              
                 9 - Clear Json
-                0 - Luk programmet
+                0 - Gem og Luk programmet
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 """);
 
@@ -204,9 +204,9 @@ public class UserInterface {
                 """);
     }
 
-    public Disciplines topFiveDisipline() {
+    public Disciplines pickDisipline() {
         System.out.println("""
-                Vælg disipline
+                Vælg disiplin
                                 
                 Tryk på den tast der svarer til det menupunkt du ønsker at vælge.
                                 
@@ -265,8 +265,18 @@ public class UserInterface {
 
     }
 
-    public void createCompMenu(){
-        System.out.println("Hvad hedder konkurrencen?");
+    public void searchOrMemberList(){
+        System.out.println("""
+                Vil du søge efter et medlem eller se en liste over alle medlemmer
+                                
+                Tryk på den tast der svarer til det menupunkt du ønsker at vælge.
+                                
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                1 - Søg efter medlem
+                2 - Se liste Af medlemmer
+                0 - Tilbage
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                """);
     }
 
 }
