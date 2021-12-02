@@ -14,7 +14,7 @@ public class MemberList {
     }
 
     public void removeMember() {
-       memberList.remove(selectedMember);
+        memberList.remove(selectedMember);
     }
 
     public Member[] findMember(String userInputSearch) {
@@ -25,6 +25,11 @@ public class MemberList {
             }
         }
         return foundMembers.toArray(new Member[0]);
+    }
+
+    public String getSelectedMemberName(){
+        String justTheName = selectedMember.getName();
+        return justTheName;
     }
 
     public void setSelectedMember(Member member) {

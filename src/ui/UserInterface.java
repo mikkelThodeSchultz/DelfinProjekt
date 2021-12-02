@@ -81,10 +81,8 @@ public class UserInterface {
     }
 
     public String getFoundMemberMenu() {
-        //TODO redigering i et medlems info bør også afføde ændring i medlemsnummer. Dvs metode kald.
-
         System.out.println("""
-                Tryk på den tast der svarer til det menupunkt du ønsker at vælge.
+                \nTryk på den tast der svarer til det menupunkt du ønsker at vælge.
 
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 1 - Rediger navn
@@ -152,6 +150,7 @@ public class UserInterface {
         switch (status) {
             case OK -> System.out.println("");
             case NO -> System.out.println("");
+            case ANNULLERET -> System.out.println("Handling annulleret.");
             case ERROR -> System.out.println("Der er opstået et problem.");
             case MEMBER_NOT_FOUND -> System.out.println("Kunne ikke finde det medlem du søgte.");
             case SELECT_MEMBER -> System.out.println("Vælg venligst et medlem.");
@@ -204,7 +203,7 @@ public class UserInterface {
                 """);
     }
 
-    public Disciplines pickDisipline() {
+    public Disciplines pickDiscipline() {
         System.out.println("""
                 Vælg disiplin
                                 
@@ -237,7 +236,7 @@ public class UserInterface {
 
     }
 
-    public void isJunior() {
+    public void teams() {
         System.out.println("""
                 Vælg junior eller senior
                                 

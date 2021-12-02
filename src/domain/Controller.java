@@ -112,7 +112,6 @@ public class Controller {
     }
 
     public void memberMenu() {
-
         boolean goAgain = true;
         while (goAgain) {
             String choice = ui.getMemberMenu();
@@ -164,7 +163,6 @@ public class Controller {
         String userInput = ui.userInputString();
         String oldEmail = memberList.editEmail(userInput);
         ui.changeMessage(oldEmail, userInput);
-
     }
 
     public void editPhoneNumber() {
@@ -197,9 +195,13 @@ public class Controller {
     }
 
     public void deleteMember() {
-        ui.showMemberList(memberList.printMemberList());
-        memberList.removeMember();
-        ui.printMessage("Du har nu slettet medlemmet");
+        ui.printMessage("Vil du slette medlemmet: " + memberList.getSelectedMemberName() + " ja(j) eller nej(n)?\n");
+        if (ui.userInputString().equals("j")){
+            memberList.removeMember();
+            ui.printMessage("Du har nu slettet medlemmet: " + memberList.getSelectedMemberName());
+        } else {
+            ui.statusMessage(Status.ANNULLERET);
+        }
     }
 
     public void createMemberMenu() {
@@ -293,7 +295,6 @@ public class Controller {
             ui.printMessage("Der er ingen medlemmer der passer til dine søgekriterier.");
             memberList.setSelectedMember(null);
         }
-
         return memberList.findMember(userInputString);
     }
 
@@ -314,19 +315,17 @@ public class Controller {
     }
 
     public void topFive() {
-        ui.isJunior();
+        ui.teams();
         String isJunior = ui.userInputString();
         ui.topFiveMenu();
         String IsTraining = userInputString();
 
         if (!IsTraining.equals("0")) {
-            Disciplines disipline = ui.pickDisipline();
-            if (disipline != null) {
-
+            Disciplines discipline = ui.pickDiscipline();
+            if (discipline != null) {
 
                 ArrayList<CompetitonResult> results = new ArrayList<>();
                 ArrayList<CompetitonResult> resultsInDisipline = new ArrayList<>();
-
 
                 ArrayList<CompetitiveMember> compMem = getCompMembers();
                 ArrayList<CompetitiveMember> compMemToRemove = new ArrayList<>();
@@ -356,7 +355,7 @@ public class Controller {
                         results.addAll(comps.getResults());
                     }
                     for (CompetitonResult compRes : results) {
-                        if (compRes.getDiscipline().equals(disipline.toString())) {
+                        if (compRes.getDiscipline().equals(discipline.toString())) {
                             String memberIDs = compRes.getMemberID();
                             for (CompetitiveMember compMember : compMem) {
                                 if (memberIDs.equals(compMember.getMembershipNumber())) {
@@ -391,7 +390,7 @@ public class Controller {
                     for (CompetitiveMember actMem : compMem) {
 
                         for (BestTrainingResult trainRes : actMem.getBestTrainingResults()) {
-                            if (trainRes.getDiscipline().toString().equals(disipline.toString())) {
+                            if (trainRes.getDiscipline().toString().equals(discipline.toString())) {
                                 trainResult.put(trainRes.getTime(), actMem.getMembershipNumber());
                             }
                         }
@@ -413,7 +412,6 @@ public class Controller {
                             double time = sorted.firstKey();
                             ui.printMessage("MedlemsID: " + memberID + "  -  Tid: " + time + "\n");
                             sorted.remove(sorted.firstKey());
-
                         }
                     }
                 }
@@ -460,7 +458,7 @@ public class Controller {
 
                     if (memChoice != -1) {
 
-                        Disciplines discipline = ui.pickDisipline();
+                        Disciplines discipline = ui.pickDiscipline();
 
                         ui.printMessage("Hvilken placering fik deltageren\n");
                         int placement = Integer.parseInt(userInputString());
