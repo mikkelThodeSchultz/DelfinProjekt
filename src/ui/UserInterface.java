@@ -85,14 +85,15 @@ public class UserInterface {
                 \nTryk på den tast der svarer til det menupunkt du ønsker at vælge.
 
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-                1 - Rediger navn
-                2 - Rediger adresse
-                3 - Rediger e-maildresse
-                4 - Rediger telefonnummer
-                5 - Rediger fødselsdato
-                6 - Rediger medlemsskabsstatus
-                7 - Rediger svømmeniveau
-                8 - Slet medlem [NB kan ikke omgøres]
+                1 - Søg efter medlem
+                2 - Rediger navn
+                3 - Rediger adresse
+                4 - Rediger e-maildresse
+                5 - Rediger telefonnummer
+                6 - Rediger fødselsdato
+                7 - Rediger medlemsskabsstatus
+                8 - Rediger svømmeniveau
+                9 - Slet medlem [NB kan ikke omgøres]
                 0 - Tilbage til hovedmenu
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 """);

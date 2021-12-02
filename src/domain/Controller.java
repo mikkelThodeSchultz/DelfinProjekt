@@ -131,14 +131,15 @@ public class Controller {
         while (goAgain) {
             String choice = ui.getFoundMemberMenu();
             switch (choice) {
-                case "1" -> editName();
-                case "2" -> editAddress();
-                case "3" -> editEmail();
-                case "4" -> editPhoneNumber();
-                case "5" -> editBirthDate();
-                case "6" -> editMembershipStatus();
-                //case "7" -> editLevel();
-                case "8" -> deleteMember();
+                case "1" -> searchAfterMemberAgain();
+                case "2" -> editName();
+                case "3" -> editAddress();
+                case "4" -> editEmail();
+                case "5" -> editPhoneNumber();
+                case "6" -> editBirthDate();
+                case "7" -> editMembershipStatus();
+                //case "8" -> editLevel();
+                case "9" -> deleteMember();
                 case "0" -> goAgain = false;
             }
         }
@@ -239,9 +240,9 @@ public class Controller {
                 memberList.addMember(newMember);
                 ui.printMessage("Du har nu oprettet " + newMember + " som medlem i klubben.");
             } else if (choice.equals("2")) {
-                CompetitiveMember newMember = new CompetitiveMember(memberInfo[0], memberInfo[1], memberInfo[2], memberInfo[3], day, month, year);
-                memberList.addMember(newMember);
-                ui.printMessage("Du har nu oprettet " + newMember + " som medlem i klubben.");
+                CompetitiveMember newCompMember = new CompetitiveMember(memberInfo[0], memberInfo[1], memberInfo[2], memberInfo[3], day, month, year);
+                memberList.addMember(newCompMember);
+                ui.printMessage("Du har nu oprettet " + newCompMember + " som medlem i klubben.");
             } else if (choice.equals("3")) {
                 Trainer newTrainer = new Trainer(memberInfo[0], memberInfo[1], memberInfo[2], memberInfo[3], day, month, year);
                 memberList.addMember(newTrainer);
@@ -250,7 +251,6 @@ public class Controller {
         } catch (NumberFormatException e) {
             ui.printMessage("Ugyldigt input. Indtast venligst talværdier i fødselsdato-oplysninger.");
         }
-
     }
 
     public Member[] findMember(String userInputString) {
@@ -282,6 +282,7 @@ public class Controller {
                 }
                 if (select == 0) {
                     goAgain = false;
+                    memberMenu();
                 } else {
                     try {
                         memberList.setSelectedMember(foundMembers[select - 1]);
@@ -292,15 +293,19 @@ public class Controller {
                 }
             }
         } else {
-            ui.printMessage("Der er ingen medlemmer der passer til dine søgekriterier.");
+            ui.printMessage("Der er ingen medlemmer der passer til dine søgekriterier.\n");
+            searchAfterMemberAgain();
             memberList.setSelectedMember(null);
         }
         return memberList.findMember(userInputString);
     }
 
-    public void statusCreation() {
+
+    public void searchAfterMemberAgain(){
+        findMember(ui.findSpecificMemberMenu());
     }
 
+    //Sub-method to get back to findMember search again
     public String userInputString() {
         return ui.userInputString();
     }
