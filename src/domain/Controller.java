@@ -258,6 +258,7 @@ public class Controller {
         String members = "";
         if (foundMembers.length == 1) {
             memberList.setSelectedMember(foundMembers[0]);
+            ui.printMessage("Du har valgt " + foundMembers[0] + "\n");
         } else if (foundMembers.length > 1) {
             int counter = 0;
             for (int i = 0; i < foundMembers.length; i++) {
@@ -269,9 +270,13 @@ public class Controller {
             while (goAgain) {
                 ui.printMessage("Vælg venligst tallet ud for det ønskede medlem eller tryk '0' for at vende tilbage til medlemsmenuen \n");
                 String selection = "";
-                selection = ui.userInputString();
-                int select = Integer.parseInt(selection);
-                if(select > 0 && select < foundMembers.length){
+                int select = -1;
+                try {
+                    selection = ui.userInputString();
+                    select = Integer.parseInt(selection);
+                } catch (NumberFormatException f) {
+                }
+                if(select > 0 && select <= foundMembers.length){
                     goAgain = false;
                 }
                 if (select == 0) {
@@ -279,8 +284,9 @@ public class Controller {
                 } else {
                     try {
                         memberList.setSelectedMember(foundMembers[select - 1]);
+                        ui.printMessage("Du har valgt " + foundMembers[select -1] + "\n");
                     } catch (IndexOutOfBoundsException e) {
-                        ui.printMessage("Dit svin!");
+                        ui.printMessage("Indtast et tal imellem 1 og " + foundMembers.length + "\n");
                     }
                 }
             }
