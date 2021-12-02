@@ -11,6 +11,7 @@ import ui.Status;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 import java.util.Random;
 
 public abstract class Member {
@@ -137,7 +138,7 @@ public abstract class Member {
         boolean match;
         if (membershipNumber.contains(userInputSearch)){
             match = true;
-        } else if (name.contains(userInputSearch)){
+        } else if (name.toLowerCase().contains(userInputSearch.toLowerCase())){
             match = true;
         } else {
             match = false;
