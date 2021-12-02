@@ -41,7 +41,7 @@ public abstract class Member {
         this.hasPaid = false;
     }
 
-    public Member(int i, Member member, Status statusMedlemsskab, Status statusDiscipline) {
+    public Member(int i, Member member, Status statusMedlemskab, Status statusDiscipline) {
     }
 
     public boolean getIsActive() {

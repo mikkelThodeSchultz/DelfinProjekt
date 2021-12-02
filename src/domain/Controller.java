@@ -53,7 +53,7 @@ public class Controller {
             }
         }
 
-            generateTestData();
+        generateTestData();
 
         try {
             FileHandler.storeData(memberList.getMemberList(), listOfComps);
@@ -101,10 +101,10 @@ public class Controller {
         while (goAgain) {
             String choice = ui.getPaymentsMenu();
             switch (choice) {
-                case "1" -> System.out.println(calculateTotalIncome());// Forventet indtjening
-                case "2" -> System.out.println("a"); //Modtag betaling
-                case "3" -> ui.printMessage(listOfMembersWhoOwe().toString()); //Todo flot udprintning på listen
-                case "4" -> System.out.println("a"); //Opkræv kontingenter
+                case "1" -> ui.printMessage("Forventet indtjening er: " + calculateTotalIncome() + " kr");// Forventet indtjening
+                case "2" -> setMembershipToHasPayed(); //Modtag betaling
+                case "3" -> ui.printMessage(listOfMembersWhoOweAsString()); //Liste af medlemmer der skylder penge
+                case "4" -> demandPayment(); //Opkræv kontingenter
                 case "0" -> goAgain = false; //Tilbage til hovedmenu
                 default -> ui.statusMessage(Status.INVALID_CHOICE);
             }
@@ -224,6 +224,31 @@ public class Controller {
         return calculation.listOfMembersWhoOwe(memberList.getMemberList());
     }
 
+    public String listOfMembersWhoOweAsString() {
+        String temp = "";
+        for (int i = 0; i < listOfMembersWhoOwe().size(); i++) {
+            temp += listOfMembersWhoOwe().get(i).getName();
+            temp += " ";
+            temp += listOfMembersWhoOwe().get(i).getMembershipNumber();
+            temp += "\n";
+        }
+        return temp;
+    }
+
+    public void demandPayment() {
+        calculation.demandPayment(memberList.getMemberList());
+        ui.printMessage("Alle medlemmer er nu opdateret til at skylde kontingent");
+    }
+
+    public void setMembershipToHasPayed() {
+        Member member = getMemberFromSearch();
+        boolean payedOrNot = calculation.setMembershipToHasPayed(member);
+        if (payedOrNot){
+            ui.printMessage(member + " er nu registreret til at have betalt ");
+        } else ui.printMessage(member + " er nu registreret til ikke at have betalt ");
+
+    }
+
     public double calculateMembershipFee(Member member) { //Hvis calculateContingent bliver gjort private, skal denne laves om
         return calculation.calculateContingent(member.getAge(), member.getIsActive());
     }
@@ -277,7 +302,7 @@ public class Controller {
                     select = Integer.parseInt(selection);
                 } catch (NumberFormatException f) {
                 }
-                if(select > 0 && select <= foundMembers.length){
+                if (select > 0 && select <= foundMembers.length) {
                     goAgain = false;
                 }
                 if (select == 0) {
@@ -285,7 +310,7 @@ public class Controller {
                 } else {
                     try {
                         memberList.setSelectedMember(foundMembers[select - 1]);
-                        ui.printMessage("Du har valgt " + foundMembers[select -1] + "\n");
+                        ui.printMessage("Du har valgt " + foundMembers[select - 1] + "\n");
                     } catch (IndexOutOfBoundsException e) {
                         ui.printMessage("Indtast et tal imellem 1 og " + foundMembers.length + "\n");
                     }
@@ -507,13 +532,8 @@ public class Controller {
     }
 
     private Member getMemberFromSearch() {
-        int memChoice = 0;
-        ArrayList<Member> chosenMember = new ArrayList<>();
-        boolean badChoice = true;
         Member[] memberSearchResult = findMember(ui.findSpecificMemberMenu());
-        chosenMember.add(memberSearchResult[0]);
-        userInputString();
-        return chosenMember.get(0);
+        return memberSearchResult[0];
     }
 
     private int getCompChoice() {

@@ -35,6 +35,7 @@ public class UserInterface {
 
     public String getMainMenu() {
         System.out.println("""
+                
                 Hovedmenu
                                 
                 Tryk på den tast der svarer til det menupunkt du ønsker at vælge.
@@ -56,6 +57,7 @@ public class UserInterface {
     public String getMemberMenu() { //TODO der skal laves en søgemetode til at finde medlemmer - se PETLATKEA på github.
 
         System.out.println("""
+                
                 Medlemsmenu
                                 
                 Tryk på den tast der svarer til det menupunkt du ønsker at vælge.
@@ -82,7 +84,8 @@ public class UserInterface {
 
     public String getFoundMemberMenu() {
         System.out.println("""
-                \nTryk på den tast der svarer til det menupunkt du ønsker at vælge.
+                
+                Tryk på den tast der svarer til det menupunkt du ønsker at vælge.
 
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 1 - Rediger navn
@@ -115,7 +118,8 @@ public class UserInterface {
 
     public String getPaymentsMenu() {
         System.out.println("""
-                Kontingenter
+                
+                Kontingentmenu
                                 
                 Tryk på den tast der svarer til det menupunkt du ønsker at vælge.
                                 
@@ -132,7 +136,8 @@ public class UserInterface {
 
     public String getCompetitionMenu() {
         System.out.println("""
-                Konkurrencer
+                
+                Konkurrencemenu
                                 
                 Tryk på den tast der svarer til det menupunkt du ønsker at vælge.
                                 

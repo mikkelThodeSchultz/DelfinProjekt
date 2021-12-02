@@ -80,6 +80,10 @@ public class MemberList {
         return "Medlemsskabet er " + status + ".\n";
     }
 
+
+
+
+
     public void editLevel(){
         //skal kunne ændre fra motionist til konkurrence og omvendt
         //skal oprettes et nyt opbjekt-medlem for hver gang
