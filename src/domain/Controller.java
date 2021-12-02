@@ -109,7 +109,6 @@ public class Controller {
                 default -> ui.statusMessage(Status.INVALID_CHOICE);
             }
         }
-
     }
 
     public void memberMenu() {
