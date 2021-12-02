@@ -32,7 +32,7 @@ public class Calculation {
         } else if (age > senior && age < seniorDiscount) {
             contingentSum = activeSeniorMembership;
         } else {
-            contingentSum *= discount;
+            contingentSum = activeSeniorMembership * discount;
         }
         return contingentSum;
     }
