@@ -166,7 +166,6 @@ public class Controller {
         String userInput = ui.userInputString();
         String oldEmail = memberList.editEmail(userInput);
         ui.changeMessage(oldEmail, userInput);
-
     }
 
     public void editPhoneNumber() {
@@ -194,13 +193,18 @@ public class Controller {
     }
 
     public void editMembershipStatus() {
-        memberList.editMembershipStatus();
-        ui.printMessage(memberList.isActiveAsString());
+        ui.printMessage("Vil du ændre " + memberList.getSelectedMemberName() + "'s medlemstatus: ja(j) eller nej(n)?\n");
+        if (ui.userInputString().equalsIgnoreCase("j")){
+            memberList.editMembershipStatus();
+            ui.printMessage(memberList.isActiveAsString());
+        } else {
+            ui.statusMessage(Status.ANNULLERET);
+        }
     }
 
     public void deleteMember() {
         ui.printMessage("Vil du slette medlemmet: " + memberList.getSelectedMemberName() + " ja(j) eller nej(n)?\n");
-        if (ui.userInputString().equals("j")){
+        if (ui.userInputString().equalsIgnoreCase("j")){
             memberList.removeMember();
             ui.printMessage("Du har nu slettet medlemmet: " + memberList.getSelectedMemberName());
         } else {
@@ -279,7 +283,6 @@ public class Controller {
         } catch (NumberFormatException e) {
             ui.printMessage("Ugyldigt input. Indtast venligst talværdier i fødselsdato-oplysninger.");
         }
-
     }
 
     public Member[] findMember(String userInputString) {
@@ -298,7 +301,7 @@ public class Controller {
             ui.printMessage(members);
             boolean goAgain = true;
             while (goAgain) {
-                ui.printMessage("Vælg venligst tallet ud for det ønskede medlem eller tryk '0' for at vende tilbage til medlemsmenuen \n");
+                ui.printMessage("\nVælg venligst tallet ud for det ønskede medlem eller tryk '0' for at vende tilbage til redigeringsmenuen \n");
                 String selection = "";
                 int select = -1;
                 try {
@@ -311,7 +314,6 @@ public class Controller {
                 }
                 if (select == 0) {
                     goAgain = false;
-                    memberMenu();
                 } else {
                     try {
                         memberList.setSelectedMember(foundMembers[select - 1]);
@@ -334,6 +336,7 @@ public class Controller {
         findMember(ui.findSpecificMemberMenu());
     }
 
+    //Sub-method to get back to findMember search again
     public String userInputString() {
         return ui.userInputString();
     }

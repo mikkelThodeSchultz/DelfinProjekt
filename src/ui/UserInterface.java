@@ -109,7 +109,7 @@ public class UserInterface {
                 7 - Rediger medlemsskabsstatus
                 8 - Rediger svømmeniveau
                 9 - Slet medlem [NB kan ikke omgøres]
-                0 - Tilbage til hovedmenu
+                0 - Tilbage til medlemsmenuen
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 """);
         return sc.nextLine();

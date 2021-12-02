@@ -72,12 +72,12 @@ public class MemberList {
 
     public String isActiveAsString(){
         String status = "";
-        if (selectedMember.getIsActive() == false){
+        if (!selectedMember.getIsActive()){
             status = "passivt";
         } else {
             status = "aktivt";
         }
-        return "Medlemsskabet er " + status + ".\n";
+        return "Medlemsskabet for " + selectedMember.getName() + " er " + status + ".\n";
     }
 
 
