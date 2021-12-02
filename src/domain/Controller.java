@@ -193,7 +193,7 @@ public class Controller {
     }
 
     public void editMembershipStatus() {
-        ui.printMessage("Vil du ændre " + memberList.getSelectedMemberName() + "'s medlemstatus: ja(j) eller nej(n)?\n");
+        ui.printMessage("Vil du ændre medlemsstatus for " + memberList.getSelectedMember() + ": ja(j) eller nej(n)?\n");
         if (ui.userInputString().equalsIgnoreCase("j")) {
             memberList.editMembershipStatus();
             ui.printMessage(memberList.isActiveAsString());

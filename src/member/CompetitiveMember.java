@@ -26,7 +26,13 @@ public class CompetitiveMember extends Member {
 
 
     public String toString(){
-        return super.toString() + " – "  + role.toString();
+        String status = null;
+        if (getIsActive()){
+            status = setIsActive();
+        } else {
+            status = setIsPassive();
+        }
+        return super.toString() + " – "  + role.toString() + " - (" + status + ")";
     }
     public void addBestTrainingResult(LocalDateTime timeWhenAccomplished, double time, Disciplines discipline){
         BestTrainingResult resultToAdd = new BestTrainingResult(timeWhenAccomplished, time, discipline.toString());

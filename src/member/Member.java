@@ -49,6 +49,14 @@ public abstract class Member {
         return isActive;
     }
 
+    public String setIsActive(){
+        return "aktiv";
+    }
+
+    public String setIsPassive(){
+        return "passiv";
+    }
+
     public boolean getHasPaid() {
         return hasPaid;
     }
@@ -106,7 +114,7 @@ public abstract class Member {
     }
 
     public void setActive() {
-        if (isActive == false)
+        if (!isActive)
             isActive = true;
         else {
             isActive = false;

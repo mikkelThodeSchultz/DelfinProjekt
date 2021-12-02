@@ -77,11 +77,8 @@ public class MemberList {
         } else {
             status = "aktivt";
         }
-        return "Medlemsskabet for " + selectedMember.getName() + " er " + status + ".\n";
+        return "Medlemsskabet for " + selectedMember.getName() + " er nu " + status + ".\n";
     }
-
-
-
 
 
     public void editLevel(){

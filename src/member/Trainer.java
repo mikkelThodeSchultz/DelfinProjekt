@@ -28,7 +28,13 @@ public class Trainer extends Member {
 
 
     public String toString(){
-        return super.toString() + " – " + role.toString();
+        String status = null;
+        if (getIsActive()){
+            status = setIsActive();
+        } else {
+            status = setIsPassive();
+        }
+        return super.toString() + " – " + role.toString() + " - (" + status + ")";
     }
 
 }
