@@ -254,7 +254,7 @@ public class UserInterface {
 
     }
 
-    public void teams() {
+    public void isJunior() {
         System.out.println("""
                 Vælg junior eller senior
                                 

@@ -385,7 +385,7 @@ public class Controller {
     public void topFive() {
         int isJunior = isJunior();
         ArrayList<CompetitiveMember> compMem = getJuniorOrSenior(isJunior);
-        Disciplines discipline = ui.pickDisipline();
+        Disciplines discipline = ui.pickDiscipline();
         if(discipline!= null){
         boolean goAgain = true;
         while (goAgain) {
@@ -525,7 +525,7 @@ public class Controller {
 
             if (memChoice != -1) {
 
-                Disciplines discipline = ui.pickDisipline();
+                Disciplines discipline = ui.pickDiscipline();
 
                 ui.printMessage("Hvilken placering fik deltageren\n");
                 int placement = ui.userInputInt();
@@ -639,7 +639,7 @@ public class Controller {
                     for (CompetitiveMember compMem : chosenMembers) {
                         chosenMembersID.add(compMem.getMembershipNumber());
                     }
-                    Disciplines discipline = ui.pickDisipline();
+                    Disciplines discipline = ui.pickDiscipline();
                     if (discipline != null) {
                         Team newTeam = new Team(chosenMembersID, teamName, discipline.toString());
                         chosenTrainer.addTeam(newTeam);
