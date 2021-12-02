@@ -102,10 +102,10 @@ public class Controller {
         while (goAgain) {
             String choice = ui.getPaymentsMenu();
             switch (choice) {
-                case "1" -> System.out.println(calculateTotalIncome());// Forventet indtjening
-                case "2" -> System.out.println("a"); //Modtag betaling
-                case "3" -> ui.printMessage(listOfMembersWhoOwe().toString()); //Todo flot udprintning på listen
-                case "4" -> System.out.println("a"); //Opkræv kontingenter
+                case "1" -> ui.printMessage("Forventet indtjening er: " + calculateTotalIncome() + " kr");// Forventet indtjening
+                case "2" -> setMembershipToHasPayed(); //Modtag betaling
+                case "3" -> ui.printMessage(listOfMembersWhoOweAsString()); //Liste af medlemmer der skylder penge
+                case "4" -> demandPayment(); //Opkræv kontingenter
                 case "0" -> goAgain = false; //Tilbage til hovedmenu
                 default -> ui.statusMessage(Status.INVALID_CHOICE);
             }
@@ -133,14 +133,15 @@ public class Controller {
         while (goAgain) {
             String choice = ui.getFoundMemberMenu();
             switch (choice) {
-                case "1" -> editName();
-                case "2" -> editAddress();
-                case "3" -> editEmail();
-                case "4" -> editPhoneNumber();
-                case "5" -> editBirthDate();
-                case "6" -> editMembershipStatus();
-                //case "7" -> editLevel();
-                case "8" -> deleteMember();
+                case "1" -> searchAfterMemberAgain();
+                case "2" -> editName();
+                case "3" -> editAddress();
+                case "4" -> editEmail();
+                case "5" -> editPhoneNumber();
+                case "6" -> editBirthDate();
+                case "7" -> editMembershipStatus();
+                //case "8" -> editLevel();
+                case "9" -> deleteMember();
                 case "0" -> goAgain = false;
             }
         }
@@ -169,7 +170,7 @@ public class Controller {
     }
 
     public void editPhoneNumber() {
-        ui.printMessage("Rediger telefonummeret her: ");
+        ui.printMessage("Rediger telefonnummeret her: ");
         String userInput = ui.userInputString();
         String oldNumber = memberList.editPhoneNumber(userInput);
         ui.changeMessage(oldNumber, userInput);
@@ -198,9 +199,13 @@ public class Controller {
     }
 
     public void deleteMember() {
-        ui.showMemberList(memberList.printMemberList());
-        memberList.removeMember();
-        ui.printMessage("Du har nu slettet medlemmet");
+        ui.printMessage("Vil du slette medlemmet: " + memberList.getSelectedMemberName() + " ja(j) eller nej(n)?\n");
+        if (ui.userInputString().equals("j")){
+            memberList.removeMember();
+            ui.printMessage("Du har nu slettet medlemmet: " + memberList.getSelectedMemberName());
+        } else {
+            ui.statusMessage(Status.ANNULLERET);
+        }
     }
 
     public void createMemberMenu() {
@@ -223,6 +228,31 @@ public class Controller {
         return calculation.listOfMembersWhoOwe(memberList.getMemberList());
     }
 
+    public String listOfMembersWhoOweAsString() {
+        String temp = "";
+        for (int i = 0; i < listOfMembersWhoOwe().size(); i++) {
+            temp += listOfMembersWhoOwe().get(i).getName();
+            temp += " ";
+            temp += listOfMembersWhoOwe().get(i).getMembershipNumber();
+            temp += "\n";
+        }
+        return temp;
+    }
+
+    public void demandPayment() {
+        calculation.demandPayment(memberList.getMemberList());
+        ui.printMessage("Alle medlemmer er nu opdateret til at skylde kontingent");
+    }
+
+    public void setMembershipToHasPayed() {
+        Member member = getMemberFromSearch();
+        boolean payedOrNot = calculation.setMembershipToHasPayed(member);
+        if (payedOrNot){
+            ui.printMessage(member + " er nu registreret til at have betalt ");
+        } else ui.printMessage(member + " er nu registreret til ikke at have betalt ");
+
+    }
+
     public double calculateMembershipFee(Member member) { //Hvis calculateContingent bliver gjort private, skal denne laves om
         return calculation.calculateContingent(member.getAge(), member.getIsActive());
     }
@@ -238,9 +268,9 @@ public class Controller {
                 memberList.addMember(newMember);
                 ui.printMessage("Du har nu oprettet " + newMember + " som medlem i klubben.");
             } else if (choice.equals("2")) {
-                CompetitiveMember newMember = new CompetitiveMember(memberInfo[0], memberInfo[1], memberInfo[2], memberInfo[3], day, month, year);
-                memberList.addMember(newMember);
-                ui.printMessage("Du har nu oprettet " + newMember + " som medlem i klubben.");
+                CompetitiveMember newCompMember = new CompetitiveMember(memberInfo[0], memberInfo[1], memberInfo[2], memberInfo[3], day, month, year);
+                memberList.addMember(newCompMember);
+                ui.printMessage("Du har nu oprettet " + newCompMember + " som medlem i klubben.");
             } else if (choice.equals("3")) {
                 Trainer newTrainer = new Trainer(memberInfo[0], memberInfo[1], memberInfo[2], memberInfo[3], day, month, year);
                 memberList.addMember(newTrainer);
@@ -258,6 +288,7 @@ public class Controller {
         String members = "";
         if (foundMembers.length == 1) {
             memberList.setSelectedMember(foundMembers[0]);
+            ui.printMessage("Du har valgt " + foundMembers[0] + "\n");
         } else if (foundMembers.length > 1) {
             int counter = 0;
             for (int i = 0; i < foundMembers.length; i++) {
@@ -268,29 +299,39 @@ public class Controller {
             boolean goAgain = true;
             while (goAgain) {
                 ui.printMessage("Vælg venligst tallet ud for det ønskede medlem eller tryk '0' for at vende tilbage til medlemsmenuen \n");
-                int select = ui.userInputInt();
-                if (select > 0 && select < foundMembers.length) {
+                String selection = "";
+                int select = -1;
+                try {
+                    selection = ui.userInputString();
+                    select = Integer.parseInt(selection);
+                } catch (NumberFormatException f) {
+                }
+                if (select > 0 && select <= foundMembers.length) {
                     goAgain = false;
                 }
                 if (select == 0) {
                     goAgain = false;
+                    memberMenu();
                 } else {
                     try {
                         memberList.setSelectedMember(foundMembers[select - 1]);
+                        ui.printMessage("Du har valgt " + foundMembers[select - 1] + "\n");
                     } catch (IndexOutOfBoundsException e) {
-                        ui.printMessage("Dit svin!");
+                        ui.printMessage("Indtast et tal imellem 1 og " + foundMembers.length + "\n");
                     }
                 }
             }
         } else {
-            ui.printMessage("Der er ingen medlemmer der passer til dine søgekriterier.");
+            ui.printMessage("Der er ingen medlemmer der passer til dine søgekriterier.\n");
+            searchAfterMemberAgain();
             memberList.setSelectedMember(null);
         }
-
         return memberList.findMember(userInputString);
     }
 
-    public void statusCreation() {
+
+    public void searchAfterMemberAgain(){
+        findMember(ui.findSpecificMemberMenu());
     }
 
     public String userInputString() {
