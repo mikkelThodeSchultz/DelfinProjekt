@@ -8,7 +8,11 @@
   "membershipNumber" : "tttr2729",
   "isActive" : true,
   "hasPaid" : false,
-  "competitiveSwimmers" : [ ],
+  "Teams" : [ {
+    "teamMembers" : [ "cskr1599", "cffi3924" ],
+    "teamName" : "Mark",
+    "discipline" : "CRAWL"
+  } ],
   "role" : "TRÆNER"
 }, {
   "name" : "tSøren Kristiansen",
@@ -20,7 +24,7 @@
   "membershipNumber" : "tskr7153",
   "isActive" : true,
   "hasPaid" : false,
-  "competitiveSwimmers" : [ ],
+  "Teams" : [ ],
   "role" : "TRÆNER"
 }, {
   "name" : "tTobias Vold",
@@ -32,7 +36,7 @@
   "membershipNumber" : "ttvo6590",
   "isActive" : true,
   "hasPaid" : false,
-  "competitiveSwimmers" : [ ],
+  "Teams" : [ ],
   "role" : "TRÆNER"
 }, {
   "name" : "tFinn Finsen",
@@ -44,7 +48,7 @@
   "membershipNumber" : "tffi6068",
   "isActive" : true,
   "hasPaid" : false,
-  "competitiveSwimmers" : [ ],
+  "Teams" : [ ],
   "role" : "TRÆNER"
 }, {
   "name" : "tJim Henry",
@@ -56,6 +60,6 @@
   "membershipNumber" : "tjhe1394",
   "isActive" : true,
   "hasPaid" : false,
-  "competitiveSwimmers" : [ ],
+  "Teams" : [ ],
   "role" : "TRÆNER"
 } ]

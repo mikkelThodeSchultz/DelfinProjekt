@@ -8,6 +8,7 @@ package domain;
 import file.FileHandler;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.time.LocalDateTime;
 import java.util.*;
 
@@ -45,15 +46,15 @@ public class Controller {
             switch (choice) {
                 case "1" -> memberMenu();
                 case "2" -> paymentMenu();
-                case "3" -> CompetitionMenu();
-                case "8" -> SaveCurrent();
+                case "3" -> competitionMenu();
+                case "8" -> saveCurrent();
                 case "9" -> clearJson();
                 case "0" -> goAgain = false;
                 default -> ui.statusMessage(Status.INVALID_CHOICE);
             }
         }
 
-            generateTestData();
+        generateTestData();
 
         try {
             FileHandler.storeData(memberList.getMemberList(), listOfComps);
@@ -63,7 +64,7 @@ public class Controller {
     }
 
 
-    public void SaveCurrent() {
+    public void saveCurrent() {
         try {
             FileHandler.storeData(memberList.getMemberList(), listOfComps);
         } catch (IOException e) {
@@ -82,14 +83,14 @@ public class Controller {
         }
     }
 
-    public void CompetitionMenu() {
+    public void competitionMenu() {
         boolean goAgain = true;
         while (goAgain) {
             String choice = ui.getCompetitionMenu();
             switch (choice) {
                 case "1" -> topFive();//  Top 5 lister
                 case "2" -> createCompOrRegResult(); //Registrer resultat og opret konkurrence
-                case "3" -> System.out.println("a"); //Tilknyt disciplin
+                case "3" -> teamMenu(); //Tilknyt disciplin
                 case "0" -> goAgain = false; //Tilbage til hovedmenu
                 default -> ui.statusMessage(Status.INVALID_CHOICE);
             }
@@ -177,11 +178,11 @@ public class Controller {
     public void editBirthDate() {
         try {
             ui.printMessage("Rediger fødselsdag her: ");
-            int day = Integer.parseInt(ui.userInputString());
+            int day = ui.userInputInt();
             ui.printMessage("Rediger fødselsmåned her: ");
-            int month = Integer.parseInt(ui.userInputString());
+            int month = ui.userInputInt();
             ui.printMessage("Rediger fødselsår her: ");
-            int year = Integer.parseInt(ui.userInputString());
+            int year = ui.userInputInt();
             LocalDate newBirthDate = LocalDate.of(year, month, day);
             String oldDate = memberList.editBirthDate(newBirthDate);
             String newDate = memberList.newDateToString(newBirthDate);
@@ -267,10 +268,8 @@ public class Controller {
             boolean goAgain = true;
             while (goAgain) {
                 ui.printMessage("Vælg venligst tallet ud for det ønskede medlem eller tryk '0' for at vende tilbage til medlemsmenuen \n");
-                String selection = "";
-                selection = ui.userInputString();
-                int select = Integer.parseInt(selection);
-                if(select > 0 && select < foundMembers.length){
+                int select = ui.userInputInt();
+                if (select > 0 && select < foundMembers.length) {
                     goAgain = false;
                 }
                 if (select == 0) {
@@ -307,113 +306,128 @@ public class Controller {
         //storedMembers.clear();
     }
 
-    public void topFive() {
-        ui.isJunior();
-        String isJunior = ui.userInputString();
-        ui.topFiveMenu();
-        String IsTraining = userInputString();
+    public int isJunior() {
+        int isJunior = 0;
+        boolean badChoice = true;
+        while (badChoice) {
+            ui.isJunior();
+            isJunior = ui.userInputInt();
+            if (isJunior <=0 || isJunior >2) {
+                ui.statusMessage(Status.INVALID_CHOICE);
+            } else {
+                badChoice = false;
+            }
+        }
+        return isJunior;
+    }
 
-        if (!IsTraining.equals("0")) {
-            Disciplines disipline = ui.pickDisipline();
-            if (disipline != null) {
-
-
-                ArrayList<CompetitonResult> results = new ArrayList<>();
-                ArrayList<CompetitonResult> resultsInDisipline = new ArrayList<>();
-
-
-                ArrayList<CompetitiveMember> compMem = getCompMembers();
-                ArrayList<CompetitiveMember> compMemToRemove = new ArrayList<>();
-                if (isJunior.equals("1")) {
-                    for (CompetitiveMember mem : compMem) {
-                        if (mem.getAge() > 18) {
-                            compMemToRemove.add(mem);
-                        }
-                    }
-                } else {
-                    for (CompetitiveMember mem : compMem) {
-                        if (mem.getAge() < 18) {
-                            compMemToRemove.add(mem);
-                        }
-                    }
+    public ArrayList<CompetitiveMember> getJuniorOrSenior(int isJunior) {
+        ArrayList<CompetitiveMember> compMem = getCompMembers();
+        ArrayList<CompetitiveMember> compMemToRemove = new ArrayList<>();
+        if (isJunior ==1 ) {
+            for (CompetitiveMember mem : compMem) {
+                if (mem.getAge() > 18) {
+                    compMemToRemove.add(mem);
                 }
-                compMem.removeAll(compMemToRemove);
+            }
+        } else {
+            for (CompetitiveMember mem : compMem) {
+                if (mem.getAge() < 18) {
+                    compMemToRemove.add(mem);
+                }
+            }
+        }
+        compMem.removeAll(compMemToRemove);
+        return compMem;
+    }
+
+    public void topFive() {
+        int isJunior = isJunior();
+        ArrayList<CompetitiveMember> compMem = getJuniorOrSenior(isJunior);
+        Disciplines discipline = ui.pickDisipline();
+        if(discipline!= null){
+        boolean goAgain = true;
+        while (goAgain) {
+            ui.topFiveMenu();
+            String IsTraining = userInputString();
 
 
-                //PRINTER KONKURRENCE RESULTATER
+            switch (IsTraining) {
+                case "1" -> getTopFiveComp(compMem, discipline);
+                case "2" -> getTopFiveTraining(compMem, discipline);
+                case "0" -> goAgain = false;
+                default -> ui.statusMessage(Status.INVALID_CHOICE);
+            }}
+        }
+    }
 
+    public void getTopFiveComp(ArrayList<CompetitiveMember> compMem, Disciplines discipline) {
+        ArrayList<CompetitonResult> results = new ArrayList<>();
+        ArrayList<CompetitonResult> resultsInDisipline = new ArrayList<>();
 
-                if (IsTraining.equals("1")) {
-
-
-                    for (Competition comps : listOfComps) {
-                        results.addAll(comps.getResults());
-                    }
-                    for (CompetitonResult compRes : results) {
-                        if (compRes.getDiscipline().equals(disipline.toString())) {
-                            String memberIDs = compRes.getMemberID();
-                            for (CompetitiveMember compMember : compMem) {
-                                if (memberIDs.equals(compMember.getMembershipNumber())) {
-                                    resultsInDisipline.add(compRes);
-                                }
-                            }
-                        }
-                    }
-
-                    resultsInDisipline.sort(Comparator.comparing(CompetitonResult::getTime));
-
-                    if (resultsInDisipline.size() < 5) {
-                        for (int i = 0; i < resultsInDisipline.size(); i++) {
-                            String memberID = resultsInDisipline.get(i).getMemberID();
-                            double time = resultsInDisipline.get(i).getTime();
-                            ui.printMessage("MedlemsID: " + memberID + "  -  Tid: " + time + "\n");
-                        }
-                    } else {
-                        for (int i = 0; i < 5; i++) {
-                            String memberID = resultsInDisipline.get(i).getMemberID();
-                            double time = resultsInDisipline.get(i).getTime();
-                            ui.printMessage("MedlemsID: " + memberID + "  -  Tid: " + time + "\n");
-                        }
-                    }
-
-
-                    //PRINTER TRÆNING RESULTATER
-
-                } else if (IsTraining.equals("2")) {
-
-                    HashMap<Double, String> trainResult = new HashMap<>();
-                    for (CompetitiveMember actMem : compMem) {
-
-                        for (BestTrainingResult trainRes : actMem.getBestTrainingResults()) {
-                            if (trainRes.getDiscipline().toString().equals(disipline.toString())) {
-                                trainResult.put(trainRes.getTime(), actMem.getMembershipNumber());
-                            }
-                        }
-                    }
-
-                    TreeMap<Double, String> sorted = new TreeMap<>(trainResult);
-                    sorted.putAll(trainResult);
-                    if (sorted.size() < 5) {
-                        for (int i = 0; i < sorted.size(); i++) {
-                            String memberID = sorted.firstEntry().getValue();
-                            double time = sorted.firstKey();
-                            ui.printMessage("MedlemsID: " + memberID + "  -  Tid: " + time + "\n");
-                            sorted.remove(sorted.firstKey());
-
-                        }
-                    } else {
-                        for (int i = 0; i < 5; i++) {
-                            String memberID = sorted.firstEntry().getValue();
-                            double time = sorted.firstKey();
-                            ui.printMessage("MedlemsID: " + memberID + "  -  Tid: " + time + "\n");
-                            sorted.remove(sorted.firstKey());
-
-                        }
+        for (Competition comps : listOfComps) {
+            results.addAll(comps.getResults());
+        }
+        for (CompetitonResult compRes : results) {
+            if (compRes.getDiscipline().equals(discipline.toString())) {
+                String memberIDs = compRes.getMemberID();
+                for (CompetitiveMember compMember : compMem) {
+                    if (memberIDs.equals(compMember.getMembershipNumber())) {
+                        resultsInDisipline.add(compRes);
                     }
                 }
             }
         }
+
+        resultsInDisipline.sort(Comparator.comparing(CompetitonResult::getTime));
+
+        if (resultsInDisipline.size() < 5) {
+            for (int i = 0; i < resultsInDisipline.size(); i++) {
+                String memberID = resultsInDisipline.get(i).getMemberID();
+                double time = resultsInDisipline.get(i).getTime();
+                ui.printMessage("MedlemsID: " + memberID + "  -  Tid: " + time + "\n");
+            }
+        } else {
+            for (int i = 0; i < 5; i++) {
+                String memberID = resultsInDisipline.get(i).getMemberID();
+                double time = resultsInDisipline.get(i).getTime();
+                ui.printMessage("MedlemsID: " + memberID + "  -  Tid: " + time + "\n");
+            }
+        }
     }
+
+    public void getTopFiveTraining(ArrayList<CompetitiveMember> compMem, Disciplines discipline) {
+        HashMap<Double, String> trainResult = new HashMap<>();
+        for (CompetitiveMember actMem : compMem) {
+
+            for (BestTrainingResult trainRes : actMem.getBestTrainingResults()) {
+                if (trainRes.getDiscipline().toString().equals(discipline.toString())) {
+                    trainResult.put(trainRes.getTime(), actMem.getMembershipNumber());
+                }
+            }
+        }
+
+        TreeMap<Double, String> sorted = new TreeMap<>(trainResult);
+        sorted.putAll(trainResult);
+        if (sorted.size() < 5) {
+            for (int i = 0; i < sorted.size(); i++) {
+                String memberID = sorted.firstEntry().getValue();
+                double time = sorted.firstKey();
+                ui.printMessage("MedlemsID: " + memberID + "  -  Tid: " + time + "\n");
+                sorted.remove(sorted.firstKey());
+
+            }
+        } else {
+            for (int i = 0; i < 5; i++) {
+                String memberID = sorted.firstEntry().getValue();
+                double time = sorted.firstKey();
+                ui.printMessage("MedlemsID: " + memberID + "  -  Tid: " + time + "\n");
+                sorted.remove(sorted.firstKey());
+
+            }
+        }
+    }
+
 
     public void createCompOrRegResult() {
 
@@ -422,94 +436,75 @@ public class Controller {
         while (keepGoing) {
             ui.compAndResultMenu();
             String choice = userInputString();
-            int memChoice = 0;
-            if (choice.equals("1")) {
-
-                ui.printMessage("Hvad hedder konkurrencen?\n");
-                String compName = userInputString();
-                Competition comp = new Competition(compName);
-                ui.printMessage("Konkurrence med navn " + compName + " er oprettet\n");
-                listOfComps.add(comp);
-
-            } else if (choice.equals("2")) {
-                ui.printMessage("Vælg en konkurrence \n");
-
-                int compChoice = getCompChoice();
-
-
-                if (compChoice != -1) {
-
-                    ui.printMessage("Du skal vælge et medlem \n");
-                    ui.searchOrMemberList();
-                    String memberSearchChoice = userInputString();
-                    ArrayList<Member> chosenMember = new ArrayList<>();
-
-                    if (memberSearchChoice.equals("1")) {
-                        chosenMember.add(getMemberFromSearch());
-                    } else if (memberSearchChoice.equals("2")) {
-                        memChoice = getMemberFromList(chosenMember);
-                    } else if (memberSearchChoice.equals("0")) {
-                        memChoice = -1;
-                    }
-
-                    if (memChoice != -1) {
-
-                        Disciplines discipline = ui.pickDisipline();
-
-                        ui.printMessage("Hvilken placering fik deltageren\n");
-                        int placement = Integer.parseInt(userInputString());
-                        ui.printMessage("Hvilken tid fik deltageren\n");
-                        double time = Double.parseDouble(userInputString());
-
-                        CompetitonResult result = new CompetitonResult(chosenMember.get(0).getMembershipNumber(), time, placement, discipline.toString());
-                        listOfComps.get(compChoice).addResult(result);
-                        ui.printMessage("Et resultat er blevet registeret med info \nID: " + result.getMemberID() +
-                                "\nDisiplin: " + result.getDiscipline() +
-                                "\nTid: " + result.getTime() +
-                                "\nPlacering: " + result.getRank() + "\n");
-                    }
-                }
-
-            } else if (choice.equals("0")) {
-                keepGoing = false;
-            } else {
-                ui.statusMessage(Status.INVALID_CHOICE);
+            switch (choice) {
+                case "1" -> createCompetition();
+                case "2" -> registerResult();
+                case "0" -> keepGoing = false;
+                default -> ui.statusMessage(Status.INVALID_CHOICE);
             }
         }
     }
 
-    private int getMemberFromList(ArrayList<Member> chosenMember) {
+
+    public void createCompetition() {
+        ui.printMessage("Hvad hedder konkurrencen?\n");
+        String compName = userInputString();
+        Competition comp = new Competition(compName);
+        ui.printMessage("Konkurrence med navn " + compName + " er oprettet\n");
+        listOfComps.add(comp);
+    }
+
+    public void registerResult() {
         int memChoice = 0;
+        ui.printMessage("Vælg en konkurrence \n");
 
-        boolean badChoice = true;
-        ArrayList<CompetitiveMember> memList = getCompMembers();
-        while (badChoice) {
-            int count = 1;
-            for (Member mem : memList) {
-                ui.printMessage(count + ") - " + mem.getName() + "\n");
-                count++;
+        int compChoice = getCompChoice();
+
+
+        if (compChoice != -1) {
+
+            ui.printMessage("Du skal vælge et medlem \n");
+            ui.searchOrMemberList();
+            String searchOrList = userInputString();
+            ArrayList<Member> chosenMember = new ArrayList<>();
+
+            if (searchOrList.equals("1")) {
+                chosenMember.add(getMemberFromSearch());
+            } else if (searchOrList.equals("2")) {
+                ui.printMessage("Vælg medlem. Tryk 0 for at afbryde\n");
+                ArrayList<CompetitiveMember> compMemberToAdd = chooseCompMemberFromList(getCompMembers());
+                if (compMemberToAdd == null) {
+                    memChoice = -1;
+                } else {
+                    chosenMember.addAll(compMemberToAdd);
+                }
+            } else if (searchOrList.equals("0")) {
+                memChoice = -1;
             }
-            memChoice = Integer.parseInt(userInputString());
-            memChoice -= 1;
 
-            if (memChoice < memList.size()) {
-                badChoice = false;
-                chosenMember.add(memList.get(memChoice));
-            } else {
-                ui.statusMessage(Status.INVALID_CHOICE);
+            if (memChoice != -1) {
+
+                Disciplines discipline = ui.pickDisipline();
+
+                ui.printMessage("Hvilken placering fik deltageren\n");
+                int placement = ui.userInputInt();
+                ui.printMessage("Hvilken tid fik deltageren\n");
+                double time = Double.parseDouble(userInputString());
+
+                CompetitonResult result = new CompetitonResult(chosenMember.get(0).getMembershipNumber(), time, placement, discipline.toString());
+                listOfComps.get(compChoice).addResult(result);
+                ui.printMessage("Et resultat er blevet registeret med info \nID: " + result.getMemberID() +
+                        "\nDisiplin: " + result.getDiscipline() +
+                        "\nTid: " + result.getTime() +
+                        "\nPlacering: " + result.getRank() + "\n");
             }
         }
-        return memChoice;
     }
+
 
     private Member getMemberFromSearch() {
-        int memChoice = 0;
-        ArrayList<Member> chosenMember = new ArrayList<>();
-        boolean badChoice = true;
         Member[] memberSearchResult = findMember(ui.findSpecificMemberMenu());
-        chosenMember.add(memberSearchResult[0]);
-        userInputString();
-        return chosenMember.get(0);
+        return memberSearchResult[0];
     }
 
     private int getCompChoice() {
@@ -524,7 +519,7 @@ public class Controller {
             }
 
             ui.printMessage("0) - Tilbage\n");
-            compChoice = Integer.parseInt(userInputString());
+            compChoice = ui.userInputInt();
             compChoice -= 1;
             if (compChoice < listOfComps.size()) {
                 badChoice = false;
@@ -544,6 +539,141 @@ public class Controller {
         }
         return compMem;
     }
+
+    public ArrayList<Trainer> getTrainers() {
+        ArrayList<Trainer> trainers = new ArrayList<>();
+        for (Member mem : memberList.getMemberList()) {
+            if (mem instanceof Trainer) {
+                trainers.add((Trainer) mem);
+            }
+        }
+        return trainers;
+    }
+
+    public void teamMenu() {
+        boolean goAgain = true;
+        while (goAgain) {
+            ui.getTeamMenu();
+            String choice = ui.userInputString();
+            switch (choice) {
+                case "1" -> createTeam();
+                case "2" -> editTeam();
+                case "0" -> goAgain = false;
+                default -> ui.statusMessage(Status.INVALID_CHOICE);
+            }
+
+        }
+    }
+
+    public void createTeam() {
+        ui.printMessage("Giv holdet et navn. Tryk 0 for at afbryde\n");
+        String teamName = ui.userInputString();
+        if (!teamName.equals("0")) {
+            ui.printMessage("Vælg en træner. Tryk 0 for at afbryde\n");
+            ArrayList<Trainer> chosenTrainerToCheck = chooseTrainerFromList(getTrainers());
+            if (chosenTrainerToCheck != null) {
+                Trainer chosenTrainer = chosenTrainerToCheck.get(0);
+                ui.printMessage("Vælg medlem der skal være i teamet. Tryk 0 for at afbryde\n ");
+                ArrayList<CompetitiveMember> allCompMembers = getCompMembers();
+                ArrayList<CompetitiveMember> chosenMembers = new ArrayList<>();
+                ArrayList<CompetitiveMember> tempMemberToCheck = new ArrayList<>();
+                boolean moreMembers = true;
+                while (moreMembers) {
+                    tempMemberToCheck = chooseCompMemberFromList(allCompMembers);
+                    if (tempMemberToCheck == null) {
+                        break;
+                    } else {
+                        chosenMembers.addAll(tempMemberToCheck);
+                        ui.printMessage("Vil du tilføje flere medlemmer (j/n)");
+                        String choice = userInputString();
+                        switch (choice) {
+                            case "j" -> allCompMembers.removeAll(chosenMembers);
+                            case "n" -> moreMembers = false;
+                            default -> ui.printMessage("Du kan kun vælge j eller n");
+                        }
+                    }
+                }
+                if (tempMemberToCheck != null) {
+                    ArrayList<String> chosenMembersID = new ArrayList<>();
+                    for (CompetitiveMember compMem : chosenMembers) {
+                        chosenMembersID.add(compMem.getMembershipNumber());
+                    }
+                    Disciplines discipline = ui.pickDisipline();
+                    if (discipline != null) {
+                        Team newTeam = new Team(chosenMembersID, teamName, discipline.toString());
+                        chosenTrainer.addTeam(newTeam);
+                        ui.printMessage("Du har oprettet et hold med \n" +
+                                "Navn: " + teamName + "\n" +
+                                "Træner: " + chosenTrainer.getName() + "\n" +
+                                "Disiplin: " + discipline.toString() + "\n" +
+                                "Medlemmer: \n");
+                        for (CompetitiveMember compMem : chosenMembers) {
+                            ui.printMessage(compMem.getName() + "\n");
+                        }
+                        ui.printMessage("\n\n");
+                    }
+                }
+            }
+        }
+    }
+
+    public void editTeam() {
+
+    }
+
+
+    public ArrayList<Trainer> chooseTrainerFromList(ArrayList<Trainer> listSelectFrom) {
+        boolean badChoice = true;
+        ArrayList<Trainer> chosenMember = new ArrayList<>();
+        while (badChoice) {
+            int count = 1;
+            for (Member mem : listSelectFrom) {
+                ui.printMessage(count + ") - " + mem.getName() + "\n");
+                count++;
+            }
+            int memChoice = ui.userInputInt();
+            memChoice -= 1;
+
+            if (memChoice < listSelectFrom.size() && memChoice > -1) {
+                badChoice = false;
+                chosenMember.add(listSelectFrom.get(memChoice));
+            } else if (memChoice == -1) {
+                chosenMember = null;
+                badChoice = false;
+            } else {
+                ui.statusMessage(Status.INVALID_CHOICE);
+            }
+        }
+        return chosenMember;
+
+    }
+
+    public ArrayList<CompetitiveMember> chooseCompMemberFromList(ArrayList<CompetitiveMember> listSelectFrom) {
+        boolean badChoice = true;
+        ArrayList<CompetitiveMember> chosenMember = new ArrayList<>();
+        while (badChoice) {
+            int count = 1;
+            for (Member mem : listSelectFrom) {
+                ui.printMessage(count + ") - " + mem.getName() + "\n");
+                count++;
+            }
+            int memChoice = ui.userInputInt();
+            memChoice -= 1;
+
+            if (memChoice < listSelectFrom.size() && memChoice > -1) {
+                badChoice = false;
+                chosenMember.add(listSelectFrom.get(memChoice));
+            } else if (memChoice == -1) {
+                chosenMember = null;
+                badChoice = false;
+            } else {
+                ui.statusMessage(Status.INVALID_CHOICE);
+            }
+        }
+        return chosenMember;
+
+    }
+
 
     private void generateTestData() {
         StandardMember member = new StandardMember("Torben Trucker", "12345678", "Torbensmail@mail.com", "torbensvej 31", 24, 12, 2000);

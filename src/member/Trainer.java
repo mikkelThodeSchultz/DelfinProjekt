@@ -8,9 +8,10 @@ package member;
 import ui.Role;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Trainer extends Member {
-    private ArrayList<CompetitiveMember> competitiveSwimmers = new ArrayList();
+    private ArrayList<Team> Teams = new ArrayList<>();
     private Role role;
 
     public Trainer(String name, String phoneNumber, String email, String homeAddress, int day, int month, int year) {
@@ -20,6 +21,10 @@ public class Trainer extends Member {
 
     //USED FOR JSON. DO NOT DELETE
     public Trainer(){}
+
+    public void addTeam(Team team){
+        Teams.add(team);
+    }
 
 
     public String toString(){

@@ -16,7 +16,19 @@ public class UserInterface {
     }
 
     public int userInputInt() {
-        return sc.nextInt();
+        boolean badChoice = true;
+        int intputAsInt = 0;
+        while(badChoice){
+        String input = sc.nextLine();
+
+        try{
+            intputAsInt = Integer.parseInt(input);
+            badChoice = false;
+        }
+        catch (NumberFormatException e){
+            System.out.println("Indtast et tal");
+        }}
+        return intputAsInt;
     }
 
     public void printMessage(String message) {
@@ -141,7 +153,7 @@ public class UserInterface {
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 1 - Top 5 lister
                 2 - Registrer resultat(er) eller opret konkurrence
-                3 - Tilknyt disciplin(er)
+                3 - Holdmenuen
                 0 - Tilbage til hovedmenu
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 """);
@@ -277,6 +289,21 @@ public class UserInterface {
                 0 - Tilbage
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 """);
+    }
+
+    public void getTeamMenu(){
+        System.out.println("""
+                Velkommen til holdmenuen
+                                
+                Tryk på den tast der svarer til det menupunkt du ønsker at vælge.
+                                
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                1 - Oprette et hold
+                2 - Redigere et hold
+                0 - Tilbage
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                """);
+
     }
 
 }
