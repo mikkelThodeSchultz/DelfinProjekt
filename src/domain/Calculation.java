@@ -23,7 +23,7 @@ public class Calculation {
         double activeJuniorMembership = 1000;
         double activeSeniorMembership = 1600;
         double discount = 0.75;
-        double contingentSum = 0;
+        double contingentSum;
 
         if (!isActive) {
             contingentSum = passiveMembership;
@@ -32,7 +32,7 @@ public class Calculation {
         } else if (age > senior && age < seniorDiscount) {
             contingentSum = activeSeniorMembership;
         } else {
-            contingentSum *= discount;
+            contingentSum = activeSeniorMembership * discount;
         }
         return contingentSum;
     }
@@ -55,4 +55,17 @@ public class Calculation {
         return contingentSumForMultipleMembers;
     }
 
+    public void demandPayment(ArrayList<Member> memberList) {
+        for (Member member:memberList) {
+            member.setHasPaid(false);
+        }
+    }
+
+    public boolean setMembershipToHasPayed(Member member) {
+        if (member.getHasPaid()) {
+            member.setHasPaid(false);
+            return false;
+        } else member.setHasPaid(true);
+        return true;
+    }
 }

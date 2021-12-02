@@ -11,5 +11,6 @@ public enum Status {
     ACTIVE,
     PASSIVE,
     INVALID_CHOICE,
+    ANNULLERET,
 
 }
