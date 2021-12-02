@@ -167,7 +167,7 @@ public class Controller {
     }
 
     public void editPhoneNumber() {
-        ui.printMessage("Rediger telefonummeret her: ");
+        ui.printMessage("Rediger telefonnummeret her: ");
         String userInput = ui.userInputString();
         String oldNumber = memberList.editPhoneNumber(userInput);
         ui.changeMessage(oldNumber, userInput);
