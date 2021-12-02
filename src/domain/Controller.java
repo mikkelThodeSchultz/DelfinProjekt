@@ -194,7 +194,7 @@ public class Controller {
 
     public void editMembershipStatus() {
         ui.printMessage("Vil du ændre " + memberList.getSelectedMemberName() + "'s medlemstatus: ja(j) eller nej(n)?\n");
-        if (ui.userInputString().equalsIgnoreCase("j")){
+        if (ui.userInputString().equalsIgnoreCase("j")) {
             memberList.editMembershipStatus();
             ui.printMessage(memberList.isActiveAsString());
         } else {
@@ -204,7 +204,7 @@ public class Controller {
 
     public void deleteMember() {
         ui.printMessage("Vil du slette medlemmet: " + memberList.getSelectedMemberName() + " ja(j) eller nej(n)?\n");
-        if (ui.userInputString().equalsIgnoreCase("j")){
+        if (ui.userInputString().equalsIgnoreCase("j")) {
             memberList.removeMember();
             ui.printMessage("Du har nu slettet medlemmet: " + memberList.getSelectedMemberName());
         } else {
@@ -249,13 +249,25 @@ public class Controller {
     }
 
     public void setMembershipToHasPayed() {
-        Member member = getMemberFromSearch();
-        boolean payedOrNot = calculation.setMembershipToHasPayed(member);
-        if (payedOrNot){
-            ui.printMessage(member + " er nu registreret til at have betalt ");
-        } else ui.printMessage(member + " er nu registreret til ikke at have betalt ");
-
+        boolean goAgain = true;
+        while (goAgain) {
+            ui.printMessage("Skriv en del af, eller hele navnet på det medlem du ønsker at finde: \n");
+            String temp = ui.userInputString();
+            findMember(temp);
+            Member member = memberList.getSelectedMember();
+            if (member != null) {
+                boolean payedOrNot = calculation.setMembershipToHasPayed(member);
+                if (payedOrNot) {
+                    ui.printMessage(member + " er nu registreret til at have betalt ");
+                } else {
+                    ui.printMessage(member + " er nu registreret til ikke at have betalt ");
+                }
+            }
+            memberList.setSelectedMember(null);
+            goAgain = false;
+        }
     }
+
 
     public double calculateMembershipFee(Member member) { //Hvis calculateContingent bliver gjort private, skal denne laves om
         return calculation.calculateContingent(member.getAge(), member.getIsActive());
@@ -301,7 +313,7 @@ public class Controller {
             ui.printMessage(members);
             boolean goAgain = true;
             while (goAgain) {
-                ui.printMessage("\nVælg venligst tallet ud for det ønskede medlem eller tryk '0' for at vende tilbage til redigeringsmenuen \n");
+                ui.printMessage("\nVælg venligst tallet ud for det ønskede medlem eller tryk '0' for at vende tilbage  \n");
                 String selection = "";
                 int select = -1;
                 try {
@@ -332,7 +344,7 @@ public class Controller {
     }
 
 
-    public void searchAfterMemberAgain(){
+    public void searchAfterMemberAgain() {
         findMember(ui.findSpecificMemberMenu());
     }
 
@@ -356,7 +368,7 @@ public class Controller {
         while (badChoice) {
             ui.isJunior();
             isJunior = ui.userInputInt();
-            if (isJunior <=0 || isJunior >2) {
+            if (isJunior <= 0 || isJunior > 2) {
                 ui.statusMessage(Status.INVALID_CHOICE);
             } else {
                 badChoice = false;
@@ -368,7 +380,7 @@ public class Controller {
     public ArrayList<CompetitiveMember> getJuniorOrSenior(int isJunior) {
         ArrayList<CompetitiveMember> compMem = getCompMembers();
         ArrayList<CompetitiveMember> compMemToRemove = new ArrayList<>();
-        if (isJunior ==1 ) {
+        if (isJunior == 1) {
             for (CompetitiveMember mem : compMem) {
                 if (mem.getAge() > 18) {
                     compMemToRemove.add(mem);
@@ -389,19 +401,20 @@ public class Controller {
         int isJunior = isJunior();
         ArrayList<CompetitiveMember> compMem = getJuniorOrSenior(isJunior);
         Disciplines discipline = ui.pickDiscipline();
-        if(discipline!= null){
-        boolean goAgain = true;
-        while (goAgain) {
-            ui.topFiveMenu();
-            String IsTraining = userInputString();
+        if (discipline != null) {
+            boolean goAgain = true;
+            while (goAgain) {
+                ui.topFiveMenu();
+                String IsTraining = userInputString();
 
 
-            switch (IsTraining) {
-                case "1" -> getTopFiveComp(compMem, discipline);
-                case "2" -> getTopFiveTraining(compMem, discipline);
-                case "0" -> goAgain = false;
-                default -> ui.statusMessage(Status.INVALID_CHOICE);
-            }}
+                switch (IsTraining) {
+                    case "1" -> getTopFiveComp(compMem, discipline);
+                    case "2" -> getTopFiveTraining(compMem, discipline);
+                    case "0" -> goAgain = false;
+                    default -> ui.statusMessage(Status.INVALID_CHOICE);
+                }
+            }
         }
     }
 
@@ -546,7 +559,7 @@ public class Controller {
     }
 
 
-    private Member getMemberFromSearch() {
+    private Member getMemberFromSearch() { //TODO Der er noget galt her
         Member[] memberSearchResult = findMember(ui.findSpecificMemberMenu());
         return memberSearchResult[0];
     }

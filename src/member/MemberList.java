@@ -113,4 +113,8 @@ public class MemberList {
         String formattedDateTime = date.format(formatter);
         return formattedDateTime;
     }
+
+    public Member getSelectedMember() {
+        return selectedMember;
+    }
 }
