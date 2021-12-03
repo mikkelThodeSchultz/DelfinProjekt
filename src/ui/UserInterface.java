@@ -1,11 +1,5 @@
 package ui;
 
-import domain.Controller;
-import member.Member;
-import member.MemberList;
-
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -48,7 +42,7 @@ public class UserInterface {
     public String getMainMenu() {
         System.out.println("""
                 
-                Hovedmenu
+                                               Hovedmenu
                                 
                 Tryk på den tast der svarer til det menupunkt du ønsker at vælge.
                                 
@@ -57,7 +51,7 @@ public class UserInterface {
                 2 - Kontingenter
                 3 - Konkurrencer
                 
-                8 - Gem              
+                8 - Gem             
                 9 - Clear Json
                 0 - Gem og Luk programmet
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -70,7 +64,7 @@ public class UserInterface {
 
         System.out.println("""
                 
-                Medlemsmenu
+                                               Medlemsmenu
                                 
                 Tryk på den tast der svarer til det menupunkt du ønsker at vælge.
                                 
@@ -123,7 +117,7 @@ public class UserInterface {
                 1 - Opret standardmedlem
                 2 - Opret konkurrencemedlem
                 3 - Opret træner
-                0 - Tilbage til hovedmenu
+                0 - Tilbage til medlemsmenu
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 """);
         return sc.nextLine();
@@ -132,7 +126,7 @@ public class UserInterface {
     public String getPaymentsMenu() {
         System.out.println("""
                 
-                Kontingentmenu
+                                               Kontingentmenu
                                 
                 Tryk på den tast der svarer til det menupunkt du ønsker at vælge.
                                 
@@ -150,7 +144,7 @@ public class UserInterface {
     public String getCompetitionMenu() {
         System.out.println("""
                 
-                Konkurrencemenu
+                                              Konkurrencemenu
                                 
                 Tryk på den tast der svarer til det menupunkt du ønsker at vælge.
                                 
@@ -209,7 +203,7 @@ public class UserInterface {
 
     public void topFiveMenu() {
         System.out.println("""
-                Top 5 menu
+                                               Top 5 menu
                                 
                 Tryk på den tast der svarer til det menupunkt du ønsker at vælge.
                                 
@@ -223,7 +217,7 @@ public class UserInterface {
 
     public Disciplines pickDiscipline() {
         System.out.println("""
-                Vælg disiplin
+                                             Vælg disciplin
                                 
                 Tryk på den tast der svarer til det menupunkt du ønsker at vælge.
                                 
@@ -256,7 +250,7 @@ public class UserInterface {
 
     public void isJunior() {
         System.out.println("""
-                Vælg junior eller senior
+                                           Vælg junior eller senior
                                 
                 Tryk på den tast der svarer til det menupunkt du ønsker at vælge.
                                 
@@ -298,7 +292,7 @@ public class UserInterface {
 
     public void getTeamMenu(){
         System.out.println("""
-                Velkommen til holdmenuen
+                                                 Holdmenu
                                 
                 Tryk på den tast der svarer til det menupunkt du ønsker at vælge.
                                 

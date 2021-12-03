@@ -3,15 +3,13 @@
 // (powered by FernFlower decompiler)
 //
 
-package member;
+package member2;
 
-import ui.Role;
 import ui.Status;
 
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
-import java.util.Locale;
 import java.util.Random;
 
 public abstract class Member {

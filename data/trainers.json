@@ -36,7 +36,11 @@
   "membershipNumber" : "ttvo6590",
   "isActive" : true,
   "hasPaid" : false,
-  "Teams" : [ ],
+  "Teams" : [ {
+    "teamMembers" : [ "cffi3924", "cskr1599", "ctvo9597", "cskr6823" ],
+    "teamName" : "BLOODBRAWl",
+    "discipline" : "BREASTSTROKE"
+  } ],
   "role" : "TRÆNER"
 }, {
   "name" : "tFinn Finsen",
@@ -72,7 +76,7 @@
   "membershipNumber" : "tttr2000",
   "isActive" : true,
   "hasPaid" : false,
-  "competitiveSwimmers" : [ ],
+  "Teams" : [ ],
   "role" : "TRÆNER"
 }, {
   "name" : "tSøren Kristiansen",
@@ -84,7 +88,7 @@
   "membershipNumber" : "tskr6046",
   "isActive" : true,
   "hasPaid" : false,
-  "competitiveSwimmers" : [ ],
+  "Teams" : [ ],
   "role" : "TRÆNER"
 }, {
   "name" : "tTobias Vold",
@@ -96,7 +100,7 @@
   "membershipNumber" : "ttvo6997",
   "isActive" : true,
   "hasPaid" : false,
-  "competitiveSwimmers" : [ ],
+  "Teams" : [ ],
   "role" : "TRÆNER"
 }, {
   "name" : "tFinn Finsen",
@@ -108,7 +112,7 @@
   "membershipNumber" : "tffi9107",
   "isActive" : true,
   "hasPaid" : false,
-  "competitiveSwimmers" : [ ],
+  "Teams" : [ ],
   "role" : "TRÆNER"
 }, {
   "name" : "tJim Henry",
@@ -120,7 +124,7 @@
   "membershipNumber" : "tjhe8052",
   "isActive" : true,
   "hasPaid" : false,
-  "competitiveSwimmers" : [ ],
+  "Teams" : [ ],
   "role" : "TRÆNER"
 }, {
   "name" : "tTorben Trucker",
@@ -132,7 +136,7 @@
   "membershipNumber" : "tttr1712",
   "isActive" : true,
   "hasPaid" : false,
-  "competitiveSwimmers" : [ ],
+  "Teams" : [ ],
   "role" : "TRÆNER"
 }, {
   "name" : "tSøren Kristiansen",
@@ -144,7 +148,7 @@
   "membershipNumber" : "tskr1023",
   "isActive" : true,
   "hasPaid" : false,
-  "competitiveSwimmers" : [ ],
+  "Teams" : [ ],
   "role" : "TRÆNER"
 }, {
   "name" : "tTobias Vold",
@@ -156,7 +160,7 @@
   "membershipNumber" : "ttvo0431",
   "isActive" : true,
   "hasPaid" : false,
-  "competitiveSwimmers" : [ ],
+  "Teams" : [ ],
   "role" : "TRÆNER"
 }, {
   "name" : "tFinn Finsen",
@@ -168,7 +172,7 @@
   "membershipNumber" : "tffi8336",
   "isActive" : true,
   "hasPaid" : false,
-  "competitiveSwimmers" : [ ],
+  "Teams" : [ ],
   "role" : "TRÆNER"
 }, {
   "name" : "tJim Henry",
@@ -180,6 +184,66 @@
   "membershipNumber" : "tjhe7865",
   "isActive" : true,
   "hasPaid" : false,
-  "competitiveSwimmers" : [ ],
+  "Teams" : [ ],
+  "role" : "TRÆNER"
+}, {
+  "name" : "tTorben Trucker",
+  "age" : 20,
+  "phoneNumber" : "12345678",
+  "email" : "Torbensmail@mail.com",
+  "homeAddress" : "torbensvej 31",
+  "birthDate" : [ 2000, 12, 24 ],
+  "membershipNumber" : "tttr2907",
+  "isActive" : true,
+  "hasPaid" : false,
+  "Teams" : [ ],
+  "role" : "TRÆNER"
+}, {
+  "name" : "tSøren Kristiansen",
+  "age" : 55,
+  "phoneNumber" : "45678910",
+  "email" : "Sørensmail@mail.com",
+  "homeAddress" : "Sørensvej 14",
+  "birthDate" : [ 1966, 10, 10 ],
+  "membershipNumber" : "tskr3872",
+  "isActive" : true,
+  "hasPaid" : false,
+  "Teams" : [ ],
+  "role" : "TRÆNER"
+}, {
+  "name" : "tTobias Vold",
+  "age" : 22,
+  "phoneNumber" : "98747723489",
+  "email" : "Tobiases@mail.com",
+  "homeAddress" : "TobyAllé 31",
+  "birthDate" : [ 1999, 1, 1 ],
+  "membershipNumber" : "ttvo3749",
+  "isActive" : true,
+  "hasPaid" : false,
+  "Teams" : [ ],
+  "role" : "TRÆNER"
+}, {
+  "name" : "tFinn Finsen",
+  "age" : 101,
+  "phoneNumber" : "8888888",
+  "email" : "Finns@mail.com",
+  "homeAddress" : "Finnminvej 99",
+  "birthDate" : [ 1920, 9, 24 ],
+  "membershipNumber" : "tffi6505",
+  "isActive" : true,
+  "hasPaid" : false,
+  "Teams" : [ ],
+  "role" : "TRÆNER"
+}, {
+  "name" : "tJim Henry",
+  "age" : 13,
+  "phoneNumber" : "67453219",
+  "email" : "Jims@mail.com",
+  "homeAddress" : "Jimminvej 89",
+  "birthDate" : [ 2008, 6, 14 ],
+  "membershipNumber" : "tjhe6061",
+  "isActive" : true,
+  "hasPaid" : false,
+  "Teams" : [ ],
   "role" : "TRÆNER"
 } ]

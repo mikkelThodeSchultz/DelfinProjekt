@@ -3,13 +3,17 @@
 // (powered by FernFlower decompiler)
 //
 
-package member;
+package member2;
 
 import ui.Role;
 
 public class StandardMember extends Member {
 
     private Role role;
+
+    public Role getRole() {
+        return role;
+    }
 
     public StandardMember(String name, String phoneNumber, String email, String homeAddress, int day, int month, int year) {
         super (name, phoneNumber, email, homeAddress, day, month, year);

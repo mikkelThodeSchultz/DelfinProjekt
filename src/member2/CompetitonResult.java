@@ -1,9 +1,4 @@
-package member;
-
-import org.javatuples.Quartet;
-import ui.Disciplines;
-
-import java.util.ArrayList;
+package member2;
 
 public class CompetitonResult {
     //Double for time, int for rank, Enum for Discipline

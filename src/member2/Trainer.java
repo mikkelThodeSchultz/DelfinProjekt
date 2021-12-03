@@ -3,12 +3,11 @@
 // (powered by FernFlower decompiler)
 //
 
-package member;
+package member2;
 
 import ui.Role;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Trainer extends Member {
     private ArrayList<Team> Teams = new ArrayList<>();
@@ -26,6 +25,9 @@ public class Trainer extends Member {
         Teams.add(team);
     }
 
+    public Role getRole() {
+        return role;
+    }
 
     public String toString(){
         String status = null;

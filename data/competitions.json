@@ -163,4 +163,37 @@
     "discipline" : "BACK_CRAWL",
     "memberID" : "cttr0649"
   } ]
+}, {
+  "competitionName" : "Test",
+  "results" : [ {
+    "time" : 60.0,
+    "rank" : 2,
+    "discipline" : "BACK_CRAWL",
+    "memberID" : "cskr6795"
+  }, {
+    "time" : 55.0,
+    "rank" : 2,
+    "discipline" : "BACK_CRAWL",
+    "memberID" : "cttr0649"
+  }, {
+    "time" : 50.0,
+    "rank" : 2,
+    "discipline" : "BACK_CRAWL",
+    "memberID" : "cttr0649"
+  }, {
+    "time" : 40.0,
+    "rank" : 2,
+    "discipline" : "BACK_CRAWL",
+    "memberID" : "cttr0649"
+  }, {
+    "time" : 30.0,
+    "rank" : 2,
+    "discipline" : "BACK_CRAWL",
+    "memberID" : "cttr0649"
+  }, {
+    "time" : 20.0,
+    "rank" : 2,
+    "discipline" : "BACK_CRAWL",
+    "memberID" : "cttr0649"
+  } ]
 } ]

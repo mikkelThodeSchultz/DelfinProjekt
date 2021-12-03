@@ -8,11 +8,10 @@ package domain;
 import file.FileHandler;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.time.LocalDateTime;
 import java.util.*;
 
-import member.*;
+import member2.*;
 import ui.Disciplines;
 import ui.Status;
 import ui.UserInterface;
@@ -63,7 +62,6 @@ public class Controller {
         }
     }
 
-
     public void saveCurrent() {
         try {
             FileHandler.storeData(memberList.getMemberList(), listOfComps);
@@ -102,7 +100,7 @@ public class Controller {
         while (goAgain) {
             String choice = ui.getPaymentsMenu();
             switch (choice) {
-                case "1" -> ui.printMessage("Forventet indtjening er: " + calculateTotalIncome() + " kr");// Forventet indtjening
+                case "1" -> ui.printMessage("Forventet indtjening er: " + calculateTotalIncome() + " kr");
                 case "2" -> setMembershipToHasPayed(); //Modtag betaling
                 case "3" -> ui.printMessage(listOfMembersWhoOweAsString()); //Liste af medlemmer der skylder penge
                 case "4" -> demandPayment(); //Opkræv kontingenter
@@ -140,11 +138,51 @@ public class Controller {
                 case "5" -> editPhoneNumber();
                 case "6" -> editBirthDate();
                 case "7" -> editMembershipStatus();
-                //case "8" -> editLevel();
+                case "8" -> editLevel();
                 case "9" -> deleteMember();
                 case "0" -> goAgain = false;
             }
         }
+    }
+
+    public void editLevel() {
+
+        Member member = memberList.getSelectedMember();
+        String memberType = "";
+        String choice = "";
+        String day = String.valueOf(member.getBirthDate().getDayOfMonth());
+        String month = String.valueOf(member.getBirthDate().getMonthValue());
+        String year = String.valueOf(member.getBirthDate().getYear());
+        String[] memberInfo = {member.getName(), member.getPhoneNumber(), member.getEmail(), member.getHomeAddress(), day, month, year};
+
+        if (member instanceof StandardMember) {
+            ui.printMessage("Skal medlemmet ændres til (1) konkurrencesvømmer, eller (2) træner?");
+            choice = ui.userInputString();
+            switch (choice) {
+                case "1" -> memberType = "2";
+                case "2" -> memberType = "3";
+                default -> ui.printMessage("Indtast venligst et 1 eller 2");
+            }
+        } else if (member instanceof CompetitiveMember) {
+            ui.printMessage("Skal medlemmet ændres til (1) Standard medlem, eller (2) træner?");
+            choice = ui.userInputString();
+            switch (choice) {
+                case "1" -> memberType = "1";
+                case "2" -> memberType = "3";
+                default -> ui.printMessage("Indtast venligst et 1 eller 2");
+            }
+        } else if (member instanceof Trainer) {
+            ui.printMessage("Skal medlemmet ændres til (1) Standard medlem, eller (2) konkurrencesvømmer?");
+            choice = ui.userInputString();
+            switch (choice) {
+                case "1" -> memberType = "1";
+                case "2" -> memberType = "2";
+                default -> ui.printMessage("Indtast venligst et 1 eller 2");
+            }
+        }
+        createNewMember(memberInfo, memberType);
+        memberList.removeMember();
+        memberList.setSelectedMember(null);
     }
 
     public void editName() {
@@ -224,8 +262,7 @@ public class Controller {
     }
 
     public double calculateTotalIncome() {
-        double totalSum = calculation.calculateContingentForMultipleMembers(memberList.getMemberList());
-        return totalSum;
+        return calculation.calculateContingentForMultipleMembers(memberList.getMemberList());
     }
 
     public ArrayList<Member> listOfMembersWhoOwe() {
@@ -233,14 +270,14 @@ public class Controller {
     }
 
     public String listOfMembersWhoOweAsString() {
-        String temp = "";
+        String listAsString = "";
         for (int i = 0; i < listOfMembersWhoOwe().size(); i++) {
-            temp += listOfMembersWhoOwe().get(i).getName();
-            temp += " ";
-            temp += listOfMembersWhoOwe().get(i).getMembershipNumber();
-            temp += "\n";
+            listAsString += listOfMembersWhoOwe().get(i).getName();
+            listAsString += " ";
+            listAsString += listOfMembersWhoOwe().get(i).getMembershipNumber();
+            listAsString += "\n";
         }
-        return temp;
+        return listAsString;
     }
 
     public void demandPayment() {

@@ -3,10 +3,9 @@
 // (powered by FernFlower decompiler)
 //
 
-package member;
+package member2;
 
 import java.time.LocalDateTime;
-import ui.Status;
 
 public class BestTrainingResult {
     double time;

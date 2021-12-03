@@ -3,7 +3,7 @@
 // (powered by FernFlower decompiler)
 //
 
-package member;
+package member2;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -43,4 +43,7 @@ public class CompetitiveMember extends Member {
         return bestTrainingResults;
     }
 
+    public Role getRole() {
+        return role;
+    }
 }
