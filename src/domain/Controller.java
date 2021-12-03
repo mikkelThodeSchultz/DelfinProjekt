@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.*;
 
-import member2.*;
+import member.*;
 import ui.Disciplines;
 import ui.Status;
 import ui.UserInterface;
@@ -26,6 +26,7 @@ public class Controller {
     private FileHandler FileHandler = new FileHandler();
     private ArrayList<Member> storedMembers;
     private ArrayList<Competition> listOfComps = new ArrayList<>();
+    private ArrayList<User> users = new ArrayList<>();
 
 
     public Controller() {
@@ -36,9 +37,14 @@ public class Controller {
         storedMembers = FileHandler.getMembersFromFile();
         sendStoredMembers(storedMembers);
         listOfComps.addAll(FileHandler.getCompsFromFile());
+        users.addAll(FileHandler.getUsersFromFile());
         // ui.printMemberLists(memberList.printMemberLists());
 
         ui.getWelcomeMessage();
+        //testlort
+        User user = new User("robåd","langtpassword");
+        System.out.println(user);
+
         boolean goAgain = true;
         while (goAgain) {
             String choice = ui.getMainMenu();
@@ -46,6 +52,7 @@ public class Controller {
                 case "1" -> memberMenu();
                 case "2" -> paymentMenu();
                 case "3" -> competitionMenu();
+                //case "7" -> createNewUser();
                 case "8" -> saveCurrent();
                 case "9" -> clearJson();
                 case "0" -> goAgain = false;
@@ -56,7 +63,7 @@ public class Controller {
         generateTestData();
 
         try {
-            FileHandler.storeData(memberList.getMemberList(), listOfComps);
+            FileHandler.storeData(memberList.getMemberList(), listOfComps, users);
         } catch (IOException e) {
             System.out.println("Failed to store members");
         }
@@ -64,7 +71,7 @@ public class Controller {
 
     public void saveCurrent() {
         try {
-            FileHandler.storeData(memberList.getMemberList(), listOfComps);
+            FileHandler.storeData(memberList.getMemberList(), listOfComps, users);
         } catch (IOException e) {
             System.out.println("Failed to store members");
         }
@@ -73,9 +80,10 @@ public class Controller {
     public void clearJson() {
         MemberList memList = new MemberList();
         ArrayList<Competition> compList = new ArrayList<>();
+        ArrayList<User> userList = new ArrayList<>();
 
         try {
-            FileHandler.storeData(memList.getMemberList(), compList);
+            FileHandler.storeData(memList.getMemberList(), compList, userList);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -129,6 +137,7 @@ public class Controller {
         boolean goAgain = true;
         findMember(ui.findSpecificMemberMenu());
         while (goAgain) {
+            ui.printMessage(memberList.collectAllInfoString());
             String choice = ui.getFoundMemberMenu();
             switch (choice) {
                 case "1" -> searchAfterMemberAgain();
@@ -156,7 +165,7 @@ public class Controller {
         String[] memberInfo = {member.getName(), member.getPhoneNumber(), member.getEmail(), member.getHomeAddress(), day, month, year};
 
         if (member instanceof StandardMember) {
-            ui.printMessage("Skal medlemmet ændres til (1) konkurrencesvømmer, eller (2) træner?");
+            ui.printMessage("Skal medlemmet ændres til (1) Konkurrencesvømmer eller (2) Træner?");
             choice = ui.userInputString();
             switch (choice) {
                 case "1" -> memberType = "2";
@@ -164,7 +173,7 @@ public class Controller {
                 default -> ui.printMessage("Indtast venligst et 1 eller 2");
             }
         } else if (member instanceof CompetitiveMember) {
-            ui.printMessage("Skal medlemmet ændres til (1) Standard medlem, eller (2) træner?");
+            ui.printMessage("Skal medlemmet ændres til (1) Standardmedlem eller (2) Træner?");
             choice = ui.userInputString();
             switch (choice) {
                 case "1" -> memberType = "1";
@@ -172,7 +181,7 @@ public class Controller {
                 default -> ui.printMessage("Indtast venligst et 1 eller 2");
             }
         } else if (member instanceof Trainer) {
-            ui.printMessage("Skal medlemmet ændres til (1) Standard medlem, eller (2) konkurrencesvømmer?");
+            ui.printMessage("Skal medlemmet ændres til (1) Standardmedlem eller (2) Konkurrencesvømmer?");
             choice = ui.userInputString();
             switch (choice) {
                 case "1" -> memberType = "1";
@@ -185,8 +194,21 @@ public class Controller {
         memberList.setSelectedMember(null);
     }
 
+    /*public void allInfo(){//skal nok fjernes
+        ArrayList<String> info = memberList.addAllInfo();
+        String infoString = "";
+        for (int i = 0; i < info.size(); i++) {
+            LocalDate formattedBirthDate = LocalDate.parse(info.get(4));
+            memberList.newDateToString(formattedBirthDate);
+            infoString += info.get(i)+"\n";
+        }
+        String printList = memberList.allInfoListAsString();
+        ui.printMessage("Medlemsinfo på " + memberList.getSelectedMemberName() + ":\n" + printList);
+    }*/
+
     public void editName() {
-        ui.printMessage("Rediger navnet her: ");
+        memberList.getSelectedMemberName();
+        ui.printMessage("\nRediger navnet her: ");
         String userInput = ui.userInputString();
         String oldName = memberList.editName(userInput);
         ui.changeMessage(oldName, userInput);
@@ -235,6 +257,7 @@ public class Controller {
         if (ui.userInputString().equalsIgnoreCase("j")) {
             memberList.editMembershipStatus();
             ui.printMessage(memberList.isActiveAsString());
+            ui.userInputString();
         } else {
             ui.statusMessage(Status.ANNULLERET);
         }
@@ -316,18 +339,22 @@ public class Controller {
             int month = Integer.parseInt(memberInfo[5]);
             int year = Integer.parseInt(memberInfo[6]);
 
-            if (choice.equals("1")) {
-                StandardMember newMember = new StandardMember(memberInfo[0], memberInfo[1], memberInfo[2], memberInfo[3], day, month, year);
-                memberList.addMember(newMember);
-                ui.printMessage("Du har nu oprettet " + newMember + " som medlem i klubben.");
-            } else if (choice.equals("2")) {
-                CompetitiveMember newCompMember = new CompetitiveMember(memberInfo[0], memberInfo[1], memberInfo[2], memberInfo[3], day, month, year);
-                memberList.addMember(newCompMember);
-                ui.printMessage("Du har nu oprettet " + newCompMember + " som medlem i klubben.");
-            } else if (choice.equals("3")) {
-                Trainer newTrainer = new Trainer(memberInfo[0], memberInfo[1], memberInfo[2], memberInfo[3], day, month, year);
-                memberList.addMember(newTrainer);
-                ui.printMessage("Du har nu oprettet " + newTrainer + " som medlem i klubben.");
+            switch (choice) {
+                case "1" -> {
+                    StandardMember newMember = new StandardMember(memberInfo[0], memberInfo[1], memberInfo[2], memberInfo[3], day, month, year);
+                    memberList.addMember(newMember);
+                    ui.printMessage("Du har nu oprettet " + newMember + " som medlem i klubben.");
+                }
+                case "2" -> {
+                    CompetitiveMember newCompMember = new CompetitiveMember(memberInfo[0], memberInfo[1], memberInfo[2], memberInfo[3], day, month, year);
+                    memberList.addMember(newCompMember);
+                    ui.printMessage("Du har nu oprettet " + newCompMember + " som medlem i klubben.");
+                }
+                case "3" -> {
+                    Trainer newTrainer = new Trainer(memberInfo[0], memberInfo[1], memberInfo[2], memberInfo[3], day, month, year);
+                    memberList.addMember(newTrainer);
+                    ui.printMessage("Du har nu oprettet " + newTrainer + " som medlem i klubben.");
+                }
             }
         } catch (NumberFormatException e) {
             ui.printMessage("Ugyldigt input. Indtast venligst talværdier i fødselsdato-oplysninger.");
@@ -835,6 +862,11 @@ public class Controller {
         compMem.get(3).addBestTrainingResult(now, 35, Disciplines.BACK_CRAWL);
         compMem.get(4).addBestTrainingResult(now, 40, Disciplines.BACK_CRAWL);
         compMem.get(5).addBestTrainingResult(now, 41, Disciplines.BACK_CRAWL);
+
+        users.add(new User("Janhej", "j1234"));
+        users.add(new User("lisfis", "l1234"));
+        System.out.println(users.get(0));
+        System.out.println(users.get(1));
     }
 
 }

@@ -5,7 +5,7 @@
 
 package domain;
 
-import member2.Member;
+import member.Member;
 
 import java.util.ArrayList;
 

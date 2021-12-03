@@ -1,4 +1,4 @@
-package member2;
+package member;
 
 public class CompetitonResult {
     //Double for time, int for rank, Enum for Discipline

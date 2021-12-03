@@ -3,7 +3,7 @@
 // (powered by FernFlower decompiler)
 //
 
-package member2;
+package member;
 
 
 

@@ -1,4 +1,4 @@
-package member2;
+package member;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -95,6 +95,17 @@ public class MemberList {
         for (Member fileMember : fileMembers) {
             memberList.add(fileMember);
         }
+    }
+
+    public String collectAllInfoString(){
+        String info = "";
+        info = "Navn: " + selectedMember.getName() + "\n" +
+                "Medlemsnummer: " + selectedMember.getMembershipNumber() + "\n" +
+                "Telefonnummer: " + selectedMember.getPhoneNumber() + "\n" +
+                "E-mail: " + selectedMember.getEmail() + "\n" +
+                "Adresse: " + selectedMember.getHomeAddress() + "\n" +
+                "Fødselsdag: " + newDateToString(selectedMember.getBirthDate()) + "\n";
+        return info;
     }
 
     public String printMemberList() {

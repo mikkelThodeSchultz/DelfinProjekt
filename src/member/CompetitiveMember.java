@@ -3,7 +3,7 @@
 // (powered by FernFlower decompiler)
 //
 
-package member2;
+package member;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
