@@ -51,6 +51,7 @@ public class UserInterface {
                 2 - Kontingenter
                 3 - Konkurrencer
                 
+                7 - GenerateTestData
                 8 - Gem             
                 9 - Clear Json
                 0 - Gem og Luk programmet

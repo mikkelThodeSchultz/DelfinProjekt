@@ -53,14 +53,13 @@ public class Controller {
                 case "2" -> paymentMenu();
                 case "3" -> competitionMenu();
                 //case "7" -> createNewUser();
+                case "7" ->generateTestData();
                 case "8" -> saveCurrent();
                 case "9" -> clearJson();
                 case "0" -> goAgain = false;
                 default -> ui.statusMessage(Status.INVALID_CHOICE);
             }
         }
-
-        generateTestData();
 
         try {
             FileHandler.storeData(memberList.getMemberList(), listOfComps, users);
@@ -861,7 +860,7 @@ public class Controller {
         compMem.get(2).addBestTrainingResult(now, 30, Disciplines.BACK_CRAWL);
         compMem.get(3).addBestTrainingResult(now, 35, Disciplines.BACK_CRAWL);
         compMem.get(4).addBestTrainingResult(now, 40, Disciplines.BACK_CRAWL);
-        compMem.get(5).addBestTrainingResult(now, 41, Disciplines.BACK_CRAWL);
+        //compMem.get(5).addBestTrainingResult(now, 41, Disciplines.BACK_CRAWL);
 
         users.add(new User("Janhej", "j1234"));
         users.add(new User("lisfis", "l1234"));
