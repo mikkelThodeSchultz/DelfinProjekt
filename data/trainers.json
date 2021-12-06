@@ -5,11 +5,20 @@
   "email" : "Torbensmail@mail.com",
   "homeAddress" : "torbensvej 31",
   "birthDate" : [ 2000, 12, 24 ],
-  "membershipNumber" : "tttr9762",
+  "membershipNumber" : "tttr2239",
   "isActive" : true,
   "hasPaid" : false,
-  "Teams" : [ ],
-  "role" : "TRÆNER"
+  "Teams" : [ {
+    "teamMembers" : [ "cttr0928", "cskr3120" ],
+    "teamName" : "Hold1",
+    "discipline" : "BACK_CRAWL"
+  } ],
+  "role" : "TRÆNER",
+  "teams" : [ {
+    "teamMembers" : [ "cttr0928", "cskr3120" ],
+    "teamName" : "Hold1",
+    "discipline" : "BACK_CRAWL"
+  } ]
 }, {
   "name" : "tSøren Kristiansen",
   "age" : 55,
@@ -17,11 +26,20 @@
   "email" : "Sørensmail@mail.com",
   "homeAddress" : "Sørensvej 14",
   "birthDate" : [ 1966, 10, 10 ],
-  "membershipNumber" : "tskr9870",
+  "membershipNumber" : "tskr1414",
   "isActive" : true,
   "hasPaid" : false,
-  "Teams" : [ ],
-  "role" : "TRÆNER"
+  "Teams" : [ {
+    "teamMembers" : [ "cttr0928", "cskr3120" ],
+    "teamName" : "Hold2",
+    "discipline" : "BACK_CRAWL"
+  } ],
+  "role" : "TRÆNER",
+  "teams" : [ {
+    "teamMembers" : [ "cttr0928", "cskr3120" ],
+    "teamName" : "Hold2",
+    "discipline" : "BACK_CRAWL"
+  } ]
 }, {
   "name" : "tTobias Vold",
   "age" : 22,
@@ -29,11 +47,20 @@
   "email" : "Tobiases@mail.com",
   "homeAddress" : "TobyAllé 31",
   "birthDate" : [ 1999, 1, 1 ],
-  "membershipNumber" : "ttvo8094",
+  "membershipNumber" : "ttvo4020",
   "isActive" : true,
   "hasPaid" : false,
-  "Teams" : [ ],
-  "role" : "TRÆNER"
+  "Teams" : [ {
+    "teamMembers" : [ "cttr0928", "cskr3120" ],
+    "teamName" : "Hold3",
+    "discipline" : "BACK_CRAWL"
+  } ],
+  "role" : "TRÆNER",
+  "teams" : [ {
+    "teamMembers" : [ "cttr0928", "cskr3120" ],
+    "teamName" : "Hold3",
+    "discipline" : "BACK_CRAWL"
+  } ]
 }, {
   "name" : "tFinn Finsen",
   "age" : 101,
@@ -41,11 +68,12 @@
   "email" : "Finns@mail.com",
   "homeAddress" : "Finnminvej 99",
   "birthDate" : [ 1920, 9, 24 ],
-  "membershipNumber" : "tffi7213",
+  "membershipNumber" : "tffi3367",
   "isActive" : true,
   "hasPaid" : false,
   "Teams" : [ ],
-  "role" : "TRÆNER"
+  "role" : "TRÆNER",
+  "teams" : [ ]
 }, {
   "name" : "tJim Henry",
   "age" : 13,
@@ -53,9 +81,18 @@
   "email" : "Jims@mail.com",
   "homeAddress" : "Jimminvej 89",
   "birthDate" : [ 2008, 6, 14 ],
-  "membershipNumber" : "tjhe6036",
+  "membershipNumber" : "tjhe2380",
   "isActive" : true,
   "hasPaid" : false,
-  "Teams" : [ ],
-  "role" : "TRÆNER"
+  "Teams" : [ {
+    "teamMembers" : [ "cttr0928", "cskr3120" ],
+    "teamName" : "Hold4",
+    "discipline" : "BACK_CRAWL"
+  } ],
+  "role" : "TRÆNER",
+  "teams" : [ {
+    "teamMembers" : [ "cttr0928", "cskr3120" ],
+    "teamName" : "Hold4",
+    "discipline" : "BACK_CRAWL"
+  } ]
 } ]

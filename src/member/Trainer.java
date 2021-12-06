@@ -14,14 +14,15 @@ public class Trainer extends Member {
     private Role role;
 
     public Trainer(String name, String phoneNumber, String email, String homeAddress, int day, int month, int year) {
-        super (name, phoneNumber, email, homeAddress, day, month, year);
+        super(name, phoneNumber, email, homeAddress, day, month, year);
         role = Role.TRÆNER;
     }
 
     //USED FOR JSON. DO NOT DELETE
-    public Trainer(){}
+    public Trainer() {
+    }
 
-    public void addTeam(Team team){
+    public void addTeam(Team team) {
         Teams.add(team);
     }
 
@@ -29,9 +30,17 @@ public class Trainer extends Member {
         return role;
     }
 
-    public String toString(){
+    public ArrayList<Team> getTeams() {
+        return Teams;
+    }
+
+    public void removeTeam(Team teamToRemove){
+        Teams.remove(teamToRemove);
+    }
+
+    public String toString() {
         String status = null;
-        if (getIsActive()){
+        if (getIsActive()) {
             status = setIsActive();
         } else {
             status = setIsPassive();

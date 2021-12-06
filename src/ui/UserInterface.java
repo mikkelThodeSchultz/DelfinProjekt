@@ -306,5 +306,21 @@ public class UserInterface {
 
     }
 
+    public void editTeam(){
+        System.out.println("""
+                                                 Rediger hold
+                                
+                Tryk på den tast der svarer til det menupunkt du ønsker at vælge.
+                                
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                1 - Rediger holdnavn
+                2 - Rediger holdmedlemmer
+                3 - Rediger træner
+                4 - Rediger disiplin
+                0 - Tilbage
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                """);
+    }
+
 }
 

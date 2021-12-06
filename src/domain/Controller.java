@@ -42,7 +42,7 @@ public class Controller {
 
         ui.getWelcomeMessage();
         //testlort
-        User user = new User("robåd","langtpassword");
+        User user = new User("robåd", "langtpassword");
         System.out.println(user);
 
         boolean goAgain = true;
@@ -53,7 +53,7 @@ public class Controller {
                 case "2" -> paymentMenu();
                 case "3" -> competitionMenu();
                 //case "7" -> createNewUser();
-                case "7" ->generateTestData();
+                case "7" -> generateTestData();
                 case "8" -> saveCurrent();
                 case "9" -> clearJson();
                 case "0" -> goAgain = false;
@@ -80,6 +80,8 @@ public class Controller {
         MemberList memList = new MemberList();
         ArrayList<Competition> compList = new ArrayList<>();
         ArrayList<User> userList = new ArrayList<>();
+        memberList = memList;
+        listOfComps = compList;
 
         try {
             FileHandler.storeData(memList.getMemberList(), compList, userList);
@@ -738,7 +740,158 @@ public class Controller {
     }
 
     public void editTeam() {
+        Team teamToEdit = chooseTeam();
+        boolean goAgain = true;
+        while(goAgain) {
+            ui.editTeam();
 
+            String input = userInputString();
+            switch (input) {
+                case "1" -> editTeamName(teamToEdit);
+                case "2" -> editTeamMembers(teamToEdit);
+                case "3" -> editTrainer(teamToEdit);
+                case "4" -> editDiscipline(teamToEdit);
+                default -> ui.statusMessage(Status.INVALID_CHOICE);
+            }
+        }
+    }
+
+    public void editDiscipline(Team teamToEdit){
+        ui.printMessage("Den nuværende disiplin på holdet er " + teamToEdit.getDiscipline() +"\n");
+        Disciplines newDiscipline = ui.pickDiscipline();
+        if(newDiscipline!= null){
+        teamToEdit.setDiscipline(newDiscipline);
+        ui.printMessage("Holdets displin er nu " + newDiscipline.toString() +"\n");
+        }
+
+    }
+    public void editTrainer(Team teamToEdit){
+        ArrayList<Trainer> allTrainers = getTrainers();
+        Trainer currentTrainer = new Trainer();
+        for(Trainer trainer :  allTrainers){
+            for(Team team : trainer.getTeams()){
+                if(teamToEdit.getTeamName().equals(team.getTeamName())){
+                    currentTrainer = trainer;
+                }
+            }
+        }
+        ui.printMessage("Den nuværende træner er "+ currentTrainer.getName() +"\nHvem skal være den nye træner?\n");
+        ArrayList<Trainer> newTrainer = chooseTrainerFromList(allTrainers);
+        newTrainer.get(0).addTeam(teamToEdit);
+        currentTrainer.removeTeam(teamToEdit);
+
+    }
+
+    public void editTeamMembers(Team teamToEdit) {
+        ui.printMessage("Vil du\n1 - Tilføje medlemmer\n2 - Fjerne medlem\n");
+        String choice = userInputString();
+        switch (choice) {
+            case "1" -> addMemberToTeam(teamToEdit);
+            case "2" -> removeMemberFromTeam(teamToEdit);
+            default -> ui.statusMessage(Status.INVALID_CHOICE);
+        }
+        int count = 1;
+
+    }
+
+    public void removeMemberFromTeam(Team teamToEdit){
+        ArrayList<String> allTeamMembers = teamToEdit.getTeamMembers();
+        ui.printMessage("Hvilket medlem vil du fjerne. Tryk 0 for at afbryde\n");
+        boolean moreMembersToRemove = true;
+        int memberToRemove = 0;
+        while(moreMembersToRemove){
+        int count = 1;
+
+        for (String teamMember : allTeamMembers){
+            ui.printMessage(count + ") - " + teamMember+"\n");
+            count++;
+        }
+        memberToRemove = ui.userInputInt() -1 ;
+        if(allTeamMembers.size()-1 != 0){
+        ui.printMessage("Vil du fjerne flere medlemmer (j/n)");
+        String removeMore = userInputString();
+        switch (removeMore){
+            case "n" -> moreMembersToRemove = false;
+            case "j" -> allTeamMembers.remove(memberToRemove);
+            default -> ui.printMessage("Du kan kun vælge j eller n\n");
+        }
+        }
+        else{
+            ui.printMessage("Holdet er nu tomt\n");
+            moreMembersToRemove = false;
+        }}
+        allTeamMembers.remove(memberToRemove);
+
+    }
+
+    public void addMemberToTeam(Team teamToEdit) {
+        ui.printMessage("Vælg medlem der skal tilføjes til teamet. Tryk 0 for at afbryde\n ");
+        ArrayList<CompetitiveMember> allCompMembers = getCompMembers();
+        ArrayList<CompetitiveMember> chosenMembers = new ArrayList<>();
+        ArrayList<CompetitiveMember> tempMemberToCheck = new ArrayList<>();
+        boolean moreMembers = true;
+        while (moreMembers) {
+            tempMemberToCheck = chooseCompMemberFromList(allCompMembers);
+            if (tempMemberToCheck == null) {
+                break;
+            } else {
+                chosenMembers.addAll(tempMemberToCheck);
+                ui.printMessage("Vil du tilføje flere medlemmer (j/n)");
+                String choice = userInputString();
+                switch (choice) {
+                    case "j" -> allCompMembers.removeAll(chosenMembers);
+                    case "n" -> moreMembers = false;
+                    default -> ui.printMessage("Du kan kun vælge j eller n");
+                }
+            }
+        }
+        if (tempMemberToCheck != null) {
+            ArrayList<String> chosenMembersID = new ArrayList<>();
+            for (CompetitiveMember compMem : chosenMembers) {
+                chosenMembersID.add(compMem.getMembershipNumber());
+            }
+            teamToEdit.addMembers(chosenMembersID);
+        }
+
+    }
+
+    public Team chooseTeam() {
+        ArrayList<Trainer> allTrainers = getTrainers();
+        ArrayList<Team> allTeams = new ArrayList<>();
+        boolean goAgain = true;
+        Team chosenTeam = new Team();
+        for (Trainer trainer : allTrainers) {
+            allTeams.addAll(trainer.getTeams());
+        }
+        int count = 1;
+        while (goAgain) {
+            for (Team team : allTeams) {
+                ui.printMessage(count + ") - " + team.getTeamName() + "\n");
+                count++;
+            }
+
+            int teamChoice = ui.userInputInt();
+            teamChoice -= 1;
+            if (teamChoice < allTeams.size() && teamChoice > -1) {
+                goAgain = false;
+                chosenTeam = allTeams.get(teamChoice);
+
+            } else if (teamChoice == -1) {
+                chosenTeam = null;
+                goAgain = false;
+            } else {
+                ui.statusMessage(Status.INVALID_CHOICE);
+            }
+        }
+        return chosenTeam;
+    }
+
+    public void editTeamName(Team teamToEdit) {
+        ui.printMessage("Vælg et hold. Tryk 0 for at afbryde\n");
+        ui.printMessage("Hvad vil du skifte holdnavnet til?\n");
+        String newName = userInputString();
+        ui.printMessage("Holdnavnet er skiftet fra " + teamToEdit.getTeamName() + " til " + newName + "\n\n");
+        teamToEdit.setTeamName(newName);
     }
 
 
@@ -826,6 +979,17 @@ public class Controller {
         memberList.addMember(tmember3);
         memberList.addMember(tmember4);
         memberList.addMember(tmember5);
+        ArrayList<String> ids = new ArrayList<>();
+        ids.add("cttr0928");
+        ids.add("cskr3120");
+        Team newTeam = new Team(ids, "Hold1", Disciplines.BACK_CRAWL.toString());
+        Team newTeam2 = new Team(ids, "Hold2", Disciplines.BACK_CRAWL.toString());
+        Team newTeam3 = new Team(ids, "Hold3", Disciplines.BACK_CRAWL.toString());
+        Team newTeam4 = new Team(ids, "Hold4", Disciplines.BACK_CRAWL.toString());
+        tmember.addTeam(newTeam);
+        tmember2.addTeam(newTeam2);
+        tmember3.addTeam(newTeam3);
+        tmember5.addTeam(newTeam4);
 
 
         ArrayList<CompetitiveMember> compMem = new ArrayList<>();
@@ -866,6 +1030,7 @@ public class Controller {
         users.add(new User("lisfis", "l1234"));
         System.out.println(users.get(0));
         System.out.println(users.get(1));
+
     }
 
 }
