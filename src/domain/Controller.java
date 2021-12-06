@@ -137,6 +137,9 @@ public class Controller {
     public void editMemberMenu() {
         boolean goAgain = true;
         findMember(ui.findSpecificMemberMenu());
+        if (memberList.getMemberList() == null) {
+            goAgain = false;
+        }
         while (goAgain) {
             ui.printMessage(memberList.collectAllInfoString());
             String choice = ui.getFoundMemberMenu();
@@ -150,7 +153,10 @@ public class Controller {
                 case "7" -> editMembershipStatus();
                 case "8" -> editLevel();
                 case "9" -> deleteMember();
-                case "0" -> goAgain = false;
+                case "0" -> {
+                    memberList.setSelectedMember(null);
+                    goAgain = false;
+                }
             }
         }
     }
