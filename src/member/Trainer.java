@@ -5,6 +5,8 @@
 
 package member;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import ui.Role;
 
 import java.util.ArrayList;
@@ -30,7 +32,8 @@ public class Trainer extends Member {
         return role;
     }
 
-    public ArrayList<Team> getTeams() {
+    @JsonIgnore
+    public ArrayList<Team> getAllTeams() {
         return Teams;
     }
 

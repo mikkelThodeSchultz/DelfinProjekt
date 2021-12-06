@@ -35,7 +35,7 @@ public class CompetitiveMember extends Member {
         return super.toString() + " – "  + role.toString() + " - (" + status + ")";
     }
     public void addBestTrainingResult(LocalDateTime timeWhenAccomplished, double time, Disciplines discipline){
-        BestTrainingResult resultToAdd = new BestTrainingResult(timeWhenAccomplished, time, discipline.toString());
+        BestTrainingResult resultToAdd = new BestTrainingResult(timeWhenAccomplished, time, discipline);
         bestTrainingResults.add(resultToAdd);
     }
 
@@ -45,5 +45,9 @@ public class CompetitiveMember extends Member {
 
     public Role getRole() {
         return role;
+    }
+
+    public void addDiscipline(Disciplines discipline){
+        disciplines.add(discipline);
     }
 }

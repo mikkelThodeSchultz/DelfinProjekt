@@ -1,15 +1,18 @@
 package member;
 
+import ui.Disciplines;
+
 public class CompetitonResult {
-    //Double for time, int for rank, Enum for Discipline
-    double time;
-    int rank;
-    String discipline;
-    String memberID;
 
-    public CompetitonResult(){}
+    private double time;
+    private int rank;
+    private Disciplines discipline;
+    private String memberID;
 
-    public CompetitonResult(String memberID, double time, int rank, String discipline){
+    public CompetitonResult() {
+    }
+
+    public CompetitonResult(String memberID, double time, int rank, Disciplines discipline) {
         this.time = time;
         this.rank = rank;
         this.discipline = discipline;
@@ -25,7 +28,7 @@ public class CompetitonResult {
         return rank;
     }
 
-    public String getDiscipline() {
+    public Disciplines getDiscipline() {
         return discipline;
     }
 

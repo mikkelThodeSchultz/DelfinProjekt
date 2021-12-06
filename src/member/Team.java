@@ -7,19 +7,19 @@ import java.util.ArrayList;
 public class Team {
     private ArrayList<String> teamMembers = new ArrayList<>();
     private String teamName;
-    private String discipline;
+    private Disciplines discipline;
 
-    public Team(ArrayList<String> teamMembers, String teamName, String discipline) {
+    public Team(ArrayList<String> teamMembers, String teamName, Disciplines discipline) {
         this.teamMembers = teamMembers;
         this.teamName = teamName;
         this.discipline = discipline;
     }
-    public String getDiscipline(){
+    public Disciplines getDiscipline(){
         return discipline;
     }
 
     public void setDiscipline(Disciplines discipline){
-        this.discipline = discipline.toString();
+        this.discipline = discipline;
     }
 
     public String getTeamName(){
