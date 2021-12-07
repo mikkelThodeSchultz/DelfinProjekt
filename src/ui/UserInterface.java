@@ -26,7 +26,7 @@ public class UserInterface {
     }
 
     public void printMessage(String message) {
-        System.out.print(message);
+        System.out.println(message);
     }
 
     public void getWelcomeMessage() {
@@ -162,14 +162,11 @@ public class UserInterface {
 
     public Status statusMessage(Status status) {
         switch (status) {
-            case OK -> System.out.println("");
-            case NO -> System.out.println("");
             case ANNULLERET -> System.out.println("Handling annulleret.");
             case ERROR -> System.out.println("Der er opstået et problem.");
             case MEMBER_NOT_FOUND -> System.out.println("Kunne ikke finde det medlem du søgte.");
             case SELECT_MEMBER -> System.out.println("Vælg venligst et medlem.");
             case SELECT_DISCIPLINE -> System.out.println("Vælg venligst en disciplin.");
-            case ACTIVE -> System.out.println("");
             case INVALID_CHOICE -> System.out.println("Ugyldigt input.\nPrøv venligst med et der er gyldigt.");
         }
         return status;

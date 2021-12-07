@@ -8,6 +8,7 @@ package domain;
 import file.FileHandler;
 
 import java.io.IOException;
+import java.time.DateTimeException;
 import java.time.LocalDateTime;
 import java.util.*;
 
@@ -162,6 +163,7 @@ public class Controller {
         Member member = memberList.getSelectedMember();
         String memberType = "";
         String choice = "";
+        String memberShipNumber = memberList.getSelectedMember().getMembershipNumber();
         String day = String.valueOf(member.getBirthDate().getDayOfMonth());
         String month = String.valueOf(member.getBirthDate().getMonthValue());
         String year = String.valueOf(member.getBirthDate().getYear());
@@ -194,6 +196,7 @@ public class Controller {
         }
         memberList.removeMember();
         memberList.setSelectedMember(createNewMember(memberInfo, memberType));
+        memberList.getSelectedMember().setMembershipNumber(memberShipNumber);
     }
 
     /*public void allInfo(){//skal nok fjernes
@@ -247,14 +250,14 @@ public class Controller {
     public void editBirthDate() {
         ui.printMessage("Nuværende fødselsdato: " + memberList.getSelectedMemberBirthDate());
         try {
-            ui.printMessage("Indtast hvilken dag fødselsdagen er. Tryk 0 for at afbryde\n");
-            ui.printMessage("\nRediger fødselsdag her: ");
+            ui.printMessage("Indtast fødselsdagsoplysninger (tryk 0 for at afbryde når som helst): ");
+            ui.printMessage("Dag: ");
             int day = ui.userInputInt();
             if(day !=0){
-            ui.printMessage("Indtast hvilken måned fødselsdagen er i. Tryk 0 for at afbryde\n");
+            ui.printMessage("Måned: ");
             int month = ui.userInputInt();
             if(month!=0){
-            ui.printMessage("Indtast fødselsår. Tryk 0 for at afbryde\n");
+            ui.printMessage("År: ");
             int year = ui.userInputInt();
             if(year!=0){
             LocalDate newBirthDate = LocalDate.of(year, month, day);
@@ -262,7 +265,9 @@ public class Controller {
             String newDate = memberList.newDateToString(newBirthDate);
             ui.changeMessage(oldDate, newDate);
         }}}} catch (NumberFormatException e) {
-            ui.printMessage("Skriv venligst en dato i feltet.\n");
+            ui.printMessage("Skriv venligst et tal i feltet.\n");
+        } catch (DateTimeException e){
+            ui.printMessage("Skriv venligst en gyldig dato i feltet.\n");
         }
     }
 
@@ -364,27 +369,31 @@ public class Controller {
 
             switch (choice) {
                 case "1" -> {
+
                     StandardMember newMember = new StandardMember(memberInfo[0], memberInfo[1], memberInfo[2], memberInfo[3], day, month, year);
                     memberList.addMember(newMember);
-                    ui.printMessage("Du har nu oprettet " + newMember + " som medlem i klubben.");
+                    ui.printMessage("Du har nu oprettet " + newMember.getName() + " som medlem i klubben.");
                     member = newMember;
                 }
                 case "2" -> {
                     CompetitiveMember newCompMember = new CompetitiveMember(memberInfo[0], memberInfo[1], memberInfo[2], memberInfo[3], day, month, year);
                     memberList.addMember(newCompMember);
-                    ui.printMessage("Du har nu oprettet " + newCompMember + " som medlem i klubben.");
+                    ui.printMessage("Du har nu oprettet " + newCompMember.getName() + " som medlem i klubben.");
                     member = newCompMember;
                 }
                 case "3" -> {
                     Trainer newTrainer = new Trainer(memberInfo[0], memberInfo[1], memberInfo[2], memberInfo[3], day, month, year);
                     memberList.addMember(newTrainer);
-                    ui.printMessage("Du har nu oprettet " + newTrainer + " som medlem i klubben.");
+                    ui.printMessage("Du har nu oprettet " + newTrainer.getName() + " som medlem i klubben.");
                     member = newTrainer;
                 }
             }
         } catch (NumberFormatException e) {
             ui.printMessage("Ugyldigt input. Indtast venligst talværdier i fødselsdato-oplysninger.");
-        }}
+        } catch (DateTimeException e){
+            ui.printMessage("Indtast venligst en gyldig dato.");
+        }
+        }
         return member;}
 
 

@@ -72,6 +72,8 @@ public abstract class Member {
         return hasPaid;
     }
 
+
+
     public int getAge() {
         return age;
     }
