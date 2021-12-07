@@ -158,7 +158,7 @@ public class Controller {
     }
 
     public void editLevel() {
-
+        ui.printMessage("Nuværende svømmeniveau: " + memberList.getSelectedMemberRole());
         Member member = memberList.getSelectedMember();
         String memberType = "";
         String choice = "";
@@ -168,7 +168,7 @@ public class Controller {
         String[] memberInfo = {member.getName(), member.getPhoneNumber(), member.getEmail(), member.getHomeAddress(), day, month, year};
 
         if (member instanceof StandardMember) {
-            ui.printMessage("Skal medlemmet ændres til (1) Konkurrencesvømmer eller (2) Træner?");
+            ui.printMessage("\nSkal medlemmet ændres til (1) Konkurrencesvømmer eller (2) Træner?\n");
             choice = ui.userInputString();
             switch (choice) {
                 case "1" -> memberType = "2";
@@ -192,9 +192,8 @@ public class Controller {
                 default -> ui.printMessage("Indtast venligst et 1 eller 2");
             }
         }
-        createNewMember(memberInfo, memberType);
         memberList.removeMember();
-        memberList.setSelectedMember(null);
+        memberList.setSelectedMember(createNewMember(memberInfo, memberType));
     }
 
     /*public void allInfo(){//skal nok fjernes
@@ -209,10 +208,9 @@ public class Controller {
         ui.printMessage("Medlemsinfo på " + memberList.getSelectedMemberName() + ":\n" + printList);
     }*/
 
-
     public void editName() {
-        memberList.getSelectedMemberName();
-        ui.printMessage("Indtast det nye navn på medlemmet. Tryk 0 for at afbryde\n");
+        ui.printMessage("Nuværende navn: " + memberList.getSelectedMemberName());
+        ui.printMessage("\nRediger navnet her: ");
         String userInput = ui.userInputString();
         if(!userInput.equals("0")){
         String oldName = memberList.editName(userInput);
@@ -220,7 +218,8 @@ public class Controller {
     }}
 
     public void editAddress() {
-        ui.printMessage("Indtast den nye adresse på medlemmet. Tryk 0 for at afbryde\n");
+        ui.printMessage("Nuværende adresse: " + memberList.getSelectedMemberAddress());
+        ui.printMessage("\nRediger adressen her: ");
         String userInput = ui.userInputString();
         if(!userInput.equals("0")){
         String oldAddress = memberList.editAddress(userInput);
@@ -228,7 +227,8 @@ public class Controller {
     }}
 
     public void editEmail() {
-        ui.printMessage("Indtast den nye email på medlemmet. Tryk 0 for at afbryde\n");
+        ui.printMessage("Nuværende e-mail: " + memberList.getSelectedMemberEmail());
+        ui.printMessage("\nRediger e-mail adressen her: ");
         String userInput = ui.userInputString();
         if(!userInput.equals("0")){
         String oldEmail = memberList.editEmail(userInput);
@@ -236,7 +236,8 @@ public class Controller {
     }}
 
     public void editPhoneNumber() {
-        ui.printMessage("Indtast det nye telefonnummer på medlemmet. Tryk 0 for at afbryde\n");
+        ui.printMessage("Nuværende telefonnummer: " + memberList.getSelectedMemberPhoneNumber());
+        ui.printMessage("\nRediger telefonnummeret her: ");
         String userInput = ui.userInputString();
         if(!userInput.equals("0")){
         String oldNumber = memberList.editPhoneNumber(userInput);
@@ -244,8 +245,10 @@ public class Controller {
     }}
 
     public void editBirthDate() {
+        ui.printMessage("Nuværende fødselsdato: " + memberList.getSelectedMemberBirthDate());
         try {
             ui.printMessage("Indtast hvilken dag fødselsdagen er. Tryk 0 for at afbryde\n");
+            ui.printMessage("\nRediger fødselsdag her: ");
             int day = ui.userInputInt();
             if(day !=0){
             ui.printMessage("Indtast hvilken måned fødselsdagen er i. Tryk 0 for at afbryde\n");
@@ -263,8 +266,9 @@ public class Controller {
         }
     }
 
-    public void editMembershipStatus() {
-        ui.printMessage("Vil du ændre medlemsstatus for " + memberList.getSelectedMember() + ": ja(j) eller nej(n)?\n");
+    public void editMembershipStatus() { //TODO lave isActiveAsString som en getter i memberlist til udskrift i stor info!
+        ui.printMessage("Nuværende medlemskabsstatus: " + memberList.getSelectedMembershipStatus());
+        ui.printMessage("\nVil du ændre medlemsstatus for " + memberList.getSelectedMember() + ": ja(j) eller nej(n)?\n");
         if (ui.userInputString().equalsIgnoreCase("j")) {
             memberList.editMembershipStatus();
             ui.printMessage(memberList.isActiveAsString());
@@ -362,21 +366,26 @@ public class Controller {
                     StandardMember newMember = new StandardMember(memberInfo[0], memberInfo[1], memberInfo[2], memberInfo[3], day, month, year);
                     memberList.addMember(newMember);
                     ui.printMessage("Du har nu oprettet " + newMember + " som medlem i klubben.");
+                    member = newMember;
                 }
                 case "2" -> {
                     CompetitiveMember newCompMember = new CompetitiveMember(memberInfo[0], memberInfo[1], memberInfo[2], memberInfo[3], day, month, year);
                     memberList.addMember(newCompMember);
                     ui.printMessage("Du har nu oprettet " + newCompMember + " som medlem i klubben.");
+                    member = newCompMember;
                 }
                 case "3" -> {
                     Trainer newTrainer = new Trainer(memberInfo[0], memberInfo[1], memberInfo[2], memberInfo[3], day, month, year);
                     memberList.addMember(newTrainer);
                     ui.printMessage("Du har nu oprettet " + newTrainer + " som medlem i klubben.");
+                    member = newTrainer;
                 }
             }
         } catch (NumberFormatException e) {
             ui.printMessage("Ugyldigt input. Indtast venligst talværdier i fødselsdato-oplysninger.");
         }}
+        }
+        return member;
     }
 
     public Member[] findMember(String userInputString) {
