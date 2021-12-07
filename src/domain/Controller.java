@@ -210,7 +210,7 @@ public class Controller {
 
     public void editName() {
         ui.printMessage("Nuværende navn: " + memberList.getSelectedMemberName());
-        ui.printMessage("\nRediger navnet her: ");
+        ui.printMessage("\nRediger navnet her. Tryk 0 for at afbryde");
         String userInput = ui.userInputString();
         if(!userInput.equals("0")){
         String oldName = memberList.editName(userInput);
@@ -219,7 +219,7 @@ public class Controller {
 
     public void editAddress() {
         ui.printMessage("Nuværende adresse: " + memberList.getSelectedMemberAddress());
-        ui.printMessage("\nRediger adressen her: ");
+        ui.printMessage("\nRediger adressen her. Tryk 0 for at afbryde");
         String userInput = ui.userInputString();
         if(!userInput.equals("0")){
         String oldAddress = memberList.editAddress(userInput);
@@ -228,7 +228,7 @@ public class Controller {
 
     public void editEmail() {
         ui.printMessage("Nuværende e-mail: " + memberList.getSelectedMemberEmail());
-        ui.printMessage("\nRediger e-mail adressen her: ");
+        ui.printMessage("\nRediger e-mail adressen her. Tryk 0 for at afbryde");
         String userInput = ui.userInputString();
         if(!userInput.equals("0")){
         String oldEmail = memberList.editEmail(userInput);
@@ -237,7 +237,7 @@ public class Controller {
 
     public void editPhoneNumber() {
         ui.printMessage("Nuværende telefonnummer: " + memberList.getSelectedMemberPhoneNumber());
-        ui.printMessage("\nRediger telefonnummeret her: ");
+        ui.printMessage("\nRediger telefonnummeret her. Tryk 0 for at afbryde");
         String userInput = ui.userInputString();
         if(!userInput.equals("0")){
         String oldNumber = memberList.editPhoneNumber(userInput);
@@ -348,8 +348,9 @@ public class Controller {
         return calculation.calculateContingent(member.getAge(), member.getIsActive());
     }
 
-    public void createNewMember(String[] memberInfo, String choice) {
-        Boolean hasAllInput = true;
+    public Member createNewMember(String[] memberInfo, String choice) {
+        Member member =null;
+        boolean hasAllInput = true;
         for (String info : memberInfo){
             if(info.equals("0")){
                 hasAllInput = false;
@@ -384,9 +385,8 @@ public class Controller {
         } catch (NumberFormatException e) {
             ui.printMessage("Ugyldigt input. Indtast venligst talværdier i fødselsdato-oplysninger.");
         }}
-        }
-        return member;
-    }
+        return member;}
+
 
     public Member[] findMember(String userInputString) {
         String search = userInputString;
@@ -527,9 +527,9 @@ public class Controller {
         resultsInDiscipline.sort(Comparator.comparing(CompetitonResult::getTime));
 
         if (resultsInDiscipline.size() < 5) {
-            for (int i = 0; i < resultsInDiscipline.size(); i++) {
-                String memberID = resultsInDiscipline.get(i).getMemberID();
-                double time = resultsInDiscipline.get(i).getTime();
+            for (CompetitonResult competitonResult : resultsInDiscipline) {
+                String memberID = competitonResult.getMemberID();
+                double time = competitonResult.getTime();
                 ui.printMessage("MedlemsID: " + memberID + "  -  Tid: " + time + "\n");
             }
         } else {
@@ -613,18 +613,18 @@ public class Controller {
             String searchOrList = userInputString();
             ArrayList<Member> chosenMember = new ArrayList<>();
 
-            if (searchOrList.equals("1")) {
-                chosenMember.add(getMemberFromSearch());
-            } else if (searchOrList.equals("2")) {
-                ui.printMessage("Vælg medlem. Tryk 0 for at afbryde\n");
-                ArrayList<CompetitiveMember> compMemberToAdd = chooseCompMemberFromList(getCompMembers());
-                if (compMemberToAdd == null) {
-                    memberChoice = -1;
-                } else {
-                    chosenMember.addAll(compMemberToAdd);
+            switch (searchOrList) {
+                case "1" -> chosenMember.add(getMemberFromSearch());
+                case "2" -> {
+                    ui.printMessage("Vælg medlem. Tryk 0 for at afbryde\n");
+                    ArrayList<CompetitiveMember> compMemberToAdd = chooseCompMemberFromList(getCompMembers());
+                    if (compMemberToAdd == null) {
+                        memberChoice = -1;
+                    } else {
+                        chosenMember.addAll(compMemberToAdd);
+                    }
                 }
-            } else if (searchOrList.equals("0")) {
-                memberChoice = -1;
+                case "0" -> memberChoice = -1;
             }
 
             if (memberChoice != -1) {
@@ -763,7 +763,7 @@ public class Controller {
         teamDetails = "Hold Navn: " + team.getTeamName() + "\n";
         teamDetails = teamDetails + "Hold medlemmer: \n";
         for (String member : team.getTeamMembers()){
-            teamDetails = teamDetails + member +"\n";
+            teamDetails += member +"\n";
         }
         teamDetails += "Disiplin: " + team.getDiscipline();
         ui.printMessage(teamDetails);
@@ -775,7 +775,7 @@ public class Controller {
         Disciplines newDiscipline = ui.pickDiscipline();
         if(newDiscipline!= null){
         teamToEdit.setDiscipline(newDiscipline);
-        ui.printMessage("Holdets displin er nu " + newDiscipline.toString() +"\n");
+        ui.printMessage("Holdets displin er nu " + newDiscipline +"\n");
         }
 
     }
@@ -804,8 +804,6 @@ public class Controller {
             case "2" -> removeMemberFromTeam(teamToEdit);
             default -> ui.statusMessage(Status.INVALID_CHOICE);
         }
-        int count = 1;
-
     }
 
     public void removeMemberFromTeam(Team teamToEdit){

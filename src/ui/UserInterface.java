@@ -133,7 +133,7 @@ public class UserInterface {
                                 
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 1 - Forventet indtjening
-                2 - Modtag betaling 
+                2 - Modtag betaling
                 3 - Vis restancer
                 4 - Nulstil kontingenter
                 0 - Tilbage til hovedmenu

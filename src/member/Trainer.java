@@ -6,7 +6,6 @@
 package member;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import ui.Role;
 
 import java.util.ArrayList;
@@ -42,7 +41,7 @@ public class Trainer extends Member {
     }
 
     public String toString() {
-        String status = null;
+        String status;
         if (getIsActive()) {
             status = setIsActive();
         } else {

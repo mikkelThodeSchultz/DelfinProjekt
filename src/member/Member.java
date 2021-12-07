@@ -40,10 +40,6 @@ public abstract class Member {
         this.age = calculateAge();
         this.isActive = true;
         this.hasPaid = false;
-        this.role = role;
-    }
-
-    public Member(int i, Member member, Status statusMedlemskab, Status statusDiscipline) {
     }
 
     public Role getRole(){
@@ -55,7 +51,7 @@ public abstract class Member {
     }
 
     public String getIsActiveAsString(){
-        String status = "";
+        String status;
         if (isActive){
             status = setIsActive();
         } else {
@@ -129,11 +125,7 @@ public abstract class Member {
     }
 
     public void setActive() {
-        if (!isActive)
-            isActive = true;
-        else {
-            isActive = false;
-        }
+        isActive = !isActive;
     }
 
     public void setHasPaid(boolean hasPaid) {
