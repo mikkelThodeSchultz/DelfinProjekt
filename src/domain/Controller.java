@@ -192,9 +192,8 @@ public class Controller {
                 default -> ui.printMessage("Indtast venligst et 1 eller 2");
             }
         }
-        createNewMember(memberInfo, memberType);
         memberList.removeMember();
-        memberList.setSelectedMember(null);
+        memberList.setSelectedMember(createNewMember(memberInfo, memberType));
     }
 
     /*public void allInfo(){//skal nok fjernes
@@ -210,7 +209,7 @@ public class Controller {
     }*/
 
     public void editName() {
-        ui.printMessage("Gammelt navn: " + memberList.getSelectedMemberName());
+        ui.printMessage("Nuværende navn: " + memberList.getSelectedMemberName());
         ui.printMessage("\nRediger navnet her: ");
         String userInput = ui.userInputString();
         String oldName = memberList.editName(userInput);
@@ -218,7 +217,7 @@ public class Controller {
     }
 
     public void editAddress() {
-        ui.printMessage("Gammel adresse: " + memberList.getSelectedMemberAddress());
+        ui.printMessage("Nuværende adresse: " + memberList.getSelectedMemberAddress());
         ui.printMessage("\nRediger adressen her: ");
         String userInput = ui.userInputString();
         String oldAddress = memberList.editAddress(userInput);
@@ -226,7 +225,7 @@ public class Controller {
     }
 
     public void editEmail() {
-        ui.printMessage("Gammel e-mail: " + memberList.getSelectedMemberEmail());
+        ui.printMessage("Nuværende e-mail: " + memberList.getSelectedMemberEmail());
         ui.printMessage("\nRediger e-mail adressen her: ");
         String userInput = ui.userInputString();
         String oldEmail = memberList.editEmail(userInput);
@@ -234,7 +233,7 @@ public class Controller {
     }
 
     public void editPhoneNumber() {
-        ui.printMessage("Gammelt telefonnummer: " + memberList.getSelectedMemberPhoneNumber());
+        ui.printMessage("Nuværende telefonnummer: " + memberList.getSelectedMemberPhoneNumber());
         ui.printMessage("\nRediger telefonnummeret her: ");
         String userInput = ui.userInputString();
         String oldNumber = memberList.editPhoneNumber(userInput);
@@ -242,7 +241,7 @@ public class Controller {
     }
 
     public void editBirthDate() {
-        ui.printMessage("Gammel fødselsdato: " + memberList.getSelectedMemberBirthDate());
+        ui.printMessage("Nuværende fødselsdato: " + memberList.getSelectedMemberBirthDate());
         try {
             ui.printMessage("\nRediger fødselsdag her: ");
             int day = ui.userInputInt();
@@ -341,7 +340,8 @@ public class Controller {
         return calculation.calculateContingent(member.getAge(), member.getIsActive());
     }
 
-    public void createNewMember(String[] memberInfo, String choice) {
+    public Member createNewMember(String[] memberInfo, String choice) {
+        Member member = null;
         try {
             int day = Integer.parseInt(memberInfo[4]);
             int month = Integer.parseInt(memberInfo[5]);
@@ -352,21 +352,25 @@ public class Controller {
                     StandardMember newMember = new StandardMember(memberInfo[0], memberInfo[1], memberInfo[2], memberInfo[3], day, month, year);
                     memberList.addMember(newMember);
                     ui.printMessage("Du har nu oprettet " + newMember + " som medlem i klubben.");
+                    member = newMember;
                 }
                 case "2" -> {
                     CompetitiveMember newCompMember = new CompetitiveMember(memberInfo[0], memberInfo[1], memberInfo[2], memberInfo[3], day, month, year);
                     memberList.addMember(newCompMember);
                     ui.printMessage("Du har nu oprettet " + newCompMember + " som medlem i klubben.");
+                    member = newCompMember;
                 }
                 case "3" -> {
                     Trainer newTrainer = new Trainer(memberInfo[0], memberInfo[1], memberInfo[2], memberInfo[3], day, month, year);
                     memberList.addMember(newTrainer);
                     ui.printMessage("Du har nu oprettet " + newTrainer + " som medlem i klubben.");
+                    member = newTrainer;
                 }
             }
         } catch (NumberFormatException e) {
             ui.printMessage("Ugyldigt input. Indtast venligst talværdier i fødselsdato-oplysninger.");
         }
+        return member;
     }
 
     public Member[] findMember(String userInputString) {
@@ -882,6 +886,7 @@ public class Controller {
                 ui.statusMessage(Status.INVALID_CHOICE);
             }
         }
+        return chosenTeam;
     }
 
     public void editTeamName(Team teamToEdit) {
