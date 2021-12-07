@@ -41,9 +41,6 @@ public class Controller {
         // ui.printMemberLists(memberList.printMemberLists());
 
         ui.getWelcomeMessage();
-        //testlort
-        User user = new User("robåd", "langtpassword");
-        System.out.println(user);
 
         boolean goAgain = true;
         while (goAgain) {
@@ -135,7 +132,7 @@ public class Controller {
     public void editMemberMenu() {
         boolean goAgain = true;
         findMember(ui.findSpecificMemberMenu());
-        if (memberList.getMemberList() == null) {
+        if (memberList.getSelectedMember() == null) {
             goAgain = false;
         }
         while (goAgain) {
@@ -160,7 +157,7 @@ public class Controller {
     }
 
     public void editLevel() {
-
+        ui.printMessage("Nuværende svømmeniveau: " + memberList.getSelectedMemberRole());
         Member member = memberList.getSelectedMember();
         String memberType = "";
         String choice = "";
@@ -170,7 +167,7 @@ public class Controller {
         String[] memberInfo = {member.getName(), member.getPhoneNumber(), member.getEmail(), member.getHomeAddress(), day, month, year};
 
         if (member instanceof StandardMember) {
-            ui.printMessage("Skal medlemmet ændres til (1) Konkurrencesvømmer eller (2) Træner?");
+            ui.printMessage("\nSkal medlemmet ændres til (1) Konkurrencesvømmer eller (2) Træner?\n");
             choice = ui.userInputString();
             switch (choice) {
                 case "1" -> memberType = "2";
@@ -212,7 +209,7 @@ public class Controller {
     }*/
 
     public void editName() {
-        memberList.getSelectedMemberName();
+        ui.printMessage("Gammelt navn: " + memberList.getSelectedMemberName());
         ui.printMessage("\nRediger navnet her: ");
         String userInput = ui.userInputString();
         String oldName = memberList.editName(userInput);
@@ -220,29 +217,34 @@ public class Controller {
     }
 
     public void editAddress() {
-        ui.printMessage("Rediger adressen her: ");
+        ui.printMessage("Gammel adresse: " + memberList.getSelectedMemberAddress());
+        ui.printMessage("\nRediger adressen her: ");
         String userInput = ui.userInputString();
         String oldAddress = memberList.editAddress(userInput);
         ui.changeMessage(oldAddress, userInput);
+
     }
 
     public void editEmail() {
-        ui.printMessage("Rediger e-mail adressen her: ");
+        ui.printMessage("Gammel e-mail: " + memberList.getSelectedMemberEmail());
+        ui.printMessage("\nRediger e-mail adressen her: ");
         String userInput = ui.userInputString();
         String oldEmail = memberList.editEmail(userInput);
         ui.changeMessage(oldEmail, userInput);
     }
 
     public void editPhoneNumber() {
-        ui.printMessage("Rediger telefonnummeret her: ");
+        ui.printMessage("Gammelt telefonnummer: " + memberList.getSelectedMemberPhoneNumber());
+        ui.printMessage("\nRediger telefonnummeret her: ");
         String userInput = ui.userInputString();
         String oldNumber = memberList.editPhoneNumber(userInput);
         ui.changeMessage(oldNumber, userInput);
     }
 
     public void editBirthDate() {
+        ui.printMessage("Gammel fødselsdato: " + memberList.getSelectedMemberBirthDate());
         try {
-            ui.printMessage("Rediger fødselsdag her: ");
+            ui.printMessage("\nRediger fødselsdag her: ");
             int day = ui.userInputInt();
             ui.printMessage("Rediger fødselsmåned her: ");
             int month = ui.userInputInt();
@@ -257,8 +259,9 @@ public class Controller {
         }
     }
 
-    public void editMembershipStatus() {
-        ui.printMessage("Vil du ændre medlemsstatus for " + memberList.getSelectedMember() + ": ja(j) eller nej(n)?\n");
+    public void editMembershipStatus() { //TODO lave isActiveAsString som en getter i memberlist til udskrift i stor info!
+        ui.printMessage("Nuværende medlemskabsstatus: " + memberList.getSelectedMembershipStatus());
+        ui.printMessage("\nVil du ændre medlemsstatus for " + memberList.getSelectedMember() + ": ja(j) eller nej(n)?\n");
         if (ui.userInputString().equalsIgnoreCase("j")) {
             memberList.editMembershipStatus();
             ui.printMessage(memberList.isActiveAsString());

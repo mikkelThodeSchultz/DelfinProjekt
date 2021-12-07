@@ -6,7 +6,7 @@
   "homeAddress" : "torbensvej 31",
   "birthDate" : [ 2000, 12, 24 ],
   "membershipNumber" : "totr1580",
-  "isActive" : true,
+  "isActive" : false,
   "hasPaid" : false,
   "role" : "STANDARD"
 }, {
@@ -50,7 +50,7 @@
   "homeAddress" : "Jimminvej 89",
   "birthDate" : [ 2008, 6, 14 ],
   "membershipNumber" : "jihe6975",
-  "isActive" : true,
+  "isActive" : false,
   "hasPaid" : false,
   "role" : "STANDARD"
 }, {

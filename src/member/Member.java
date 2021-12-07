@@ -5,6 +5,7 @@
 
 package member;
 
+import ui.Role;
 import ui.Status;
 
 import java.time.LocalDate;
@@ -22,6 +23,7 @@ public abstract class Member {
     private String membershipNumber;
     private boolean isActive;
     private boolean hasPaid;
+    private Role role;
 
 
     //NEEDED FOR JSON! DO NOT DELETE
@@ -38,13 +40,28 @@ public abstract class Member {
         this.age = calculateAge();
         this.isActive = true;
         this.hasPaid = false;
+        this.role = role;
     }
 
     public Member(int i, Member member, Status statusMedlemskab, Status statusDiscipline) {
     }
 
+    public Role getRole(){
+        return role;
+    }
+
     public boolean getIsActive() {
         return isActive;
+    }
+
+    public String getIsActiveAsString(){
+        String status = "";
+        if (isActive){
+            status = setIsActive();
+        } else {
+            status = setIsPassive();
+        }
+        return status;
     }
 
     public String setIsActive(){

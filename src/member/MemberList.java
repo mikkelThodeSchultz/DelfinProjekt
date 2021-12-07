@@ -32,6 +32,36 @@ public class MemberList {
         return justTheName;
     }
 
+    public String getSelectedMemberAddress(){
+        String justTheAddress = selectedMember.getHomeAddress();
+        return justTheAddress;
+    }
+
+    public String getSelectedMemberEmail(){
+        String justTheEmail = selectedMember.getEmail();
+        return justTheEmail;
+    }
+
+    public String getSelectedMemberPhoneNumber(){
+        String justThePhoneNumber = selectedMember.getPhoneNumber();
+        return justThePhoneNumber;
+    }
+
+    public String getSelectedMemberBirthDate(){
+        String justTheBirthDate = selectedMember.oldDateToString();
+        return justTheBirthDate;
+    }
+
+    public String getSelectedMembershipStatus(){
+        String justTheMembershipStatus = selectedMember.getIsActiveAsString();
+        return justTheMembershipStatus;
+    }
+
+    public String getSelectedMemberRole(){
+        String justTheRole = selectedMember.getRole().toString();
+        return justTheRole;
+    }
+
     public void setSelectedMember(Member member) {
         selectedMember = member;
     }
@@ -99,14 +129,14 @@ public class MemberList {
 
     public String collectAllInfoString(){
         String info = "";
-
-            info = "Navn: " + selectedMember.getName() + "\n" +
-                    "Medlemsnummer: " + selectedMember.getMembershipNumber() + "\n" +
-                    "Telefonnummer: " + selectedMember.getPhoneNumber() + "\n" +
-                    "E-mail: " + selectedMember.getEmail() + "\n" +
-                    "Adresse: " + selectedMember.getHomeAddress() + "\n" +
-                    "Fødselsdag: " + newDateToString(selectedMember.getBirthDate()) + "\n";
-
+        info = "Navn: " + selectedMember.getName() + "\n" +
+                "Medlemsnummer: " + selectedMember.getMembershipNumber() + "\n" +
+                "Telefonnummer: " + selectedMember.getPhoneNumber() + "\n" +
+                "E-mail: " + selectedMember.getEmail() + "\n" +
+                "Adresse: " + selectedMember.getHomeAddress() + "\n" +
+                "Fødselsdag: " + newDateToString(selectedMember.getBirthDate()) + "\n" +
+                "Medlemsskabsstatus: " + selectedMember.getIsActiveAsString() + "\n" +
+                "Svømmeniveau: " + selectedMember.getRole();
         return info;
     }
 
