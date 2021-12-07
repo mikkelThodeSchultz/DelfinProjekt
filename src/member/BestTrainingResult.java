@@ -5,16 +5,18 @@
 
 package member;
 
+import ui.Disciplines;
+
 import java.time.LocalDateTime;
 
 public class BestTrainingResult {
-    double time;
-    LocalDateTime dateBestResult;
-    String discipline;
+    private double time;
+    private LocalDateTime dateBestResult;
+    private Disciplines discipline;
 
     public BestTrainingResult(){}
 
-    public BestTrainingResult(LocalDateTime dateBestResult, double bestTime, String disciplin) {
+    public BestTrainingResult(LocalDateTime dateBestResult, double bestTime, Disciplines disciplin) {
         this.dateBestResult = dateBestResult;
         this.time = bestTime;
         this.discipline = disciplin;
@@ -23,7 +25,7 @@ public class BestTrainingResult {
     public double getTime() {
         return time;
     }
-    public String getDiscipline(){
+    public Disciplines getDiscipline(){
         return discipline;
     }
 }

@@ -5,16 +5,16 @@
   "email" : "Torbensmail@mail.com",
   "homeAddress" : "torbensvej 31",
   "birthDate" : [ 2000, 12, 24 ],
-  "membershipNumber" : "cttr0928",
+  "membershipNumber" : "cttr7474",
   "isActive" : true,
   "hasPaid" : false,
   "bestTrainingResults" : [ {
     "time" : 20.0,
-    "dateBestResult" : [ 2021, 12, 6, 10, 23, 13, 369201900 ],
+    "dateBestResult" : [ 2021, 12, 6, 14, 40, 20, 792606100 ],
     "discipline" : "BACK_CRAWL"
   }, {
     "time" : 20.0,
-    "dateBestResult" : [ 2021, 12, 6, 10, 23, 13, 369201900 ],
+    "dateBestResult" : [ 2021, 12, 6, 14, 40, 20, 792606100 ],
     "discipline" : "CRAWL"
   } ],
   "disciplines" : [ ],
@@ -26,12 +26,12 @@
   "email" : "Sørensmail@mail.com",
   "homeAddress" : "Sørensvej 14",
   "birthDate" : [ 1966, 10, 10 ],
-  "membershipNumber" : "cskr3120",
+  "membershipNumber" : "cskr3041",
   "isActive" : true,
   "hasPaid" : false,
   "bestTrainingResults" : [ {
     "time" : 25.0,
-    "dateBestResult" : [ 2021, 12, 6, 10, 23, 13, 369201900 ],
+    "dateBestResult" : [ 2021, 12, 6, 14, 40, 20, 792606100 ],
     "discipline" : "BACK_CRAWL"
   } ],
   "disciplines" : [ ],
@@ -43,12 +43,12 @@
   "email" : "Tobiases@mail.com",
   "homeAddress" : "TobyAllé 31",
   "birthDate" : [ 1999, 1, 1 ],
-  "membershipNumber" : "ctvo4282",
+  "membershipNumber" : "ctvo2434",
   "isActive" : true,
   "hasPaid" : false,
   "bestTrainingResults" : [ {
     "time" : 30.0,
-    "dateBestResult" : [ 2021, 12, 6, 10, 23, 13, 369201900 ],
+    "dateBestResult" : [ 2021, 12, 6, 14, 40, 20, 792606100 ],
     "discipline" : "BACK_CRAWL"
   } ],
   "disciplines" : [ ],
@@ -60,12 +60,12 @@
   "email" : "Finns@mail.com",
   "homeAddress" : "Finnminvej 99",
   "birthDate" : [ 1920, 9, 24 ],
-  "membershipNumber" : "cffi5677",
+  "membershipNumber" : "cffi5110",
   "isActive" : true,
   "hasPaid" : false,
   "bestTrainingResults" : [ {
     "time" : 35.0,
-    "dateBestResult" : [ 2021, 12, 6, 10, 23, 13, 369201900 ],
+    "dateBestResult" : [ 2021, 12, 6, 14, 40, 20, 792606100 ],
     "discipline" : "BACK_CRAWL"
   } ],
   "disciplines" : [ ],
@@ -77,12 +77,12 @@
   "email" : "Jims@mail.com",
   "homeAddress" : "Jimminvej 89",
   "birthDate" : [ 2008, 6, 14 ],
-  "membershipNumber" : "cjhe9054",
+  "membershipNumber" : "cjhe4198",
   "isActive" : true,
   "hasPaid" : false,
   "bestTrainingResults" : [ {
     "time" : 40.0,
-    "dateBestResult" : [ 2021, 12, 6, 10, 23, 13, 369201900 ],
+    "dateBestResult" : [ 2021, 12, 6, 14, 40, 20, 792606100 ],
     "discipline" : "BACK_CRAWL"
   } ],
   "disciplines" : [ ],

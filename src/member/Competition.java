@@ -10,8 +10,8 @@ package member;
 import java.util.ArrayList;
 
 public class Competition {
-    String competitionName;
-    ArrayList<CompetitonResult> results = new ArrayList<>();
+    private String competitionName;
+    private ArrayList<CompetitonResult> results = new ArrayList<>();
 
 
     public Competition(){}

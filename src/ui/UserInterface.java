@@ -49,7 +49,7 @@ public class UserInterface {
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 1 - Medlemmer
                 2 - Kontingenter
-                3 - Konkurrencer
+                3 - Konkurrencer og holdmenu
                 
                 7 - GenerateTestData
                 8 - Gem             
@@ -153,6 +153,7 @@ public class UserInterface {
                 1 - Top 5 lister
                 2 - Registrer resultat(er) eller opret konkurrence
                 3 - Holdmenuen
+                4 - Tilknyt disiplin til svømmer
                 0 - Tilbage til hovedmenu
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 """);
@@ -299,11 +300,28 @@ public class UserInterface {
                                 
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 1 - Oprette et hold
-                2 - Redigere et hold
+                2 - Redigere et hold eller få info om hold
                 0 - Tilbage
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 """);
 
+    }
+
+    public void editTeam(){
+        System.out.println("""
+                                                 Rediger hold
+                                
+                Tryk på den tast der svarer til det menupunkt du ønsker at vælge.
+                                
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                1 - Rediger holdnavn
+                2 - Rediger holdmedlemmer
+                3 - Rediger træner
+                4 - Rediger disiplin
+                5 - Vis info om hold
+                0 - Tilbage
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                """);
     }
 
 }
