@@ -5,7 +5,7 @@
   "email" : "Torbensmail@mail.com",
   "homeAddress" : "torbensvej 31",
   "birthDate" : [ 2000, 12, 24 ],
-  "membershipNumber" : "tttr1504",
+  "membershipNumber" : "tttr5597",
   "isActive" : true,
   "hasPaid" : false,
   "Teams" : [ {
@@ -21,7 +21,7 @@
   "email" : "Sørensmail@mail.com",
   "homeAddress" : "Sørensvej 14",
   "birthDate" : [ 1966, 10, 10 ],
-  "membershipNumber" : "tskr0662",
+  "membershipNumber" : "tskr5591",
   "isActive" : true,
   "hasPaid" : false,
   "Teams" : [ {
@@ -37,7 +37,7 @@
   "email" : "Tobiases@mail.com",
   "homeAddress" : "TobyAllé 31",
   "birthDate" : [ 1999, 1, 1 ],
-  "membershipNumber" : "ttvo4100",
+  "membershipNumber" : "ttvo0545",
   "isActive" : true,
   "hasPaid" : false,
   "Teams" : [ {
@@ -53,7 +53,7 @@
   "email" : "Finns@mail.com",
   "homeAddress" : "Finnminvej 99",
   "birthDate" : [ 1920, 9, 24 ],
-  "membershipNumber" : "tffi0761",
+  "membershipNumber" : "tffi5234",
   "isActive" : true,
   "hasPaid" : false,
   "Teams" : [ ],
@@ -65,7 +65,7 @@
   "email" : "Jims@mail.com",
   "homeAddress" : "Jimminvej 89",
   "birthDate" : [ 2008, 6, 14 ],
-  "membershipNumber" : "tjhe4993",
+  "membershipNumber" : "tjhe3063",
   "isActive" : true,
   "hasPaid" : false,
   "Teams" : [ {

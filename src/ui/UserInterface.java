@@ -12,16 +12,16 @@ public class UserInterface {
     public int userInputInt() {
         boolean badChoice = true;
         int intputAsInt = 0;
-        while(badChoice){
-        String input = sc.nextLine();
+        while (badChoice) {
+            String input = sc.nextLine();
 
-        try{
-            intputAsInt = Integer.parseInt(input);
-            badChoice = false;
+            try {
+                intputAsInt = Integer.parseInt(input);
+                badChoice = false;
+            } catch (NumberFormatException e) {
+                System.out.println("Indtast et tal");
+            }
         }
-        catch (NumberFormatException e){
-            System.out.println("Indtast et tal");
-        }}
         return intputAsInt;
     }
 
@@ -41,7 +41,7 @@ public class UserInterface {
 
     public String getMainMenu() {
         System.out.println("""
-                
+                                
                                                Hovedmenu
                                 
                 Tryk på den tast der svarer til det menupunkt du ønsker at vælge.
@@ -50,7 +50,7 @@ public class UserInterface {
                 1 - Medlemmer
                 2 - Kontingenter
                 3 - Konkurrencer og holdmenu
-                
+                                
                 7 - GenerateTestData
                 8 - Gem             
                 9 - Clear Json
@@ -64,7 +64,7 @@ public class UserInterface {
     public String getMemberMenu() { //TODO der skal laves en søgemetode til at finde medlemmer - se PETLATKEA på github.
 
         System.out.println("""
-                
+                                
                                                Medlemsmenu
                                 
                 Tryk på den tast der svarer til det menupunkt du ønsker at vælge.
@@ -91,7 +91,7 @@ public class UserInterface {
 
     public String getFoundMemberMenu() {
         System.out.println("""
-                
+                                
                 Tryk på den tast der svarer til det menupunkt du ønsker at vælge.
 
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -126,26 +126,26 @@ public class UserInterface {
 
     public String getPaymentsMenu() {
         System.out.println("""
-                
+                                
                                                Kontingentmenu
                                 
                 Tryk på den tast der svarer til det menupunkt du ønsker at vælge.
                                 
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 1 - Forventet indtjening
-                2 - Modtag betaling
+                2 - Modtag betaling 
                 3 - Vis restancer
-                4 - Opkræv kontingenter
+                4 - Nulstil kontingenter
                 0 - Tilbage til hovedmenu
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
                 """);
         return sc.nextLine();
     }
 
-    public String getCompetitionMenu() {
+    public String TrainerMenu() {
         System.out.println("""
-                
-                                              Konkurrencemenu
+                                
+                                              TrænerMenu
                                 
                 Tryk på den tast der svarer til det menupunkt du ønsker at vælge.
                                 
@@ -160,7 +160,7 @@ public class UserInterface {
         return sc.nextLine();
     }
 
-    public Status statusMessage(Status status) { //TODO udfyld de her med fornuftige beskeder
+    public Status statusMessage(Status status) {
         switch (status) {
             case OK -> System.out.println("");
             case NO -> System.out.println("");
@@ -177,24 +177,41 @@ public class UserInterface {
 
     //Standardmember – pr. default er man excersier
     public String[] createNewMember() {
-
-        printMessage("Indtast information om det nye medlem: ");
+        String phoneNumber = "";
+        String email = "";
+        String homeAddress = "";
+        String day = "";
+        String month = "";
+        String year = "";
+        printMessage("Indtast information om det nye medlem. Du kan altid trykke 0 for at afbryde");
         printMessage("\nNavn: ");
-        String name = userInputString();
-        printMessage("Telefonnummer: ");
-        String phoneNumber = userInputString();
-        printMessage("E-mail: ");
-        String email = userInputString();
-        printMessage("Adresse: ");
-        String homeAddress = userInputString();
-        printMessage("Indtast fødselsdagsoplysninger: ");
-        printMessage("Dag: ");
-        String day = userInputString();
-        printMessage("Måned: ");
-        String month = userInputString();
-        printMessage("År: ");
-        String year = userInputString();
 
+        String name = userInputString();
+        if (!name.equals("0")) {
+            printMessage("Telefonnummer: ");
+            phoneNumber = userInputString();
+            if (!phoneNumber.equals("0")) {
+                printMessage("E-mail: ");
+                email = userInputString();
+                if (!email.equals("0")) {
+                    printMessage("Adresse: ");
+                    homeAddress = userInputString();
+                    if (!homeAddress.equals("0")) {
+                        printMessage("Indtast fødselsdagsoplysninger: \n");
+                        printMessage("Dag: ");
+                        day = userInputString();
+                        if (!day.equals("0")) {
+                            printMessage("Måned: ");
+                            month = userInputString();
+                            if (!month.equals("0")) {
+                                printMessage("År: ");
+                                year = userInputString();
+                            }
+                        }
+                    }
+                }
+            }
+        }
         String[] memberInfo = {name, phoneNumber, email, homeAddress, day, month, year};
         return memberInfo;
     }
@@ -231,16 +248,16 @@ public class UserInterface {
                 0 - Tilbage
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 """);
-        String disipline = sc.nextLine();
+        int discipline = userInputInt();
         Disciplines chosenDis;
 
-        if (disipline.equals("1")) {
+        if (discipline == 1) {
             chosenDis = Disciplines.CRAWL;
-        } else if (disipline.equals("2")) {
+        } else if (discipline == 2) {
             chosenDis = Disciplines.BACK_CRAWL;
-        } else if (disipline.equals("3")) {
+        } else if (discipline == 3) {
             chosenDis = Disciplines.BUTTERFLY;
-        } else if (disipline.equals("4")) {
+        } else if (discipline == 4) {
             chosenDis = Disciplines.BREASTSTROKE;
         } else {
             chosenDis = null;
@@ -259,11 +276,13 @@ public class UserInterface {
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 1 - Junior
                 2 - Senior
+                
+                0 - Tilbage
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 """);
     }
 
-    public void compAndResultMenu() {
+    public void competitionMenu() {
         System.out.println("""
                 Vil du oprette en konkurrence eller registere et resultat
                                 
@@ -278,7 +297,7 @@ public class UserInterface {
 
     }
 
-    public void searchOrMemberList(){
+    public void searchOrMemberList() {
         System.out.println("""
                 Vil du søge efter et medlem eller se en liste over alle medlemmer
                                 
@@ -292,7 +311,7 @@ public class UserInterface {
                 """);
     }
 
-    public void getTeamMenu(){
+    public void getTeamMenu() {
         System.out.println("""
                                                  Holdmenu
                                 
@@ -307,7 +326,7 @@ public class UserInterface {
 
     }
 
-    public void editTeam(){
+    public void editTeam() {
         System.out.println("""
                                                  Rediger hold
                                 
