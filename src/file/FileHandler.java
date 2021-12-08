@@ -5,6 +5,7 @@
 
 package file;
 
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -14,10 +15,11 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
 import domain.User;
 import member.*;
 import member.StandardMember;
+
+//@author Mark Stone
 
 public class FileHandler {
 

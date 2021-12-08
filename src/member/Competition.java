@@ -4,10 +4,9 @@
 //
 
 package member;
-
-
-
 import java.util.ArrayList;
+
+//@author Mark Stone
 
 public class Competition {
     private String competitionName;
