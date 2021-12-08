@@ -308,7 +308,7 @@ public class Controller {
             findMember(temp);
             Member member = memberList.getSelectedMember();
             if (member != null) {
-                boolean payedOrNot = calculation.setMembershipToHasPayed(member);
+                boolean payedOrNot = calculation.setMembershipPayedStatusToReverse(member);
                 if (payedOrNot) {
                     ui.printMessage(member + " er nu registreret til at have betalt ");
                 } else {

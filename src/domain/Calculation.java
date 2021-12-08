@@ -61,7 +61,7 @@ public class Calculation {
         }
     }
 
-    public boolean setMembershipToHasPayed(Member member) {
+    public boolean setMembershipPayedStatusToReverse(Member member) {
         if (member.getHasPaid()) {
             member.setHasPaid(false);
             return false;
