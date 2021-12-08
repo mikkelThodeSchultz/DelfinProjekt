@@ -11,12 +11,10 @@ import java.io.IOException;
 import java.time.DateTimeException;
 import java.time.LocalDateTime;
 import java.util.*;
-
 import member.*;
 import ui.Disciplines;
 import ui.Status;
 import ui.UserInterface;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 

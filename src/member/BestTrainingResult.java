@@ -4,11 +4,11 @@
 //
 
 package member;
-
 import ui.Disciplines;
-
 import java.time.LocalDateTime;
 
+
+//@author Mark Stone
 public class BestTrainingResult {
     private double time;
     private LocalDateTime dateBestResult;

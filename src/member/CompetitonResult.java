@@ -2,6 +2,8 @@ package member;
 
 import ui.Disciplines;
 
+//@author Mark Stone
+
 public class CompetitonResult {
 
     private double time;

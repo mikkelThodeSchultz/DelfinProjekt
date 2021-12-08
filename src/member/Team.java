@@ -4,6 +4,8 @@ import ui.Disciplines;
 
 import java.util.ArrayList;
 
+//@author Mark Stone
+
 public class Team {
     private ArrayList<String> teamMembers = new ArrayList<>();
     private String teamName;

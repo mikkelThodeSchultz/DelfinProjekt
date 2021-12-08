@@ -6,6 +6,8 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.*;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
+//@author Mark Stone og en del taget fra tidligere projekt
+
 public class Json {
     private static ObjectMapper objectMapper = getDefaultObjectMapper();
 
