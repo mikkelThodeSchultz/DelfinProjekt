@@ -152,10 +152,17 @@ public abstract class Member {
                 firstTwo = name.substring(0,1).toLowerCase() + name.substring(0,1).toLowerCase();
             }
             lastTwo = name.substring(name.lastIndexOf(space) + 1, name.lastIndexOf(space) + 3).toLowerCase();
-        } catch (IndexOutOfBoundsException e){
-            firstTwo = name.substring(0,1).toLowerCase() + name.substring(0,1).toLowerCase();
-            lastTwo = name.substring(name.lastIndexOf(space) + 1, name.lastIndexOf(space) + 2).toLowerCase() +
-                    name.substring(name.lastIndexOf(space) + 1, name.lastIndexOf(space) + 2).toLowerCase();
+        } catch (IndexOutOfBoundsException e) {
+            try {
+                lastTwo = name.substring(name.lastIndexOf(space) + 1, name.lastIndexOf(space) + 2).toLowerCase() +
+                        name.substring(name.lastIndexOf(space) + 1, name.lastIndexOf(space) + 2).toLowerCase();
+                if (firstTwo.equals("")){
+                    firstTwo = lastTwo;
+                }
+            } catch (IndexOutOfBoundsException f) {
+                firstTwo = name.substring(0, 1).toLowerCase() + name.substring(0, 1).toLowerCase();
+                lastTwo = name.substring(0, 1).toLowerCase() + name.substring(0, 1).toLowerCase();
+            }
         }
         return firstTwo + lastTwo + numbersFormat;
     }
