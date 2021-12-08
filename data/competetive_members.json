@@ -1,94 +1,99 @@
 [ {
-  "name" : "cTorben Trucker",
-  "age" : 20,
-  "phoneNumber" : "12345678",
-  "email" : "Torbensmail@mail.com",
-  "homeAddress" : "torbensvej 31",
-  "birthDate" : [ 2000, 12, 24 ],
-  "membershipNumber" : "cttr3744",
+  "name" : "Jesper Binsmark",
+  "age" : 109,
+  "phoneNumber" : "94012348",
+  "email" : "Jespers@mail.com",
+  "homeAddress" : "Jesperdutrordetløgngade 12",
+  "birthDate" : [ 1912, 3, 1 ],
+  "membershipNumber" : "jebi0021",
   "isActive" : true,
   "hasPaid" : false,
+  "role" : "KONKURRENCE",
   "bestTrainingResults" : [ {
     "time" : 20.0,
-    "dateBestResult" : [ 2021, 12, 7, 10, 33, 57, 386157600 ],
+    "dateBestResult" : [ 2021, 12, 8, 10, 56, 12, 484113000 ],
     "discipline" : "BACK_CRAWL"
   }, {
     "time" : 20.0,
-    "dateBestResult" : [ 2021, 12, 7, 10, 33, 57, 386157600 ],
+    "dateBestResult" : [ 2021, 12, 8, 10, 56, 12, 484113000 ],
     "discipline" : "CRAWL"
   } ],
   "disciplines" : [ ],
-  "role" : "KONKURRENCE"
+  "isActiveAsString" : "aktiv"
 }, {
-  "name" : "cSøren Kristiansen",
-  "age" : 55,
-  "phoneNumber" : "45678910",
-  "email" : "Sørensmail@mail.com",
-  "homeAddress" : "Sørensvej 14",
-  "birthDate" : [ 1966, 10, 10 ],
-  "membershipNumber" : "cskr7175",
+  "name" : "Sanne Salamonsen",
+  "age" : 84,
+  "phoneNumber" : "99882277",
+  "email" : "Sannes@mail.com",
+  "homeAddress" : "langgade",
+  "birthDate" : [ 1936, 12, 12 ],
+  "membershipNumber" : "sasa0332",
   "isActive" : true,
   "hasPaid" : false,
+  "role" : "KONKURRENCE",
   "bestTrainingResults" : [ {
     "time" : 25.0,
-    "dateBestResult" : [ 2021, 12, 7, 10, 33, 57, 386157600 ],
+    "dateBestResult" : [ 2021, 12, 8, 10, 56, 12, 484113000 ],
     "discipline" : "BACK_CRAWL"
   } ],
   "disciplines" : [ ],
-  "role" : "KONKURRENCE"
+  "isActiveAsString" : "aktiv"
 }, {
-  "name" : "cTobias Vold",
+  "name" : "Casper Kristensen",
   "age" : 22,
-  "phoneNumber" : "98747723489",
-  "email" : "Tobiases@mail.com",
-  "homeAddress" : "TobyAllé 31",
-  "birthDate" : [ 1999, 1, 1 ],
-  "membershipNumber" : "ctvo0381",
+  "phoneNumber" : "82391200",
+  "email" : "Caspers@mail.com",
+  "homeAddress" : "Casskadevej 99",
+  "birthDate" : [ 1999, 1, 2 ],
+  "membershipNumber" : "cakr1049",
   "isActive" : true,
   "hasPaid" : false,
+  "role" : "KONKURRENCE",
   "bestTrainingResults" : [ {
     "time" : 30.0,
-    "dateBestResult" : [ 2021, 12, 7, 10, 33, 57, 386157600 ],
+    "dateBestResult" : [ 2021, 12, 8, 10, 56, 12, 484113000 ],
     "discipline" : "BACK_CRAWL"
   } ],
   "disciplines" : [ ],
-  "role" : "KONKURRENCE"
+  "isActiveAsString" : "aktiv"
 }, {
-  "name" : "cFinn Finsen",
-  "age" : 101,
-  "phoneNumber" : "8888888",
-  "email" : "Finns@mail.com",
-  "homeAddress" : "Finnminvej 99",
-  "birthDate" : [ 1920, 9, 24 ],
-  "membershipNumber" : "cffi4936",
+  "name" : "Dorthe dierslev",
+  "age" : 31,
+  "phoneNumber" : "12483799",
+  "email" : "Dorthes@mail.com",
+  "homeAddress" : "Dodalidavej 192",
+  "birthDate" : [ 1990, 5, 22 ],
+  "membershipNumber" : "dodi5437",
   "isActive" : true,
   "hasPaid" : false,
+  "role" : "KONKURRENCE",
   "bestTrainingResults" : [ {
     "time" : 35.0,
-    "dateBestResult" : [ 2021, 12, 7, 10, 33, 57, 386157600 ],
+    "dateBestResult" : [ 2021, 12, 8, 10, 56, 12, 484113000 ],
     "discipline" : "BACK_CRAWL"
   }, {
     "time" : 40.0,
-    "dateBestResult" : [ 2021, 12, 7, 10, 33, 57, 386157600 ],
+    "dateBestResult" : [ 2021, 12, 8, 10, 56, 12, 484113000 ],
     "discipline" : "BACK_CRAWL"
   } ],
   "disciplines" : [ ],
-  "role" : "KONKURRENCE"
+  "isActiveAsString" : "aktiv"
 }, {
-  "name" : "cJim Henry",
-  "age" : 13,
-  "phoneNumber" : "67453219",
-  "email" : "Jims@mail.com",
-  "homeAddress" : "Jimminvej 89",
-  "birthDate" : [ 2008, 6, 14 ],
-  "membershipNumber" : "cjhe1223",
+  "name" : "Julemand Jul",
+  "age" : 820,
+  "phoneNumber" : "24242424",
+  "email" : "Julemandens@mail.com",
+  "homeAddress" : "Nordpolen 1",
+  "birthDate" : [ 1200, 12, 24 ],
+  "membershipNumber" : "juju0981",
   "isActive" : true,
   "hasPaid" : false,
+  "role" : "KONKURRENCE",
   "bestTrainingResults" : [ {
     "time" : 40.0,
-    "dateBestResult" : [ 2021, 12, 7, 10, 33, 57, 386157600 ],
+    "dateBestResult" : [ 2021, 12, 8, 10, 56, 12, 484113000 ],
     "discipline" : "BACK_CRAWL"
   } ],
   "disciplines" : [ ],
-  "role" : "KONKURRENCE"
+  "isActiveAsString" : "aktiv"
 } ]

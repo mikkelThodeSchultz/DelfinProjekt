@@ -146,8 +146,17 @@ public abstract class Member {
         Random random = new Random();
         int numbers = random.nextInt(10000);
         String numbersFormat = String.format("%04d", numbers);
-        firstTwo = name.substring(0, 2).toLowerCase();
-        lastTwo = name.substring(name.lastIndexOf(space) + 1, name.lastIndexOf(space) + 3).toLowerCase();
+        try {
+            firstTwo = name.substring(0, 2).toLowerCase();
+            if (firstTwo.contains(" ")){
+                firstTwo = name.substring(0,1).toLowerCase() + name.substring(0,1).toLowerCase();
+            }
+            lastTwo = name.substring(name.lastIndexOf(space) + 1, name.lastIndexOf(space) + 3).toLowerCase();
+        } catch (IndexOutOfBoundsException e){
+            firstTwo = name.substring(0,1).toLowerCase() + name.substring(0,1).toLowerCase();
+            lastTwo = name.substring(name.lastIndexOf(space) + 1, name.lastIndexOf(space) + 2).toLowerCase() +
+                    name.substring(name.lastIndexOf(space) + 1, name.lastIndexOf(space) + 2).toLowerCase();
+        }
         return firstTwo + lastTwo + numbersFormat;
     }
 

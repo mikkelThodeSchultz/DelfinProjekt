@@ -27,19 +27,11 @@ public class Controller {
     private FileHandler FileHandler = new FileHandler();
     private ArrayList<Competition> listOfComps = new ArrayList<>();
     private ArrayList<User> users = new ArrayList<>();
-
-
     public Controller() {
     }
-
     public void start() {
         loadDataFromFile();
-
         ui.getWelcomeMessage();
-        //testlort
-        //User user = new User("robåd", "langtpassword");
-        //System.out.println(user);
-
         boolean goAgain = true;
         while (goAgain) {
             String choice = ui.getMainMenu();
@@ -57,13 +49,11 @@ public class Controller {
         }
         saveCurrent();
     }
-
     public void loadDataFromFile() {
         memberList.membersFromController(FileHandler.getMembersFromFile());
         listOfComps.addAll(FileHandler.getCompsFromFile());
         users.addAll(FileHandler.getUsersFromFile());
     }
-
     public void saveCurrent() {
         try {
             FileHandler.storeData(memberList.getMemberList(), listOfComps, users);
@@ -71,21 +61,18 @@ public class Controller {
             System.out.println("Failed to store members");
         }
     }
-
     public void clearJson() {
         MemberList memList = new MemberList();
         ArrayList<Competition> compList = new ArrayList<>();
         ArrayList<User> userList = new ArrayList<>();
         memberList = memList;
         listOfComps = compList;
-
         try {
             FileHandler.storeData(memList.getMemberList(), compList, userList);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
     public void trainerMenu() {
         boolean goAgain = true;
         while (goAgain) {
@@ -100,7 +87,6 @@ public class Controller {
             }
         }
     }
-
     public void paymentMenu() {
         boolean goAgain = true;
         while (goAgain) {
@@ -115,7 +101,6 @@ public class Controller {
             }
         }
     }
-
     public void memberMenu() {
 
         boolean goAgain = true;
@@ -130,7 +115,6 @@ public class Controller {
             }
         }
     }
-
     public void editMemberMenu() {
         boolean goAgain = true;
         findMember(ui.findSpecificMemberMenu());
@@ -158,7 +142,6 @@ public class Controller {
             }
         }
     }
-
     public void editLevel() {
         ui.printMessage("Nuværende svømmeniveau: " + memberList.getSelectedMemberRole());
         Member member = memberList.getSelectedMember();
@@ -169,7 +152,6 @@ public class Controller {
         String month = String.valueOf(member.getBirthDate().getMonthValue());
         String year = String.valueOf(member.getBirthDate().getYear());
         String[] memberInfo = {member.getName(), member.getPhoneNumber(), member.getEmail(), member.getHomeAddress(), day, month, year};
-
         if (member instanceof StandardMember) {
             ui.printMessage("\nSkal medlemmet ændres til (1) Konkurrencesvømmer eller (2) Træner?\n");
             choice = ui.userInputString();
@@ -199,19 +181,6 @@ public class Controller {
         memberList.setSelectedMember(createNewMember(memberInfo, memberType));
         memberList.getSelectedMember().setMembershipNumber(memberShipNumber);
     }
-
-    /*public void allInfo(){//skal nok fjernes
-        ArrayList<String> info = memberList.addAllInfo();
-        String infoString = "";
-        for (int i = 0; i < info.size(); i++) {
-            LocalDate formattedBirthDate = LocalDate.parse(info.get(4));
-            memberList.newDateToString(formattedBirthDate);
-            infoString += info.get(i)+"\n";
-        }
-        String printList = memberList.allInfoListAsString();
-        ui.printMessage("Medlemsinfo på " + memberList.getSelectedMemberName() + ":\n" + printList);
-    }*/
-
     public void editName() {
         ui.printMessage("Nuværende navn: " + memberList.getSelectedMemberName());
         ui.printMessage("\nRediger navnet her. Tryk 0 for at afbryde");
@@ -221,7 +190,6 @@ public class Controller {
             ui.changeMessage(oldName, userInput);
         }
     }
-
     public void editAddress() {
         ui.printMessage("Nuværende adresse: " + memberList.getSelectedMemberAddress());
         ui.printMessage("\nRediger adressen her. Tryk 0 for at afbryde");
@@ -231,7 +199,6 @@ public class Controller {
             ui.changeMessage(oldAddress, userInput);
         }
     }
-
     public void editEmail() {
         ui.printMessage("Nuværende e-mail: " + memberList.getSelectedMemberEmail());
         ui.printMessage("\nRediger e-mail adressen her. Tryk 0 for at afbryde");
@@ -241,7 +208,6 @@ public class Controller {
             ui.changeMessage(oldEmail, userInput);
         }
     }
-
     public void editPhoneNumber() {
         ui.printMessage("Nuværende telefonnummer: " + memberList.getSelectedMemberPhoneNumber());
         ui.printMessage("\nRediger telefonnummeret her. Tryk 0 for at afbryde");
@@ -251,7 +217,6 @@ public class Controller {
             ui.changeMessage(oldNumber, userInput);
         }
     }
-
     public void editBirthDate() {
         ui.printMessage("Nuværende fødselsdato: " + memberList.getSelectedMemberBirthDate());
         try {
@@ -265,8 +230,8 @@ public class Controller {
                     ui.printMessage("År: ");
                     int year = ui.userInputInt();
                     boolean wrongYear = true;
-                    while (wrongYear){
-                        if (year > LocalDate.now().getYear()){
+                    while (wrongYear) {
+                        if (year > LocalDate.now().getYear()) {
                             ui.printMessage("Du har valgt et år i fremtiden, vælg venligst et rigtigt år: ");
                             year = ui.userInputInt();
                         } else {
@@ -287,8 +252,7 @@ public class Controller {
             ui.printMessage("Skriv venligst en gyldig dato i feltet.\n");
         }
     }
-
-    public void editMembershipStatus() { //TODO lave isActiveAsString som en getter i memberlist til udskrift i stor info!
+    public void editMembershipStatus() {
         ui.printMessage("Nuværende medlemskabsstatus: " + memberList.getSelectedMembershipStatus());
         ui.printMessage("\nVil du ændre medlemsstatus for " + memberList.getSelectedMember() + ": ja(j) eller nej(n)?\n");
         if (ui.userInputString().equalsIgnoreCase("j")) {
@@ -298,7 +262,6 @@ public class Controller {
             ui.statusMessage(Status.ANNULLERET);
         }
     }
-
     public void deleteMember() {
         ui.printMessage("Vil du slette medlemmet: " + memberList.getSelectedMemberName() + " ja(j) eller nej(n)?\n");
         if (ui.userInputString().equalsIgnoreCase("j")) {
@@ -309,7 +272,6 @@ public class Controller {
             ui.statusMessage(Status.ANNULLERET);
         }
     }
-
     public void createMemberMenu() {
         boolean goAgain = true;
         while (goAgain) {
@@ -320,15 +282,12 @@ public class Controller {
             }
         }
     }
-
     public double calculateTotalIncome() {
         return calculation.calculateContingentForMultipleMembers(memberList.getMemberList());
     }
-
     public ArrayList<Member> listOfMembersWhoOwe() {
         return calculation.listOfMembersWhoOwe(memberList.getMemberList());
     }
-
     public String listOfMembersWhoOweAsString() {
         String listAsString = "";
         for (int i = 0; i < listOfMembersWhoOwe().size(); i++) {
@@ -339,12 +298,10 @@ public class Controller {
         }
         return listAsString;
     }
-
     public void demandPayment() {
         calculation.demandPayment(memberList.getMemberList());
         ui.printMessage("Alle medlemmer er nu opdateret til at skylde kontingent");
     }
-
     public void setMembershipToHasPayed() {
         boolean goAgain = true;
         while (goAgain) {
@@ -364,7 +321,6 @@ public class Controller {
             goAgain = false;
         }
     }
-
     public Member createNewMember(String[] memberInfo, String choice) {
         Member member = null;
         boolean hasAllInput = true;
@@ -387,11 +343,8 @@ public class Controller {
                         wrongDate = false;
                     }
                 }
-
-
                 switch (choice) {
                     case "1" -> {
-
                         StandardMember newMember = new StandardMember(memberInfo[0], memberInfo[1], memberInfo[2], memberInfo[3], day, month, year);
                         memberList.addMember(newMember);
                         ui.printMessage("Du har nu oprettet " + newMember.getName() + " som medlem i klubben.");
@@ -418,8 +371,6 @@ public class Controller {
         }
         return member;
     }
-
-
     public Member[] findMember(String userInputString) {
         String search = userInputString;
         Member[] foundMembers = memberList.findMember(search);
@@ -465,17 +416,13 @@ public class Controller {
         }
         return memberList.findMember(userInputString);
     }
-
-
     public void searchAfterMemberAgain() {
         findMember(ui.findSpecificMemberMenu());
     }
-
     //Sub-method to get back to findMember search again
     public String userInputString() {
         return ui.userInputString();
     }
-
     public int isJunior() {
         int isJunior = 0;
         boolean badChoice = true;
@@ -490,7 +437,6 @@ public class Controller {
         }
         return isJunior;
     }
-
     public ArrayList<CompetitiveMember> getJuniorOrSenior(int isJunior) {
         ArrayList<CompetitiveMember> compMem = getCompMembers();
         ArrayList<CompetitiveMember> compMemToRemove = new ArrayList<>();
@@ -510,7 +456,6 @@ public class Controller {
         compMem.removeAll(compMemToRemove);
         return compMem;
     }
-
     public void topFive() {
         int isJunior = isJunior();
         if (isJunior != 0) {
@@ -521,8 +466,6 @@ public class Controller {
                 while (goAgain) {
                     ui.topFiveMenu();
                     String IsTraining = userInputString();
-
-
                     switch (IsTraining) {
                         case "1" -> getTopFiveComp(compMem, discipline);
                         case "2" -> getTopFiveTraining(compMem, discipline);
@@ -533,7 +476,6 @@ public class Controller {
             }
         }
     }
-
     public void getTopFiveComp(ArrayList<CompetitiveMember> compMem, Disciplines discipline) {
         ArrayList<CompetitonResult> results = new ArrayList<>();
         ArrayList<CompetitonResult> resultsInDiscipline = new ArrayList<>();
@@ -551,9 +493,7 @@ public class Controller {
                 }
             }
         }
-
         resultsInDiscipline.sort(Comparator.comparing(CompetitonResult::getTime));
-
         if (resultsInDiscipline.size() < 5) {
             for (CompetitonResult competitonResult : resultsInDiscipline) {
                 String memberID = competitonResult.getMemberID();
@@ -568,7 +508,6 @@ public class Controller {
             }
         }
     }
-
     public void getTopFiveTraining(ArrayList<CompetitiveMember> compMem, Disciplines discipline) {
         HashMap<Double, String> allTrainingResults = new HashMap<>();
         for (CompetitiveMember actMem : compMem) {
@@ -588,7 +527,6 @@ public class Controller {
                 double time = sortedTrainingResults.firstKey();
                 ui.printMessage("MedlemsID: " + memberID + "  -  Tid: " + time + "\n");
                 sortedTrainingResults.remove(sortedTrainingResults.firstKey());
-
             }
         } else {
             for (int i = 0; i < 5; i++) {
@@ -596,15 +534,10 @@ public class Controller {
                 double time = sortedTrainingResults.firstKey();
                 ui.printMessage("MedlemsID: " + memberID + "  -  Tid: " + time + "\n");
                 sortedTrainingResults.remove(sortedTrainingResults.firstKey());
-
             }
         }
     }
-
-
     public void competitionMenu() {
-
-
         boolean keepGoing = true;
         while (keepGoing) {
             ui.competitionMenu();
@@ -617,8 +550,6 @@ public class Controller {
             }
         }
     }
-
-
     public void createCompetition() {
         ui.printMessage("Hvad hedder konkurrencen?\n");
         String compName = userInputString();
@@ -626,7 +557,6 @@ public class Controller {
         ui.printMessage("Konkurrence med navn " + compName + " er oprettet\n");
         listOfComps.add(comp);
     }
-
     public void registerResult() {
         int memberChoice = 0;
         ui.printMessage("Vælg en konkurrence \n");
@@ -654,7 +584,6 @@ public class Controller {
                 }
                 case "0" -> memberChoice = -1;
             }
-
             if (memberChoice != -1) {
 
                 Disciplines discipline = ui.pickDiscipline();
@@ -673,16 +602,12 @@ public class Controller {
             }
         }
     }
-
-
     private Member getMemberFromSearch() { //TODO Der er noget galt her
         Member[] memberSearchResult = findMember(ui.findSpecificMemberMenu());
         return memberSearchResult[0];
     }
-
     private int getCompChoice() {
         boolean goAgain = true;
-
         int compChoice = 0;
         while (goAgain) {
             int count = 1;
@@ -690,7 +615,6 @@ public class Controller {
                 ui.printMessage(count + ") - " + comps.getCompetitionName() + "\n");
                 count++;
             }
-
             ui.printMessage("0) - Tilbage\n");
             compChoice = ui.userInputInt();
             compChoice -= 1;
@@ -702,7 +626,6 @@ public class Controller {
         }
         return compChoice;
     }
-
     public ArrayList<CompetitiveMember> getCompMembers() {
         ArrayList<CompetitiveMember> compMem = new ArrayList<>();
         for (Member mem : memberList.getMemberList()) {
@@ -712,7 +635,6 @@ public class Controller {
         }
         return compMem;
     }
-
     public ArrayList<Trainer> getTrainers() {
         ArrayList<Trainer> trainers = new ArrayList<>();
         for (Member mem : memberList.getMemberList()) {
@@ -722,7 +644,6 @@ public class Controller {
         }
         return trainers;
     }
-
     public void teamMenu() {
         boolean goAgain = true;
         while (goAgain) {
@@ -734,10 +655,8 @@ public class Controller {
                 case "0" -> goAgain = false;
                 default -> ui.statusMessage(Status.INVALID_CHOICE);
             }
-
         }
     }
-
     public void createTeam() {
         ui.printMessage("Giv holdet et navn. Tryk 0 for at afbryde\n");
         String teamName = ui.userInputString();
@@ -765,14 +684,11 @@ public class Controller {
             }
         }
     }
-
-
     public void editTeam() {
         Team teamToEdit = chooseTeam();
         boolean goAgain = true;
         while (goAgain) {
             ui.editTeam();
-
             String input = userInputString();
             switch (input) {
                 case "1" -> editTeamName(teamToEdit);
@@ -785,7 +701,6 @@ public class Controller {
             }
         }
     }
-
     public void showTeamDetails(Team team) {
         String teamDetails = "";
         teamDetails = "Hold Navn: " + team.getTeamName() + "\n";
@@ -795,9 +710,7 @@ public class Controller {
         }
         teamDetails += "Disiplin: " + team.getDiscipline();
         ui.printMessage(teamDetails);
-
     }
-
     public void editDiscipline(Team teamToEdit) {
         ui.printMessage("Den nuværende disiplin på holdet er " + teamToEdit.getDiscipline() + "\n");
         Disciplines newDiscipline = ui.pickDiscipline();
@@ -805,9 +718,7 @@ public class Controller {
             teamToEdit.setDiscipline(newDiscipline);
             ui.printMessage("Holdets displin er nu " + newDiscipline + "\n");
         }
-
     }
-
     public void editTrainer(Team teamToEdit) {
         ArrayList<Trainer> allTrainers = getTrainers();
         Trainer currentTrainer = new Trainer();
@@ -822,9 +733,7 @@ public class Controller {
         ArrayList<Trainer> newTrainer = chooseTrainerFromList(allTrainers);
         newTrainer.get(0).addTeam(teamToEdit);
         currentTrainer.removeTeam(teamToEdit);
-
     }
-
     public void editTeamMembers(Team teamToEdit) {
         ui.printMessage("Vil du\n1 - Tilføje medlemmer\n2 - Fjerne medlem\n");
         String choice = userInputString();
@@ -834,7 +743,6 @@ public class Controller {
             default -> ui.statusMessage(Status.INVALID_CHOICE);
         }
     }
-
     public void removeMemberFromTeam(Team teamToEdit) {
         ArrayList<String> allTeamMembers = teamToEdit.getTeamMembers();
         ui.printMessage("Hvilket medlem vil du fjerne. Tryk 0 for at afbryde\n");
@@ -842,7 +750,6 @@ public class Controller {
         int memberToRemove = 0;
         while (moreMembersToRemove) {
             int count = 1;
-
             for (String teamMember : allTeamMembers) {
                 ui.printMessage(count + ") - " + teamMember + "\n");
                 count++;
@@ -862,9 +769,7 @@ public class Controller {
             }
         }
         allTeamMembers.remove(memberToRemove);
-
     }
-
     public ArrayList<String> selectMembersToTeam() {
         ArrayList<CompetitiveMember> allCompMembers = getCompMembers();
         ArrayList<CompetitiveMember> chosenMembers = new ArrayList<>();
@@ -887,21 +792,17 @@ public class Controller {
             }
         }
         if (tempMemberToCheck != null) {
-
             for (CompetitiveMember compMem : chosenMembers) {
                 chosenMembersID.add(compMem.getMembershipNumber());
             }
         }
-
         return chosenMembersID;
     }
-
     public void addMemberToTeam(Team teamToEdit) {
         ui.printMessage("Vælg medlem der skal tilføjes til teamet. Tryk 0 for at afbryde\n ");
         ArrayList<String> teamMemberIds = selectMembersToTeam();
         teamToEdit.addMembers(teamMemberIds);
     }
-
     public Team chooseTeam() {
         ArrayList<Trainer> allTrainers = getTrainers();
         ArrayList<Team> allTeams = new ArrayList<>();
@@ -917,13 +818,11 @@ public class Controller {
                 ui.printMessage(count + ") - " + team.getTeamName() + "\n");
                 count++;
             }
-
             int teamChoice = ui.userInputInt();
             teamChoice -= 1;
             if (teamChoice < allTeams.size() && teamChoice > -1) {
                 goAgain = false;
                 chosenTeam = allTeams.get(teamChoice);
-
             } else if (teamChoice == -1) {
                 chosenTeam = null;
                 goAgain = false;
@@ -933,7 +832,6 @@ public class Controller {
         }
         return chosenTeam;
     }
-
     public void editTeamName(Team teamToEdit) {
         ui.printMessage("Hvad vil du skifte holdnavnet til? Tryk 0 for at afbryde\n");
         String newName = userInputString();
@@ -942,8 +840,6 @@ public class Controller {
             teamToEdit.setTeamName(newName);
         }
     }
-
-
     public ArrayList<Trainer> chooseTrainerFromList(ArrayList<Trainer> listSelectFrom) {
         boolean goAgain = true;
         ArrayList<Trainer> chosenMember = new ArrayList<>();
@@ -1018,21 +914,21 @@ public class Controller {
         memberList.addMember(member3);
         memberList.addMember(member4);
         memberList.addMember(member5);
-        CompetitiveMember cmember = new CompetitiveMember("cTorben Trucker", "12345678", "Torbensmail@mail.com", "torbensvej 31", 24, 12, 2000);
-        CompetitiveMember cmember2 = new CompetitiveMember("cSøren Kristiansen", "45678910", "Sørensmail@mail.com", "Sørensvej 14", 10, 10, 1966);
-        CompetitiveMember cmember3 = new CompetitiveMember("cTobias Vold", "98747723489", "Tobiases@mail.com", "TobyAllé 31", 1, 1, 1999);
-        CompetitiveMember cmember4 = new CompetitiveMember("cFinn Finsen", "8888888", "Finns@mail.com", "Finnminvej 99", 24, 9, 1920);
-        CompetitiveMember cmember5 = new CompetitiveMember("cJim Henry", "67453219", "Jims@mail.com", "Jimminvej 89", 14, 6, 2008);
+        CompetitiveMember cmember = new CompetitiveMember("Jesper Binsmark", "94012348", "Jespers@mail.com", "Jesperdutrordetløgngade 12", 1, 3, 1912);
+        CompetitiveMember cmember2 = new CompetitiveMember("Sanne Salamonsen", "99882277", "Sannes@mail.com", "langgade", 12, 12, 1936);
+        CompetitiveMember cmember3 = new CompetitiveMember("Casper Kristensen", "82391200", "Caspers@mail.com", "Casskadevej 99", 2, 1, 1999);
+        CompetitiveMember cmember4 = new CompetitiveMember("Dorthe dierslev", "12483799", "Dorthes@mail.com", "Dodalidavej 192", 22, 5, 1990);
+        CompetitiveMember cmember5 = new CompetitiveMember("Julemand Jul", "24242424", "Julemandens@mail.com", "Nordpolen 1", 24, 12, 1200);
         memberList.addMember(cmember);
         memberList.addMember(cmember2);
         memberList.addMember(cmember3);
         memberList.addMember(cmember4);
         memberList.addMember(cmember5);
-        Trainer tmember = new Trainer("tTorben Trucker", "12345678", "Torbensmail@mail.com", "torbensvej 31", 24, 12, 2000);
-        Trainer tmember2 = new Trainer("tSøren Kristiansen", "45678910", "Sørensmail@mail.com", "Sørensvej 14", 10, 10, 1966);
-        Trainer tmember3 = new Trainer("tTobias Vold", "98747723489", "Tobiases@mail.com", "TobyAllé 31", 1, 1, 1999);
-        Trainer tmember4 = new Trainer("tFinn Finsen", "8888888", "Finns@mail.com", "Finnminvej 99", 24, 9, 1920);
-        Trainer tmember5 = new Trainer("tJim Henry", "67453219", "Jims@mail.com", "Jimminvej 89", 14, 6, 2008);
+        Trainer tmember = new Trainer("Jesus Javier", "13425334", "Javiersmail@mail.com", "Jerusalems vej 2", 11, 12, 1932);
+        Trainer tmember2 = new Trainer("Færdinand Franz", "02394123", "Franzmail@mail.com", "Ungarns vej 14", 2, 2, 1966);
+        Trainer tmember3 = new Trainer("Elizabeth QueenToBe", "09898945", "Elizabeths@mail.com", "Kongehuset 12", 1, 1, 1909);
+        Trainer tmember4 = new Trainer("Sally Soller", "12854930", "Sallys@mail.com", "Solens vej 99", 13, 12, 1920);
+        Trainer tmember5 = new Trainer("Amira Sørensen", "8475901", "Amiras@mail.com", "Nørrebrogade 112", 2, 4, 2001);
         memberList.addMember(tmember);
         memberList.addMember(tmember2);
         memberList.addMember(tmember3);

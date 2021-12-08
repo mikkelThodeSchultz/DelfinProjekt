@@ -1,77 +1,82 @@
 [ {
-  "name" : "tTorben Trucker",
-  "age" : 20,
-  "phoneNumber" : "12345678",
-  "email" : "Torbensmail@mail.com",
-  "homeAddress" : "torbensvej 31",
-  "birthDate" : [ 2000, 12, 24 ],
-  "membershipNumber" : "tttr5597",
+  "name" : "Jesus Javier",
+  "age" : 88,
+  "phoneNumber" : "13425334",
+  "email" : "Javiersmail@mail.com",
+  "homeAddress" : "Jerusalems vej 2",
+  "birthDate" : [ 1932, 12, 11 ],
+  "membershipNumber" : "jeja1405",
   "isActive" : true,
   "hasPaid" : false,
+  "role" : "TRÆNER",
   "Teams" : [ {
     "teamMembers" : [ "cttr0928", "cskr3120" ],
     "teamName" : "Hold1",
     "discipline" : "BACK_CRAWL"
   } ],
-  "role" : "TRÆNER"
+  "isActiveAsString" : "aktiv"
 }, {
-  "name" : "tSøren Kristiansen",
+  "name" : "Færdinand Franz",
   "age" : 55,
-  "phoneNumber" : "45678910",
-  "email" : "Sørensmail@mail.com",
-  "homeAddress" : "Sørensvej 14",
-  "birthDate" : [ 1966, 10, 10 ],
-  "membershipNumber" : "tskr5591",
+  "phoneNumber" : "02394123",
+  "email" : "Franzmail@mail.com",
+  "homeAddress" : "Ungarns vej 14",
+  "birthDate" : [ 1966, 2, 2 ],
+  "membershipNumber" : "fæfr7444",
   "isActive" : true,
   "hasPaid" : false,
+  "role" : "TRÆNER",
   "Teams" : [ {
     "teamMembers" : [ "cttr0928", "cskr3120" ],
     "teamName" : "Hold2",
     "discipline" : "BACK_CRAWL"
   } ],
-  "role" : "TRÆNER"
+  "isActiveAsString" : "aktiv"
 }, {
-  "name" : "tTobias Vold",
-  "age" : 22,
-  "phoneNumber" : "98747723489",
-  "email" : "Tobiases@mail.com",
-  "homeAddress" : "TobyAllé 31",
-  "birthDate" : [ 1999, 1, 1 ],
-  "membershipNumber" : "ttvo0545",
+  "name" : "Elizabeth QueenToBe",
+  "age" : 112,
+  "phoneNumber" : "09898945",
+  "email" : "Elizabeths@mail.com",
+  "homeAddress" : "Kongehuset 12",
+  "birthDate" : [ 1909, 1, 1 ],
+  "membershipNumber" : "elqu4661",
   "isActive" : true,
   "hasPaid" : false,
+  "role" : "TRÆNER",
   "Teams" : [ {
     "teamMembers" : [ "cttr0928", "cskr3120" ],
     "teamName" : "Hold3",
     "discipline" : "BACK_CRAWL"
   } ],
-  "role" : "TRÆNER"
+  "isActiveAsString" : "aktiv"
 }, {
-  "name" : "tFinn Finsen",
-  "age" : 101,
-  "phoneNumber" : "8888888",
-  "email" : "Finns@mail.com",
-  "homeAddress" : "Finnminvej 99",
-  "birthDate" : [ 1920, 9, 24 ],
-  "membershipNumber" : "tffi5234",
+  "name" : "Sally Soller",
+  "age" : 100,
+  "phoneNumber" : "12854930",
+  "email" : "Sallys@mail.com",
+  "homeAddress" : "Solens vej 99",
+  "birthDate" : [ 1920, 12, 13 ],
+  "membershipNumber" : "saso4392",
   "isActive" : true,
   "hasPaid" : false,
+  "role" : "TRÆNER",
   "Teams" : [ ],
-  "role" : "TRÆNER"
+  "isActiveAsString" : "aktiv"
 }, {
-  "name" : "tJim Henry",
-  "age" : 13,
-  "phoneNumber" : "67453219",
-  "email" : "Jims@mail.com",
-  "homeAddress" : "Jimminvej 89",
-  "birthDate" : [ 2008, 6, 14 ],
-  "membershipNumber" : "tjhe3063",
+  "name" : "Amira Sørensen",
+  "age" : 20,
+  "phoneNumber" : "8475901",
+  "email" : "Amiras@mail.com",
+  "homeAddress" : "Nørrebrogade 112",
+  "birthDate" : [ 2001, 4, 2 ],
+  "membershipNumber" : "amsø7505",
   "isActive" : true,
   "hasPaid" : false,
+  "role" : "TRÆNER",
   "Teams" : [ {
     "teamMembers" : [ "cttr0928", "cskr3120" ],
     "teamName" : "Hold4",
     "discipline" : "BACK_CRAWL"
   } ],
-  "role" : "TRÆNER"
+  "isActiveAsString" : "aktiv"
 } ]

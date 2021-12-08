@@ -5,10 +5,11 @@
   "email" : "Torbensmail@mail.com",
   "homeAddress" : "torbensvej 31",
   "birthDate" : [ 2000, 12, 24 ],
-  "membershipNumber" : "totr7833",
+  "membershipNumber" : "totr3501",
   "isActive" : true,
   "hasPaid" : false,
-  "role" : "STANDARD"
+  "role" : "STANDARD",
+  "isActiveAsString" : "aktiv"
 }, {
   "name" : "Søren Kristiansen",
   "age" : 55,
@@ -16,10 +17,11 @@
   "email" : "Sørensmail@mail.com",
   "homeAddress" : "Sørensvej 14",
   "birthDate" : [ 1966, 10, 10 ],
-  "membershipNumber" : "søkr4853",
+  "membershipNumber" : "søkr5584",
   "isActive" : true,
   "hasPaid" : false,
-  "role" : "STANDARD"
+  "role" : "STANDARD",
+  "isActiveAsString" : "aktiv"
 }, {
   "name" : "Tobias Vold",
   "age" : 22,
@@ -27,10 +29,11 @@
   "email" : "Tobiases@mail.com",
   "homeAddress" : "TobyAllé 31",
   "birthDate" : [ 1999, 1, 1 ],
-  "membershipNumber" : "tovo2682",
+  "membershipNumber" : "tovo0014",
   "isActive" : true,
   "hasPaid" : false,
-  "role" : "STANDARD"
+  "role" : "STANDARD",
+  "isActiveAsString" : "aktiv"
 }, {
   "name" : "Finn Finsen",
   "age" : 101,
@@ -38,10 +41,11 @@
   "email" : "Finns@mail.com",
   "homeAddress" : "Finnminvej 99",
   "birthDate" : [ 1920, 9, 24 ],
-  "membershipNumber" : "fifi0517",
+  "membershipNumber" : "fifi5286",
   "isActive" : true,
   "hasPaid" : false,
-  "role" : "STANDARD"
+  "role" : "STANDARD",
+  "isActiveAsString" : "aktiv"
 }, {
   "name" : "Jim Henry",
   "age" : 13,
@@ -49,8 +53,9 @@
   "email" : "Jims@mail.com",
   "homeAddress" : "Jimminvej 89",
   "birthDate" : [ 2008, 6, 14 ],
-  "membershipNumber" : "jihe0101",
+  "membershipNumber" : "jihe6300",
   "isActive" : true,
   "hasPaid" : false,
-  "role" : "STANDARD"
+  "role" : "STANDARD",
+  "isActiveAsString" : "aktiv"
 } ]
