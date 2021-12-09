@@ -3,7 +3,7 @@ package ui;
 import java.util.Scanner;
 
 public class UserInterface {
-    Scanner sc = new Scanner(System.in);
+    private Scanner sc = new Scanner(System.in);
 
     public String userInputString() {
         return sc.nextLine();
@@ -61,7 +61,7 @@ public class UserInterface {
         return sc.nextLine();
     }
 
-    public String getMemberMenu() { //TODO der skal laves en søgemetode til at finde medlemmer - se PETLATKEA på github.
+    public String getMemberMenu() {
 
         System.out.println("""
                                 

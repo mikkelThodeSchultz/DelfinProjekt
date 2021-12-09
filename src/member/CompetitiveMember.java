@@ -24,16 +24,6 @@ public class CompetitiveMember extends Member {
     //USED FOR JSON. DO NOT DELETE
     public CompetitiveMember(){}
 
-
-    public String toString(){
-        String status = null;
-        if (getIsActive()){
-            status = setIsActive();
-        } else {
-            status = setIsPassive();
-        }
-        return super.toString() + " – "  + role.toString() + " - (" + status + ")";
-    }
     public void addBestTrainingResult(LocalDateTime timeWhenAccomplished, double time, Disciplines discipline){
         BestTrainingResult resultToAdd = new BestTrainingResult(timeWhenAccomplished, time, discipline);
         bestTrainingResults.add(resultToAdd);
@@ -49,5 +39,15 @@ public class CompetitiveMember extends Member {
 
     public void addDiscipline(Disciplines discipline){
         disciplines.add(discipline);
+    }
+
+    public String toString(){
+        String status = null;
+        if (getIsActive()){
+            status = setIsActive();
+        } else {
+            status = setIsPassive();
+        }
+        return super.toString() + " – "  + role.toString() + " - (" + status + ")";
     }
 }

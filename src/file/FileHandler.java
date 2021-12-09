@@ -30,8 +30,7 @@ public class FileHandler {
     private final String USERS = "data/users.json";
 
 
-    public FileHandler() {
-    }
+    public FileHandler() {}
 
     public void storeData(List<Member> members, List<Competition> comps, List<User> users) throws IOException {
         ArrayList<Member> standardMembers = new ArrayList<>();
@@ -133,8 +132,6 @@ public class FileHandler {
                     });
                     return new ArrayList<>(members);
                 }
-
-
             }
         } catch (IOException e) {
             return new ArrayList<>();
@@ -183,5 +180,4 @@ public class FileHandler {
         System.out.println("Error");
         return new ArrayList<>();
     }
-
 }

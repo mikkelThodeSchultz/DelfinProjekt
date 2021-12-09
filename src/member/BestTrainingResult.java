@@ -25,6 +25,7 @@ public class BestTrainingResult {
     public double getTime() {
         return time;
     }
+
     public Disciplines getDiscipline(){
         return discipline;
     }

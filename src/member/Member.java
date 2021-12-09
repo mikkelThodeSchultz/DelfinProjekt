@@ -72,8 +72,6 @@ public abstract class Member {
         return hasPaid;
     }
 
-
-
     public int getAge() {
         return age;
     }
@@ -188,6 +186,4 @@ public abstract class Member {
     public String toString() {
         return name + " " + membershipNumber;
     }
-
-
 }

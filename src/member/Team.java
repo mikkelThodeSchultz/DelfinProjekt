@@ -11,11 +11,15 @@ public class Team {
     private String teamName;
     private Disciplines discipline;
 
+    //NEEDED FOR JSON! DO NOT DELETE
+    public Team(){}
+
     public Team(ArrayList<String> teamMembers, String teamName, Disciplines discipline) {
         this.teamMembers = teamMembers;
         this.teamName = teamName;
         this.discipline = discipline;
     }
+
     public Disciplines getDiscipline(){
         return discipline;
     }
@@ -27,9 +31,11 @@ public class Team {
     public String getTeamName(){
         return teamName;
     }
+
     public ArrayList<String> getTeamMembers(){
         return teamMembers;
     }
+
     public void addMembers(ArrayList<String> memberToAdd){
         teamMembers.addAll(memberToAdd);
     }
@@ -37,7 +43,5 @@ public class Team {
     public void setTeamName(String newName){
         teamName = newName;
     }
-
-    public Team(){}
 }
 

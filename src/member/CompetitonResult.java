@@ -11,15 +11,13 @@ public class CompetitonResult {
     private Disciplines discipline;
     private String memberID;
 
-    public CompetitonResult() {
-    }
+    public CompetitonResult() {}
 
     public CompetitonResult(String memberID, double time, int rank, Disciplines discipline) {
         this.time = time;
         this.rank = rank;
         this.discipline = discipline;
         this.memberID = memberID;
-
     }
 
     public double getTime() {

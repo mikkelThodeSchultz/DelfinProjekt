@@ -11,7 +11,7 @@ import ui.Role;
 import java.util.ArrayList;
 
 public class Trainer extends Member {
-    private ArrayList<Team> Teams = new ArrayList<>();
+    private ArrayList<Team> teams = new ArrayList<>();
     private Role role;
 
     public Trainer(String name, String phoneNumber, String email, String homeAddress, int day, int month, int year) {
@@ -20,11 +20,10 @@ public class Trainer extends Member {
     }
 
     //USED FOR JSON. DO NOT DELETE
-    public Trainer() {
-    }
+    public Trainer() {}
 
     public void addTeam(Team team) {
-        Teams.add(team);
+        teams.add(team);
     }
 
     public Role getRole() {
@@ -33,11 +32,11 @@ public class Trainer extends Member {
 
     @JsonIgnore
     public ArrayList<Team> getAllTeams() {
-        return Teams;
+        return teams;
     }
 
     public void removeTeam(Team teamToRemove){
-        Teams.remove(teamToRemove);
+        teams.remove(teamToRemove);
     }
 
     public String toString() {
@@ -49,5 +48,4 @@ public class Trainer extends Member {
         }
         return super.toString() + " – " + role.toString() + " - (" + status + ")";
     }
-
 }
