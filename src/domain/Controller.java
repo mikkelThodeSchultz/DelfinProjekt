@@ -43,7 +43,7 @@ public class Controller {
                 case "1" -> memberMenu();
                 case "2" -> paymentMenu();
                 case "3" -> trainerMenu();
-                case "7" -> generateTestData(); 
+                case "7" -> generateTestData();
                 case "8" -> saveCurrent();
                 case "9" -> clearJson();
                 case "0" -> goAgain = false;
