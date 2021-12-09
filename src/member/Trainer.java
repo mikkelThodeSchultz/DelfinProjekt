@@ -1,14 +1,11 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
-//
-
 package member;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import ui.Role;
 
 import java.util.ArrayList;
+
+//@author Fie og Etienne
 
 public class Trainer extends Member {
     private ArrayList<Team> teams = new ArrayList<>();

@@ -1,8 +1,3 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
-//
-
 package member;
 
 import java.time.LocalDate;
@@ -11,6 +6,8 @@ import java.util.ArrayList;
 
 import ui.Disciplines;
 import ui.Role;
+
+//@author Fie
 
 public class CompetitiveMember extends Member {
     private ArrayList<BestTrainingResult> bestTrainingResults = new ArrayList();
@@ -25,7 +22,7 @@ public class CompetitiveMember extends Member {
     //USED FOR JSON. DO NOT DELETE
     public CompetitiveMember() {
     }
-
+    //Used for testdata
     public void addBestTrainingResult(LocalDate timeWhenAccomplished, double time, Disciplines discipline) {
         BestTrainingResult resultToAdd = new BestTrainingResult(timeWhenAccomplished, time, discipline);
         bestTrainingResults.add(resultToAdd);
@@ -48,7 +45,7 @@ public class CompetitiveMember extends Member {
     }
 
     public String toString() {
-        String status = null;
+        String status;
         if (getIsActive()) {
             status = setIsActive();
         } else {

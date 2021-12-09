@@ -9,13 +9,14 @@ import member.Member;
 
 import java.util.ArrayList;
 
+// @author Mikkel Thode Schultz
+
 public class Calculation {
 
     public Calculation() {
     }
-
-    //Skal måske være private da linje 40 kan håndtere individder såvel som flere.
-    public double calculateContingent(int age, boolean isActive) { //sender double til controller
+    //Public for at kunne lave tests.
+    public double calculateContingent(int age, boolean isActive) {
         int junior = 17;
         int senior = 18;
         int seniorDiscount = 60;
@@ -24,7 +25,6 @@ public class Calculation {
         double activeSeniorMembership = 1600;
         double discount = 0.75;
         double contingentSum;
-
         if (!isActive) {
             contingentSum = passiveMembership;
         } else if (age <= junior) {

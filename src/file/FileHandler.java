@@ -1,10 +1,4 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
-//
-
 package file;
-
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -104,7 +98,6 @@ public class FileHandler {
         while(load.hasNextLine()) {
             lines.add(load.nextLine());
         }
-
         return lines;
     }
 

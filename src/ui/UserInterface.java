@@ -2,27 +2,29 @@ package ui;
 
 import java.util.Scanner;
 
+//@author Mark, Fie, Etienne og Mikkel
+
 public class UserInterface {
-    private Scanner sc = new Scanner(System.in);
+    private final Scanner SC = new Scanner(System.in);
 
     public String userInputString() {
-        return sc.nextLine();
+        return SC.nextLine();
     }
 
     public int userInputInt() {
         boolean badChoice = true;
-        int intputAsInt = 0;
+        int inputAsInt = 0;
         while (badChoice) {
-            String input = sc.nextLine();
+            String input = SC.nextLine();
 
             try {
-                intputAsInt = Integer.parseInt(input);
+                inputAsInt = Integer.parseInt(input);
                 badChoice = false;
             } catch (NumberFormatException e) {
                 System.out.println("Indtast et tal");
             }
         }
-        return intputAsInt;
+        return inputAsInt;
     }
 
     public void printMessage(String message) {
@@ -58,7 +60,7 @@ public class UserInterface {
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 """);
 
-        return sc.nextLine();
+        return SC.nextLine();
     }
 
     public String getMemberMenu() {
@@ -76,7 +78,7 @@ public class UserInterface {
                 0 - Tilbage til hovedmenu
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 """);
-        return sc.nextLine();
+        return SC.nextLine();
     }
 
     public void showMemberList(String listOfMembers) {
@@ -86,7 +88,7 @@ public class UserInterface {
     public String findSpecificMemberMenu() {
         System.out.println("""
                 Skriv en del af eller hele navnet på det medlem, du ønsker at finde: """);
-        return sc.nextLine();
+        return SC.nextLine();
     }
 
     public String getFoundMemberMenu() {
@@ -98,7 +100,7 @@ public class UserInterface {
                 1 - Søg efter medlem
                 2 - Rediger navn
                 3 - Rediger adresse
-                4 - Rediger e-maildresse
+                4 - Rediger e-mailadresse
                 5 - Rediger telefonnummer
                 6 - Rediger fødselsdato
                 7 - Rediger medlemsskabsstatus
@@ -107,7 +109,7 @@ public class UserInterface {
                 0 - Tilbage til medlemsmenuen
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 """);
-        return sc.nextLine();
+        return SC.nextLine();
     }
 
     public String getCreateMemberMenu() {
@@ -121,7 +123,7 @@ public class UserInterface {
                 0 - Tilbage til medlemsmenu
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 """);
-        return sc.nextLine();
+        return SC.nextLine();
     }
 
     public String getPaymentsMenu() {
@@ -139,10 +141,10 @@ public class UserInterface {
                 0 - Tilbage til hovedmenu
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
                 """);
-        return sc.nextLine();
+        return SC.nextLine();
     }
 
-    public String TrainerMenu() {
+    public String getTrainerMenu() {
         System.out.println("""
                                 
                                               TrænerMenu
@@ -153,15 +155,15 @@ public class UserInterface {
                 1 - Top 5 lister
                 2 - Registrer resultat(er) eller opret konkurrence
                 3 - Holdmenuen
-                4 - Tilknyt disiplin til svømmer
+                4 - Tilknyt disciplin til svømmer
                 5 - Opret eller se træningsresultater
                 0 - Tilbage til hovedmenu
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 """);
-        return sc.nextLine();
+        return SC.nextLine();
     }
 
-    public Status statusMessage(Status status) {
+    public void statusMessage(Status status) {
         switch (status) {
             case ANNULLERET -> System.out.println("Handling annulleret.");
             case ERROR -> System.out.println("Der er opstået et problem.");
@@ -170,10 +172,8 @@ public class UserInterface {
             case SELECT_DISCIPLINE -> System.out.println("Vælg venligst en disciplin.");
             case INVALID_CHOICE -> System.out.println("Ugyldigt input.\nPrøv venligst med et der er gyldigt.");
         }
-        return status;
     }
 
-    //Standardmember – pr. default er man excersier
     public String[] createNewMember() {
         String phoneNumber = "";
         String email = "";
@@ -218,7 +218,7 @@ public class UserInterface {
         System.out.println("Du har nu ændret " + oldInfo + " til " + newInfo + ".");
     }
 
-    public void topFiveMenu() {
+    public void getTopFiveMenu() {
         System.out.println("""
                                                Top 5 menu
                                 
@@ -232,7 +232,7 @@ public class UserInterface {
                 """);
     }
 
-    public Disciplines pickDiscipline() {
+    public Disciplines getChoseDisciplineMenu() {
         System.out.println("""
                                              Vælg disciplin
                                 
@@ -265,7 +265,7 @@ public class UserInterface {
 
     }
 
-    public void isJunior() {
+    public void getIsJuniorOrSenior() {
         System.out.println("""
                                            Vælg junior eller senior
                                 
@@ -280,7 +280,7 @@ public class UserInterface {
                 """);
     }
 
-    public void competitionMenu() {
+    public void getCompetitionMenu() {
         System.out.println("""
                 Vil du oprette en konkurrence eller registere et resultat
                                 
@@ -303,7 +303,7 @@ public class UserInterface {
                                 
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 1 - Søg efter medlem
-                2 - Se liste Af medlemmer
+                2 - Se liste af medlemmer
                 0 - Tilbage
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 """);
@@ -334,7 +334,7 @@ public class UserInterface {
                 1 - Rediger holdnavn
                 2 - Rediger holdmedlemmer
                 3 - Rediger træner
-                4 - Rediger disiplin
+                4 - Rediger disciplin
                 5 - Vis info om hold
                 0 - Tilbage
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -1,11 +1,8 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
-//
-
 package member;
 
 import ui.Role;
+
+//@author Fie og Etienne
 
 public class StandardMember extends Member {
 

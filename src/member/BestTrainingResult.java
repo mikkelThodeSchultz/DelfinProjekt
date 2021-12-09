@@ -1,14 +1,7 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
-//
-
 package member;
 import ui.Disciplines;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-
 
 //@author Mark Stone
 public class BestTrainingResult {
@@ -16,6 +9,7 @@ public class BestTrainingResult {
     private LocalDate dateBestResult;
     private Disciplines discipline;
 
+    // Needed for Json, do not delete
     public BestTrainingResult(){}
 
     public BestTrainingResult(int year, int month, int day, double bestTime, Disciplines disciplin) {
@@ -23,7 +17,7 @@ public class BestTrainingResult {
         this.time = bestTime;
         this.discipline = disciplin;
     }
-
+    //Til generering af testdata
     public BestTrainingResult(LocalDate date, double time, Disciplines disciplin){
         this.dateBestResult = date;
         this.time = time;

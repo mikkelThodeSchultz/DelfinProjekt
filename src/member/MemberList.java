@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
+//@author Fie og Etienne
+
 public class MemberList {
     private ArrayList<Member> memberList = new ArrayList<>();
     private Member selectedMember = null;
@@ -110,21 +112,12 @@ public class MemberList {
         return "Medlemsskabet for " + selectedMember.getName() + " er nu " + status + ".\n";
     }
 
-
-    public void editLevel(){
-        //skal kunne ændre fra motionist til konkurrence og omvendt
-        //skal oprettes et nyt opbjekt-medlem for hver gang
-    }
-
-
     public ArrayList<Member> getMemberList() {
         return memberList;
     }
 
     public void membersFromController(ArrayList<Member> fileMembers) {
-        for (Member fileMember : fileMembers) {
-            memberList.add(fileMember);
-        }
+        memberList.addAll(fileMembers);
     }
 
     public String collectAllInfoString(){
@@ -140,7 +133,7 @@ public class MemberList {
         return info;
     }
 
-    public String printMemberList() {
+    public String getMemberListAsString() {
         String allMembers = "";
         for (int i = 0; i < memberList.size(); i++) {
             allMembers += memberList.get(i) + "\n";

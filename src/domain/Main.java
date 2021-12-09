@@ -1,17 +1,12 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
-//
-
 package domain;
 
-import java.io.IOException;
+//@author Mark Stone
 
 public class Main {
     public Main() {
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         Controller controller = new Controller();
         controller.start();
     }

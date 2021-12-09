@@ -1,8 +1,3 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
-//
-
 package member;
 
 import ui.Role;
@@ -12,6 +7,8 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.util.Random;
+
+//@author Fie og Etienne
 
 public abstract class Member {
     private String name;
@@ -164,7 +161,7 @@ public abstract class Member {
         }
         return firstTwo + lastTwo + numbersFormat;
     }
-
+    // Bruges til at søge efter et specifikt medlem
     public boolean matches(String userInputSearch){
         boolean match;
         if (membershipNumber.contains(userInputSearch)){

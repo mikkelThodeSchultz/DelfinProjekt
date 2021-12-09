@@ -1,8 +1,3 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
-//
-
 package member;
 import java.util.ArrayList;
 
@@ -10,20 +5,20 @@ import java.util.ArrayList;
 
 public class Competition {
     private String competitionName;
-    private ArrayList<CompetitonResult> results = new ArrayList<>();
+    private ArrayList<CompetitionResult> results = new ArrayList<>();
 
-
+    //Tom constructor til Json
     public Competition(){}
 
     public Competition(String name) {
         competitionName = name;
     }
 
-    public void addResult(CompetitonResult result){
+    public void addResult(CompetitionResult result){
         results.add(result);
     }
 
-    public ArrayList<CompetitonResult> getResults(){
+    public ArrayList<CompetitionResult> getResults(){
         return results;    }
 
     public String getCompetitionName() {

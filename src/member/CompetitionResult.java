@@ -4,16 +4,16 @@ import ui.Disciplines;
 
 //@author Mark Stone
 
-public class CompetitonResult {
+public class CompetitionResult {
 
     private double time;
     private int rank;
     private Disciplines discipline;
     private String memberID;
+    // Used for Json, do not delete
+    public CompetitionResult() {}
 
-    public CompetitonResult() {}
-
-    public CompetitonResult(String memberID, double time, int rank, Disciplines discipline) {
+    public CompetitionResult(String memberID, double time, int rank, Disciplines discipline) {
         this.time = time;
         this.rank = rank;
         this.discipline = discipline;

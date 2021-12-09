@@ -1,5 +1,7 @@
 package domain;
 
+// WIP
+// @author Fie og Etienne
 public class User {
 
     private String userName;

@@ -6,6 +6,8 @@ import member.StandardMember;
 
 import java.util.ArrayList;
 
+//@author Mikkel
+
 public class CalculationTest extends TestCase {
 
     public void testCalculatePassiveContingent() {
