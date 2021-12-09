@@ -5,11 +5,11 @@
   "email" : "Javiersmail@mail.com",
   "homeAddress" : "Jerusalems vej 2",
   "birthDate" : [ 1932, 12, 11 ],
-  "membershipNumber" : "jeja1405",
+  "membershipNumber" : "jeja6110",
   "isActive" : true,
   "hasPaid" : false,
   "role" : "TRÆNER",
-  "Teams" : [ {
+  "teams" : [ {
     "teamMembers" : [ "cttr0928", "cskr3120" ],
     "teamName" : "Hold1",
     "discipline" : "BACK_CRAWL"
@@ -22,11 +22,11 @@
   "email" : "Franzmail@mail.com",
   "homeAddress" : "Ungarns vej 14",
   "birthDate" : [ 1966, 2, 2 ],
-  "membershipNumber" : "fæfr7444",
+  "membershipNumber" : "fæfr7031",
   "isActive" : true,
   "hasPaid" : false,
   "role" : "TRÆNER",
-  "Teams" : [ {
+  "teams" : [ {
     "teamMembers" : [ "cttr0928", "cskr3120" ],
     "teamName" : "Hold2",
     "discipline" : "BACK_CRAWL"
@@ -39,11 +39,11 @@
   "email" : "Elizabeths@mail.com",
   "homeAddress" : "Kongehuset 12",
   "birthDate" : [ 1909, 1, 1 ],
-  "membershipNumber" : "elqu4661",
+  "membershipNumber" : "elqu8008",
   "isActive" : true,
   "hasPaid" : false,
   "role" : "TRÆNER",
-  "Teams" : [ {
+  "teams" : [ {
     "teamMembers" : [ "cttr0928", "cskr3120" ],
     "teamName" : "Hold3",
     "discipline" : "BACK_CRAWL"
@@ -56,11 +56,11 @@
   "email" : "Sallys@mail.com",
   "homeAddress" : "Solens vej 99",
   "birthDate" : [ 1920, 12, 13 ],
-  "membershipNumber" : "saso4392",
+  "membershipNumber" : "saso5838",
   "isActive" : true,
   "hasPaid" : false,
   "role" : "TRÆNER",
-  "Teams" : [ ],
+  "teams" : [ ],
   "isActiveAsString" : "aktiv"
 }, {
   "name" : "Amira Sørensen",
@@ -69,11 +69,11 @@
   "email" : "Amiras@mail.com",
   "homeAddress" : "Nørrebrogade 112",
   "birthDate" : [ 2001, 4, 2 ],
-  "membershipNumber" : "amsø7505",
+  "membershipNumber" : "amsø1108",
   "isActive" : true,
   "hasPaid" : false,
   "role" : "TRÆNER",
-  "Teams" : [ {
+  "teams" : [ {
     "teamMembers" : [ "cttr0928", "cskr3120" ],
     "teamName" : "Hold4",
     "discipline" : "BACK_CRAWL"

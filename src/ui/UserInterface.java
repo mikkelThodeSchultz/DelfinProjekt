@@ -52,7 +52,7 @@ public class UserInterface {
                 3 - Konkurrencer og holdmenu
                                 
                 7 - GenerateTestData
-                8 - Gem             
+                8 - Gem         
                 9 - Clear Json
                 0 - Gem og Luk programmet
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -154,6 +154,7 @@ public class UserInterface {
                 2 - Registrer resultat(er) eller opret konkurrence
                 3 - Holdmenuen
                 4 - Tilknyt disiplin til svømmer
+                5 - Opret eller se træningsresultater
                 0 - Tilbage til hovedmenu
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 """);
@@ -335,6 +336,21 @@ public class UserInterface {
                 3 - Rediger træner
                 4 - Rediger disiplin
                 5 - Vis info om hold
+                0 - Tilbage
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                """);
+    }
+
+    public void trainingResultsMenu(){
+        System.out.println("""
+                                                 Træningsresultater
+                                
+                Tryk på den tast der svarer til det menupunkt du ønsker at vælge.
+                                
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                1 - Opret trænings resultat
+                2 - Se trænings resultat for medlem
+                
                 0 - Tilbage
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 """);

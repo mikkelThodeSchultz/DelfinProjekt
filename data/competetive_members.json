@@ -5,17 +5,17 @@
   "email" : "Jespers@mail.com",
   "homeAddress" : "Jesperdutrordetløgngade 12",
   "birthDate" : [ 1912, 3, 1 ],
-  "membershipNumber" : "jebi0021",
+  "membershipNumber" : "jebi6145",
   "isActive" : true,
   "hasPaid" : false,
   "role" : "KONKURRENCE",
   "bestTrainingResults" : [ {
     "time" : 20.0,
-    "dateBestResult" : [ 2021, 12, 8, 10, 56, 12, 484113000 ],
+    "dateBestResult" : [ 2021, 12, 9 ],
     "discipline" : "BACK_CRAWL"
   }, {
     "time" : 20.0,
-    "dateBestResult" : [ 2021, 12, 8, 10, 56, 12, 484113000 ],
+    "dateBestResult" : [ 2021, 12, 9 ],
     "discipline" : "CRAWL"
   } ],
   "disciplines" : [ ],
@@ -27,13 +27,13 @@
   "email" : "Sannes@mail.com",
   "homeAddress" : "langgade",
   "birthDate" : [ 1936, 12, 12 ],
-  "membershipNumber" : "sasa0332",
+  "membershipNumber" : "sasa8096",
   "isActive" : true,
   "hasPaid" : false,
   "role" : "KONKURRENCE",
   "bestTrainingResults" : [ {
     "time" : 25.0,
-    "dateBestResult" : [ 2021, 12, 8, 10, 56, 12, 484113000 ],
+    "dateBestResult" : [ 2021, 12, 9 ],
     "discipline" : "BACK_CRAWL"
   } ],
   "disciplines" : [ ],
@@ -45,13 +45,13 @@
   "email" : "Caspers@mail.com",
   "homeAddress" : "Casskadevej 99",
   "birthDate" : [ 1999, 1, 2 ],
-  "membershipNumber" : "cakr1049",
+  "membershipNumber" : "cakr5125",
   "isActive" : true,
   "hasPaid" : false,
   "role" : "KONKURRENCE",
   "bestTrainingResults" : [ {
     "time" : 30.0,
-    "dateBestResult" : [ 2021, 12, 8, 10, 56, 12, 484113000 ],
+    "dateBestResult" : [ 2021, 12, 9 ],
     "discipline" : "BACK_CRAWL"
   } ],
   "disciplines" : [ ],
@@ -63,17 +63,13 @@
   "email" : "Dorthes@mail.com",
   "homeAddress" : "Dodalidavej 192",
   "birthDate" : [ 1990, 5, 22 ],
-  "membershipNumber" : "dodi5437",
+  "membershipNumber" : "dodi1298",
   "isActive" : true,
   "hasPaid" : false,
   "role" : "KONKURRENCE",
   "bestTrainingResults" : [ {
     "time" : 35.0,
-    "dateBestResult" : [ 2021, 12, 8, 10, 56, 12, 484113000 ],
-    "discipline" : "BACK_CRAWL"
-  }, {
-    "time" : 40.0,
-    "dateBestResult" : [ 2021, 12, 8, 10, 56, 12, 484113000 ],
+    "dateBestResult" : [ 2021, 12, 9 ],
     "discipline" : "BACK_CRAWL"
   } ],
   "disciplines" : [ ],
@@ -85,13 +81,13 @@
   "email" : "Julemandens@mail.com",
   "homeAddress" : "Nordpolen 1",
   "birthDate" : [ 1200, 12, 24 ],
-  "membershipNumber" : "juju0981",
+  "membershipNumber" : "juju3543",
   "isActive" : true,
   "hasPaid" : false,
   "role" : "KONKURRENCE",
   "bestTrainingResults" : [ {
     "time" : 40.0,
-    "dateBestResult" : [ 2021, 12, 8, 10, 56, 12, 484113000 ],
+    "dateBestResult" : [ 2021, 12, 9 ],
     "discipline" : "BACK_CRAWL"
   } ],
   "disciplines" : [ ],
